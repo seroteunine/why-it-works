@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 9: Motors — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 9 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 9</p>
+        <h1>Motors</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>The coffee grinder arrives in a cloth bag — a conical burr grinder, the expensive kind. The owner has brought it carefully, along with a sad expression. "It makes a horrible noise when it starts and sometimes there are sparks visible through the vent grille. I've been ignoring it for a month." You set it on the table, look through the grille, and can already see it: the commutator is dirty and blackened, and one of the two brush holders has a brush that's worn almost flush with its spring. You've seen this before. You know what it means and what to do about it. But the newer volunteer next to you doesn't. Time to explain how these things work.</p>
+      </div>
+
+      <h2>The fundamental principle: magnetism and force</h2>
+
+      <p>Electric motors convert electrical energy into mechanical rotation. They do this by exploiting the force between magnetic fields and current-carrying conductors — a phenomenon discovered by Michael Faraday and formalised as the Lorentz force.</p>
+
+      <p>The basic idea: a wire carrying current in a magnetic field experiences a force. The force is at right angles to both the current direction and the magnetic field direction. If you arrange multiple current-carrying conductors in a magnetic field in the right geometry — with the force direction always pushing the same way — you get continuous rotation.</p>
+
+      <p>You don't need to be able to do the vector maths to understand motors at the repair table. The key insight is that <strong>the torque (rotational force) a motor produces is proportional to the current it carries</strong>. More current, more torque. A motor that's struggling against a mechanical load draws more current. A motor with a stalled rotor draws maximum current — limited only by the winding resistance.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>The Lorentz force on a current-carrying conductor in a magnetic field is F = BIL, where B is the magnetic field strength, I is the current, and L is the length of conductor. For a motor, torque τ = BIANR, where A is the coil area, N is the number of turns, and R is some geometric factor. The practical implication is that stronger magnets, more copper, and higher current all increase torque. Permanent magnet DC motors (common in small appliances) use fixed permanent magnets for B and vary I to control torque and speed. Universal motors use electromagnet field coils, allowing greater flexibility but requiring more components.</p>
+      </div>
+
+      <h2>Brushed DC motors</h2>
+
+      <p>The simplest type you'll encounter is the brushed DC motor. It has:</p>
+
+      <p><strong>The stator</strong>: the stationary outer body. Contains permanent magnets (in small motors) or field coils (in larger ones) that create a fixed magnetic field.</p>
+
+      <p><strong>The rotor (armature)</strong>: the rotating inner part. Contains coils of wire wound around an iron core. When current flows through these coils in the stator's magnetic field, the force causes rotation.</p>
+
+      <p><strong>The commutator</strong>: a segmented copper cylinder on the rotor shaft. As the rotor turns, different segments of the commutator come into contact with the brushes, switching the current direction in the rotor coils at the right moments to maintain continuous rotation in the same direction.</p>
+
+      <p><strong>The brushes</strong>: blocks of carbon (or carbon-copper composite) that press against the commutator under spring pressure, carrying current from the stationary electrical circuit to the rotating commutator.</p>
+
+      <p>The commutator + brushes system is mechanically clever but electrically imperfect. Every time a brush crosses from one commutator segment to another, there's a brief moment of electrical discontinuity, and a small arc. Over time, this arcing erodes both the brush (which is deliberately made of softer material and designed to wear sacrificially) and the commutator surface.</p>
+
+      <h2>Universal motors</h2>
+
+      <p>The most common motor you'll find in domestic appliances — vacuum cleaners, hand mixers, angle grinders, routers, hair dryers, coffee grinders — is the universal motor. It's a brushed motor where both the stator field coils and the rotor coils are wound on laminated iron cores.</p>
+
+      <p>The "universal" refers to its ability to run on both AC and DC. Because both the stator field and rotor current reverse simultaneously with AC (so the force direction stays the same), a universal motor designed for 230V AC will also run on 230V DC. In practice, they're almost always used on AC.</p>
+
+      <p>Universal motors are prized for their high power-to-weight ratio and their ability to run at very high speeds — up to 30,000 RPM in a vacuum cleaner motor, much higher than the 3000 RPM maximum of a direct-drive AC induction motor on 50Hz. They're also easy to speed-control (by varying the applied voltage), which is why they're so common in variable-speed tools and kitchen appliances.</p>
+
+      <p>Their drawbacks are noise (commutator arcing and brush noise), electromagnetic interference (the arcing generates RF noise), limited lifespan (brushes and commutator wear), and relatively high maintenance requirements — compared to brushless motors.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>The grinder on the table is a textbook universal motor brush wear case. Access the brush holders — on most universal motors there are two, positioned 180° apart on the commutator. Check each brush: it should protrude 5–10mm from its holder (varies by motor — check service manual if possible). A brush worn flush with the spring is beyond end-of-life; the spring itself may already be contacting the commutator, which causes severe arcing and damage. Check the commutator surface: it should be smooth and copper-coloured with clean segments. Blackened, pitted, or grooved commutator segments need careful cleaning (fine 400–600 grit abrasive or a commutator cleaning stick) and possibly skimming on a lathe if deeply grooved. The mica insulation between commutator segments must be recessed below the copper — if it's flush or proud, it needs undercutting.</p>
+      </div>
+
+      <h2>AC induction motors</h2>
+
+      <p>The other main type you'll encounter, especially in fans, pumps, and low-torque household appliances, is the AC induction motor. Induction motors have <em>no brushes or commutator</em> — the rotor has no direct electrical connection to the supply.</p>
+
+      <p>Instead, the stator windings create a rotating magnetic field (on a three-phase supply, this happens naturally; on single-phase, it requires a trick). The rotating field induces currents in the rotor conductors (by electromagnetic induction — hence the name), and those induced currents create their own magnetic field, which the rotating stator field drags around. The rotor follows the stator field, but always slightly slower — this speed difference (slip) is what maintains the torque.</p>
+
+      <p>Induction motors are simpler mechanically, longer-lived, and quieter than universal motors. Their drawback on single-phase AC (like household supply) is that they don't self-start — a rotating magnetic field doesn't naturally form from single-phase AC. A phase-shifting capacitor is used to create an artificial phase difference, giving the motor enough of a push to start rotating on its own.</p>
+
+      <h3>The start capacitor</h3>
+      <p>The capacitor in a capacitor-start or capacitor-run induction motor creates a phase-shifted current in a second winding, giving the motor a starting torque. In a capacitor-start motor, this capacitor is only in circuit during startup (an automatic switch disconnects it once the motor reaches speed). In a capacitor-run motor, the capacitor stays in circuit permanently, improving running efficiency.</p>
+
+      <p>A failed start capacitor is one of the most common single-phase induction motor faults. Symptom: the motor hums but doesn't start. It may start if you give the shaft a spin with your fingers (carefully, with the power off, then switch on while you let go). That finger-spin confirms the problem is with starting torque — the motor can run, but can't generate enough torque to start from rest unassisted.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>Never give a motor shaft a "helpful" spin while it's powered on. Position your fingers carefully, ensure no clothing or loose material can catch, and keep hands clear of the rotating parts once power is applied. The moment to spin is briefly with power off, then step clear and apply power. The motor will either start or it won't. Also, capacitors in motor circuits can hold charge — if you've been running a motor-capacitor appliance and it's just been switched off, treat the capacitor as live until you've measured it and confirmed it has discharged. We'll cover capacitor discharge properly in Chapter 11.</p>
+      </div>
+
+      <h2>Common motor faults and their symptoms</h2>
+
+      <h3>Worn brushes (universal motor)</h3>
+      <p>Symptoms: sparking visible at brush area, reduced performance, intermittent cutout, grinding or buzzing noise from commutator area. Fix: replace brushes. Check commutator surface — if heavily worn or grooved, clean or replace the motor.</p>
+
+      <h3>Dirty commutator (universal motor)</h3>
+      <p>Symptoms: excessive sparking, loss of power, intermittent operation. Carbon dust from brush wear fills the gaps between commutator segments, creating conductivity between segments that should be isolated. Fix: clean the commutator carefully with fine abrasive, blow out the dust with compressed air or a brush, check that the mica undercutting between segments is adequate.</p>
+
+      <h3>Open armature winding (brushed motor)</h3>
+      <p>Symptoms: intermittent or no rotation. Test: rotate the shaft slowly by hand while measuring resistance across the brushes. Resistance should be relatively constant — if it goes OL at a certain rotor position, there's an open winding at that commutator segment position.</p>
+
+      <h3>Failed start capacitor (induction motor)</h3>
+      <p>Symptoms: motor hums on startup but won't rotate. May start with a manual push. Fix: replace the capacitor (same capacitance and voltage rating). More on capacitor testing in Chapter 11.</p>
+
+      <h3>Shorted winding (either motor type)</h3>
+      <p>Symptoms: motor runs hot, draws excess current, reduced torque, burning smell. Test: measure winding resistance — should be in the range specified for the motor. Significantly lower than expected suggests shorted turns. This is usually not repairable at a repair cafe level — new motor is the practical answer.</p>
+
+      <h3>Failed bearing</h3>
+      <p>Symptoms: noise (grinding, rumbling), mechanical drag, shaft wobble, excessive heat at bearing location. Test: spin the shaft by hand with power off — should feel smooth and frictionless. Gritty, stiff, or wobbly shaft indicates bearing failure. Some motors have sleeve bearings that can be re-lubricated; ball-bearing motors may have replaceable bearings if the motor is worth the effort.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>When testing motor windings with a multimeter, connect to the brush holders (for universal motors) or directly to the winding terminals (for induction motors). The resistance you measure will depend on the motor's design and size — a vacuum cleaner motor might read 2–8 ohms between brushes; a small fan motor stator might read 50–200 ohms per winding. The absolute value matters less than relative comparison: if you have a working motor of the same type to compare, or a service manual, you have a reference. If not, look for obvious outliers: OL means open winding, near zero means shorted — anything in a plausible range for the motor size is likely fine. Check between the winding and the motor case too: should be OL (no connection to earth). A low resistance to earth is a winding-to-frame fault — serious.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>New brushes installed in the grinder, commutator cleaned, motor tested — it runs smoothly and quietly. The owner is genuinely delighted. While reassembling the grinder, someone else has arrived with a coffee machine and a printout from a service forum. "I found a schematic online," they say, placing it on the table. "But I can't really read it." Schematic literacy is surprisingly straightforward once you know the language.</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">A vacuum cleaner motor runs but has much less suction than normal, and it's hotter than usual after five minutes of use. The bag is empty, the hose and filters are clear. What might explain both the reduced performance and the overheating?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Several possibilities, in order of likelihood: (1) Worn brushes — reduced brush contact means the motor isn't receiving full current, reducing power output; simultaneously, the increased contact resistance at the brush/commutator interface generates extra heat. (2) Dirty or worn commutator — similar effect to worn brushes, carbon tracks between segments short-circuit some of the commutator, reducing effective torque while wasting energy as heat. (3) Partially shorted winding — some turns short-circuited, current circulates in the short generating heat, but those turns no longer contribute to torque. (4) Bearing wear — mechanical drag forces the motor to work harder, drawing more current while delivering less shaft power. The diagnostic approach: open the motor end cap, inspect brushes and commutator, measure winding resistance, and check bearing movement.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A single-phase induction motor in a bathroom fan hums when switched on but doesn't rotate. You give the fan blade a gentle spin while it's running, and the motor runs normally. What is the most likely fault, and what is the fix?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The motor can run (proven by the fact that it runs once started) but cannot generate starting torque from rest. This is the classic symptom of a failed start/run capacitor. The capacitor creates a phase-shifted current in the start winding to produce the rotating magnetic field needed for startup torque. Without it, there's no net rotating force at rest — the motor can only hum (single-phase AC creates a pulsating field, not a rotating one). Once the blade is spun to give the rotor some angular momentum, the motor can run on inertia-assisted operation. The fix is to identify and replace the capacitor — check the capacitance and voltage rating marked on the old one, source an equivalent, and replace. This is typically a straightforward repair.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">You measure resistance between a motor's field winding and its metal case and get 4.7k ohms. The winding-to-winding resistance is normal. Should you be concerned?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Yes, you should be concerned. Resistance between any live winding and the motor case should ideally be OL (infinite) — the winding insulation provides complete electrical isolation from the case. 4.7 kilohms is low enough that some current could flow from the winding to the case. In a Class I appliance (with a proper earth connection), this would mean a small but continuous current flowing through the earth conductor — the RCD (aardlekschakelaar) in many Dutch homes would detect this as a leakage current and could trip. In a Class II appliance with no earth, the case would be at some intermediate voltage — potentially dangerous to touch. This motor has degraded insulation. It should be condemned and replaced, not returned to service. A proper insulation resistance test (using a 500V insulation tester) should read at least 1 MΩ between live circuits and the case for a serviceable motor.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why can't you use a standard lamp dimmer switch to control the speed of a vacuum cleaner motor, even though dimmers seem to "reduce power"?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Lamp dimmers (TRIAC-based phase-cut dimmers) work by chopping the AC waveform — they switch on partway through each half-cycle, reducing the RMS voltage delivered to the load. For a simple resistive load (incandescent bulb), this works fine. But universal motors are highly inductive loads, and they respond to the distorted, phase-cut waveform very poorly: the sudden switching creates large voltage spikes that can damage motor windings and the dimmer itself; the waveform distortion causes commutator arcing; and the torque characteristic of a universal motor under a phase-cut supply is poor — the motor may run roughly, stall at low settings, or produce excessive interference. Proper universal motor speed controllers use different circuitry (often with the motor's back-EMF as feedback) that properly manages the inductive load. Never use a lamp dimmer on a motor load.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-08.html" class="nav-prev">Chapter 8: Thermal Protection</a>
+        <a href="chapter-10.html" class="nav-next">Chapter 10: Reading a Circuit Diagram</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

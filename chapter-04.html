@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 4: Power and Heat — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 4 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 4</p>
+        <h1>Power and Heat</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>A small desk fan arrives in a paper bag. The owner pulls it out carefully. "It's been making a burning smell for a few weeks," she says. "I kept using it because it still spins. But this morning it smelled worse than usual and I thought I should stop." You lift it to your nose. There it is — that specific hot-wire smell, faintly sweet and synthetic, coming from the body of the motor. Not the same as burning plastic. Something is running too hot inside. Before you open it, you start thinking about where that heat is coming from, and why.</p>
+      </div>
+
+      <h2>What power actually means</h2>
+
+      <p>Power is the rate at which energy is transferred or converted. When a kettle element heats water, it's converting electrical energy into heat energy. When a motor drives a fan, it's converting electrical energy into kinetic energy (plus some heat, unavoidably). Power is measured in watts (W), and one watt means one joule of energy per second.</p>
+
+      <p>The formula connecting power, voltage, and current is:</p>
+
+      <div class="formula">P = V × I</div>
+
+      <p>Power equals voltage times current. This is the most useful form of the equation at the repair table, because voltage and current are the things you can measure directly. If you know the supply voltage and can measure the current, you know the power.</p>
+
+      <p>But using Ohm's law (V = I × R), we can derive two other useful forms:</p>
+
+      <div class="formula">P = I² × R &nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp; P = V² ÷ R</div>
+
+      <p>These three forms are equivalent — all say the same thing, just in different terms. The second one (P = I²R) is particularly important for understanding heat in wiring, and we'll return to it shortly.</p>
+
+      <h2>Why resistance generates heat</h2>
+
+      <p>When current flows through resistance, the electrons collide with the atomic lattice of the material. Each collision transfers energy from the electron to the lattice — the atoms vibrate faster, the temperature rises, heat is produced. This is called Joule heating, and it happens in every resistive element in every circuit, all the time.</p>
+
+      <p>In a heating element, this is the whole point. The element is designed to have a specific resistance that, at the operating voltage, produces a specific amount of heat. In a copper supply cable, the same process occurs — but the cable's resistance is so low that the heat produced is negligible, and the energy delivered to the load is nearly all of what left the supply.</p>
+
+      <p>The formula P = I²R explains something critical: heat in a conductor scales with the <em>square</em> of the current. Double the current, produce four times the heat. This is why undersized cables are dangerous: they have more resistance per unit length than they should, and at high current they dissipate more heat than they can safely shed. The insulation melts, the cable becomes a fire hazard.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>An appliance that feels unusually hot at the cable or plug — not at the appliance body, but at the cable or plug — is usually a sign of a high-resistance connection: a loose terminal, a damaged conductor, or a cable that's too thin for the current it's carrying. High-resistance connections can cause localised overheating that may be invisible until the cable insulation has already been damaged. This is a fire risk. Don't return an appliance with a hot cable to service. Inspect the cable end-to-end, the plug terminals, and the strain relief at the appliance entry.</p>
+      </div>
+
+      <h2>Reading watt ratings</h2>
+
+      <p>Every mains appliance is rated in watts. That rating tells you how much power it consumes when operating normally. It's the number the designer intended, calculated for the correct supply voltage (230V in the Netherlands).</p>
+
+      <p>A 2400W kettle element: P = V²/R means R = V²/P = 230² ÷ 2400 ≈ 22 ohms. Current: I = P/V = 2400 ÷ 230 ≈ 10.4A. This is the number the fuse and cable must handle.</p>
+
+      <p>A 400W motor: at 230V, it draws about 1.7A. Much gentler on the wiring — but remember that motors draw more current when they're starting up or stalling than when they're running freely. A 400W fan motor might draw 3–4A momentarily when it starts, before the fan blade gets up to speed. This is why motor fuses are often rated higher than the steady-state running current.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>When an appliance blows its fuse repeatedly, the instinct is often to fit a higher-rated fuse. Don't. The fuse is rated to protect the cable and the appliance — it's sized to blow before the cable gets dangerously hot. A higher-rated fuse just means the cable can overheat and melt before the fuse blows. The correct response to a repeatedly blowing fuse is to find the fault that's causing excessive current — not to give the fault more headroom. The only exception is if the appliance has a time-lag (T) fuse and someone has replaced it with a fast-blow fuse of the same rating, which might blow on motor startup current. That's a different problem: fit the correct type, not a higher rating.</p>
+      </div>
+
+      <h2>Watts and joules: energy vs power</h2>
+
+      <p>Power (watts) and energy (joules) are related but different. Power is the rate; energy is the total. A 2400W kettle running for 3 minutes (180 seconds) uses 2400 × 180 = 432,000 joules of energy. On your electricity meter, this appears as kilowatt-hours: 432,000 joules ÷ 3,600,000 joules/kWh = 0.12 kWh. At €0.35 per kWh, that's about 4 cents for one kettle boil.</p>
+
+      <p>Energy calculations aren't usually directly useful at the repair table, but understanding the relationship matters when you're thinking about heat accumulation — why a motor might only smell hot after running for twenty minutes, or why a thermal fuse only triggers after sustained operation rather than immediately on power-up.</p>
+
+      <h2>Efficiency: where the energy goes</h2>
+
+      <p>Not all electrical energy becomes useful work. Heating elements are nearly 100% efficient — all the electrical energy becomes heat, which is exactly what you want. But motors, which convert electrical energy to mechanical motion, always produce some heat as a by-product of electrical resistance in their windings and friction in their bearings.</p>
+
+      <p>A motor running at rated load might be 70–85% efficient — meaning 70–85% of the electrical energy becomes useful shaft power, and 15–30% becomes heat. That heat has to go somewhere. In a well-designed motor, it's conducted to the casing and radiated or convected away. In a degraded motor — worn bearings, partially shorted windings, or poor ventilation — more heat is generated and less is shed, and the motor runs hotter than designed.</p>
+
+      <p>This is almost certainly what's happening in the fan on the table. The burning smell is coming from the winding insulation getting hot enough to degrade. If the bearings have worn (common in small fan motors that run for thousands of hours), the motor has to work harder to spin the blade, drawing more current, generating more heat via I²R. Eventually the insulation fails entirely.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Joule heating (P = I²R) has an important consequence in poorly wound or damaged motors: when part of a winding is shorted — a few turns of wire with their insulation damaged touching each other — you get a "shorted turn." The short creates a small closed loop with very low resistance. A large current circulates in this loop, dissipating enormous heat in a small area. The winding insulation burns, the short spreads, the smell gets worse. A shorted winding can often be identified by the fact that the motor draws more current than normal while producing less torque — current is going in, but some of it is being wasted in the short rather than doing useful work.</p>
+      </div>
+
+      <h2>Fuse sizing and power</h2>
+
+      <p>Fuses are rated in amperes, but the underlying reason for any particular rating is power (and therefore heat). A 13A fuse in a UK-style plug protects the cable by ensuring the current never exceeds 13A, which corresponds to a maximum of 2990W at 230V. Dutch appliances don't usually have individual plug fuses in the Schuko connector — protection comes from the circuit breaker in the consumer unit. But cartridge fuses inside appliances are sized for the specific appliance load, and that sizing is based on the appliance's rated current.</p>
+
+      <p>The rule of thumb: the fuse should be rated at approximately 125% of the normal running current, to allow for startup transients without nuisance tripping, but should blow under a sustained fault current before the wiring gets dangerously hot. Getting this right is an engineering calculation — replacing a blown fuse with a higher-rated one isn't engineering, it's guessing your way to a fire.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Open the fan. Check the bearing by spinning the blade shaft with your finger — it should spin freely with almost no resistance and no wobble. Worn bearings feel gritty, wobbly, or stiff. If the bearings are the problem, some fan motors can be lubricated (a small drop of light machine oil on the bearing sleeves) or have their bearings replaced if you can source them. If the winding itself smells burned and shows dark discolouration or visible damage, the motor is beyond straightforward repair. Declare it and don't return it to service — a burning motor is a fire waiting to happen.</p>
+      </div>
+
+      <h2>Thermal runaway</h2>
+
+      <p>One phenomenon worth understanding is thermal runaway: a self-reinforcing cycle where heat causes more heat. It can happen in several ways in electrical equipment.</p>
+
+      <p>In a motor with a shorted winding: the short generates heat, heat degrades more insulation, more insulation failure creates more shorts, which generate more heat. The process accelerates until something fails or the protection device acts.</p>
+
+      <p>In an electrolytic capacitor with damaged insulation (more on capacitors in Chapter 11): as temperature rises, leakage current increases, which generates more heat, which causes more leakage, which causes more heat. You'll often find failed electrolytic capacitors on circuit boards that have "puffed" or leaked — the top or base of the capacitor has swollen or split. This is the visible end result of thermal runaway inside the capacitor.</p>
+
+      <p>Good appliance design includes thermal protection specifically to interrupt these runaway processes before they cause damage — thermostats, thermal fuses, and PTC devices that limit current as temperature rises. We'll cover those in Chapter 8.</p>
+
+      <div class="chapter-closer">
+        <p>The fan turns out to have a bad bearing — a simple lubrication job. While you work on it, a laptop charger arrives: a small black brick that's warm to the touch and no longer charges. The owner says it was working fine until it fell off the desk. You look at the cable and the brick and start to think about what's inside that charger — which leads naturally to asking what kind of electricity it's actually converting, and why.</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">A 1600W iron is plugged into a 230V socket. What current does it draw? If the supply cable has a resistance of 0.5 ohms, how much power is wasted in the cable?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Current: I = P ÷ V = 1600 ÷ 230 ≈ 6.96A, call it 7A. Power in cable: P = I² × R = 7² × 0.5 = 49 × 0.5 = 24.5W. That's nearly 25 watts being dissipated in the cable — about 1.5% of the total power. In a standard good-quality iron cable this is acceptable. But if the cable resistance were higher (damaged conductors, too-thin a gauge, or a poor connection), that number rises with the square of the current. At 0.5 ohms and 7A you might not notice; at 3 ohms and 7A you'd have 147W in the cable, which would be very hot very quickly.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A vacuum cleaner is drawing noticeably more current than its rated value, but the suction feels weak. What might explain both symptoms together?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>High current draw with low mechanical output strongly suggests a problem in the motor itself: either a partially shorted winding (current circulates in the short, generating heat, but doesn't contribute to torque — so current is up, power output is down) or, more commonly, a mechanical obstruction or bearing failure that's causing the motor to work against excessive load. A motor driving a stiff or seized bearing draws more current (it's essentially stalling partially) while converting less of that energy to airflow. Check the bearings and the fan blade for obstructions. Also check whether the fan blade is intact — a broken blade reduces airflow while not reducing current draw proportionately.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">Someone has replaced a blown fuse in a toaster with one rated twice as high. The toaster works fine. Is this safe, and why or why not?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>No, it is not safe. The fuse protects the cable and the appliance — it's the last line of defence against a sustained overcurrent that could start a fire. The original fuse was rated for a specific reason: it's sized to blow before the cable connected to it gets dangerously hot. A fuse twice the rating requires twice the current to blow. In a fault condition (short circuit, failed component drawing excess current), the higher fuse allows far more current to flow for far longer before clearing. This means the cable can overheat and catch fire before the fuse blows. The correct action is to find out why the original fuse blew — not to install a higher-rated one. "Works fine" just means the fault hasn't recurred yet.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why does P = I²R mean that doubling the current in a cable produces four times the heat, not twice?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Because current appears squared in the formula. If current is I, power (heat) is I² × R. If current doubles to 2I, power is (2I)² × R = 4I² × R — four times the original. This squared relationship has important practical consequences: a cable running at 80% of its rated current is well within safe limits. The same cable suddenly carrying double its rated current (after a fault) produces four times the heat — which may exceed what the insulation can tolerate within seconds. This is why overcurrent protection needs to act quickly under fault conditions, not just eventually.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-03.html" class="nav-prev">Chapter 3: Series vs Parallel</a>
+        <a href="chapter-05.html" class="nav-next">Chapter 5: AC vs DC</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

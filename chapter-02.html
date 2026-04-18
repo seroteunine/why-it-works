@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2: What a Circuit Actually Is — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 2 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 2</p>
+        <h1>What a Circuit Actually Is</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>The kettle is sitting to one side — you've established it needs a new element, and the owner is deciding whether it's worth the part. Meanwhile, someone else sets down a small table lamp. The bulb is fine, they say — they've tested it in another lamp. You hold the lamp up, look at the cable near the base where it enters the body, and notice it's been pinched. Probably under a desk leg, long enough to damage what's inside. You already have a theory before you've plugged it in.</p>
+      </div>
+
+      <h2>Electricity must go in a circle</h2>
+
+      <p>The single most important thing to understand about a circuit is this: electricity needs a complete, unbroken loop to flow. Not a path from A to B — a path from A to B <em>and back to A again</em>. Break the loop anywhere, and everything stops.</p>
+
+      <p>This seems obvious once stated, but it's not always obvious when you're looking at a real appliance. There are wires going everywhere, components in different places, connectors and boards and terminals. The key is to mentally trace the loop — where does the current come from, where does it go through the load, and how does it return? Once you can see the loop, you can see where it might be broken.</p>
+
+      <p>In your lamp: the lamp works. Current flows from the mains supply, along the live conductor, through the switch, through the bulb filament (the load — where the work gets done), and back along the neutral conductor to complete the loop. Somewhere in that lamp's cable, the pinching has damaged one of those conductors. The loop is incomplete. Nothing flows.</p>
+
+      <h2>Live, neutral, and earth</h2>
+
+      <p>In Dutch household wiring — and across most of continental Europe — a standard mains connection brings three conductors to your socket:</p>
+
+      <p><strong>Live (L)</strong> — brown wire. This is the conductor at voltage. The power station and transformer system maintain it at 230V relative to neutral. It's the "high pressure" side of the circuit.</p>
+
+      <p><strong>Neutral (N)</strong> — blue wire. This is the return path. At the substation, neutral is connected to earth — to the actual ground — so at your socket it's close to 0V. Current flows out through live and returns through neutral.</p>
+
+      <p><strong>Earth (PE, yellow-green wire)</strong> — this is a safety conductor, not a current-carrying conductor under normal operation. It connects the metal casings of appliances to ground, so that if a fault causes the live wire to touch the casing, the fault current flows safely to earth and blows the fuse — rather than waiting for a person to touch the casing and complete the circuit through their body.</p>
+
+      <p>The cable in your lamp probably has two conductors: live and neutral. Small class II appliances — lamps, phone chargers, many kitchen appliances — don't have an earth connection because their design relies on double insulation rather than earthing for safety. We'll come back to what that means.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Dutch Schuko plugs (Type F — the round two-pin plug you see everywhere) have two flat pins for live and neutral, plus two grounding clips on the sides. The grounding clips connect to earth in the socket. If the appliance has a three-core cable with earth (yellow-green), the plug will have an earth connection. If it's two-core, it won't. The order of live and neutral in a Schuko plug is technically reversible — unlike UK plugs, Schuko is not polarised — but internally, the switch should always be on the live side.</p>
+      </div>
+
+      <h2>Class I and Class II appliances</h2>
+
+      <p>Most appliances fall into one of two protection classes, and knowing which you're looking at changes how you approach fault diagnosis and safety.</p>
+
+      <p><strong>Class I</strong> appliances rely on earthing for safety. They have a metal case or exposed metal parts, and the earth wire connects those parts to ground. If the live wire touches the casing inside (a fault), the earth conductor carries that fault current safely to the breaker, which trips. Examples: washing machines, dishwashers, electric ovens, older kettles with metal bodies, drill chargers.</p>
+
+      <p><strong>Class II</strong> appliances rely on <em>double insulation</em>. The internal live components are insulated from the case once, and the case itself provides a second layer of insulation. There is no earth connection because the case is never meant to be at mains potential even under fault conditions. Examples: most modern plastic-bodied kettles, hair dryers, phone chargers, lamp transformers. Class II appliances are marked with a symbol: a square inside a square (⧠).</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>When you open a Class I appliance, always verify that the earth connection is intact before returning it. A broken earth wire doesn't affect normal operation — the appliance will seem to work fine — but it removes the safety protection. If the live wire later touches the case, the user gets the shock. It's one of the most dangerous invisible faults in appliance repair. Check the earth conductor at both ends: at the plug and at the appliance chassis.</p>
+      </div>
+
+      <h2>Why the circuit must be complete</h2>
+
+      <p>Going back to the water analogy: you can't have a one-way pipe. If water flows out one end of a pipe and has nowhere to go, pressure builds up and everything stops. Electricity is the same — charge needs a continuous path to circulate.</p>
+
+      <p>What this means practically is that both conductors — live and neutral — must be intact for anything to work. A break in either one opens the circuit. This surprises some people: "but the neutral is the return path, it's not really doing anything important." It's doing exactly as much as the live conductor. Current flows through both in equal amounts. Break either one and the current is zero.</p>
+
+      <p>In your lamp: if the pinched cable has broken the live conductor, there's no path for current into the bulb. If it's broken the neutral conductor, there's no return path. Either way — dead lamp. You'd find this with a continuity check: measure from one end of each conductor to the other. One of them will show no continuity.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Electrically, what matters is whether there's a continuous conducting path for charge to travel through. The labels "live" and "neutral" describe the relative voltage level and which side the protection should be on — but in terms of the current loop, both conductors are equally essential. At the substation, neutral is bonded to earth ground, which is why neutral is near 0V at your socket. But the current in the neutral wire is exactly the same as in the live wire — it's the same current flowing through the circuit, just on the return leg.</p>
+      </div>
+
+      <h2>Where switches belong</h2>
+
+      <p>If a switch interrupts the live conductor, turning off the switch leaves the load (bulb, element, motor) at the neutral side — near 0V — and disconnected from live. Safe to touch, if you needed to.</p>
+
+      <p>If a switch interrupts the neutral conductor instead, turning off the switch leaves the load still connected to live — at 230V — even though it's not doing anything. Not safe to touch. This is why switches must be wired on the live side of the circuit.</p>
+
+      <p>In practice, European appliances are designed to do this correctly. But when you're repairing an older lamp or a modified appliance, it's worth checking — especially if the Schuko plug has been replaced or the cable extended. A simple continuity check from the switch terminal to the plug pin tells you which conductor the switch is interrupting.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Pinched or crushed cables are one of the most common faults in table lamps and small appliances. The cable often looks undamaged on the outside — the insulation can survive a crush that the conductor inside cannot. Before you open anything, flex the cable near the entry point while measuring continuity. A conductor that only makes contact when the cable is bent a certain way is a dangerous intermittent fault — and it explains why the lamp was "sometimes working, sometimes not."</p>
+      </div>
+
+      <h2>The role of earth in safety</h2>
+
+      <p>Earth deserves a bit more attention, because it's often misunderstood. Earth (ground) isn't part of the normal current loop — no current is supposed to flow in it. Its job is entirely protective.</p>
+
+      <p>Here's what it protects against. Imagine a washing machine. Inside, there are live conductors carrying 230V. The washing machine has a steel drum and a steel outer body — metal. If the insulation on the live wire degrades and the live conductor touches the metal body, that body is now at 230V. A person standing on a damp floor who touches the machine completes a circuit through their body to earth — and may receive a lethal shock.</p>
+
+      <p>With a proper earth connection: the moment the live wire touches the metal body, a huge fault current flows through the earth conductor to the breaker. The breaker trips (or the fuse blows) within milliseconds. The fault is cleared before anyone can be hurt.</p>
+
+      <p>The earth conductor must be able to carry this fault current without failing. It must be continuous from the appliance chassis all the way back to the breaker panel. A corroded earth connection, a missing earth pin, or an earth wire connected only at the plug but not at the chassis — these are all failures that leave the appliance's earthing protection in place on paper but absent in practice.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>A residual current device (RCD, called an "aardlekschakelaar" in Dutch) is an additional layer of protection that detects the difference between current in the live and neutral conductors. In a healthy circuit, these are equal. If current is leaking to earth — because someone is being shocked, or because insulation has failed — the RCD detects the imbalance and trips in under 30ms. Many Dutch homes have RCD protection on some or all circuits. It saves lives. But it doesn't replace proper earthing — an RCD won't help if the fault current has no path to earth to measure in the first place.</p>
+      </div>
+
+      <h2>What "open circuit" means physically</h2>
+
+      <p>Now we can be precise about what an open circuit is: it's a break in the conducting loop. The break might be:</p>
+
+      <ul>
+        <li>A broken wire (conductor snapped or corroded through)</li>
+        <li>A disconnected terminal (wire pulled out of a connector)</li>
+        <li>A blown fuse (the fuse element has melted — intentionally, to protect the circuit)</li>
+        <li>An open switch (switch in the off position — intentional open circuit)</li>
+        <li>A failed component (heating element broken, thermal fuse triggered)</li>
+        <li>Corroded contacts (resistance so high that effectively no current flows)</li>
+      </ul>
+
+      <p>In all these cases, the voltage is still present at the source — the mains is still live, the battery still has charge — but no current flows because the loop is incomplete. This is the crucial distinction: voltage can exist without current, but current cannot flow without a complete path.</p>
+
+      <p>For your lamp: the pinched cable has broken one conductor. The voltage is still present at the socket. But the loop is open, and no current flows to the bulb. The diagnosis is a cable replacement — a straightforward repair.</p>
+
+      <div class="chapter-closer">
+        <p>You've now got a clear picture of the loop: two conductors, a load, a switch on the live side, and an earth for safety on metal-cased appliances. Every appliance you'll ever open is some variation on this same fundamental loop. The next chapter takes this further — what happens when there are multiple loads, and the loop branches?</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">You open a floor lamp and find the switch has been replaced. You check continuity from the switch to the plug and find the switch interrupts the blue (neutral) wire. Is this a problem, and why?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Yes, this is a problem. A switch on the neutral side means that when the switch is off, the bulb and lampholder remain connected to the live conductor at 230V — even though no current is flowing. Anyone who touches the lampholder or attempts to change the bulb while the switch is off is still in contact with a live circuit. The switch should be on the live (brown) wire. This needs to be rewired correctly before the lamp is returned to use.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A toaster has a metal outer casing and a three-core cable. You find the earth wire is disconnected at the terminal inside the toaster — it's there, just not connected. The toaster works normally. Is it safe to return to the owner?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>No. A toaster with a metal casing is a Class I appliance, and the earth connection is part of its safety protection. A disconnected earth doesn't affect normal operation at all — which is exactly why this kind of fault is so dangerous. If the live element or live wiring inside ever makes contact with the metal casing (a failure mode that is possible in ageing or damaged appliances), the casing becomes live at 230V. With a proper earth connection, this would immediately blow the fuse. Without it, the casing remains at 230V silently, waiting for someone to touch it. Reconnect the earth before returning the appliance.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">You measure continuity along the live wire of a lamp's flex. It reads a few ohms — not open circuit, but not the near-zero you'd expect from undamaged copper. What does this suggest?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>A few ohms in a short length of copper flex indicates a high-resistance junction somewhere — likely a partial break where some strands of the conductor are intact but many are broken, or a corroded connection. This is a partial fault: enough continuity for the meter to read a value, but high enough resistance to cause a voltage drop under load, localised heating, and potentially intermittent operation. The flex should be replaced rather than relied upon. A corroded or partially broken wire that passes a continuity check at low current can still fail under the full load current of the appliance.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why is the neutral conductor bonded to earth at the substation, and why does this make the neutral conductor near 0V at your socket?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The neutral conductor is connected to the actual earth ground at the substation — physically, to buried electrodes. Earth (actual ground) is the universal reference point: it's defined as 0V. By connecting neutral to this reference at the source, the distribution system ensures that neutral stays near 0V throughout the network. Live is held at 230V above this reference by the transformer. This is why, in normal operation, touching neutral is relatively safe (it's near ground potential) while touching live is dangerous (it's 230V above ground). Note: this is a simplification — in a loaded circuit, there can be small voltage on the neutral due to resistance and current, but at normal loads this is a few volts at most.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-01.html" class="nav-prev">Chapter 1: Voltage, Current &amp; Resistance</a>
+        <a href="chapter-03.html" class="nav-next">Chapter 3: Series vs Parallel</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

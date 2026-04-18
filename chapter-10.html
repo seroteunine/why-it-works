@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 10: Reading a Circuit Diagram — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 10 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 10</p>
+        <h1>Reading a Simple Circuit Diagram</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>The coffee machine is a pump espresso — a decent brand, worth repairing. The owner has found a schematic in a service forum printout. She holds it up a little apologetically. "I found this but I can't make sense of it. Is it useful?" You take a look. It's a single-page diagram: a dozen symbols connected by lines, with a few component reference numbers. To someone who can read it, it's a complete description of the machine's electrical system. You set it on the table and start from the left. "Let's go through it together," you say.</p>
+      </div>
+
+      <h2>Why schematics matter for repair</h2>
+
+      <p>A schematic diagram is a map of a circuit — not a drawing of physical layout, but a representation of how components are electrically connected. It uses standardised symbols and conventions that are consistent across manufacturers, countries, and decades of electrical engineering.</p>
+
+      <p>Being able to read a schematic is transformative for repair work. It lets you: understand what a circuit is supposed to do before you test it; identify which components are in series and which in parallel; trace from a symptom back to candidate components; and check whether the repair you're planning actually makes electrical sense.</p>
+
+      <p>You don't need to be able to <em>design</em> circuits to read their schematics. Reading is much easier than writing, and for repair purposes, that's all you need.</p>
+
+      <h2>Common symbols</h2>
+
+      <p>The following symbols appear in most domestic appliance schematics:</p>
+
+      <h3>Power supply and references</h3>
+      <p>The mains supply is usually shown as two horizontal rails — one labelled L (live) at the top or left, and one labelled N (neutral) at the bottom or right. Earth connections use a symbol of three horizontal lines of decreasing length stacked on top of each other (like a downward-pointing triangle). Components are connected between the L and N rails, either directly or through other components.</p>
+
+      <h3>Resistor</h3>
+      <p>In European schematics: a rectangular box (IEC standard). In American schematics: a zigzag line. Both mean the same thing — a component with defined resistance. Variable resistors (potentiometers) show an arrow through or alongside the symbol indicating adjustability.</p>
+
+      <h3>Capacitor</h3>
+      <p>Two parallel lines (representing the two plates). If one plate's line is curved, it indicates the negative terminal of a polarised (electrolytic) capacitor — the curved plate is negative. A variable capacitor has an arrow through it.</p>
+
+      <h3>Inductor / coil</h3>
+      <p>A series of humps or loops. Transformers show two coils facing each other, sometimes with vertical lines between them indicating a magnetic core.</p>
+
+      <h3>Diode</h3>
+      <p>A triangle pointing in the direction of current flow, with a bar across the point. The bar is the cathode (negative end); the flat base of the triangle is the anode (positive end). A Zener diode has a bent bar.</p>
+
+      <h3>Switch</h3>
+      <p>An angled line breaking a conductor, with a dot showing the contact point. Various modifications indicate switch type: the presence of a second throw, a spring symbol for momentary operation, etc.</p>
+
+      <h3>Fuse</h3>
+      <p>A small rectangle or oval with a line through it, sometimes labelled with its rating. Some schematics use the letter F with a reference number (F1, F2).</p>
+
+      <h3>Motor</h3>
+      <p>A circle with the letter M inside. Sometimes shows the motor type: M~ for AC, M= for DC.</p>
+
+      <h3>Lamp / indicator light</h3>
+      <p>A circle with an X inside, or a circle with lines radiating from it.</p>
+
+      <h3>Heating element</h3>
+      <p>Often shown as a resistor symbol (the box), sometimes explicitly labelled "Heater" or "Element." Some schematics use a zigzag line regardless of the convention used for resistors elsewhere in the diagram.</p>
+
+      <h3>Thermostat / thermal cutoff</h3>
+      <p>A switch symbol, often with a small circle or temperature indicator. TCOs may be marked with their trip temperature.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>The best way to learn schematic symbols is to open a real appliance and find the schematic for it — either from the service manual, the manufacturer's website, or forums. Then sit with the appliance open and the schematic in front of you, and physically trace each component: "this is F1, here's the fuse in the machine. This is S1, here's the power switch." The connection between the abstract symbol and the physical component becomes solid very quickly with this kind of side-by-side work. European schematics almost always use IEC symbols. Older Japanese appliances may use a mix. American appliances often use ANSI symbols. When in doubt, context usually makes it clear.</p>
+      </div>
+
+      <h2>How to read a schematic</h2>
+
+      <h3>Start at the supply</h3>
+      <p>Find the live rail and the neutral rail. These are your starting and ending points for every current path. Current flows from live, through the circuit, to neutral. Follow the path.</p>
+
+      <h3>Identify series elements first</h3>
+      <p>Components connected in series with the rest of the circuit are the first barrier to current. In a typical appliance schematic, you'll see: live terminal → fuse (F1) → main switch (S1) → thermostat (TH1) → [branches to loads]. The fuse, switch, and thermostat are all in series — if any one of them is open, nothing in the circuit works.</p>
+
+      <h3>Identify parallel branches</h3>
+      <p>After the series protection chain, the schematic often branches. Each branch is a parallel load: the heating element, the pilot lamp, a pump motor. Each branch returns independently to neutral. A fault in one branch doesn't affect the others.</p>
+
+      <h3>Follow reference designators</h3>
+      <p>Components on a schematic are labelled with reference designators: R for resistor, C for capacitor, F for fuse, S or SW for switch, M for motor, L for inductor, D for diode, T for thermostat, etc. These are followed by numbers: R1, R2, C1, C2. A parts list accompanying the schematic gives the specification of each component (resistance value, capacitance, voltage rating, temperature rating). These reference designators also appear on PCBs, printed alongside the component's footprint — making it possible to find a component on the board when you know its reference from the schematic.</p>
+
+      <h2>Tracing a fault using a schematic</h2>
+
+      <p>Let's work through a simplified espresso machine example. The schematic shows (from live to neutral):</p>
+
+      <p>L → F1 (3.15A fuse) → S1 (main switch) → junction point, where the circuit branches into:</p>
+      <ul>
+        <li>Branch 1: TH1 (thermostat) → H1 (boiler heating element) → N</li>
+        <li>Branch 2: L1 (pilot lamp) → N</li>
+        <li>Branch 3: SW2 (pump switch) → P1 (pump motor) → N</li>
+      </ul>
+
+      <p>Fault: machine is dead — no light, no heat, no pump.</p>
+
+      <p>Reading the schematic: F1 and S1 are in series with all three branches. A failure in either one kills all functions simultaneously. Start there: check F1 (continuity — should pass), check S1 (continuity when closed — should pass).</p>
+
+      <p>If F1 is blown: replace it, but look for the fault that blew it first. If S1 is open when closed: replace the switch.</p>
+
+      <p>New fault: machine has power (pilot lamp works), but boiler doesn't heat.</p>
+
+      <p>Reading the schematic: pilot lamp working confirms L, F1, S1 are fine. Boiler branch has TH1 and H1. Check TH1 first (continuity with machine cool — should close). Then check H1 (resistance — should be in range). This is much faster than checking blindly.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>A schematic captures the logical relationships in a circuit — which components share nodes (connection points). Two components sharing a node are either in parallel (both connected between the same two nodes) or linked in series (one's output node is another's input node). The schematic allows you to apply both Kirchhoff's laws: KVL (voltages around a loop must sum to zero) and KCL (currents at a node must sum to zero). Armed with these, you can predict exactly what measurement you should see at every point in a working circuit — and therefore identify exactly which measurement deviates from expectation when something is wrong. The schematic converts an opaque box of components into a predictable, testable system.</p>
+      </div>
+
+      <h2>Schematic vs PCB layout</h2>
+
+      <p>A common source of confusion: the schematic and the PCB (printed circuit board) layout look completely different. The schematic shows connections logically, with components positioned for clarity — not physical location. The PCB layout shows the physical arrangement of components on the board, with the actual copper traces between them.</p>
+
+      <p>When you're testing a component on a PCB using a schematic, you need to translate from one representation to the other. The reference designators (R1, C1, etc.) appear on both the schematic and the PCB silkscreen (the printed labels on the board surface) — that's how you find the physical component that corresponds to the schematic symbol. It's a skill that becomes automatic with practice.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>If you can't find a service manual or schematic for an appliance, it's sometimes possible to trace the circuit yourself from the physical components. Start at the Schuko plug's live pin. Follow the brown wire. Where does it go? A fuse block? The switch? Sketch what you find. This kind of reverse-engineering teaches you more about circuit topology than reading any number of schematics — because you're making the connection between abstract and physical yourself. For simple appliances (kettle, toaster, iron), a circuit diagram you've drawn yourself in 15 minutes is often all you need.</p>
+      </div>
+
+      <h2>Where to find schematics</h2>
+
+      <p>Service manuals (containing full schematics and parts lists) were once printed documents that came with professional service centres' equipment. Today they live online:</p>
+
+      <ul>
+        <li>The manufacturer's service/technical website (Philips, DeLonghi, Bosch, etc. often have a service section)</li>
+        <li>Forums specific to the appliance type — espresso machine forums, for example, have remarkable documentation</li>
+        <li>General repair forums and sites like Fixit Clinic, iFixit, and EEVblog forum</li>
+        <li>Search for the model number + "service manual" or "schematic" — often enough to find it</li>
+      </ul>
+
+      <p>If you can't find a schematic, you can often reconstruct the key protection chain (fuse → switch → thermal protection → load) from visual inspection of the appliance, which is usually sufficient for the most common fault patterns.</p>
+
+      <div class="chapter-closer">
+        <p>The coffee machine turns out to have a failed solenoid valve — not immediately obvious from the schematic, but traceable with voltage testing. The repair is a bit beyond today's session, but the owner now knows what the fault is and where to source the part. A microwave has been waiting patiently on the floor. Someone wheels it onto a spare table. Before you open it, you need to have a serious conversation about capacitors.</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">On a schematic, you see that a pump motor (M1) has a thermal cutoff (TCO1) in series with it, and this combination is in parallel with a heating element (H1). The main fuse (F1) and switch (S1) are in series with everything. The symptom is that the heater works but the pump doesn't. Which components are candidates for the fault?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>F1 and S1 can be ruled out — if either were open, H1 would also be dead (they're in series with everything). The fault is in the pump branch only. Candidates are: TCO1 (the thermal cutoff in series with the pump — measure continuity, should be closed if cool), M1 itself (pump motor — check winding resistance), and the wiring/connectors specific to that branch. Since the heater branch is working, you know the parallel rail voltages are correct at the junction point. The fault is in the series chain TCO1 → M1 on that specific branch. Check TCO1 first (simple continuity), then M1 resistance, then physical connections.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">You find a component on a PCB labelled "R7" but you don't have the schematic. What does the reference designator tell you, and how do you find out what this component should measure?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The "R" prefix tells you it's a resistor (conventional designator). The number 7 identifies it within the schematic — it's the 7th resistor on the diagram. Without the schematic, the reference designator alone doesn't tell you the correct value. Options for finding out: (1) Find the service manual or schematic online using the appliance model number — the schematic will list R7's value. (2) If there's a second identical appliance working nearby, measure R7 on the working one for comparison. (3) Look at the component itself — resistors often have colour-coded bands or printed values, capacitors have values printed on their bodies, etc. (4) Context: the circuit topology around R7 may suggest what it should be. A resistor in series with an LED is likely a current-limiting resistor in the hundreds-of-ohms range. A resistor in the mains current path is likely a high-wattage, low-value type.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">A schematic shows a switch labelled "S2" with a note "N.O." What does N.O. mean, and in what position would it be at rest?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>N.O. stands for "Normally Open" — the switch contacts are open (not conducting) in their resting (unactuated) state. The switch only conducts when it's actively pushed, pressed, or triggered. A Normally Closed (N.C.) switch is the opposite: conducts at rest, opens when actuated. In appliances, N.O. switches are used for "activate when pressed" functions — like a doorbell, a brew button, or a trigger on a drill. N.C. switches are used for safety interlocks — "machine only works when the lid is closed," where the closed lid depresses the switch to its actuated (closed) position. Knowing the switch type helps you predict what your continuity measurement should be: N.O. reads OL at rest, continuity when actuated. N.C. reads continuity at rest, OL when actuated.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">What is the practical difference between a schematic and a PCB layout, and why does it matter for someone tracing a fault?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>A schematic shows logical connections — which nodes are connected to which, regardless of physical position. It's optimised for understanding the circuit's function. A PCB layout shows the physical reality — where components are actually located on the board and how the copper traces route between them. They're two representations of the same circuit. For fault-tracing, the schematic tells you what you should measure and where (logically); the PCB layout tells you where to put your probes physically. The reference designators (R1, C5, etc.) are the translation between the two: they appear on both the schematic and on the PCB's silkscreen labels, allowing you to locate the physical component that corresponds to a schematic symbol. Without the schematic, you can still trace a PCB by following copper traces visually, but it's much slower.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-09.html" class="nav-prev">Chapter 9: Motors</a>
+        <a href="chapter-11.html" class="nav-next">Chapter 11: Capacitors</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

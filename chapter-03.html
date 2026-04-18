@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3: Series vs Parallel — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 3 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 3</p>
+        <h1>Series vs Parallel</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>A string of LED fairy lights arrives in a bag. It's a newer set — not the old incandescent kind — but the story is the same: half the string is dark, the other half is fine. The owner has already tried pressing the fuse caps on the controller. You plug it in, confirm the lit section, and reach for the multimeter. Before you test anything, you pause to think about how this string is actually wired. That's the thing about fairy lights — there are at least three completely different answers, depending on the design.</p>
+      </div>
+
+      <h2>Two ways to connect things</h2>
+
+      <p>Everything in a circuit is connected in one of two fundamental ways: in <strong>series</strong> (one after another, sharing the same current) or in <strong>parallel</strong> (side by side, sharing the same voltage). Most real circuits use both, in combination. Understanding the difference is one of the core skills of fault diagnosis, because series and parallel circuits fail in completely different ways.</p>
+
+      <h2>Series circuits</h2>
+
+      <p>In a series circuit, the components are connected end-to-end in a single chain. There's only one path for current to flow, and it flows through each component in turn.</p>
+
+      <p>The key rules for series circuits:</p>
+
+      <ul>
+        <li>The same current flows through every component (there's only one path)</li>
+        <li>The voltages across each component add up to the total supply voltage</li>
+        <li>The total resistance is the sum of all individual resistances</li>
+        <li>If any component fails open-circuit, the entire circuit goes dead</li>
+      </ul>
+
+      <p>That last point explains the old incandescent fairy lights. All the bulbs were wired in series, with each bulb designed for a fraction of the mains voltage. If you had 40 bulbs on 230V, each one was designed to drop about 5.75V. The problem: one bulb blows, and the entire string goes dark — because the single current path is broken.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>The old incandescent Christmas light repair trick — working your way along the string testing each bulb for continuity — was tedious because there were sometimes 50 or more in series. The modern solution was to put a shunt inside each bulb base: a small device with high resistance in normal operation, but which shorts out if the filament blows (converting the open circuit to a near-short circuit, allowing the rest of the string to stay lit). The shunt is why you'd sometimes find a "dead" bulb that made the rest of the string work perfectly — the bulb was dark, but the shunt was doing its job.</p>
+      </div>
+
+      <h3>Voltage dividers</h3>
+
+      <p>Series resistances divide voltage in proportion to their values. This is called a voltage divider and it's useful to understand because it appears everywhere — in adjustable heating controls, speed controls, and sensor circuits.</p>
+
+      <p>If two resistors are in series across a 230V supply, and one has resistance R₁ and the other R₂, the voltage across R₂ is:</p>
+
+      <div class="formula">V₂ = 230 × R₂ ÷ (R₁ + R₂)</div>
+
+      <p>You don't need to calculate this often at the repair table, but understanding that series resistance drops voltage gives you an important diagnostic insight: if there's unexpected resistance in a series path (a corroded contact, a partial break in a cable), there will be an unexpected voltage drop across it. That voltage drop is measurable, and it's how you find hidden high-resistance faults.</p>
+
+      <h2>Parallel circuits</h2>
+
+      <p>In a parallel circuit, the components are connected side by side — each one runs from the live conductor directly to neutral, independently of the others. Each component gets the full supply voltage, and each draws its own current. The currents add up at the junction.</p>
+
+      <p>The key rules for parallel circuits:</p>
+
+      <ul>
+        <li>The voltage across every component is the same (all connected between the same two points)</li>
+        <li>The total current is the sum of the currents through each branch</li>
+        <li>The total resistance is lower than any individual resistance (more paths = less resistance)</li>
+        <li>If one component fails open-circuit, the others continue working normally</li>
+      </ul>
+
+      <p>Every wall socket in your house is in parallel with every other socket. The mains voltage — 230V — appears at all of them simultaneously. Plugging in more appliances adds more parallel branches and draws more current from the supply, but doesn't change the voltage available to any individual appliance.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Parallel resistances share the same voltage but split the current. The formula for combining two parallel resistances is 1/R_total = 1/R₁ + 1/R₂. This is why adding more parallel paths always reduces total resistance — you're giving current more routes to take. In the extreme case (adding a zero-resistance short circuit in parallel with anything), the total resistance drops to zero. This is exactly what a short-circuit fault does: it provides a near-zero-resistance path in parallel with the intended load, bypassing it and drawing enormous current from the supply.</p>
+      </div>
+
+      <h2>The fairy lights question</h2>
+
+      <p>Back to the LED fairy lights on the table. There are actually three ways this design might be wired:</p>
+
+      <p><strong>All in series</strong>: One break kills everything. But with 40–100 LEDs, each LED only needs 2–3V, and the total drops to 230V. Likely if the entire string is dead.</p>
+
+      <p><strong>All in parallel with current-limiting resistors</strong>: Each LED gets 230V with a resistor to drop the excess. One LED failing open-circuit doesn't affect the others. But this is power-inefficient and not common for mains-connected strings.</p>
+
+      <p><strong>Groups in series, groups in parallel</strong>: The most common design for modern LED strings. The string is split into sections, each section being a series chain of LEDs. The sections are wired in parallel. One section failing open-circuit (a dead LED) takes out that section only — which explains exactly what you're seeing: half the string dark, half lit.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>LED fairy light repair is often more trouble than it's worth, but the diagnostic process is instructive. For a partially-dark string with sections, find the boundary between working and dead sections. Measure voltage at the first dark LED: if you have voltage on one side but not the other, that LED is open-circuit (failed), blocking the series chain. A cheap LED tester or the diode setting on your multimeter can identify the failed LED without desoldering. In practice, if the string is still under warranty or cheaply replaceable, recycling and replacing is often the honest recommendation.</p>
+      </div>
+
+      <h2>Series and parallel in real appliances</h2>
+
+      <p>Once you know to look for series and parallel structures, you'll find them everywhere.</p>
+
+      <h3>Heating elements in series</h3>
+
+      <p>Some appliances use two heating elements that can be switched between series and parallel to change power output. A simple two-power-level toaster or grill might wire both elements in series for a low-heat setting (each element gets ~115V, total power roughly a quarter of maximum) and in parallel for full power (each element gets 230V). The switch literally reconfigures the circuit topology. If you're testing such an appliance and it seems to heat less than expected on one setting, check whether the series/parallel switching mechanism is working correctly.</p>
+
+      <h3>Motors with series resistance</h3>
+
+      <p>Older appliances sometimes used a series resistor to reduce motor speed — lower voltage across the motor means lower speed. A food mixer with a "slow" setting might have a resistor inserted in series with the motor on that setting. The resistor wastes energy as heat (it's an inefficient method of speed control, but cheap to implement). If the slow setting suddenly runs at full speed, suspect an open-circuit resistor — the motor is now getting full voltage with nothing in series.</p>
+
+      <h3>Protection devices in series</h3>
+
+      <p>Every fuse, thermal cutoff, and switch in an appliance is wired in series with the load it protects. This is essential: the protecting device must carry the same current as the load — which means it sees the fault current when things go wrong. A fuse in parallel with the load would never blow, because it wouldn't carry the fault current. Always in series.</p>
+
+      <h2>Combining series and parallel: the practical picture</h2>
+
+      <p>Most real circuits are combinations. Consider a simple electric iron: the supply enters through a fuse (series), then through a thermostat (series), then branches: one branch to the main heating element, another branch to a small pilot light (parallel). Each branch draws its own current. The fuse and thermostat protect the whole circuit — they're in series with both branches combined.</p>
+
+      <p>When you trace a fault in a combined circuit, you first identify which part of the circuit the symptom points to. If the pilot light is on but the element isn't heating: the parallel branch to the element is open somewhere (the element, or a connection to it). If neither light nor heat: the fault is in the series section before the branch — the fuse, the thermostat, the power cable, the switch.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>A practical trick for sorting out which topology you're looking at: unplug the appliance, set your multimeter to continuity or low resistance, and measure from terminal to terminal on each component. Components in series will show a path through each other in sequence. Components in parallel will show a low-resistance path from either terminal to either terminal (because both ends are connected to the same two points). With the circuit unpowered, you can safely trace the topology before you ever plug it in.</p>
+      </div>
+
+      <h2>Short circuits as parallel paths</h2>
+
+      <p>A short circuit is, technically, a very low-resistance path that appears in parallel with the intended load. When insulation fails and a live conductor touches neutral, there's suddenly a near-zero-resistance path from 230V to 0V, in parallel with everything else in the circuit. The current that flows through this path is enormous (V ÷ R, where R is very small) — far more than the fuse or breaker is rated for. The protection device trips.</p>
+
+      <p>This is why a short circuit is different from an open circuit: open circuits produce silence, nothing works, no current flows. Short circuits produce noise, sparks, blown fuses, and tripped breakers — because enormous current is briefly flowing through the wrong path.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>The key insight is that in a parallel circuit, adding more paths reduces total resistance. A short circuit is the extreme case: a zero-resistance path dominates the parallel combination completely, bringing total resistance to near zero regardless of what else is in parallel with it. This is Ohm's law in action: I = V/R, and as R approaches zero, I approaches infinity. In practice, real circuits have some resistance in their wiring and source impedance that limits the current, but it can still reach hundreds or thousands of amperes in the milliseconds before the protection trips.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>The LED fairy lights end up being a group-series design — one section of six LEDs has a failed unit. You note the section and hand the string back with an honest assessment of repairability. The owner decides it's not worth it, and the string goes in the recycling box. That's a fair outcome: you've understood the fault and can explain it. The fan with the burning smell has been sitting at the next table for the last twenty minutes, and it's time to take a look at what's heating up inside it.</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">You open a travel kettle and find two identical heating elements. On the low-power setting they're in series; on high power, in parallel. If each element has a resistance of 80 ohms, what is the total resistance and current draw at 230V on each setting?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p><strong>Series:</strong> Total resistance = 80 + 80 = 160 ohms. Current = 230 ÷ 160 = 1.44A. Power = 230 × 1.44 ≈ 330W.</p>
+            <p><strong>Parallel:</strong> Total resistance = 1 ÷ (1/80 + 1/80) = 40 ohms. Current = 230 ÷ 40 = 5.75A. Power = 230 × 5.75 ≈ 1322W — roughly four times higher. This illustrates why parallel wiring is used for full power: the same elements, rewired in parallel, produce four times the power output.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A food mixer has a low-speed setting that uses a series resistor to reduce motor voltage. The resistor is rated 30 ohms. On the low setting, the motor runs at full speed and the series resistor is warm. What's the most likely fault?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The series resistor is still in circuit and still getting warm — so it hasn't failed open. If it had failed open, no current would flow and the motor would stop entirely on that setting. The motor running at full speed despite the resistor being present suggests the speed-selector switch is bypassing the resistor, connecting the motor directly to full supply voltage. The switch contact that's supposed to route current through the resistor on the low setting is probably shorted or welded closed. Check the selector switch continuity — it's not properly inserting the resistance into the circuit.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">An electric iron has both a heating element and a pilot light. The pilot light works normally, but the element doesn't heat. Where in the circuit is the fault most likely to be?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The pilot light and heating element are in parallel with each other — they share the same supply points. The pilot light working confirms that: (a) the supply is getting to the junction point where they branch, and (b) the common series elements (fuse, power cable, switch) are all intact. The fault must therefore be in the branch containing the heating element only — most likely the element itself (open circuit), a thermostat in series with the element but not the pilot light, or a break in the wiring to the element. The pilot light is acting as a useful diagnostic indicator: it's telling you the problem is downstream of the branch point.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why is it essential that fuses and thermal cutoffs are wired in series with the load they protect, rather than in parallel?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>A protection device works by interrupting current flow when that current exceeds a safe level. For the device to sense the current, it must carry that current — which means it must be in series with the load. In a series connection, the same current flows through both the protection device and the load. If the load draws too much current (fault condition), the fuse or thermal cutoff also carries that current and trips or blows, cutting power to the load. In parallel, the protection device would see only the small fraction of current that flows through it — essentially none, since the low-resistance load path takes almost all the current. It would never operate on a fault, providing no protection at all.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-02.html" class="nav-prev">Chapter 2: What a Circuit Actually Is</a>
+        <a href="chapter-04.html" class="nav-next">Chapter 4: Power and Heat</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

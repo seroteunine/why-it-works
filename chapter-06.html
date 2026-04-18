@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 6: The Multimeter — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 6 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 6</p>
+        <h1>The Multimeter</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>Mid-morning. A two-slot toaster goes on the table. The owner says one side heats fine, but the other barely gets warm — bread comes out pale and soft while the other slot browns perfectly. You set the toaster aside and reach for the multimeter. A newer volunteer watches you pick it up and turn the dial. "How do you know which setting to use?" It's a fair question. The multimeter can do several different things, and choosing the wrong one gives you either nothing useful or a dangerous situation. Let's go through what it can actually do.</p>
+      </div>
+
+      <h2>The instrument and its parts</h2>
+
+      <p>A typical digital multimeter has three or four input sockets, a rotary dial to select measurement function and range, and a display. The probes — one red (positive), one black (negative, or common) — connect the meter to the circuit.</p>
+
+      <p><strong>Input sockets</strong> — most meters have three: COM (black probe, always), V/Ω (red probe for voltage and resistance), and a high-current socket (often labelled 10A or 20A, red probe for current above the mA range). Some meters add a fourth socket for milliamps (200mA or 400mA). Getting the probe in the wrong socket is one of the most common — and occasionally dangerous — mistakes.</p>
+
+      <p><strong>The dial</strong> — selects the function (voltage, current, resistance, continuity, etc.) and sometimes the range. Auto-ranging meters select the appropriate range automatically; manual meters require you to choose. When in doubt with a manual meter, start at the highest range and work down.</p>
+
+      <h2>Measuring voltage</h2>
+
+      <p>Voltage measurement is the most-used function for mains appliance diagnosis. The meter is connected <strong>in parallel</strong> with the component being tested — one probe on each side.</p>
+
+      <p>Select AC voltage (V~) for mains measurements. Select DC voltage (V—) for battery-powered circuits, power supply outputs, and anything downstream of a rectifier. Using AC on DC (or vice versa) will give wrong readings or no reading at all.</p>
+
+      <p>What you're looking for:</p>
+      <ul>
+        <li><strong>Across the supply terminals</strong> (live to neutral at the socket): should read ~230V AC</li>
+        <li><strong>Across a component that should be conducting</strong>: should read close to 0V (if it's a wire, switch in the on position, or intact fuse)</li>
+        <li><strong>Across a component that's in the open position</strong>: should read the full supply voltage (the voltage "drops" across the open gap)</li>
+        <li><strong>Across the load</strong>: should read close to the supply voltage</li>
+      </ul>
+
+      <p>The voltage-drop technique is powerful: in a series circuit, all the supply voltage drops somewhere. If the load has less than the full supply voltage across it, voltage is dropping somewhere it shouldn't be — at a bad connection, a failing switch, a partially open thermal fuse.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>When measuring mains voltage, use insulated probes with minimal exposed metal. Make sure the probes are fully inserted in the COM and V/Ω sockets — not the current socket. Hold the probes by the insulated grip, never by the metal shaft. Position one probe, note where your other hand is (don't let it touch anything grounded), then position the second probe. Working on live circuits should be the exception, not the routine — only do it when you specifically need a voltage reading, and only on circuits you understand.</p>
+      </div>
+
+      <h2>Measuring resistance and continuity</h2>
+
+      <p>Resistance and continuity measurements require the circuit to be <strong>completely unpowered</strong>. This is not optional. A live circuit will give false readings and may damage the meter or injure you.</p>
+
+      <p>For resistance (Ω): select the appropriate range, and touch the probes to both ends of the component or conductor under test. The meter sends a small current through the component and measures the resulting voltage drop — calculating resistance from Ohm's law internally. Most digital meters read OL (overload/open) when there's no conducting path, and display the resistance in ohms when there is.</p>
+
+      <p>For continuity (the diode symbol or buzzer symbol): the meter beeps when resistance is below a threshold — typically a few tens of ohms. This is a faster way of checking "is this path intact?" without reading a specific value. Very useful for checking cable continuity, fuses, and switch contacts.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Continuity mode is fast and useful, but it has a trap: it tests at low current. A wire with several broken strands might still pass continuity if one or two strands remain intact — but under full load current, the remaining strands overheat and fail (or have enough resistance to cause problems). For cables, supplement continuity with a resistance check: a few meters of good copper flex should read well under 1 ohm. A reading of a few ohms in a short cable suggests partial damage. Also remember: the continuity check goes through the whole circuit from probe to probe. If your meter beeps when measuring resistance through an unpowered appliance, it means there's a path through the whole circuit — not just through the component you're holding the probes on.</p>
+      </div>
+
+      <h2>Measuring current</h2>
+
+      <p>Current measurement is the most operationally awkward — the meter must be inserted <strong>in series</strong> with the circuit, which means breaking the circuit to insert it. You're measuring the current flowing through the meter itself.</p>
+
+      <p>Steps: select the appropriate range (use the high-current socket if you expect more than 400mA), break the circuit at a convenient point, insert the meter's probes in series. The measured current flows through an internal shunt resistor, and the voltage across it tells the meter the current. The meter's resistance in current mode is very low — milliohms — so it doesn't significantly affect the circuit.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>The most dangerous mistake with a multimeter is connecting it in current mode (probes in the current socket) and then trying to measure voltage — touching both probes across a mains supply. In current mode, the meter's input is near a short circuit. Measuring 230V across a near-short produces an enormous current surge that instantly blows the meter's internal fuse (if you're lucky) or destroys the meter in a flash and a bang (if the fuse is of insufficient breaking capacity). Always double-check which socket the red probe is in before measuring voltage. This sounds like a beginner mistake, but experienced people do it too — usually when they're tired or distracted.</p>
+      </div>
+
+      <h2>The diode test function</h2>
+
+      <p>Many meters have a dedicated diode test mode (marked with a diode symbol ▶|). In this mode, the meter applies a small forward voltage and reads the voltage drop across the diode. A good silicon diode reads about 0.5–0.7V in the forward direction and OL in reverse. This lets you quickly check diodes for open circuit (OL both ways — failed open) or short circuit (near 0V both ways — failed shorted).</p>
+
+      <h2>Practical diagnostic tests</h2>
+
+      <h3>Checking a fuse</h3>
+      <p>Set to continuity mode. Touch one probe to each end of the fuse. A working fuse should beep (close to zero resistance — it's just a piece of wire). OL means the fuse element has melted — blown. This test works whether the fuse is in or out of the circuit, but if in-circuit, ensure the circuit is unpowered and that there's no parallel path that would give a false continuity reading.</p>
+
+      <h3>Checking a heating element</h3>
+      <p>Unplug the appliance. Disconnect at least one end of the element to remove it from any parallel paths in the circuit. Set to resistance mode. Touch probes to the element terminals. A good element reads a specific resistance (as calculated from its wattage rating). OL means open circuit — failed. Near zero means shorted — also failed, less common.</p>
+
+      <h3>Checking a switch</h3>
+      <p>Unplug. Set to continuity mode. Measure across the switch terminals with the switch open: should read OL. Measure with the switch closed: should beep. A switch that reads OL in both positions is stuck open. A switch that beeps in both positions (or reads near zero with the switch open) is stuck closed — a safety concern.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Back to the toaster. One slot doesn't heat properly. Open the toaster (unplug it first). Each slot has its own set of heating elements — typically two or three nichrome wire elements per slot. With continuity mode, check each element in the cold slot individually. You'll likely find one reading OL — open circuit. The remaining elements are working, which is why the slot isn't completely dead, just underpowered. In a toaster, individual element wires are often impossible to replace without specialist parts, but the diagnostic process is exactly the same as for any other resistive load.</p>
+      </div>
+
+      <h2>Auto-ranging vs manual ranging</h2>
+
+      <p>Auto-ranging meters select the appropriate measurement range automatically. They're slower to settle (they go through a brief selection cycle when you connect the probes) but much harder to damage by selecting the wrong range. Manual-ranging meters display a reading immediately but require you to select the right range: too high a range and the display shows something like "0.00" without useful precision; too low a range and it reads OL even for normal values (not dangerous, just uninformative).</p>
+
+      <p>For a beginners' bench, auto-ranging is strongly preferred. For experienced use, manual can be faster because you know what range to expect.</p>
+
+      <h2>CAT ratings and meter safety</h2>
+
+      <p>Meters are classified by their overvoltage protection capability, using a system called CAT (Category) ratings:</p>
+
+      <ul>
+        <li><strong>CAT I</strong>: electronic equipment, low energy (not for mains use)</li>
+        <li><strong>CAT II</strong>: single-phase mains — wall sockets, portable appliances</li>
+        <li><strong>CAT III</strong>: three-phase distribution, fixed building wiring, load centres</li>
+        <li><strong>CAT IV</strong>: origin of installation, electricity meters, overhead lines</li>
+      </ul>
+
+      <p>For repair cafe work — household appliances plugged into wall sockets — CAT II is the minimum, and CAT III is better. A higher category means the meter can withstand larger voltage transients without failing dangerously.</p>
+
+      <p>The voltage rating (e.g. "CAT II 600V") also matters. For 230V mains work, CAT II 600V is the standard minimum. Cheaper meters sometimes claim CAT ratings that aren't backed by genuine internal protection. Buy from reputable brands (Fluke, Brymen, UNI-T, CATIII-rated Meterk etc.) rather than the cheapest option available.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>The CAT rating specifically addresses transient overvoltages — brief voltage spikes that can occur on mains circuits due to switching inductive loads (motors, solenoids) or lightning-coupled disturbances. These spikes can reach thousands of volts for microseconds, even on a 230V circuit. A properly-rated meter can absorb such a spike safely (through internal protection components) without catastrophic failure. An under-rated meter may fail in a way that presents a safety hazard to the user. This is why the cheap €8 multimeter is a false economy for mains work — not because it gives bad readings in normal use, but because its failure mode under a transient can be dangerous.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>The toaster gets a diagnosis: one element open in the right slot. The owner decides against repair (no spare elements available), and the toaster goes in the parts/recycling box. A vacuum cleaner that arrived an hour ago has been waiting patiently on the floor beside the table. "It just stopped working," the owner says — which is what everyone says. You pick it up, feel that it's unusually light for its size, and check the bag. It's so full it's solid. That tells you something already.</p>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">You measure voltage across a thermal fuse in a live circuit (with the appliance plugged in and switched on) and read 230V. What does this tell you about the fuse?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The thermal fuse is open circuit (blown). In a series circuit, when a component is open — not conducting — the full supply voltage appears across it. Think of it like this: on one side of the open fuse, the live voltage is present; on the other side, the neutral is present through the rest of the intact circuit. There's 230V across the gap. If the fuse were intact and conducting, there would be (nearly) zero voltage drop across it — you'd read close to 0V. A 230V reading across a fuse is a clear diagnosis: blown fuse. Now you need to find out why it blew before just replacing it.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A colleague puts the red probe in the 10A current socket and then measures the voltage across a wall socket. What happens?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>In current mode, the meter's input is very low resistance (near a short circuit). Connecting it across 230V AC essentially creates a short circuit across the mains. The resulting current is limited only by the meter's internal resistance and the source impedance of the mains — potentially hundreds or thousands of amperes for a brief moment. This will almost certainly blow the meter's high-current fuse immediately (if it has one and it's properly rated). If the fuse can't clear the fault quickly enough, the current surge can damage or destroy the meter — possibly with a flash, a bang, and flying debris. This is a real safety incident. If the fuse clears quickly, the person is probably unhurt but the meter is damaged. This is exactly why CAT ratings and proper meter fuses matter.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">You test a switch in an unplugged appliance using continuity mode. With the switch in the off position you get a beep. With the switch in the on position you also get a beep. What does this mean?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The switch is stuck closed (or shorted). Its contacts are conducting in both the on and off positions — it's no longer able to open the circuit. This means the switch cannot turn the appliance off. This is a safety fault: if the switch is on the live side (as it should be), the appliance's internal components are permanently connected to live through the switch, regardless of the switch position. An appliance with this fault should not be returned to service until the switch is replaced. Also worth checking: could there be a parallel path in the circuit giving a false reading? Rule that out by disconnecting one terminal of the switch before testing.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why must the circuit be unpowered when measuring resistance, but powered when measuring voltage?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Resistance measurement works by injecting a small known current from the meter's internal battery and measuring the resulting voltage drop. If the circuit is powered, the external voltage overwhelms the meter's internal test signal, making the reading meaningless — and the external voltage may damage the meter's resistance measurement circuitry (which is designed for low voltages only). Voltage measurement, conversely, requires the circuit to be at its operating voltage — you're measuring what the external circuit is producing. The meter's voltage input is designed for the expected range and is high-impedance, so it draws almost no current from the circuit under test. These two modes work in fundamentally different ways, which is why the power rules are opposite.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-05.html" class="nav-prev">Chapter 5: AC vs DC</a>
+        <a href="chapter-07.html" class="nav-next">Chapter 7: Switches and Fuses</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference Appendix — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Reference Appendix</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="intro-label">Appendix</p>
+        <h1>Quick Reference</h1>
+      </header>
+
+      <p>This appendix collects the practical reference material from across the book. Print it out, laminate it, keep it at your station.</p>
+
+      <!-- ============================================================ -->
+      <h2>Multimeter quick reference</h2>
+
+      <table class="appendix-table">
+        <thead>
+          <tr>
+            <th>What you're measuring</th>
+            <th>Dial setting</th>
+            <th>Probes</th>
+            <th>Circuit state</th>
+            <th>What you're looking for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mains voltage (socket)</td>
+            <td>VAC / V~</td>
+            <td>V/Ω + COM; probes in parallel</td>
+            <td>Live (plugged in)</td>
+            <td>~230V. Significantly less = supply problem.</td>
+          </tr>
+          <tr>
+            <td>DC voltage (PSU output, battery)</td>
+            <td>VDC / V—</td>
+            <td>V/Ω + COM; probes in parallel</td>
+            <td>Live</td>
+            <td>Expected rated voltage ± 10%</td>
+          </tr>
+          <tr>
+            <td>Fuse continuity</td>
+            <td>Continuity (buzzer)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered</td>
+            <td>Beep = intact. OL/silence = blown.</td>
+          </tr>
+          <tr>
+            <td>Heating element resistance</td>
+            <td>Ω (resistance)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered, element isolated</td>
+            <td>~V²/W ohms. OL = open. Near 0 = shorted.</td>
+          </tr>
+          <tr>
+            <td>Switch operation</td>
+            <td>Continuity (buzzer)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered</td>
+            <td>OFF → OL; ON → beep. Any other result = suspect.</td>
+          </tr>
+          <tr>
+            <td>Cable continuity</td>
+            <td>Continuity (buzzer)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered</td>
+            <td>Beep = intact. OL = broken conductor.</td>
+          </tr>
+          <tr>
+            <td>Motor winding resistance</td>
+            <td>Ω</td>
+            <td>V/Ω + COM; isolated</td>
+            <td>Unpowered</td>
+            <td>Model-specific. OL = open winding. Near 0 = shorted.</td>
+          </tr>
+          <tr>
+            <td>Winding-to-frame insulation</td>
+            <td>Ω (highest range)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered, motor isolated</td>
+            <td>Should read OL (>1 MΩ). Any low reading = insulation fault.</td>
+          </tr>
+          <tr>
+            <td>Capacitance</td>
+            <td>F or µF (cap function)</td>
+            <td>V/Ω + COM; discharged cap</td>
+            <td>Unpowered, discharged</td>
+            <td>Within ±20% of rated value. Lower = degraded.</td>
+          </tr>
+          <tr>
+            <td>Diode check</td>
+            <td>Diode (▶|)</td>
+            <td>V/Ω + COM</td>
+            <td>Unpowered, isolated</td>
+            <td>Forward: 0.5–0.7V. Reverse: OL. Other = failed.</td>
+          </tr>
+          <tr>
+            <td>Current draw</td>
+            <td>A or mA</td>
+            <td>A socket + COM; probes in series</td>
+            <td>Live, circuit broken to insert meter</td>
+            <td>Compare to P/V from appliance's watt rating.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p><strong>Always double-check probe sockets before measuring voltage.</strong> Red probe in V/Ω, never in A or mA socket. Never measure resistance or continuity on a live circuit. Discharge capacitors before testing. Use a CAT II 600V or better rated meter for mains work.</p>
+      </div>
+
+      <!-- ============================================================ -->
+      <h2>Key formulas</h2>
+
+      <table class="appendix-table">
+        <thead>
+          <tr>
+            <th>Formula</th>
+            <th>What it means</th>
+            <th>Practical use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>V = I × R</strong></td>
+            <td>Ohm's law: voltage = current × resistance</td>
+            <td>Calculate expected current (I = V/R) or resistance (R = V/I)</td>
+          </tr>
+          <tr>
+            <td><strong>P = V × I</strong></td>
+            <td>Power = voltage × current</td>
+            <td>Find expected current from watt rating: I = P/V</td>
+          </tr>
+          <tr>
+            <td><strong>P = V² ÷ R</strong></td>
+            <td>Power from voltage and resistance</td>
+            <td>Calculate expected resistance: R = V²/P</td>
+          </tr>
+          <tr>
+            <td><strong>P = I² × R</strong></td>
+            <td>Power (heat) from current and resistance</td>
+            <td>Understand heat in cables: doubles current = 4× heat</td>
+          </tr>
+          <tr>
+            <td><strong>V<sub>peak</sub> = V<sub>RMS</sub> × √2</strong></td>
+            <td>Peak voltage from RMS (AC mains)</td>
+            <td>230V RMS → 325V peak. Component ratings must exceed peak.</td>
+          </tr>
+          <tr>
+            <td><strong>R<sub>total</sub> = R₁ + R₂</strong></td>
+            <td>Series resistance</td>
+            <td>Total resistance increases with each added series element</td>
+          </tr>
+          <tr>
+            <td><strong>1/R<sub>total</sub> = 1/R₁ + 1/R₂</strong></td>
+            <td>Parallel resistance</td>
+            <td>Total resistance decreases; always lower than smallest branch</td>
+          </tr>
+          <tr>
+            <td><strong>τ = R × C</strong></td>
+            <td>RC time constant</td>
+            <td>Capacitor discharge time; 5τ ≈ fully discharged</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <h2>Common component symbols (IEC)</h2>
+
+      <div class="symbol-grid">
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="15" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <rect x="15" y="10" width="30" height="20" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="45" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Resistor (IEC)</span>
+          <span class="symbol-desc">Fixed resistance</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="20" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="20" y1="8" x2="20" y2="32" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="27" y1="12" x2="27" y2="28" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="27" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Capacitor</span>
+          <span class="symbol-desc">Non-polarised</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="20" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="20" y1="8" x2="20" y2="32" stroke="#1c1c1a" stroke-width="2"/>
+            <path d="M27 12 Q32 20 27 28" fill="none" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="27" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <text x="22" y="36" font-size="8" fill="#1c1c1a" font-family="sans-serif">+</text>
+          </svg>
+          <span class="symbol-name">Electrolytic cap</span>
+          <span class="symbol-desc">Polarised; + plate flat</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="18" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="18" y1="14" x2="30" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <circle cx="18" cy="20" r="2.5" fill="#1c1c1a"/>
+            <line x1="42" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <circle cx="42" cy="20" r="2.5" fill="#1c1c1a"/>
+          </svg>
+          <span class="symbol-name">Switch (SPST)</span>
+          <span class="symbol-desc">Single pole, single throw</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="15" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <rect x="15" y="14" width="30" height="12" rx="6" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="24" y1="20" x2="36" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="45" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Fuse</span>
+          <span class="symbol-desc">Overcurrent protection</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <circle cx="30" cy="20" r="14" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <text x="26" y="25" font-size="12" fill="#1c1c1a" font-family="sans-serif" font-weight="bold">M</text>
+            <line x1="0" y1="20" x2="16" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="44" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Motor</span>
+          <span class="symbol-desc">AC or DC type</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="12" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="12" y1="20" x2="24" y2="10" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="24" y1="10" x2="24" y2="30" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="24" y1="10" x2="36" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="36" y1="20" x2="36" y2="20" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="36" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Diode</span>
+          <span class="symbol-desc">One-way current valve</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <circle cx="30" cy="20" r="14" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="22" y1="14" x2="38" y2="26" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="22" y1="26" x2="38" y2="14" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="0" y1="20" x2="16" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="44" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Lamp / bulb</span>
+          <span class="symbol-desc">Indicator or load</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="14" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <path d="M14 20 C14 11 22 11 22 20 C22 29 30 29 30 20 C30 11 38 11 38 20" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="38" y1="20" x2="46" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="46" y1="6" x2="46" y2="34" stroke="#1c1c1a" stroke-width="1.5"/>
+            <path d="M53 20 C53 11 61 11 61 20 C61 29 69 29 69 20 C69 11 77 11 77 20" fill="none" stroke="#1c1c1a" stroke-width="1.5" transform="translate(-10,0)"/>
+          </svg>
+          <span class="symbol-name">Transformer</span>
+          <span class="symbol-desc">Two coupled coils</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="30" y1="0" x2="30" y2="28" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="20" y1="28" x2="40" y2="28" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="23" y1="32" x2="37" y2="32" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="26" y1="36" x2="34" y2="36" stroke="#1c1c1a" stroke-width="1"/>
+          </svg>
+          <span class="symbol-name">Earth / Ground</span>
+          <span class="symbol-desc">Safety reference</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <line x1="0" y1="20" x2="12" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="12" y1="14" x2="12" y2="26" stroke="#1c1c1a" stroke-width="2"/>
+            <text x="20" y="24" font-size="9" fill="#1c1c1a" font-family="sans-serif">TCO</text>
+            <line x1="48" y1="14" x2="48" y2="26" stroke="#1c1c1a" stroke-width="2"/>
+            <line x1="48" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Thermal cutoff</span>
+          <span class="symbol-desc">One-shot protector</span>
+        </div>
+
+        <div class="symbol-item">
+          <svg width="60" height="40" viewBox="0 0 60 40">
+            <rect x="10" y="12" width="40" height="16" rx="3" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+            <text x="18" y="24" font-size="9" fill="#1c1c1a" font-family="sans-serif">NTC/PTC</text>
+            <line x1="0" y1="20" x2="10" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+            <line x1="50" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
+          </svg>
+          <span class="symbol-name">Thermistor</span>
+          <span class="symbol-desc">Temperature-sensitive R</span>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <h2>Typical appliance resistances (at 230V)</h2>
+
+      <table class="appendix-table">
+        <thead>
+          <tr>
+            <th>Appliance / element</th>
+            <th>Typical power</th>
+            <th>Expected resistance (R = V²/P)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kettle element</td>
+            <td>2000–2400W</td>
+            <td>22–26 Ω</td>
+            <td>OL = open element (most common fault)</td>
+          </tr>
+          <tr>
+            <td>Toaster element (per element)</td>
+            <td>300–500W per element</td>
+            <td>106–176 Ω</td>
+            <td>Multiple elements per slot; test each individually</td>
+          </tr>
+          <tr>
+            <td>Steam iron element</td>
+            <td>1600–2400W</td>
+            <td>22–33 Ω</td>
+            <td>Thermostat in series; must be isolated to test element alone</td>
+          </tr>
+          <tr>
+            <td>Fan heater element</td>
+            <td>1000–2000W</td>
+            <td>26–53 Ω</td>
+            <td>Thermal cutout usually in series</td>
+          </tr>
+          <tr>
+            <td>Vacuum cleaner motor</td>
+            <td>900–2200W</td>
+            <td>Universal motor; measure between brushes</td>
+            <td>2–10 Ω typical winding resistance (brush to brush)</td>
+          </tr>
+          <tr>
+            <td>Hand mixer motor</td>
+            <td>200–400W</td>
+            <td>Universal motor; varies widely</td>
+            <td>10–50 Ω typical between brushes</td>
+          </tr>
+          <tr>
+            <td>Coffee machine pump</td>
+            <td>30–60W</td>
+            <td>Induction pump; ~880–1760 Ω DC</td>
+            <td>Vibration pumps have very high winding resistance</td>
+          </tr>
+          <tr>
+            <td>Mains cable (per conductor)</td>
+            <td>—</td>
+            <td>&lt;0.5 Ω (good) / OL (broken)</td>
+            <td>More than 1 Ω in a short cable = damaged</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <h2>Fault-finding checklist</h2>
+
+      <h3>Before opening anything</h3>
+      <ul class="checklist">
+        <li><strong>Safety assessment:</strong> damaged cable? Liquid ingress? Burn marks? Class I earth intact?</li>
+        <li><strong>Get the story:</strong> sudden failure or gradual? Sound or smell at failure? Anything changed?</li>
+        <li><strong>Identify the class:</strong> Class I (metal case, earth wire) or Class II (plastic, double-insulated)?</li>
+        <li><strong>Check the socket:</strong> is the mains supply actually present and correct?</li>
+      </ul>
+
+      <h3>Completely dead appliance</h3>
+      <ul class="checklist">
+        <li><strong>External fuse</strong> (in plug or inline): continuity check</li>
+        <li><strong>Internal fuse</strong>: continuity check</li>
+        <li><strong>Main switch</strong>: continuity (closed position)</li>
+        <li><strong>Thermal cutoff (TCO)</strong>: continuity — OL means triggered, find root cause</li>
+        <li><strong>Resettable cutout</strong>: press reset button after full cooling</li>
+        <li><strong>Power supply output</strong> (if applicable): voltage correct?</li>
+        <li><strong>Load</strong>: resistance in expected range?</li>
+      </ul>
+
+      <h3>Partial failure (one function dead)</h3>
+      <ul class="checklist">
+        <li><strong>Identify which functions work:</strong> this tells you where the common supply chain is intact</li>
+        <li><strong>Identify the branch:</strong> trace from the branch point to the dead function</li>
+        <li><strong>Check series elements in that branch:</strong> sub-thermostat, sub-TCO, branch switch</li>
+        <li><strong>Check the load in that branch:</strong> resistance, continuity</li>
+        <li><strong>Check wiring to branch:</strong> cable continuity, connector integrity</li>
+      </ul>
+
+      <h3>Overheating</h3>
+      <ul class="checklist">
+        <li><strong>Check airflow:</strong> blocked intake, full bag, blocked filter</li>
+        <li><strong>Check thermostat operation:</strong> does it cycle? Does it trip at the right temperature?</li>
+        <li><strong>Check bearings:</strong> spin shaft by hand — free and smooth?</li>
+        <li><strong>Current draw:</strong> compare to rated P/V — higher than rated = extra heat somewhere</li>
+        <li><strong>Check for hotspots:</strong> feel (safely) for components hotter than the rest</li>
+      </ul>
+
+      <h3>Tripping circuit breaker / blowing fuse</h3>
+      <ul class="checklist">
+        <li><strong>Check resistance L-to-N</strong> with appliance unplugged and switch off: should not be near zero</li>
+        <li><strong>Isolate branches:</strong> disconnect loads one by one until resistance rises — last disconnected = fault location</li>
+        <li><strong>Check capacitors</strong> (if in primary circuit): short circuit?</li>
+        <li><strong>Check motor winding to case:</strong> insulation fault?</li>
+        <li><strong>Check switch position:</strong> tripping before switch is engaged = fault in always-live section</li>
+      </ul>
+
+      <h3>Before returning to owner</h3>
+      <ul class="checklist">
+        <li><strong>Earth continuity</strong> (Class I): check plug earth pin to chassis — should be &lt;1 Ω</li>
+        <li><strong>Cable integrity:</strong> no damage, correct strain relief at appliance and plug</li>
+        <li><strong>Correct fuse type and rating:</strong> matches original specification</li>
+        <li><strong>Functional test:</strong> run through full operating cycle</li>
+        <li><strong>No unusual heat, smell, or noise</strong> during functional test</li>
+        <li><strong>Note written:</strong> what fault was found and what was done</li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <h2>Dutch mains reference</h2>
+
+      <table class="appendix-table">
+        <thead>
+          <tr><th>Parameter</th><th>Value</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nominal mains voltage</td><td>230V RMS</td><td>Peak: ~325V</td></tr>
+          <tr><td>Frequency</td><td>50 Hz</td><td>Rectified ripple: 100 Hz</td></tr>
+          <tr><td>Plug type</td><td>Type F (Schuko)</td><td>Round 2-pin + side earth clips</td></tr>
+          <tr><td>Standard circuit breaker (socket)</td><td>16A</td><td>Max load: ~3680W per circuit</td></tr>
+          <tr><td>Standard circuit breaker (lighting)</td><td>10A or 16A</td><td>—</td></tr>
+          <tr><td>Earth colour</td><td>Yellow-green</td><td>Never use for anything else</td></tr>
+          <tr><td>Live colour</td><td>Brown</td><td>(Older wiring: red)</td></tr>
+          <tr><td>Neutral colour</td><td>Blue</td><td>(Older wiring: black)</td></tr>
+          <tr><td>RCD trip threshold</td><td>30 mA</td><td>Standard domestic RCD (aardlekschakelaar)</td></tr>
+          <tr><td>RCD trip time</td><td>&lt;30 ms</td><td>At rated trip current</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <h2>When to stop and refer</h2>
+
+      <table class="appendix-table">
+        <thead>
+          <tr><th>Situation</th><th>Reason to stop</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Microwave or CRT TV internals</td>
+            <td>Lethal stored voltage in capacitors; specialist procedures required</td>
+          </tr>
+          <tr>
+            <td>Gas-connected appliances</td>
+            <td>Gas safety is outside electrical repair scope</td>
+          </tr>
+          <tr>
+            <td>Fuse blowing repeatedly with no clear cause</td>
+            <td>Risk of fire if appliance returned without root cause resolved</td>
+          </tr>
+          <tr>
+            <td>Winding-to-case insulation fault in motor</td>
+            <td>Risk of electric shock from appliance casing</td>
+          </tr>
+          <tr>
+            <td>Damaged or absent earth on Class I appliance</td>
+            <td>Must be repaired before returning — latent lethal hazard</td>
+          </tr>
+          <tr>
+            <td>PCB-level fault requiring component-level diagnosis</td>
+            <td>Refer to someone with SMD soldering skills and test equipment</td>
+          </tr>
+          <tr>
+            <td>Safety-critical components (RCD, smoke detector, CO detector)</td>
+            <td>No margin for error; replace rather than repair</td>
+          </tr>
+          <tr>
+            <td>Repair cost approaching replacement cost</td>
+            <td>Honest assessment: sometimes recycling is the right answer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-12.html" class="nav-prev">Chapter 12: Systematic Fault Diagnosis</a>
+        <a href="index.html" class="nav-next">Back to cover</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
