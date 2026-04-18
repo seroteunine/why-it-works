@@ -368,6 +368,13 @@ li:last-child { margin-bottom: 0; }
   color: var(--color-text);
 }
 
+/* === Section Break === */
+.section-break {
+  margin: 2.5rem auto;
+  width: 3rem;
+  border-top: 2px solid var(--color-border);
+}
+
 /* === Chapter Closer === */
 .chapter-closer {
   margin-top: 2.5rem;
