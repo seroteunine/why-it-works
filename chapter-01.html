@@ -56,7 +56,9 @@
 
       <p>What this tells you in plain language: given a fixed voltage (like 230V from the mains), the current that flows depends on the resistance. A low-resistance path allows a lot of current. A high-resistance path restricts it. A break in the circuit — infinite resistance — allows no current at all.</p>
 
-      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine. If the resistance reads OL (over limit) on a digital meter — meaning the resistance is too high to measure, effectively infinite — the element has failed open-circuit.</p>
+      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
+
+      <p>If the resistance reads OL (over limit) on a digital meter — meaning the resistance is too high to measure, effectively infinite — the element has failed open-circuit.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
@@ -67,7 +69,7 @@
 
       <h2>Voltage as a difference</h2>
 
-      <p>One thing that confuses people early on: voltage isn't a property of a single point. It's always a difference between two points. When we say "the mains is 230V," we mean there's a 230-volt difference between the live wire and neutral. When we measure voltage across a component, we're measuring the difference between one side and the other.</p>
+      <p>Ohm's law treats voltage as a known number — 230V from the mains, say. But there's something important about what that number actually means. Voltage isn't a property of a single point. It's always a difference between two points. When we say "the mains is 230V," we mean there's a 230-volt difference between the live wire and neutral. When we measure voltage across a component, we're measuring the difference between one side and the other.</p>
 
       <p>This matters practically. If you measure the voltage between the live terminal of the kettle's heating element and neutral, you should read 230V. If you read 0V, it means there's no difference — either because there's no supply (a blown fuse, an open switch) or because both probes are at the same potential.</p>
 
@@ -93,23 +95,23 @@
 
       <h2>Resistance and where it comes from</h2>
 
-      <p>Not all resistance is the same, and understanding what creates resistance helps you predict how a circuit will behave.</p>
+      <p>So where does resistance actually come from? The answer matters for fault diagnosis — it explains why certain materials are used where they are, and how they fail when they do.</p>
 
       <p>At the atomic level, resistance comes from electrons colliding with the lattice of atoms as they travel through a material. Picture the inside of a metal as a tightly packed grid of atoms. Electrons move through the gaps — but they don't travel in a straight line. They bounce off atoms, change direction, lose energy. Each collision slows them down slightly and releases a tiny amount of energy as heat. This is why wires get warm under load.</p>
 
       <p>Different materials have very different atomic structures. In copper, the lattice is tightly ordered and uniform — electrons pass through with relatively few collisions, so resistance is low. In nichrome (the alloy used in most heating elements — a mix of nickel and chromium), the lattice is more disordered. Electrons collide far more often, and far more energy is released as heat per metre of wire. That's not a flaw — it's the design. The element converts electrical energy to heat deliberately, because of its high resistance.</p>
 
-      <p>Geometry also matters. Longer wire means more collisions, more resistance. Thinner wire means a narrower path, more congestion, more resistance. Doubling the length of a wire doubles its resistance; halving its cross-sectional area doubles it again. This is why the supply cables to high-power appliances (kettles, washing machines, ovens) are thick — to keep their resistance low, and therefore the heat generated in the cable itself to a minimum. The element is supposed to get hot. The cable is not.</p>
+      <p>Geometry also matters. Longer wire means more collisions, more resistance. Thinner wire means a narrower path, more congestion, more resistance. Doubling the length of a wire doubles its resistance; halving its cross-sectional area doubles it again. This is why the supply cables to high-power appliances (kettles, washing machines, ovens) are thick — to keep their resistance low, and therefore the heat generated in the cable itself to a minimum. The element is supposed to get hot. The cable is not. A cable that's warm to the touch under normal use is telling you something.</p>
 
       <h3>Temperature dependence</h3>
 
-      <p>Resistance isn't fixed — it changes with temperature. For most metals, resistance increases as the metal gets hotter. This is actually useful: a cold tungsten filament — tungsten is the metal used in traditional incandescent light bulbs, chosen because it can withstand extreme heat without melting — has a much lower resistance than a hot one. A cold motor winding has lower resistance than when it's been running for an hour.</p>
+      <p>Resistance isn't fixed — it changes with temperature. For most metals, resistance increases as the metal gets hotter. This matters in practice: a tungsten filament — the wire inside a traditional incandescent bulb — has a much lower resistance when cold than when glowing hot. A cold motor winding has lower resistance than when it's been running for an hour.</p>
 
       <p>This matters for testing. If you measure the resistance of a cold heating element and compare it to published specs, remember that the specs may be for room temperature. A reading that seems slightly high might be normal. What you're really looking for is whether it's in the right ballpark, or whether it's reading open circuit (broken) or near zero (shorted).</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>Kettle elements typically measure between 20 and 40 ohms cold (for a 2000–2500W element at 230V). A quick check: divide the supply voltage squared by the power rating. For a 2400W kettle: 230² ÷ 2400 ≈ 22 ohms. If you measure OL (over limit — resistance too high to measure, meaning the circuit is broken), the element has failed open-circuit. If you measure less than 5 ohms, suspect a partial short — a fault where part of the element's coil has made contact with itself, bypassing some of the resistance and allowing far more current than intended to flow.</p>
+        <p>Kettle elements typically measure between 20 and 40 ohms cold (for a 2000–2500W element at 230V). A quick check: divide the supply voltage squared by the power rating. For a 2400W kettle: 230² ÷ 2400 ≈ 22 ohms. If you measure OL (over limit — resistance too high to measure, meaning the circuit is broken), the element has failed open-circuit. If you measure less than 5 ohms, suspect a partial short — a fault where part of the element's coil has made contact with itself, bypassing some of the resistance and allowing far more current than intended to flow. Chapter 6 covers the multimeter in full, including how to use the resistance function and interpret what you read.</p>
       </div>
 
       <div class="section-break"></div>
