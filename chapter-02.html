@@ -32,7 +32,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>The kettle is sitting to one side — you've established it needs a new element, and the owner is deciding whether it's worth the part. Meanwhile, someone else sets down a small table lamp. The bulb is fine, they say — they've tested it in another lamp. You hold the lamp up, look at the cable near the base where it enters the body, and notice it's been pinched. Probably under a desk leg, long enough to damage what's inside. You already have a theory before you've plugged it in.</p>
+        <p>The kettle is sitting to one side — you've established it needs a new element, and the owner is deciding whether it's worth the part. Meanwhile, someone else sets down a small table lamp. "It just doesn't come on," they say. "The bulb is fine — I tested it in another lamp." You hold the lamp up, look at the cable near the base where it enters the body, and notice it's been pinched. Probably under a desk leg, long enough to damage what's inside. You already have a theory before you've plugged it in.</p>
       </div>
 
       <h2>Electricity must go in a circle</h2>
@@ -49,7 +49,7 @@
 
       <p><strong>Live (L)</strong> — brown wire. This is the conductor at voltage. The power station and transformer system maintain it at 230V relative to neutral. It's the "high pressure" side of the circuit.</p>
 
-      <p><strong>Neutral (N)</strong> — blue wire. This is the return path. At the substation, neutral is connected to earth — to the actual ground — so at your socket it's close to 0V. Current flows out through live and returns through neutral.</p>
+      <p><strong>Neutral (N)</strong> — blue wire. This is the return path. At the substation (the local transformer that steps down the distribution voltage to 230V for households), neutral is connected to earth — to the actual ground — so at your socket it's close to 0V. Current flows out through live and returns through neutral.</p>
 
       <p><strong>Earth (PE, yellow-green wire)</strong> — this is a safety conductor, not a current-carrying conductor under normal operation. It connects the metal casings of appliances to ground, so that if a fault causes the live wire to touch the casing, the fault current flows safely to earth and blows the fuse — rather than waiting for a person to touch the casing and complete the circuit through their body.</p>
 
@@ -70,7 +70,7 @@
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
-        <p>When you open a Class I appliance, always verify that the earth connection is intact before returning it. A broken earth wire doesn't affect normal operation — the appliance will seem to work fine — but it removes the safety protection. If the live wire later touches the case, the user gets the shock. It's one of the most dangerous invisible faults in appliance repair. Check the earth conductor at both ends: at the plug and at the appliance chassis.</p>
+        <p>When you open a Class I appliance, it's worth verifying that the earth connection is intact before returning it. A broken earth wire doesn't affect normal operation — the appliance will seem to work fine — but it removes the safety protection. If the live wire later touches the case, the user gets the shock. It's one of the most dangerous invisible faults in appliance repair. Check the earth conductor at both ends: at the plug and at the appliance chassis.</p>
       </div>
 
       <h2>Why the circuit must be complete</h2>
@@ -93,6 +93,8 @@
       <p>If a switch interrupts the neutral conductor instead, turning off the switch leaves the load still connected to live — at 230V — even though it's not doing anything. Not safe to touch. This is why switches must be wired on the live side of the circuit.</p>
 
       <p>In practice, European appliances are designed to do this correctly. But when you're repairing an older lamp or a modified appliance, it's worth checking — especially if the Schuko plug has been replaced or the cable extended. A simple continuity check from the switch terminal to the plug pin tells you which conductor the switch is interrupting.</p>
+
+      <p>You've just reasoned through something that trips up many beginners: why switch placement matters. The logic isn't arbitrary — it follows directly from knowing which conductor carries the dangerous voltage. Once you understand that, the correct wiring follows automatically.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
@@ -163,7 +165,7 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q3</span>
-            <span class="question-text">You measure continuity along the live wire of a lamp's flex. It reads a few ohms — not open circuit, but not the near-zero you'd expect from undamaged copper. What does this suggest?</span>
+            <span class="question-text">You measure continuity along the live wire of a lamp's flex (the flexible cable connecting the lamp body to the plug). It reads a few ohms — not open circuit, but not the near-zero you'd expect from undamaged copper. What does this suggest?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
@@ -179,6 +181,17 @@
           </div>
           <div class="question-answer">
             <p>The neutral conductor is connected to the actual earth ground at the substation — physically, to buried electrodes. Earth (actual ground) is the universal reference point: it's defined as 0V. By connecting neutral to this reference at the source, the distribution system ensures that neutral stays near 0V throughout the network. Live is held at 230V above this reference by the transformer. This is why, in normal operation, touching neutral is relatively safe (it's near ground potential) while touching live is dangerous (it's 230V above ground). Note: this is a simplification — in a loaded circuit, there can be small voltage on the neutral due to resistance and current, but at normal loads this is a few volts at most.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">You measure 2.8V across the neutral conductor of a running lamp's flex (40W bulb, 230V supply). The lamp works normally. What does this voltage reading tell you about the cable, and is there a risk?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The lamp draws roughly 40 ÷ 230 ≈ 0.17A. Using Ohm's law (V = I × R), the resistance of the neutral conductor must be 2.8 ÷ 0.17 ≈ 16.5 ohms — far too high for a good copper cable, which should read a fraction of an ohm. This indicates significant damage: many strands broken, severe corrosion, or a crushed section with almost no copper left. Despite the lamp working (enough current still flows to light the bulb), 16.5 ohms carrying 0.17A is dissipating I²R = 0.17² × 16.5 ≈ 0.5W in a very small area of damaged cable. With a higher-wattage bulb — or any load drawing more current — that heat rises with the square of the current. The cable needs immediate replacement. The neutral conductor reading "a few volts" when it should be near 0V is always a red flag.</p>
           </div>
         </div>
 

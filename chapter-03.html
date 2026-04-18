@@ -32,7 +32,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>A string of LED fairy lights arrives in a bag. It's a newer set — not the old incandescent kind — but the story is the same: half the string is dark, the other half is fine. The owner has already tried pressing the fuse caps on the controller. You plug it in, confirm the lit section, and reach for the multimeter. Before you test anything, you pause to think about how this string is actually wired. That's the thing about fairy lights — there are at least three completely different answers, depending on the design.</p>
+        <p>A string of LED fairy lights arrives in a bag. "Half the lights have gone out," the owner says. "The other half are fine." It's a newer set — not the old incandescent kind — but the story is the same. The owner has already tried pressing the fuse caps on the controller. You plug it in, confirm the lit section, and reach for the multimeter. Before you test anything, you pause to think about how this string is actually wired. That's the thing about fairy lights — there are at least three completely different answers, depending on the design.</p>
       </div>
 
       <h2>Two ways to connect things</h2>
@@ -83,6 +83,8 @@
       </ul>
 
       <p>Every wall socket in your house is in parallel with every other socket. The mains voltage — 230V — appears at all of them simultaneously. Plugging in more appliances adds more parallel branches and draws more current from the supply, but doesn't change the voltage available to any individual appliance.</p>
+
+      <p>What you've just described — voltage staying the same across all parallel branches — is Kirchhoff's Voltage Law in action. That's why you can plug in a kettle, a lamp, and a phone charger at the same time and each gets 230V regardless of the others.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
@@ -191,6 +193,18 @@
           </div>
           <div class="question-answer">
             <p>A protection device works by interrupting current flow when that current exceeds a safe level. For the device to sense the current, it must carry that current — which means it must be in series with the load. In a series connection, the same current flows through both the protection device and the load. If the load draws too much current (fault condition), the fuse or thermal cutoff also carries that current and trips or blows, cutting power to the load. In parallel, the protection device would see only the small fraction of current that flows through it — essentially none, since the low-resistance load path takes almost all the current. It would never operate on a fault, providing no protection at all.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A two-slot toaster wires both elements in each slot in series on the "gentle" setting and in parallel on "normal." One element in the right slot has failed open-circuit. What happens on each setting for that slot?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>On the gentle setting (series): both elements are in a single chain. One element being open-circuit breaks the chain entirely — no current flows through either element. The right slot is completely dead on the gentle setting.</p>
+            <p>On the normal setting (parallel): each element has its own independent path to the supply. The failed element's branch is open, so that element doesn't heat — but the working element's branch is intact and unaffected. The right slot still heats on normal, but at roughly half its rated power. This is why the fault shows up as "the bread comes out pale" rather than "nothing happens" — a partial failure that's easy to miss without understanding series vs parallel topology.</p>
           </div>
         </div>
 

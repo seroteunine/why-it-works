@@ -56,7 +56,7 @@
 
       <p>What this tells you in plain language: given a fixed voltage (like 230V from the mains), the current that flows depends on the resistance. A low-resistance path allows a lot of current. A high-resistance path restricts it. A break in the circuit — infinite resistance — allows no current at all.</p>
 
-      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
+      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically — a nickel-chromium alloy designed to resist and generate heat) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
 
       <p>If the resistance reads OL (over limit) on a digital meter — meaning the resistance is too high to measure, effectively infinite — the element has failed open-circuit.</p>
 
@@ -128,7 +128,7 @@
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
-        <p>Never probe an appliance while it's plugged in unless you're specifically and deliberately measuring voltage, you know what you're touching, and you're using a properly rated meter with insulated probes. The instinct to "just plug it in and see what happens" while you have probes touching the internals is how accidents happen. Mains voltage across your body is 230V — enough to cause ventricular fibrillation. When in doubt, unplug first.</p>
+        <p>Probing an appliance while it's plugged in is only appropriate when you're specifically measuring voltage, you know what you're touching, and you're using a properly rated meter with insulated probes. Mains voltage across your body is 230V — enough to cause ventricular fibrillation. When in doubt, unplug first and use resistance measurements to narrow down the fault before going anywhere near a live circuit.</p>
       </div>
 
       <h2>Putting it together</h2>
@@ -191,6 +191,17 @@
           </div>
           <div class="question-answer">
             <p>The same. In a series circuit, there is only one path for current — it has to flow through every component in sequence. Since charge is conserved (Kirchhoff's current law), the number of electrons per second passing through the fuse must equal the number passing through the switch and the element. This is why a fuse works: it's in series with the load, so all the current that powers the appliance also passes through the fuse. If the current exceeds the fuse rating, the fuse blows — protecting the entire circuit.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A kettle element measures 35 ohms on your meter at room temperature. The label on the kettle says 2000W at 230V. Should you condemn the element based on this reading?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>No — not without further thought. The expected resistance at operating temperature is V²/P = 230² ÷ 2000 = 26.5 ohms. But nichrome's resistance increases with temperature: an element that reads 26.5 ohms when glowing hot will read higher when cold. 35 ohms cold is a plausible reading for an element whose hot resistance is ~26 ohms, and the workbench guideline (20–40 ohms cold for a 2000–2500W element) puts this squarely in the normal range. What would condemn it: OL (open circuit — the element wire has broken) or near zero ohms (shorted turns). A cold reading that's somewhat above the calculated hot resistance is expected, not a fault. This is the kind of reasoning that prevents unnecessary part replacements.</p>
           </div>
         </div>
 

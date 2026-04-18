@@ -50,7 +50,7 @@
 
       <p>A capacitor stores electrical energy in an electric field. The simplest form is two conducting plates separated by an insulating material (the dielectric). When voltage is applied, positive charge accumulates on one plate and negative charge on the other. The electric field between the plates stores the energy.</p>
 
-      <p>The amount of charge stored for a given voltage is the capacitance, measured in farads (F). One farad is a huge capacitance — you'll mostly see:</p>
+      <p>The amount of charge stored for a given voltage is the capacitance, measured in farads (F). One farad is a huge capacitance — you'll mostly see:
       <ul>
         <li>Microfarads (µF): millionths of a farad. Electrolytic capacitors in power supplies: 100–10,000 µF. Motor run capacitors: 1–100 µF.</li>
         <li>Nanofarads (nF): billionths of a farad. Film capacitors, many ceramic capacitors.</li>
@@ -58,6 +58,8 @@
       </ul>
 
       <p>The energy stored in a charged capacitor is E = ½CV², where C is capacitance and V is voltage. For the microwave capacitor: ½ × 1×10⁻⁶ × 2100² ≈ 2.2 joules. That's not a huge amount of energy by industrial standards, but it's delivered so rapidly (essentially instantaneously) that the peak current is enormous — enough to cause cardiac arrest or severe burns.</p>
+
+      <p>What you've just understood — that it's not the total stored energy but the speed of delivery that determines the danger — is why capacitor safety is treated so seriously. 2.2 joules released over an hour is barely noticeable. 2.2 joules released in a microsecond is a potentially lethal current spike. Energy ÷ time = power, and at microsecond timescales, even modest stored energy becomes enormous instantaneous power.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
@@ -88,10 +90,7 @@
       <p>As discussed in Chapter 9, single-phase induction motors need a capacitor to create a phase-shifted current in the start winding, generating startup torque. The capacitor shifts the current phase by approximately 90°, creating an artificial two-phase supply from single-phase AC. Without it, the motor hums but won't start from rest.</p>
 
       <h3>Interference suppression (X and Y capacitors)</h3>
-      <p>SMPS and some appliances include capacitors across the mains (X capacitors, rated for connection directly across live and neutral) and between live/neutral and earth (Y capacitors). These suppress high-frequency interference — both preventing the appliance from emitting RF noise and preventing external noise from entering. X capacitors are rated "X1" or "X2" to indicate their safety class for mains application. Y capacitors are similarly classified. These are not the same as ordinary film capacitors and must be replaced only with components of the correct safety class.</p>
-
-      <h3>Timing</h3>
-      <p>A capacitor charging through a resistor (RC circuit) produces a voltage that rises exponentially toward the supply voltage. The time constant τ = RC determines how fast. This is used in timer circuits — the classic 555 timer IC, for example, controls its timing using an external RC network. In appliances, you'll find RC timers in microwave timing circuits, delay circuits, and older analogue controls.</p>
+      <p>SMPS and some appliances include capacitors directly across the mains supply (X capacitors) or between supply and earth (Y capacitors) to suppress high-frequency interference. These have specific safety ratings (X1, X2, Y1, Y2) and must be replaced only with identically rated parts — they're not interchangeable with ordinary film capacitors.</p>
 
       <h2>Testing capacitors</h2>
 
@@ -133,11 +132,11 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q1</span>
-            <span class="question-text">You find an electrolytic capacitor on a PCB with its top slightly domed — not dramatically split, just not quite flat. The capacitance reads within 10% of the rated value. Should you replace it?</span>
+            <span class="question-text">You're replacing a failed component on a PCB and notice a nearby electrolytic capacitor: flat top, reads 980µF against a rated 1000µF, runs in a 12V circuit well below its 25V rating. Should you replace it while you have the soldering iron out?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Yes, replace it. A domed top on an electrolytic capacitor indicates that the internal pressure has risen — the electrolyte has begun to degrade and gas is being produced. Even if the capacitance still reads approximately correct, the ESR is almost certainly elevated, and the capacitor will continue to degrade. The fact that it reads close to its capacitance value is not a reassurance — high ESR is the critical failure mode and isn't captured by a simple capacitance measurement. A capacitor that has vented gas is definitively at or past end of life. Replace it now, before it fails completely. Note: when removing a venting electrolytic, do so in a ventilated space and avoid contact with any leaking electrolyte, which is a mild acid.</p>
+            <p>Probably not. This capacitor shows no evidence of failure — flat top (no venting), within 2% of rated capacitance, and running comfortably within its voltage rating. The temptation to "replace it while you're in there" sounds cautious, but it has a real downside: every solder joint you make on an ageing PCB is a potential new failure point. Pads can lift, thermal stress can crack nearby traces, and a working capacitor that you disturb may be less reliable than one that was left alone. Reserve replacement for capacitors that have clear symptoms: domed or vented top, measurably low capacitance, or high ESR with a circuit that's misbehaving. Replacing components without evidence of failure is parts-swapping, not repair.</p>
           </div>
         </div>
 
@@ -171,6 +170,17 @@
           </div>
           <div class="question-answer">
             <p>Two fundamental reasons: (1) Polarity: electrolytic capacitors are polarised — they can only be connected one way. In an AC circuit, the voltage across the capacitor reverses every half-cycle (50 times per second). Connecting a polarised electrolytic to an AC circuit subjects it to reverse polarity on alternate half-cycles, which rapidly destroys the electrolytic layer and causes failure, often violently. Film capacitors are non-polarised and handle reversing voltage safely. (2) Continuous duty rating: a motor run capacitor must handle continuous AC operation — it's being charged and discharged at 50Hz continuously during motor operation. The voltage rating for film capacitors in AC service must account for the peak AC voltage (VAC rating × √2 for peak). Electrolytics are not designed for continuous AC stress. Film capacitors designed for motor duty are rated in VAC (not VDC) specifically because they're designed for this continuous alternating stress.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A motor run capacitor is marked "12µF 450V AC." The only replacement in your stock drawer is marked "12µF 250V DC." The capacitance matches. Can you use it?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>No — for two separate reasons. First, the voltage rating: a motor run capacitor in a 230V AC circuit sees the peak AC voltage, which is 230 × √2 ≈ 325V. The 450V AC original was rated well above this. The replacement's 250V DC rating is lower than the 325V peak the circuit will actually produce — it would be overstressed on every cycle and could fail quickly. Second, the type: a "DC" voltage rating almost certainly means an electrolytic (polarised) capacitor. As covered in Q4, an electrolytic capacitor in an AC motor circuit will reverse-charge on alternate half-cycles and fail rapidly, possibly violently. A motor run capacitor must be a film type rated in VAC for continuous alternating operation. The right replacement is 12µF, film type, rated 400V or 450V AC — the same capacitance value, but completely different construction and voltage class.</p>
           </div>
         </div>
 

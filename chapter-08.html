@@ -57,6 +57,8 @@
 
       <p>In a steam iron, the thermostat is a bimetal disc or strip pressed against the sole plate. As the sole plate heats, the bimetal heats and eventually trips — cutting power to the element. As the sole plate cools slightly, the bimetal springs back and the element switches on again. The iron cycles: heat on, thermostat trips, heat off, thermostat resets, and so on. The temperature at which this cycling happens is set by the position of the thermostat control cam — which is what the dial is connected to.</p>
 
+      <p>What you've just described — a bimetal strip bending and unbending to cycle a heater on and off — is the working principle behind thermostats in every iron, hair dryer, and space heater you'll encounter. Bimetal means predictable; predictable means calibratable; calibratable means this is a repairable fault.</p>
+
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
         <p>The iron on the table has a thermostat that's running hot — all settings overshoot by about 20°C. The most common cause is physical drift in the bimetal calibration (bimetal strips can lose their calibration with age and thermal cycling) or, more often, that the adjustment cam has moved. On many irons, there's a small adjustment screw accessible through the bottom of the unit that repositions the calibration. If the thermostat contacts are pitted or corroded, they may also arc and weld slightly — causing the thermostat to close before it should. Cleaning the contacts with fine abrasive (contact cleaner, then fine emery) can help. If the bimetal itself is physically deformed, the thermostat needs replacement.</p>
@@ -142,7 +144,7 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q2</span>
-            <span class="question-text">You measure a component labelled "PTC" in series with a motor. At room temperature it reads 8 ohms. When you warm it between your fingers, it reads 12 ohms, then 200 ohms, then OL. Is this normal behaviour for a PTC?</span>
+            <span class="question-text">You measure a component labelled "PTC" in series with a motor. At room temperature it reads 8 ohms. When you warm it between your fingers, it reads 12 ohms, then 200 ohms, then OL (over limit — resistance too high for the meter to measure). Is this normal behaviour for a PTC?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
@@ -169,6 +171,17 @@
           </div>
           <div class="question-answer">
             <p>The key practical differences are: (1) Reset behaviour: a thermostat automatically resets as it cools and is part of the appliance's normal operation; a TCO is a one-shot device that must be physically replaced once triggered. (2) Function: a thermostat controls temperature by cycling — it's supposed to open and close repeatedly during use; a TCO is a last-resort limit device that should never trip during normal operation. (3) Diagnosis: a thermostat that has tripped in a cooled appliance will close again and the appliance will work — suggesting either normal operation or intermittent overtemperature. A TCO that has tripped will read open circuit continuously regardless of temperature, and the appliance will remain dead until the TCO is replaced. (4) Replacement: replacing a TCO with one of the wrong trip temperature removes the safety protection it was designed to provide.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">An iron's thermostat has drifted so that it now trips at 165°C instead of its design trip point of 150°C. All settings are affected equally. What temperatures will the sole plate actually reach on the "linen" setting (normally 130–150°C), and why does this explain the scorch marks the owner reported?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>With the thermostat tripping 15°C high, the iron heats to 165°C before cutting off. It cools by about the same amount (10–15°C) before the thermostat resets. So instead of cycling between 140°C and 150°C on the linen setting, the iron cycles between approximately 150°C and 165°C. That's 15°C above the designed range. Linen can begin to scorch at around 150°C with prolonged contact, and with the iron now reaching 165°C, scorch marks are the predictable result. This is exactly the pattern the owner described: all settings run too hot, with the damage most visible on delicate fabrics at the lower settings where the margin for error is smallest. Adjusting the thermostat cam to restore the correct trip temperature is the fix — not replacing the heating element or any other part.</p>
           </div>
         </div>
 

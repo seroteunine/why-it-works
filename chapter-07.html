@@ -34,7 +34,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>The vacuum cleaner bag is so full it's turned to a solid brick. You empty it, clear the hose and filter, and reassemble. You plug it in — and nothing. No hum, no attempt to start, nothing. The motor isn't even trying. You press the power switch a few times. Still nothing. With an overfull bag, the machine may have been running hot for a while — some vacuums have thermal protection that trips when they overheat. But on this model, there's also a small glass fuse visible inside the machine. You reach for the multimeter.</p>
+        <p>The vacuum cleaner bag is so full it's turned to a solid brick. "It just stopped working," the owner said when it arrived — which is what everyone says. You empty the bag, clear the hose and filter, and reassemble. You plug it in — and nothing. No hum, no attempt to start, nothing. The motor isn't even trying. You press the power switch a few times. Still nothing. With an overfull bag, the machine may have been running hot for a while — some vacuums have thermal protection that trips when they overheat. But on this model, there's also a small glass fuse visible inside the machine. You reach for the multimeter.</p>
       </div>
 
       <h2>What switches actually do</h2>
@@ -72,6 +72,8 @@
       </ul>
 
       <p>The fuse doesn't know what's causing the overcurrent — motor stall, short circuit, wiring fault, component failure. It simply responds to the current. Its job is to protect the wiring and reduce fire risk before damage spreads.</p>
+
+      <p>You've just understood why a protection device has to carry the current it's protecting against — and therefore why it must always be in series. Once that logic is clear, the placement of every fuse, thermal cutoff, and circuit breaker you'll encounter makes immediate sense.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
@@ -134,11 +136,11 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q1</span>
-            <span class="question-text">You open an appliance and find a 2A fuse has been replaced with a 5A fuse. The original fuse holder is rated for up to 6.3A, so the 5A physically fits. Is this acceptable?</span>
+            <span class="question-text">An appliance specifies a T2A fuse (time-lag, 2A). Your stock only has F2A fuses (fast-blow, same 2A rating). The appliance contains a motor. Does the type matter, and what would happen if you fitted the F2A?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>No. The fuse rating must match the design requirement of the circuit, not just the physical form factor. The original 2A fuse was chosen because the connected load requires at most a certain current, and the wiring and components are only rated to safely carry somewhat more than that. A 5A fuse allows 2.5 times more current before clearing — which may be more than the cable, components, or appliance body can safely handle. In a fault condition, the 5A fuse may allow the connected wiring to overheat and become a fire risk before the fuse blows. Always replace with the original rating (and type). If the 2A fuse keeps blowing, find out why — it may be an underlying fault, or it may be the wrong type (F where T is needed).</p>
+            <p>Yes, the type matters significantly. Motor circuits draw several times their running current for a fraction of a second on startup. A 2A motor might draw 8–10A briefly before the rotor gets up to speed. A T2A (time-lag) fuse is designed to absorb this short energy pulse without blowing, then protect against sustained overcurrent. An F2A (fast-blow) fuse at the same current rating will blow on the startup transient every time the appliance is switched on — even though nothing is wrong. The result: an appliance that seems unrepairable because it keeps blowing fuses, when the real problem is just the wrong fuse type. The current rating (2A) and the fuse type (T vs F) are separate specifications and both must match the original.</p>
           </div>
         </div>
 
@@ -172,6 +174,17 @@
           </div>
           <div class="question-answer">
             <p>Motors draw much more current when starting than when running. An AC induction motor or universal motor can draw 3–8 times its running current for the first fraction of a second to second of startup, as it accelerates the rotor from rest against inertia. This startup current is brief and normal — it stops once the motor is up to speed. A fast-blow fuse rated for the running current would see this transient and blow, even though nothing is actually wrong. The time-lag (T) fuse has a thermal element that absorbs the brief energy pulse of startup current without melting, but will still blow on a sustained overcurrent (like a stalled motor or a winding fault). This is exactly the time-current characteristic needed for motor protection.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A vacuum cleaner keeps blowing its 3.15A T-rated fuse after a few minutes of running — but not on startup. The bag is empty, hose clear, filter clean. What does this pattern tell you, and where would you look?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The fuse surviving startup rules out a startup-current problem. Blowing after a few minutes of running means the motor is drawing an overcurrent that builds up over time — not a sudden short circuit. The T-rating absorbs brief transients but not sustained overcurrent, which is exactly what this is. The most likely cause: worn bearings that tighten as the motor heats up, forcing the motor to work harder and draw progressively more current. Alternatively, a winding that develops a partial short as it warms up — electrical resistance drops as copper heats in some failure modes, increasing current. Check the bearings by spinning the shaft when cold: should spin freely with no grinding or wobble. If the bearings feel fine, measure winding resistance both cold and after a few minutes of running (unplugged immediately when the fuse blows). A significant change in resistance with temperature points to a winding fault.</p>
           </div>
         </div>
 

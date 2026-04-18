@@ -46,11 +46,6 @@
 
       <p>You don't need to be able to do the vector maths to understand motors at the repair table. The key insight is that <strong>the torque (rotational force) a motor produces is proportional to the current it carries</strong>. More current, more torque. A motor that's struggling against a mechanical load draws more current. A motor with a stalled rotor draws maximum current — limited only by the winding resistance.</p>
 
-      <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>The Lorentz force on a current-carrying conductor in a magnetic field is F = BIL, where B is the magnetic field strength, I is the current, and L is the length of conductor. For a motor, torque τ = BIANR, where A is the coil area, N is the number of turns, and R is some geometric factor. The practical implication is that stronger magnets, more copper, and higher current all increase torque. Permanent magnet DC motors (common in small appliances) use fixed permanent magnets for B and vary I to control torque and speed. Universal motors use electromagnet field coils, allowing greater flexibility but requiring more components.</p>
-      </div>
-
       <h2>Brushed DC motors</h2>
 
       <p>The simplest type you'll encounter is the brushed DC motor. It has:</p>
@@ -61,9 +56,11 @@
 
       <p><strong>The commutator</strong>: a segmented copper cylinder on the rotor shaft. As the rotor turns, different segments of the commutator come into contact with the brushes, switching the current direction in the rotor coils at the right moments to maintain continuous rotation in the same direction.</p>
 
-      <p><strong>The brushes</strong>: blocks of carbon (or carbon-copper composite) that press against the commutator under spring pressure, carrying current from the stationary electrical circuit to the rotating commutator.</p>
+      <p><strong>The brushes</strong>: blocks of carbon (or carbon-copper composite) that press against the commutator under spring pressure, carrying current from the stationary electrical circuit to the rotating commutator. In the grinder on your table, these are the parts you can already see through the vent grille — the blackened commutator and the almost-flush brush that told you immediately what was wrong.</p>
 
       <p>The commutator + brushes system is mechanically clever but electrically imperfect. Every time a brush crosses from one commutator segment to another, there's a brief moment of electrical discontinuity, and a small arc. Over time, this arcing erodes both the brush (which is deliberately made of softer material and designed to wear sacrificially) and the commutator surface.</p>
+
+      <p>What you've just understood — that the brushes are designed to wear so the more expensive commutator wears less — is the key insight for motor repair. Worn brushes are not a failure; they're a service interval. The question at the bench is simply whether the wear is within the service window or past it.</p>
 
       <h2>Universal motors</h2>
 
@@ -89,9 +86,7 @@
       <p>Induction motors are simpler mechanically, longer-lived, and quieter than universal motors. Their drawback on single-phase AC (like household supply) is that they don't self-start — a rotating magnetic field doesn't naturally form from single-phase AC. A phase-shifting capacitor is used to create an artificial phase difference, giving the motor enough of a push to start rotating on its own.</p>
 
       <h3>The start capacitor</h3>
-      <p>The capacitor in a capacitor-start or capacitor-run induction motor creates a phase-shifted current in a second winding, giving the motor a starting torque. In a capacitor-start motor, this capacitor is only in circuit during startup (an automatic switch disconnects it once the motor reaches speed). In a capacitor-run motor, the capacitor stays in circuit permanently, improving running efficiency.</p>
-
-      <p>A failed start capacitor is one of the most common single-phase induction motor faults. Symptom: the motor hums but doesn't start. It may start if you give the shaft a spin with your fingers (carefully, with the power off, then switch on while you let go). That finger-spin confirms the problem is with starting torque — the motor can run, but can't generate enough torque to start from rest unassisted.</p>
+      <p>A phase-shifting capacitor creates a shifted current in a second winding, giving the motor enough of a push to start from rest. Without it, the motor hums but won't rotate. A failed capacitor is one of the most common induction motor faults — and it's usually confirmed by giving the shaft a brief spin by hand (power off), then applying power. If the motor runs once started, the capacitor is the likely culprit.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
@@ -171,6 +166,17 @@
           </div>
           <div class="question-answer">
             <p>Lamp dimmers (TRIAC-based phase-cut dimmers) work by chopping the AC waveform — they switch on partway through each half-cycle, reducing the RMS voltage delivered to the load. For a simple resistive load (incandescent bulb), this works fine. But universal motors are highly inductive loads, and they respond to the distorted, phase-cut waveform very poorly: the sudden switching creates large voltage spikes that can damage motor windings and the dimmer itself; the waveform distortion causes commutator arcing; and the torque characteristic of a universal motor under a phase-cut supply is poor — the motor may run roughly, stall at low settings, or produce excessive interference. Proper universal motor speed controllers use different circuitry (often with the motor's back-EMF as feedback) that properly manages the inductive load. Never use a lamp dimmer on a motor load.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A universal motor runs fine with no load attached, but stalls when engaged against even a light mechanical load. Brushes are new, commutator is clean, winding resistance is normal. What else might cause poor torque under load?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>With healthy brushes, a clean commutator, and normal winding resistance, the rotor circuit seems fine. Torque in a universal motor depends on both rotor current and the stator magnetic field (F = BIL). If the stator field coils are partially open or shorted, the magnetic field is weaker than designed — the motor can run unloaded because that requires little torque, but under any load the reduced field means reduced torque, and the motor stalls. Test the stator (field coil) resistance separately — it should be similar to or higher than the rotor resistance, and notably different from a dead short or open circuit. Also worth checking: a mechanical obstruction in the load path itself (seized bearings in the driven mechanism, not the motor), or a speed-control circuit that's reducing the voltage reaching the motor. Not every "motor fault" is inside the motor.</p>
           </div>
         </div>
 

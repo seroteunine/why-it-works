@@ -91,6 +91,8 @@
 
       <p>In practice, the "divide" is often logical rather than geometric: test the mains supply chain (fuse → switch → thermal protection) first, since these affect everything. Then test each parallel branch individually. Within a branch, test from the supply end toward the load end.</p>
 
+      <p>What you've just described — narrowing the fault location by testing at logical midpoints — is the same method experienced repairers use on every job. Not because they memorise a checklist, but because they've internalised the question: where in this circuit would a fault explain this symptom? When that question becomes automatic, the sequence follows naturally.</p>
+
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
         <p>For a completely dead appliance (no lights, no sound, no movement), the diagnostic path is almost always: fuse → main switch → thermal protection device → power supply (if applicable) → load. These four stops cover the vast majority of "dead" faults. For an appliance with partial failure (one function dead, others working), start at the branch point — what's common to the working functions? Work backwards from there. For intermittent faults (works sometimes, not others), the path is harder: flex and wiggle cables while testing continuity, look for dry solder joints, test for thermally-dependent faults by letting the appliance warm up and then cool down while monitoring the symptom.</p>
@@ -210,6 +212,17 @@
           </div>
           <div class="question-answer">
             <p>It depends on whether you've understood why the fuse blew. A fuse doesn't blow from old age — it blows because it saw excessive current. If you replaced the fuse and it stayed intact during testing (a few minutes of normal operation), you haven't proven the fault is resolved — you've only confirmed the fault isn't occurring right now. Before returning it, you should have: checked the element and thermal protection for any abnormality that could have caused the fuse to blow; confirmed the fuse was the correct rating (not an over-rated replacement someone fitted previously); and confirmed the appliance runs normally through a full cycle. If all checks are clear and the fault doesn't recur in testing, return it with an honest explanation: "We replaced the fuse and everything tested normal, but if the fuse blows again, bring it back — it might mean there's another fault we haven't found yet." This is honest, helpful, and sets appropriate expectations.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">You've replaced a broken heating element in an electric blanket (Class I, 3-core cable). It heats correctly in testing. What specific checks must you complete before returning it, and why does this appliance warrant extra caution beyond a standard kettle repair?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Specific checks: (1) Earth continuity — measure from the earth pin on the plug to the appliance chassis/element outer sheath. A Class I appliance with a broken earth must not be returned, and for a blanket, the user may be lying on it. (2) Inspect the full cable length for pinching, kinking, or any damage — blanket cables flex constantly in use and are a common failure point beyond the element itself. (3) Confirm the thermostat cycles correctly at the right temperatures — a blanket thermostat that runs high causes burns, not just spoiled fabric. (4) Confirm the TCO (if present) is intact and correctly rated. The extra caution is warranted because an electric blanket operates in direct contact with the body for hours while the user is asleep and unable to respond to overheating. A missed fault that would be merely inconvenient in a kettle — a slightly high temperature, a degraded connection — can cause burns or worse in a blanket. The stakes of incomplete checking are higher than in most appliances on the repair cafe table.</p>
           </div>
         </div>
 

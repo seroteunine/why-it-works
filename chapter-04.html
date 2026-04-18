@@ -60,9 +60,11 @@
 
       <p>The formula P = I²R explains something critical: heat in a conductor scales with the <em>square</em> of the current. Double the current, produce four times the heat. This is why undersized cables are dangerous: they have more resistance per unit length than they should, and at high current they dissipate more heat than they can safely shed. The insulation melts, the cable becomes a fire hazard.</p>
 
+      <p>What you've just understood — that heat scales with current squared, not linearly — is why electrical faults can escalate so quickly. A cable running at 80% of its rated current is fine. The same cable suddenly carrying double its rated current produces four times the heat. That's why overcurrent protection needs to act fast.</p>
+
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
-        <p>An appliance that feels unusually hot at the cable or plug — not at the appliance body, but at the cable or plug — is usually a sign of a high-resistance connection: a loose terminal, a damaged conductor, or a cable that's too thin for the current it's carrying. High-resistance connections can cause localised overheating that may be invisible until the cable insulation has already been damaged. This is a fire risk. Don't return an appliance with a hot cable to service. Inspect the cable end-to-end, the plug terminals, and the strain relief at the appliance entry.</p>
+        <p>An appliance that feels unusually hot at the cable or plug — not at the appliance body, but at the cable or plug — is worth treating as a fire risk. It usually means a high-resistance connection: a loose terminal, a damaged conductor, or a cable that's too thin for the current it's carrying. This kind of overheating can be invisible until the cable insulation has already been damaged. Inspect the cable end-to-end, the plug terminals, and the strain relief at the appliance entry before returning it to service.</p>
       </div>
 
       <h2>Reading watt ratings</h2>
@@ -166,6 +168,17 @@
           </div>
           <div class="question-answer">
             <p>Because current appears squared in the formula. If current is I, power (heat) is I² × R. If current doubles to 2I, power is (2I)² × R = 4I² × R — four times the original. This squared relationship has important practical consequences: a cable running at 80% of its rated current is well within safe limits. The same cable suddenly carrying double its rated current (after a fault) produces four times the heat — which may exceed what the insulation can tolerate within seconds. This is why overcurrent protection needs to act quickly under fault conditions, not just eventually.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A 2000W electric heater is connected via a 10-metre extension cable. The cable is rated for 6A and has a total resistance of 1.2 ohms. Calculate the actual current, the power wasted in the cable, and explain why this is a safety concern.</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The heater draws I = P ÷ V = 2000 ÷ 230 ≈ 8.7A. This is already 45% above the cable's 6A rating — a problem before we even calculate the heat. Power wasted in cable: P = I² × R = 8.7² × 1.2 ≈ 75.7 × 1.2 ≈ 91W. That's 91 watts being dissipated across 10 metres of cable — enough to make it noticeably warm along its full length. Voltage drop across the cable: V = I × R = 8.7 × 1.2 ≈ 10.4V, meaning the heater only receives about 219V. The safety concern: the cable is carrying (8.7/6)² ≈ 2.1× more heat than it was designed for. The insulation can degrade or melt, especially if the cable is coiled up (which traps the heat). A 2000W heater should be plugged directly into a wall socket, not run through an undersized extension cable.</p>
           </div>
         </div>
 

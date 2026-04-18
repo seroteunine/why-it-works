@@ -61,6 +61,8 @@
 
       <p>The voltage-drop technique is powerful: in a series circuit, all the supply voltage drops somewhere. If the load has less than the full supply voltage across it, voltage is dropping somewhere it shouldn't be — at a bad connection, a failing switch, a partially open thermal fuse.</p>
 
+      <p>What you've just learned — measuring voltage drops to find hidden resistance — is one of the most reliable diagnostic techniques at the bench. It finds faults that continuity testing misses, because it tests under real load conditions rather than the meter's small internal current.</p>
+
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
         <p>When measuring mains voltage, use insulated probes with minimal exposed metal. Make sure the probes are fully inserted in the COM and V/Ω sockets — not the current socket. Hold the probes by the insulated grip, never by the metal shaft. Position one probe, note where your other hand is (don't let it touch anything grounded), then position the second probe. Working on live circuits should be the exception, not the routine — only do it when you specifically need a voltage reading, and only on circuits you understand.</p>
@@ -184,6 +186,17 @@
           </div>
           <div class="question-answer">
             <p>Resistance measurement works by injecting a small known current from the meter's internal battery and measuring the resulting voltage drop. If the circuit is powered, the external voltage overwhelms the meter's internal test signal, making the reading meaningless — and the external voltage may damage the meter's resistance measurement circuitry (which is designed for low voltages only). Voltage measurement, conversely, requires the circuit to be at its operating voltage — you're measuring what the external circuit is producing. The meter's voltage input is designed for the expected range and is high-impedance, so it draws almost no current from the circuit under test. These two modes work in fundamentally different ways, which is why the power rules are opposite.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">You're tracing a fault in a live series circuit: fuse → switch (on) → heating element. You measure 230V before the fuse, 230V after the fuse, 0V after the switch. What is the fault, and what measurement would confirm it?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>230V is present after the fuse (fuse intact), but drops to 0V after the switch — meaning the switch is not conducting despite being in the "on" position. The switch is open-circuit: its contacts have either failed to make, or the switch mechanism has broken internally while appearing to be switched on. To confirm: unplug the appliance and measure resistance across the switch terminals with the switch set to on. A working switch in the on position should read near zero ohms (or beep in continuity mode). A reading of OL (open circuit) with the switch on confirms the fault. This is also why 230V would appear across the switch in the live circuit — in a series path, full supply voltage drops across any open component.</p>
           </div>
         </div>
 
