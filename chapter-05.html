@@ -36,6 +36,15 @@
         <p>The laptop charger goes on the table — a black plastic brick about the size of two decks of cards, with a cable from each end. "It stopped charging my laptop a few days ago," the owner says. She picks it up and squeezes it slightly. "It's warm. Is that normal?" You tell her it usually is, slightly. But the real question is whether it's charging. You plug it in with a meter in line. No output voltage at all. The cable from the brick to the laptop looks undamaged. The cable from the wall to the brick is fine. Something inside has failed. Before you open it — or decide not to — it helps to understand what's actually going on inside that little box.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand the difference between AC and DC in terms that help with repair.</li>
+          <li>Know why 230V mains has a peak of about 325V even though the meter reads 230V.</li>
+          <li>Recognise the main stages inside a simple power supply.</li>
+        </ul>
+      </div>
+
       <h2>Direct current</h2>
 
       <p>Direct current, DC, is what batteries produce. The voltage is steady. Current flows in one direction, continuously. A AA cell is 1.5V DC. A USB power supply is 5V DC. The 12V in a car electrical system is DC from a battery (or from the alternator, but regulated to steady DC).</p>
@@ -60,11 +69,11 @@
 
       <div class="formula">V<sub>peak</sub> = V<sub>RMS</sub> × √2 &nbsp;&nbsp;&nbsp; ≈ &nbsp;&nbsp;&nbsp; 230 × 1.414 ≈ 325V</div>
 
-      <p>So the mains voltage is actually swinging between +325V and −325V. This matters for the design of capacitors and other components that must tolerate the peak voltage, not just the RMS. A capacitor on a mains circuit must be rated for at least 400V (with some margin above 325V) even though the "mains voltage" is 230V.</p>
+      <p>So the mains voltage is actually swinging between +325V and −325V. This matters for the design of capacitors and other components that must tolerate the peak voltage, not just the RMS. On mains circuits, voltage rating alone is not enough: components connected directly across line and neutral must also have the correct safety class for that job, such as an X-rated suppression capacitor.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>When you set your multimeter to AC voltage and measure the mains, you'll read approximately 230V — that's the RMS value. If you were to connect an oscilloscope (or a peak-hold function) you'd see the full 325V peak. This distinction matters when you're testing circuit components. A capacitor marked 250V is not suitable for use directly across the mains — it would see 325V peaks and likely fail. Always use components rated for the peak voltage, not just the RMS.</p>
+        <p>When you set your multimeter to AC voltage and measure the mains, you'll read approximately 230V — that's the RMS value. If you were to connect an oscilloscope (or a peak-hold function) you'd see the full 325V peak. This distinction matters when you're testing circuit components. A capacitor marked only 250V is not suitable for direct use across the mains. For across-the-mains service you need the correct safety-rated part — typically an X2 capacitor of the specified capacitance and voltage class — not just "something with a big enough number on it."</p>
       </div>
 
       <h2>Why we use AC for mains power</h2>
@@ -117,6 +126,16 @@
         <p>The charger is opened. A visual inspection reveals a cracked solder joint at the input connector — probably from the fall. The joint is reflowed, the case is reassembled, and the output voltage checks correctly. The owner gets their charger back. You've now seen both sides of the AC/DC divide — the raw mains and the clean regulated output that most devices actually run on. Next up: the tool that lets you look at voltages and currents directly.</p>
       </div>
 
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>230V mains is an RMS value; the sine wave peaks at about 325V.</li>
+          <li>Most power supplies follow the same broad path: rectify, filter, regulate.</li>
+          <li>Primary-side power-supply work can involve dangerous stored DC even after unplugging.</li>
+          <li>Across-the-mains capacitors must be replaced with the correct safety-rated type, not just a similar capacitance.</li>
+        </ul>
+      </div>
+
       <section class="chapter-questions">
         <h2>Check your understanding</h2>
 
@@ -127,7 +146,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>No, it is not. 230V AC is the RMS value. The peak voltage is 230 × √2 ≈ 325V. A capacitor across the mains must tolerate the peak voltage, not the RMS. A 250V-rated capacitor would be regularly stressed to 325V — 30% above its rating — and would likely fail, possibly catastrophically. The correct rating for a component used directly on a 230V mains circuit is typically 400V or 630V (standard capacitor voltage ratings with adequate margin above 325V). If you find a 250V capacitor in a primary-side position in a mains power supply, it's either a circuit design error or a wrong-value replacement — neither is acceptable.</p>
+            <p>No, not if it is connected directly across the mains. 230V AC is the RMS value; the peak is about 325V. A part marked only 250V would be overstressed. More importantly, mains-connected capacitors need the correct safety class as well as a suitable voltage rating. Across line and neutral that usually means an X-rated capacitor, such as X2, with the specified capacitance. If you find a 250V-only capacitor in that position, treat it as suspect until the circuit and part specification prove otherwise.</p>
           </div>
         </div>
 

@@ -37,11 +37,20 @@
         <p>The vacuum cleaner bag is so full it's turned to a solid brick. "It just stopped working," the owner said when it arrived — which is what everyone says. You empty the bag, clear the hose and filter, and reassemble. You plug it in — and nothing. No hum, no attempt to start, nothing. The motor isn't even trying. You press the power switch a few times. Still nothing. With an overfull bag, the machine may have been running hot for a while — some vacuums have thermal protection that trips when they overheat. But on this model, there's also a small glass fuse visible inside the machine. You reach for the multimeter.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand what switches and fuses actually do in a mains appliance.</li>
+          <li>Recognise why fuse type matters just as much as fuse current rating.</li>
+          <li>Use a blown fuse as a clue without mistaking it for the root cause.</li>
+        </ul>
+      </div>
+
       <h2>What switches actually do</h2>
 
       <p>A switch is mechanically simple but electrically precise: it creates or destroys a conducting path. In the on position, the switch's contacts touch — low resistance, current flows. In the off position, the contacts separate — infinite resistance, current cannot flow.</p>
 
-      <p>The key rule from Chapter 2 bears repeating: <strong>switches must be wired on the live conductor</strong>. When the switch is open, the load is left connected only to neutral — near 0V — rather than remaining at mains potential. This is what makes it safe to handle the appliance when it's switched off.</p>
+      <p>The key rule from Chapter 2 bears repeating: <strong>switches should interrupt the intended live conductor, or both conductors in a double-pole design</strong>. That reduces the chance of leaving the load sitting at mains potential when "off." In Schuko systems, because plug orientation is reversible, good appliance safety should not depend on plug orientation alone.</p>
 
       <h3>Types of switches in appliances</h3>
 
@@ -113,7 +122,7 @@
 
       <h2>Circuit breakers</h2>
 
-      <p>Circuit breakers serve the same protective function as fuses but are resettable. The domestic MCB (Miniature Circuit Breaker) in your consumer unit uses two mechanisms:</p>
+      <p>Circuit breakers serve the same protective function as fuses but are resettable. The domestic MCB (Miniature Circuit Breaker) in the groepenkast uses two mechanisms:</p>
 
       <p><strong>Thermal trip</strong>: a bimetal strip carries the load current. When current is sustained above the rated value, the strip heats and bends, eventually tripping the breaker. This takes seconds to minutes depending on how much above rating the current is. It mimics the behaviour of a time-lag fuse.</p>
 
@@ -128,6 +137,16 @@
 
       <div class="chapter-closer">
         <p>The vacuum's motor checks out within normal range. A new fuse fitted, and the machine runs. The owner is reminded to empty the bag before it reaches capacity. You make a note on the ticket: thermal stress suspected — check motor carefully at next service. The steam iron that's been on the side table is next. Someone said the temperature control seems off — it's scorching cotton at a linen setting. That's a thermostat problem, and thermostats are the next thing to understand.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>A switch opens or closes a current path; a fuse sacrifices itself to stop overcurrent.</li>
+          <li>Same amperage is not enough: fast and time-lag fuses are not interchangeable.</li>
+          <li>A blown fuse is evidence that something abnormal happened.</li>
+          <li>Replacing a fuse without understanding why it blew is diagnosis, not repair.</li>
+        </ul>
       </div>
 
       <section class="chapter-questions">
@@ -184,7 +203,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>The fuse surviving startup rules out a startup-current problem. Blowing after a few minutes of running means the motor is drawing an overcurrent that builds up over time — not a sudden short circuit. The T-rating absorbs brief transients but not sustained overcurrent, which is exactly what this is. The most likely cause: worn bearings that tighten as the motor heats up, forcing the motor to work harder and draw progressively more current. Alternatively, a winding that develops a partial short as it warms up — electrical resistance drops as copper heats in some failure modes, increasing current. Check the bearings by spinning the shaft when cold: should spin freely with no grinding or wobble. If the bearings feel fine, measure winding resistance both cold and after a few minutes of running (unplugged immediately when the fuse blows). A significant change in resistance with temperature points to a winding fault.</p>
+            <p>The fuse surviving startup rules out a startup-current problem. Blowing after a few minutes of running means the motor is drawing an overcurrent that builds up over time — not a sudden short circuit. The T-rating absorbs brief transients but not sustained overcurrent, which is exactly what this is. The most likely cause: worn bearings that tighten as the motor heats up, forcing the motor to work harder and draw progressively more current. Alternatively, insulation in the winding may be failing as the motor heats, creating leakage or partial shorts between turns. Check the bearings by spinning the shaft when cold: should spin freely with no grinding or wobble. If the bearings feel fine, compare winding resistance cold and hot, and inspect for insulation damage or overheating signs. A large change or abnormal imbalance points to a winding fault.</p>
           </div>
         </div>
 

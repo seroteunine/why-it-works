@@ -35,6 +35,15 @@
         <p>A string of LED fairy lights arrives in a bag. "Half the lights have gone out," the owner says. "The other half are fine." It's a newer set — not the old incandescent kind — but the story is the same. The owner has already tried pressing the fuse caps on the controller. You plug it in, confirm the lit section, and reach for the multimeter. Before you test anything, you pause to think about how this string is actually wired. That's the thing about fairy lights — there are at least three completely different answers, depending on the design.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Tell the difference between series and parallel connections from symptoms and wiring.</li>
+          <li>Predict what happens to voltage and current when a branch opens or shorts.</li>
+          <li>Apply that picture to real appliances with multiple functions or loads.</li>
+        </ul>
+      </div>
+
       <h2>Two ways to connect things</h2>
 
       <p>Everything in a circuit is connected in one of two fundamental ways: in <strong>series</strong> (one after another, sharing the same current) or in <strong>parallel</strong> (side by side, sharing the same voltage). Most real circuits use both, in combination. Understanding the difference is one of the core skills of fault diagnosis, because series and parallel circuits fail in completely different ways.</p>
@@ -89,6 +98,155 @@
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
         <p>Parallel resistances share the same voltage but split the current. The formula for combining two parallel resistances is 1/R_total = 1/R₁ + 1/R₂. This is why adding more parallel paths always reduces total resistance — you're giving current more routes to take. In the extreme case (adding a zero-resistance short circuit in parallel with anything), the total resistance drops to zero. This is exactly what a short-circuit fault does: it provides a near-zero-resistance path in parallel with the intended load, bypassing it and drawing enormous current from the supply.</p>
+      </div>
+
+      <div class="circuit-demo">
+        <div class="circuit-demo-header">
+          <span class="circuit-demo-label">Try it</span>
+          <span class="circuit-demo-hint">Click any bulb to break it — see how each circuit responds</span>
+          <button class="circuit-reset-btn" id="circuit-reset">Reset</button>
+        </div>
+        <div class="circuit-demo-panels">
+
+          <div class="circuit-panel">
+            <div class="circuit-panel-name">Series</div>
+            <svg id="svg-series" viewBox="0 0 300 96" aria-label="Series circuit with four bulbs">
+              <!-- Wires (drawn first; bulbs render on top) -->
+              <line class="c-wire c-wire-s" x1="16" y1="30" x2="264" y2="30"/>
+              <line class="c-wire c-wire-s" x1="16" y1="84" x2="264" y2="84"/>
+              <line class="c-wire c-wire-s" x1="264" y1="30" x2="264" y2="84"/>
+              <line class="c-wire c-wire-s" x1="16" y1="30" x2="16" y2="42"/>
+              <line class="c-wire c-wire-s" x1="16" y1="66" x2="16" y2="84"/>
+              <!-- Power source -->
+              <rect class="c-power c-power-s" x="8" y="42" width="16" height="24" rx="3"/>
+              <text class="c-power-text" x="16" y="54">~</text>
+              <!-- Bulbs -->
+              <g class="c-bulb" data-id="s0" tabindex="0" role="button" aria-label="Bulb 1, click to toggle">
+                <circle class="c-bulb-glass" cx="76" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="70" y1="24" x2="82" y2="36"/>
+                <line class="c-bulb-x" x1="82" y1="24" x2="70" y2="36"/>
+              </g>
+              <g class="c-bulb" data-id="s1" tabindex="0" role="button" aria-label="Bulb 2, click to toggle">
+                <circle class="c-bulb-glass" cx="124" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="118" y1="24" x2="130" y2="36"/>
+                <line class="c-bulb-x" x1="130" y1="24" x2="118" y2="36"/>
+              </g>
+              <g class="c-bulb" data-id="s2" tabindex="0" role="button" aria-label="Bulb 3, click to toggle">
+                <circle class="c-bulb-glass" cx="172" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="166" y1="24" x2="178" y2="36"/>
+                <line class="c-bulb-x" x1="178" y1="24" x2="166" y2="36"/>
+              </g>
+              <g class="c-bulb" data-id="s3" tabindex="0" role="button" aria-label="Bulb 4, click to toggle">
+                <circle class="c-bulb-glass" cx="220" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="214" y1="24" x2="226" y2="36"/>
+                <line class="c-bulb-x" x1="226" y1="24" x2="214" y2="36"/>
+              </g>
+            </svg>
+            <div class="circuit-panel-status status-ok" id="series-status">Current flows — all bulbs lit</div>
+          </div>
+
+          <div class="circuit-panel">
+            <div class="circuit-panel-name">Parallel</div>
+            <svg id="svg-parallel" viewBox="0 0 300 104" aria-label="Parallel circuit with four bulbs">
+              <!-- Rails -->
+              <line class="c-wire c-wire-p-rail" x1="16" y1="16" x2="264" y2="16"/>
+              <line class="c-wire c-wire-p-rail" x1="16" y1="88" x2="264" y2="88"/>
+              <line class="c-wire c-wire-p-rail" x1="264" y1="16" x2="264" y2="88"/>
+              <line class="c-wire c-wire-p-rail" x1="16" y1="16" x2="16" y2="38"/>
+              <line class="c-wire c-wire-p-rail" x1="16" y1="66" x2="16" y2="88"/>
+              <!-- Power source -->
+              <rect class="c-power c-power-p" x="8" y="38" width="16" height="28" rx="3"/>
+              <text class="c-power-text" x="16" y="52">~</text>
+              <!-- Branch wires and bulbs -->
+              <line class="c-wire c-branch" data-branch="p0" x1="76" y1="16" x2="76" y2="40"/>
+              <line class="c-wire c-branch" data-branch="p0" x1="76" y1="64" x2="76" y2="88"/>
+              <g class="c-bulb" data-id="p0" tabindex="0" role="button" aria-label="Bulb 1, click to toggle">
+                <circle class="c-bulb-glass" cx="76" cy="52" r="12"/>
+                <line class="c-bulb-x" x1="70" y1="46" x2="82" y2="58"/>
+                <line class="c-bulb-x" x1="82" y1="46" x2="70" y2="58"/>
+              </g>
+              <line class="c-wire c-branch" data-branch="p1" x1="124" y1="16" x2="124" y2="40"/>
+              <line class="c-wire c-branch" data-branch="p1" x1="124" y1="64" x2="124" y2="88"/>
+              <g class="c-bulb" data-id="p1" tabindex="0" role="button" aria-label="Bulb 2, click to toggle">
+                <circle class="c-bulb-glass" cx="124" cy="52" r="12"/>
+                <line class="c-bulb-x" x1="118" y1="46" x2="130" y2="58"/>
+                <line class="c-bulb-x" x1="130" y1="46" x2="118" y2="58"/>
+              </g>
+              <line class="c-wire c-branch" data-branch="p2" x1="172" y1="16" x2="172" y2="40"/>
+              <line class="c-wire c-branch" data-branch="p2" x1="172" y1="64" x2="172" y2="88"/>
+              <g class="c-bulb" data-id="p2" tabindex="0" role="button" aria-label="Bulb 3, click to toggle">
+                <circle class="c-bulb-glass" cx="172" cy="52" r="12"/>
+                <line class="c-bulb-x" x1="166" y1="46" x2="178" y2="58"/>
+                <line class="c-bulb-x" x1="178" y1="46" x2="166" y2="58"/>
+              </g>
+              <line class="c-wire c-branch" data-branch="p3" x1="220" y1="16" x2="220" y2="40"/>
+              <line class="c-wire c-branch" data-branch="p3" x1="220" y1="64" x2="220" y2="88"/>
+              <g class="c-bulb" data-id="p3" tabindex="0" role="button" aria-label="Bulb 4, click to toggle">
+                <circle class="c-bulb-glass" cx="220" cy="52" r="12"/>
+                <line class="c-bulb-x" x1="214" y1="46" x2="226" y2="58"/>
+                <line class="c-bulb-x" x1="226" y1="46" x2="214" y2="58"/>
+              </g>
+            </svg>
+            <div class="circuit-panel-status status-ok" id="parallel-status">Current flows — all bulbs lit</div>
+          </div>
+
+          <div class="circuit-panel circuit-panel-full">
+            <div class="circuit-panel-name">Series + Parallel</div>
+            <svg id="svg-combined" viewBox="0 0 360 145" aria-label="Combined circuit: one series bulb feeding two parallel branches of two bulbs each">
+              <!-- Main wires: power connections + before/after series bulb + bottom return rail -->
+              <line class="c-wire c-wire-cm" x1="16" y1="30" x2="16" y2="52"/>
+              <line class="c-wire c-wire-cm" x1="16" y1="92" x2="16" y2="120"/>
+              <line class="c-wire c-wire-cm" x1="16" y1="120" x2="285" y2="120"/>
+              <line class="c-wire c-wire-cm" x1="16" y1="30" x2="48" y2="30"/>
+              <line class="c-wire c-wire-cm" x1="72" y1="30" x2="100" y2="30"/>
+              <!-- Branch A wires (top path) + right vertical top section -->
+              <line class="c-wire c-wire-ca" x1="100" y1="30" x2="138" y2="30"/>
+              <line class="c-wire c-wire-ca" x1="162" y1="30" x2="198" y2="30"/>
+              <line class="c-wire c-wire-ca" x1="222" y1="30" x2="285" y2="30"/>
+              <line class="c-wire c-wire-ca" x1="285" y1="30" x2="285" y2="90"/>
+              <!-- Branch B wires (lower path) -->
+              <line class="c-wire c-wire-cb" x1="100" y1="30" x2="100" y2="90"/>
+              <line class="c-wire c-wire-cb" x1="100" y1="90" x2="138" y2="90"/>
+              <line class="c-wire c-wire-cb" x1="162" y1="90" x2="198" y2="90"/>
+              <line class="c-wire c-wire-cb" x1="222" y1="90" x2="285" y2="90"/>
+              <!-- Common return: right vertical bottom section -->
+              <line class="c-wire c-wire-cr" x1="285" y1="90" x2="285" y2="120"/>
+              <!-- Power source -->
+              <rect class="c-power c-power-cm" x="8" y="52" width="16" height="40" rx="3"/>
+              <text class="c-power-text" x="16" y="72">~</text>
+              <!-- Series bulb -->
+              <g class="c-bulb" data-id="c_m0" tabindex="0" role="button" aria-label="Series bulb, click to toggle">
+                <circle class="c-bulb-glass" cx="60" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="54" y1="24" x2="66" y2="36"/>
+                <line class="c-bulb-x" x1="66" y1="24" x2="54" y2="36"/>
+              </g>
+              <!-- Branch A bulbs -->
+              <g class="c-bulb" data-id="c_a0" tabindex="0" role="button" aria-label="Branch A bulb 1, click to toggle">
+                <circle class="c-bulb-glass" cx="150" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="144" y1="24" x2="156" y2="36"/>
+                <line class="c-bulb-x" x1="156" y1="24" x2="144" y2="36"/>
+              </g>
+              <g class="c-bulb" data-id="c_a1" tabindex="0" role="button" aria-label="Branch A bulb 2, click to toggle">
+                <circle class="c-bulb-glass" cx="210" cy="30" r="12"/>
+                <line class="c-bulb-x" x1="204" y1="24" x2="216" y2="36"/>
+                <line class="c-bulb-x" x1="216" y1="24" x2="204" y2="36"/>
+              </g>
+              <!-- Branch B bulbs -->
+              <g class="c-bulb" data-id="c_b0" tabindex="0" role="button" aria-label="Branch B bulb 1, click to toggle">
+                <circle class="c-bulb-glass" cx="150" cy="90" r="12"/>
+                <line class="c-bulb-x" x1="144" y1="84" x2="156" y2="96"/>
+                <line class="c-bulb-x" x1="156" y1="84" x2="144" y2="96"/>
+              </g>
+              <g class="c-bulb" data-id="c_b1" tabindex="0" role="button" aria-label="Branch B bulb 2, click to toggle">
+                <circle class="c-bulb-glass" cx="210" cy="90" r="12"/>
+                <line class="c-bulb-x" x1="204" y1="84" x2="216" y2="96"/>
+                <line class="c-bulb-x" x1="216" y1="84" x2="204" y2="96"/>
+              </g>
+            </svg>
+            <div class="circuit-panel-status status-ok" id="combined-status">Current flows — all five bulbs lit</div>
+          </div>
+
+        </div>
       </div>
 
       <h2>The fairy lights question</h2>
@@ -146,6 +304,16 @@
 
       <div class="chapter-closer">
         <p>The LED fairy lights end up being a group-series design — one section of six LEDs has a failed unit. You note the section and hand the string back with an honest assessment of repairability. The owner decides it's not worth it, and the string goes in the recycling box. That's a fair outcome: you've understood the fault and can explain it. The fan with the burning smell has been sitting at the next table for the last twenty minutes, and it's time to take a look at what's heating up inside it.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Series means one current path: one break can stop everything.</li>
+          <li>Parallel means shared supply: one failed branch can leave the others working.</li>
+          <li>A short circuit is often an unintended parallel path with very low resistance.</li>
+          <li>If only one function fails, start by asking which parts that function does not share with the others.</li>
+        </ul>
       </div>
 
       <section class="chapter-questions">

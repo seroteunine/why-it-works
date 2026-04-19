@@ -34,6 +34,15 @@
         <p>Saturday morning. Someone sets a kettle on your repair table. "It just stopped working," they say. "It was fine yesterday." You plug it in — nothing. No hum, no heat, no click. Dead. Before you unscrew anything, you already have a mental model running. Something is preventing electricity from doing its job. To figure out what, you need to understand what electricity is actually doing inside that kettle when it works — and what has to go wrong for it to stop. That's what this chapter is about.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand the difference between voltage, current, and resistance in plain language.</li>
+          <li>Use Ohm's law to estimate what a normal appliance should be doing.</li>
+          <li>Recognise the difference between an open circuit, a short circuit, and a high-resistance fault.</li>
+        </ul>
+      </div>
+
       <h2>The water analogy</h2>
 
       <p>Electricity is invisible and it moves fast — too fast to watch. That makes it hard to reason about intuitively. So we use an analogy: water flowing through pipes. It's not a perfect model, but it's close enough to be genuinely useful, and every electronics engineer has it somewhere in the back of their head.</p>
@@ -55,6 +64,74 @@
       <p>Voltage equals current times resistance. It's an easily rewritable formula — rearrange it to solve for whichever quantity you don't know: current, resistance, or voltage. One equation, three variables.</p>
 
       <p>What this tells you in plain language: given a fixed voltage (like 230V from the mains), the current that flows depends on the resistance. A low-resistance path allows a lot of current. A high-resistance path restricts it. A break in the circuit — infinite resistance — allows no current at all.</p>
+
+      <div class="ohm-demo" id="ohm-demo">
+        <div class="ohm-demo-header">
+          <span class="ohm-demo-label">Try it</span>
+          <span class="ohm-demo-hint">Drag the resistance slider — current is always calculated at 230 V mains supply</span>
+        </div>
+        <div class="ohm-circuit-wrap">
+          <svg id="ohm-svg" viewBox="0 0 420 155" aria-hidden="true">
+            <defs>
+              <filter id="element-glow-filter" x="-30%" y="-60%" width="160%" height="220%">
+                <feGaussianBlur stdDeviation="5"/>
+              </filter>
+            </defs>
+            <!-- Wire background (continuous dim line) -->
+            <path class="ohm-wire-bg" d="M 20,40 L 400,40 L 400,115 L 20,115 Z"/>
+            <!-- Animated dashes — show current flow direction, not individual electrons -->
+            <path id="ohm-flow-path" class="ohm-flow-path" d="M 20,40 L 400,40 L 400,115 L 20,115 Z"/>
+            <!-- Power source -->
+            <rect class="ohm-svg-source" x="11" y="67" width="18" height="26" rx="3"/>
+            <text class="ohm-svg-source-text" x="20" y="80">~</text>
+            <text class="ohm-svg-label" id="ohm-v-label" x="20" y="105">230&thinsp;V</text>
+            <!-- Element glow (behind element) -->
+            <rect id="ohm-element-glow" x="145" y="28" width="130" height="24" rx="4"
+                  fill="#f8c11a" opacity="0" filter="url(#element-glow-filter)"/>
+            <!-- Element -->
+            <rect id="ohm-element" x="145" y="28" width="130" height="24" rx="4"
+                  fill="#9a9a9a" stroke="#777" stroke-width="1.5"/>
+            <text class="ohm-svg-label" id="ohm-r-label" x="210" y="21">25&thinsp;Ω</text>
+            <!-- Current label -->
+            <text class="ohm-svg-label ohm-label-i" id="ohm-i-label" x="348" y="132">9.2&thinsp;A</text>
+          </svg>
+          <p class="ohm-circuit-caption">Dashes show conventional current flow direction — not the movement of individual electrons</p>
+        </div>
+
+        <div class="ohm-rows">
+          <div class="ohm-row ohm-row-fixed" data-ohm="V">
+            <span class="ohm-sym">V</span>
+            <span class="ohm-name">Voltage</span>
+            <div class="ohm-track">
+              <span class="ohm-fixed-label">mains supply — fixed</span>
+            </div>
+            <span class="ohm-val">230&thinsp;V</span>
+          </div>
+          <div class="ohm-row" data-ohm="R">
+            <span class="ohm-sym">R</span>
+            <span class="ohm-name">Resistance</span>
+            <div class="ohm-track">
+              <input type="range" class="ohm-slider" min="1" max="100" step="1" value="25"/>
+            </div>
+            <span class="ohm-val">25&thinsp;Ω</span>
+          </div>
+          <div class="ohm-row is-result" data-ohm="I">
+            <span class="ohm-sym">I</span>
+            <span class="ohm-name">Current</span>
+            <div class="ohm-track">
+              <div class="ohm-bar"><div class="ohm-bar-fill" style="width:46%"></div></div>
+            </div>
+            <span class="ohm-val">9.2&thinsp;A</span>
+          </div>
+        </div>
+        <div class="ohm-formula" aria-live="polite">
+          <span class="ohm-f-val ohm-f-I ohm-f-result">9.2&thinsp;A</span>
+          <span class="ohm-f-op">=</span>
+          <span class="ohm-f-val ohm-f-V">230&thinsp;V</span>
+          <span class="ohm-f-op">÷</span>
+          <span class="ohm-f-val ohm-f-R">25&thinsp;Ω</span>
+        </div>
+      </div>
 
       <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically — a nickel-chromium alloy designed to resist and generate heat) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
 
@@ -144,6 +221,16 @@
 
       <div class="chapter-closer">
         <p>Back to the kettle on your table. You now have a language for what might be wrong: an open circuit somewhere in the series loop, most likely at the element, the thermal protection, or the switch. The next chapters give you the tools to find out which.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Voltage is the push, current is the flow, and resistance limits the flow.</li>
+          <li>At a fixed supply voltage, lower resistance means higher current.</li>
+          <li>OL on a resistance measurement usually means the current path is broken.</li>
+          <li>Most appliance faults can be described as open, shorted, or too resistive.</li>
+        </ul>
       </div>
 
       <!-- Questions -->

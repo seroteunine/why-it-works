@@ -30,62 +30,43 @@
         <h1>Before We Start</h1>
       </header>
 
-      <h2>Who this book is for</h2>
-
-      <p>This book is for repair cafe volunteers and hobby fixers who already have some hands-on experience — people who've sat down at a repair table, unscrewed the bottom of a vacuum cleaner, replaced a fuse and handed something back that worked again. Not beginners who've never touched a screwdriver, and not electronics engineers who already know Kirchhoff's laws. The practical middle ground: real hands-on experience, but the theory hasn't quite clicked into place yet.</p>
-
-      <p>The goal isn't to turn anyone into an electronics engineer. It's to build a working mental model — one that leads to better guesses at the workbench, better questions, and a real understanding of <em>why</em> the things that work actually work. That understanding makes you faster, safer, and a lot more confident at the bench.</p>
-
       <h2>What's in here</h2>
 
-      <p>Twelve chapters, roughly in the order they become useful to someone learning to repair. We start with the fundamentals — voltage, current, resistance — and build outward from there into circuits, power, AC and DC, the multimeter, protection devices, motors, and finally a systematic approach to fault diagnosis.</p>
-
-      <p>Each chapter begins with a moment from a repair cafe session — a Saturday morning, an appliance on the table, a problem to solve. The theory follows from the practical situation, not the other way around. By the end of chapter 12, the session has run its course.</p>
-
-      <p>There's also a reference appendix at the back: a multimeter quick-reference, common circuit symbols, and a fault-finding checklist you can print and keep at your station.</p>
+      <p>Twelve chapters, roughly in the order they become useful to someone learning to repair — from voltage, current and resistance, through circuits, AC and DC, the multimeter, protection devices, motors, and on to fault diagnosis. Each chapter opens with a moment from a repair cafe session: an appliance on the table, a problem to solve. Theory follows the practical situation, not the other way around.</p>
 
       <h2>How to use it</h2>
 
-      <p>Read it chapter by chapter if you're new to the theory — the chapters build on each other, and the story thread runs from start to finish. But the book is also designed to be dipped into. Each chapter stands on its own reasonably well, and the navigation lets you jump to whatever's relevant to what's in front of you today.</p>
+      <p>Read it front to back if you're new to the theory — the chapters build on each other. But each chapter also stands on its own, so you can jump to whatever's relevant to what's in front of you today.</p>
 
-      <p>The callout boxes are intentional interruptions. There are three kinds:</p>
+      <p>Three kinds of callout appear throughout:</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>Green boxes ground the theory in practical observation — the kind of thing a more experienced volunteer might mention while standing next to you at the bench.</p>
+        <p>Practical observations — the kind of thing a more experienced volunteer might mention while standing next to you at the bench.</p>
       </div>
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
-        <p>Red boxes are the ones to read carefully. Mains electricity is genuinely dangerous, and some of the appliances you'll encounter — microwave ovens especially — can hold lethal charge even after they're unplugged. These boxes tell you when to stop, what to watch for, and why certain procedures exist.</p>
+        <p>Read these carefully. Mains electricity can kill, and some appliances hold lethal charge even after unplugging. These boxes tell you when to stop and why.</p>
       </div>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
-        <p>Grey boxes zoom out. They explain the physics or engineering principle behind what you've just read — not just <em>what</em> happens, but <em>why</em>. You don't need these to understand the practical content, but they'll deepen your understanding if you want it.</p>
+        <p>The physics behind what you've just read — not just <em>what</em> happens, but <em>why</em>. Skip them if you want; read them if you're curious.</p>
       </div>
 
-      <p>At the end of each chapter, there are five questions. Most are applied — the kind that start with "you open a toaster and see..." — with a few theory checks mixed in. The final question in each chapter requires a step of reasoning rather than recall. Click to reveal the answers. Try to think before you click.</p>
+      <div class="callout callout-demo">
+        <span class="callout-label">Try it</span>
+        <p>Interactive elements you can click or manipulate to see how something behaves. No reading required — just try it and see what happens.</p>
+      </div>
 
-      <p>The red safety callouts you'll encounter throughout the book are there for good reason. That reason deserves a proper section of its own.</p>
+      <p>Each chapter ends with five questions — mostly applied, a few theory checks, and one that requires reasoning rather than recall. Click to reveal answers. Try to think first.</p>
 
-      <h2>A note on safety culture</h2>
+      <h2>Safety and context</h2>
 
-      <p>Repair cafes work with mains-powered appliances. 230 volts at 50 Hz — the standard Dutch grid supply — can kill. That's not a disclaimer; it's a practical fact that should shape how you work.</p>
+      <p>This book is written for the Dutch repair cafe context: 230V at 50Hz, Schuko plugs. Safety is covered throughout — not as box-ticking, but because understanding <em>why</em> something is dangerous is more useful than being told to be careful. The culture at a good repair cafe is disciplined rather than fearful: you check before you touch, you treat every appliance as live until verified otherwise, and when in doubt you ask. There is no prize for speed.</p>
 
-      <p>The safety culture at a good repair cafe is neither fearful nor casual. It's disciplined. In practice, this means pausing to check before touching, keeping hands off live circuits except when specifically measuring voltage, discharging capacitors before probing, and treating every appliance as potentially live until verified otherwise.</p>
-
-      <p>This book covers safety where it's relevant — not as a box-ticking exercise but because understanding <em>why</em> something is dangerous is more useful than just being told to be careful. When you understand what 230V across your heart does, you don't need a warning label to make you respectful of it.</p>
-
-      <p>If you're ever unsure whether something is safe to open and test: ask a more experienced volunteer. That's what the repair cafe model is for. There is no prize for speed, and no shame in stopping — or in saying "I don't know what this does; let's not find out."</p>
-
-      <h2>Context and conventions</h2>
-
-      <p>This book is written for the Dutch repair cafe context. Mains voltage is 230V at 50Hz. Plugs are Schuko (Type F) — the round two-pin plug used across much of continental Europe. Where specific voltage or frequency matters, those numbers are the reference point.</p>
-
-      <p>Resistances are in ohms (Ω), currents in amperes (A) or milliamps (mA), voltages in volts (V), power in watts (W). When we write formulas, we'll explain them in plain language first.</p>
-
-      <p>The appliances used as examples throughout — kettles, toasters, vacuum cleaners, coffee machines, irons, fans, grinders, milk frothers, headphones — are the things that actually arrive at repair cafes. They're familiar. That's the point. Chapter 1 starts with one of them.</p>
+      <p>Units follow standard practice: ohms (Ω), amperes (A) or milliamps (mA), volts (V), watts (W). Formulas are explained in plain language before they appear in symbols. The appliances used as examples — kettles, toasters, vacuum cleaners, irons, fans — are the things that actually arrive at repair cafes. Chapter 1 starts with one of them.</p>
 
       <div class="chapter-nav-footer">
         <a href="index.html" class="nav-prev">Cover</a>

@@ -40,6 +40,15 @@
         <p>It's mid-afternoon. The repair cafe is winding down. Three appliances remain on the table — two repaired and waiting to be claimed, one still open: a coffee maker with a circuit board visible and several components marked with your little sticky-dot system. You've been at this table since nine this morning. Over the course of the day, you've fixed what you could, referred what you couldn't, and learned something from each. Now, in the last hour of the session, it's worth stepping back and thinking about how you approached all of it — because the method matters as much as the knowledge.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Approach faults systematically instead of by guesswork.</li>
+          <li>Build a safe first-pass workflow for dead, partial, and intermittent faults.</li>
+          <li>Know when to stop, explain honestly, and refer the repair.</li>
+        </ul>
+      </div>
+
       <h2>The problem with random part replacement</h2>
 
       <p>There's a temptation in repair work — especially when you've seen many faults — to recognise a symptom and jump to the most likely culprit. Sometimes this is right. But it's a pattern that leads to wasted parts, wasted time, and occasional made-worse appliances when the jumped-to part wasn't the problem.</p>
@@ -119,7 +128,7 @@
       <h2>Common fault patterns by symptom</h2>
 
       <h3>Completely dead — no response to power</h3>
-      <p>Work through: mains fuse or circuit breaker (at the consumer unit — is the socket live?), appliance fuse, main switch, thermal cutoff, main power supply. 80% of "completely dead" faults are in this chain.</p>
+      <p>Work through: wall socket supply (is the socket live, and has the automaat or aardlekschakelaar in the groepenkast tripped?), appliance fuse if present, main switch, thermal cutoff, main power supply. 80% of "completely dead" faults are in this chain.</p>
 
       <h3>Works but overheats</h3>
       <p>The thermostat or thermal protection isn't tripping as it should (thermostat stuck closed, wrong calibration), or heat is being generated where it shouldn't be (bad bearing, high-resistance connection, blocked ventilation). Check the thermal protection cycle and the appliance's ventilation before looking at the electronics.</p>
@@ -168,6 +177,16 @@
         <p>The session ends. The coffee maker with the open circuit board gets labelled "to be continued" and left with the coordinator for next time. The tables are wiped down. The multimeters go back in their cases. You pick up your bag and look at the repair log for the day: ten appliances, seven repaired, two referred, one recycled. Not a bad Saturday. See you next week.</p>
       </div>
 
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Start with safety, symptom, and visual inspection before deeper testing.</li>
+          <li>Work from the supply path toward the load, dividing the problem as you go.</li>
+          <li>Measurements are only useful when you know what result you expect.</li>
+          <li>Stopping and referring is part of competent repair, not a failure.</li>
+        </ul>
+      </div>
+
       <section class="chapter-questions">
         <h2>Check your understanding</h2>
 
@@ -178,18 +197,18 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>First: visual inspection unplugged — look at the cable for damage, the plug for signs of burning, and inside the kettle body for obvious failures (blown fuse visible, burned components, disconnect). Then, working from the supply toward the load: (1) Check the plug fuse if it has one — continuity test, should beep. (2) Check cable continuity — both live and neutral conductors from plug to the kettle's internal connections, should both beep. (3) Check the main switch — continuity with switch in the on position, should beep. (4) Check the thermal fuse / thermal cutoff — continuity, should beep (if open, the kettle has overheated and needs investigation before replacement). (5) Check the heating element — resistance, should read ~20–40 ohms (calculate from wattage rating for precision). OL = open element, primary fault. Each step either passes (move to the next component) or fails (that component is the fault).</p>
+            <p>First: visual inspection unplugged — look at the cable for damage, the plug for signs of burning, and inside the kettle body for obvious failures (burned parts, disconnected wires, obvious thermal damage). Then, working from the supply toward the load: (1) Confirm the wall socket supply separately. (2) Check cable continuity — both conductors from plug to the kettle's internal connections should be intact. (3) Check the main switch — continuity with switch in the on position. (4) Check the thermal fuse / thermal cutoff — continuity; if open, the kettle has overheated and needs investigation before replacement. (5) Check the heating element — resistance, typically around 20–40 ohms depending on wattage. OL = open element, primary fault. Each step either passes (move to the next component) or fails (that component is the fault).</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q2</span>
-            <span class="question-text">A toaster blows the consumer unit circuit breaker the moment it's plugged in — before the lever is even pressed. The fuse in the toaster plug is intact. What does this symptom tell you, and how do you proceed?</span>
+            <span class="question-text">A toaster trips the automaat in the groepenkast the moment it's plugged in — before the lever is even pressed. What does this symptom tell you, and how do you proceed?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Tripping the breaker before the switch is pressed means a short circuit exists in the wiring that's always connected when plugged in — before the switch has engaged the heating elements. The live and neutral conductors are effectively shorted together somewhere accessible from the plug, without going through the switch. Candidates: the cable itself (insulation damaged, conductors touching), the plug connections (loose terminals in contact with each other), the filter components at the inlet if the toaster has an EMI filter (failed X-capacitor across the mains). Proceed unplugged: check resistance from live to neutral at the plug — should be OL or very high (the switch is open, so no path through the elements). Near zero means a short in the always-live side of the circuit. Check cable, plug wiring, and inlet components.</p>
+            <p>Tripping the breaker before the switch is pressed means a short circuit exists in the wiring that's always connected when plugged in — before the switch has engaged the heating elements. The line and neutral conductors are effectively shorted together somewhere accessible from the mains entry, without going through the switch. Candidates: the cable itself (insulation damaged, conductors touching), the plug terminations, or the filter components at the inlet if the toaster has an EMI filter (for example a failed X-capacitor across the mains). Proceed unplugged: check resistance from line to neutral at the plug or mains entry — it should be OL or very high with the switch open. Near zero means a short in the always-energised part of the circuit. Check cable, plug, inlet wiring, and inlet components.</p>
           </div>
         </div>
 

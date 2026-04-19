@@ -39,10 +39,19 @@
         <p>The microwave is a counter-top model, about eight years old. "It just stopped heating," the owner says. "Everything else works — the light, the turntable, the timer. It just doesn't heat." You look at it and make a decision before picking up a single tool. "I'm going to open this," you say, "but before I do, we all need to understand something about what's inside." You turn to the room. A few people have gathered — it's an interesting job. "Microwave ovens contain a capacitor that can hold a lethal charge even when the oven is unplugged. This is not hypothetical. People have died. We discharge it before touching anything. That's the rule."</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand what capacitors store and why that matters for repair.</li>
+          <li>Recognise the main capacitor types used in appliances and electronics.</li>
+          <li>Know where capacitor work stops being routine and becomes specialist-only.</li>
+        </ul>
+      </div>
+
       <div class="callout callout-safety">
         <span class="callout-label">Safety — read this before opening a microwave</span>
         <p>Microwave ovens contain a high-voltage capacitor — typically rated at 0.9–1.1 µF and 2100V AC. When the oven is running, this capacitor is charged to over 2000V DC. Unlike household wiring which stops being dangerous the moment you switch off or unplug, a capacitor stores charge. After unplugging, the capacitor may still hold 2000V or more for minutes to hours, depending on the leakage of the circuit.</p>
-        <p>The procedure before touching any internal components: unplug the oven and wait at least 5 minutes. Then use an insulated discharge tool (a resistor of 5–10 kilohms rated for at least 5W, with insulated test leads) connected across the capacitor terminals to drain the charge safely. Never short a charged capacitor with a screwdriver or bare wire — the resulting arc can blind you, cause severe burns, and destroy the capacitor.</p>
+        <p>The safe practical rule before touching any internal components is this: unplug the oven, wait, verify the capacitor's voltage with appropriately rated equipment if you are trained to do so, and only discharge it with a purpose-built high-voltage discharge tool and procedure suitable for microwave service. Never short a charged capacitor with a screwdriver or bare wire — the resulting arc can blind you, cause severe burns, and destroy the capacitor. If you do not have the correct HV tools and training, stop and refer the repair.</p>
         <p>If you are not certain of the procedure and the risks, do not open microwave ovens at a repair cafe unless you have a competent person supervising. It is better to refer this repair than to proceed without understanding.</p>
       </div>
 
@@ -63,7 +72,7 @@
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
-        <p>A capacitor is a reservoir of charge, not a source of continuous energy like a battery. It delivers its stored charge very quickly — the discharge time constant is τ = RC, where R is the resistance in the discharge path and C is the capacitance. For the microwave capacitor with a discharge resistor of 10kΩ: τ = 10,000 × 1×10⁻⁶ = 0.01 seconds. In about five time constants (0.05 seconds), the voltage drops to less than 1% of its initial value. This is why even a relatively small resistor discharges it quickly and safely. A screwdriver (near-zero resistance) discharges it in microseconds — which is why the current peak is catastrophic.</p>
+        <p>A capacitor is a reservoir of charge, not a source of continuous energy like a battery. It can release its stored charge very quickly — the discharge time depends on the capacitance and on the resistance of the discharge path. Lower resistance means faster discharge but much higher peak current. That is why "just short it out" is dangerous, and why high-voltage capacitors need a controlled discharge method rather than improvisation.</p>
       </div>
 
       <h2>Capacitor types and where you'll find them</h2>
@@ -105,7 +114,7 @@
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>Always discharge a capacitor before testing it. Even small electrolytics in low-voltage circuits can retain enough charge to give you a painful (if not dangerous) shock and will certainly damage your multimeter. For small capacitors in low-voltage PCBs, shorting briefly across the terminals with an insulated tool is adequate. For large capacitors in mains circuits (motor run capacitors, SMPS output capacitors), use a resistor discharge tool as described for the microwave. For the microwave high-voltage capacitor: see the safety box at the top of this chapter. Non-negotiable.</p>
+        <p>Always discharge a capacitor before testing it. Even small electrolytics in low-voltage circuits can retain enough charge to damage your multimeter or surprise you. In low-voltage electronics, follow the service guidance for that device and use a controlled discharge method where appropriate rather than casual shorting. For larger capacitors in mains circuits, use a proper resistor-based discharge tool. For the microwave high-voltage capacitor: see the safety box at the top of this chapter. Non-negotiable.</p>
       </div>
 
       <h2>Common capacitor failure modes</h2>
@@ -124,6 +133,16 @@
 
       <div class="chapter-closer">
         <p>The microwave's high-voltage capacitor is safely discharged. The fault turns out to be a failed magnetron — not repairable, and a magnetron replacement for this model costs more than a replacement oven. The honest diagnosis: time for recycling. But everyone in the room has learned something important about capacitors, about safety, and about knowing when repair is the right answer and when it isn't. One more appliance on the table. The session is almost done.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Capacitors store energy as well as charge, and some stay dangerous after unplugging.</li>
+          <li>Capacitance value, voltage rating, and safety class all matter.</li>
+          <li>High ESR and loss of capacitance are common faults in electrolytics.</li>
+          <li>Microwave HV work is specialist territory if you lack the right tools and training.</li>
+        </ul>
       </div>
 
       <section class="chapter-questions">

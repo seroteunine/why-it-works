@@ -35,6 +35,15 @@
         <p>The kettle is sitting to one side — you've established it needs a new element, and the owner is deciding whether it's worth the part. Meanwhile, someone else sets down a small table lamp. "It just doesn't come on," they say. "The bulb is fine — I tested it in another lamp." You hold the lamp up, look at the cable near the base where it enters the body, and notice it's been pinched. Probably under a desk leg, long enough to damage what's inside. You already have a theory before you've plugged it in.</p>
       </div>
 
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>See every appliance as a complete loop rather than a loose collection of wires.</li>
+          <li>Understand the roles of live, neutral, and earth in Dutch household appliances.</li>
+          <li>Recognise how Class I and Class II protection change what is safe to return to service.</li>
+        </ul>
+      </div>
+
       <h2>Electricity must go in a circle</h2>
 
       <p>The single most important thing to understand about a circuit is this: electricity needs a complete, unbroken loop to flow. Not a path from A to B — a path from A to B <em>and back to A again</em>. Break the loop anywhere, and everything stops.</p>
@@ -57,7 +66,7 @@
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>Dutch Schuko plugs (Type F — the round two-pin plug you see everywhere) have two flat pins for live and neutral, plus two grounding clips on the sides. The grounding clips connect to earth in the socket. If the appliance has a three-core cable with earth (yellow-green), the plug will have an earth connection. If it's two-core, it won't. The order of live and neutral in a Schuko plug is technically reversible — unlike UK plugs, Schuko is not polarised — but internally, the switch should always be on the live side.</p>
+        <p>Dutch Schuko plugs (Type F — the round two-pin plug you see everywhere) have two round pins for line and neutral, plus two grounding clips on the sides. The grounding clips connect to earth in the socket. If the appliance has a three-core cable with earth (yellow-green), the plug will have an earth connection. If it's two-core, it won't. The important practical fact is that Schuko is not polarised: the plug can be inserted either way round, so you cannot rely on a specific pin always being live once the appliance is plugged in.</p>
       </div>
 
       <h2>Class I and Class II appliances</h2>
@@ -88,11 +97,11 @@
 
       <h2>Where switches belong</h2>
 
-      <p>If a switch interrupts the live conductor, turning off the switch leaves the load (bulb, element, motor) at the neutral side — near 0V — and disconnected from live. Safe to touch, if you needed to.</p>
+      <p>If a switch interrupts the intended live conductor, turning off the switch disconnects the load from that conductor. In a polarised system that usually leaves the load near neutral potential. In practice, that is safer than switching only the neutral — but it is still not a substitute for unplugging before touching exposed internal parts.</p>
 
-      <p>If a switch interrupts the neutral conductor instead, turning off the switch leaves the load still connected to live — at 230V — even though it's not doing anything. Not safe to touch. This is why switches must be wired on the live side of the circuit.</p>
+      <p>If a switch interrupts only the neutral conductor, turning off the switch can leave the load still connected to the live side of the supply. That is bad design. In countries with polarised plugs, the switch should be on the live conductor. In Schuko systems, where plug orientation is reversible, many appliances use double-pole switching or other protective design measures so safety does not depend on plug orientation alone.</p>
 
-      <p>In practice, European appliances are designed to do this correctly. But when you're repairing an older lamp or a modified appliance, it's worth checking — especially if the Schuko plug has been replaced or the cable extended. A simple continuity check from the switch terminal to the plug pin tells you which conductor the switch is interrupting.</p>
+      <p>When you're repairing an older lamp or a modified appliance, it's still worth tracing the switching path — especially if a plug, inline switch, or cable has been replaced. What you're checking is whether the switch is interrupting the conductor that the appliance designer intended as line, and whether the design stays safe even though a Schuko plug can be reversed.</p>
 
       <p>You've just reasoned through something that trips up many beginners: why switch placement matters. The logic isn't arbitrary — it follows directly from knowing which conductor carries the dangerous voltage. Once you understand that, the correct wiring follows automatically.</p>
 
@@ -107,13 +116,13 @@
 
       <p>Here's what it protects against. Imagine a washing machine. Inside, there are live conductors carrying 230V. The washing machine has a steel drum and a steel outer body — metal. If the insulation on the live wire degrades and the live conductor touches the metal body, that body is now at 230V. A person standing on a damp floor who touches the machine completes a circuit through their body to earth — and may receive a lethal shock.</p>
 
-      <p>With a proper earth connection: the moment the live wire touches the metal body, a huge fault current flows through the earth conductor to the breaker. The breaker trips (or the fuse blows) within milliseconds. The fault is cleared before anyone can be hurt.</p>
+      <p>With a proper earth connection: the moment the live wire touches the metal body, a large fault current can flow through the earth conductor to the protective device. The breaker, fuse, or RCD is then much more likely to disconnect the fault quickly. The exact time depends on the fault current and the protection present, but the key point is that the earth gives dangerous current a low-resistance path that does not go through a person.</p>
 
       <p>The earth conductor must be able to carry this fault current without failing. It must be continuous from the appliance chassis all the way back to the breaker panel. A corroded earth connection, a missing earth pin, or an earth wire connected only at the plug but not at the chassis — these are all failures that leave the appliance's earthing protection in place on paper but absent in practice.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
-        <p>A residual current device (RCD, called an "aardlekschakelaar" in Dutch) is an additional layer of protection that detects the difference between current in the live and neutral conductors. In a healthy circuit, these are equal. If current is leaking to earth — because someone is being shocked, or because insulation has failed — the RCD detects the imbalance and trips in under 30ms. Many Dutch homes have RCD protection on some or all circuits. It saves lives. But it doesn't replace proper earthing — an RCD won't help if the fault current has no path to earth to measure in the first place.</p>
+        <p>A residual current device (RCD, called an "aardlekschakelaar" in Dutch) is an additional layer of protection that detects the difference between current in the line and neutral conductors. In a healthy circuit, these are equal. If current leaks elsewhere — through earth, through damp insulation, or through a person to ground — the RCD detects the imbalance and trips. It saves lives. But it doesn't replace proper earthing: the earth conductor is still needed to keep exposed metalwork near earth potential and to create a strong, repeatable fault path.</p>
       </div>
 
       <h2>What "open circuit" means physically</h2>
@@ -135,6 +144,16 @@
 
       <div class="chapter-closer">
         <p>You've now got a clear picture of the loop: two conductors, a load, a switch on the live side, and an earth for safety on metal-cased appliances. Every appliance you'll ever open is some variation on this same fundamental loop. The next chapter takes this further — what happens when there are multiple loads, and the loop branches?</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>No complete loop means no current, even if the supply voltage is present.</li>
+          <li>Earth is a safety path, not a normal working path.</li>
+          <li>Schuko plugs are reversible, so never assume one pin is always live in use.</li>
+          <li>An RCD adds protection, but it does not make a missing earth acceptable.</li>
+        </ul>
       </div>
 
       <section class="chapter-questions">

@@ -27,6 +27,10 @@
   --color-principle-border: #999;
   --color-principle-label:  #555;
 
+  --color-demo-bg:          #eef4ff;
+  --color-demo-border:      #2563eb;
+  --color-demo-label:       #1d4ed8;
+
   --font-body:   'Lora', Georgia, 'Times New Roman', serif;
   --font-ui:     'Inter', system-ui, -apple-system, sans-serif;
 
@@ -316,6 +320,48 @@ li:last-child { margin-bottom: 0; }
 .chapter-scene p { margin-bottom: 0.7rem; }
 .chapter-scene p:last-child { margin-bottom: 0; }
 
+.chapter-objectives,
+.chapter-takeaways {
+  margin: 0 0 2.2rem;
+  padding: 1rem 1.2rem 1rem 1.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.chapter-objectives {
+  background: #f8f6f1;
+}
+
+.chapter-objectives-title,
+.chapter-takeaways-title {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.65rem;
+}
+
+.chapter-objectives ul,
+.chapter-takeaways ul {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+
+.chapter-objectives li,
+.chapter-takeaways li {
+  margin-bottom: 0.45rem;
+  line-height: 1.65;
+}
+
+.chapter-objectives li:last-child,
+.chapter-takeaways li:last-child {
+  margin-bottom: 0;
+}
+
 /* === Callout Boxes === */
 .callout {
   margin: 2rem 0;
@@ -355,6 +401,12 @@ li:last-child { margin-bottom: 0; }
 }
 .callout-principle .callout-label { color: var(--color-principle-label); }
 
+.callout-demo {
+  background: var(--color-demo-bg);
+  border-color: var(--color-demo-border);
+}
+.callout-demo .callout-label { color: var(--color-demo-label); }
+
 /* === Formula Display === */
 .formula {
   font-family: var(--font-ui);
@@ -382,6 +434,12 @@ li:last-child { margin-bottom: 0; }
   border-top: 1px solid var(--color-border);
   font-style: italic;
   color: #3a3935;
+}
+
+.chapter-takeaways {
+  margin-top: 1.5rem;
+  background: var(--color-accent-light);
+  border-color: #c9d9e3;
 }
 
 /* === Questions Section === */
@@ -668,6 +726,439 @@ li:last-child { margin-bottom: 0; }
   color: var(--color-text-muted);
   margin-top: 0.15rem;
   line-height: 1.4;
+}
+
+/* === Ohm's Law Demo === */
+.ohm-demo {
+  margin: 2rem 0;
+  border: 1px solid var(--color-demo-border);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ohm-demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-demo-bg);
+  border-bottom: 1px solid var(--color-demo-border);
+  flex-wrap: wrap;
+}
+
+.ohm-demo-label {
+  font-family: var(--font-ui);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-demo-label);
+  flex-shrink: 0;
+}
+
+.ohm-demo-hint {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.ohm-circuit-wrap {
+  padding: 0.75rem 1rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: #f9f8f6;
+}
+
+.ohm-circuit-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ohm-svg-wire {
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ohm-svg-source { fill: var(--color-accent); }
+
+.ohm-svg-source-text {
+  fill: #fff;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ohm-svg-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  user-select: none;
+}
+
+.ohm-svg-label.ohm-label-i {
+  fill: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Wire background (always-on dim line) + animated dash overlay */
+.ohm-wire-bg {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.2;
+}
+
+.ohm-flow-path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 10 8;
+  animation: ohm-flow 1.5s linear infinite;
+}
+
+@keyframes ohm-flow {
+  to { stroke-dashoffset: -18; }
+}
+
+.ohm-circuit-caption {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 0.3rem 1rem 0.5rem;
+  font-style: italic;
+}
+
+.ohm-rows { padding: 0.25rem 0; }
+
+.ohm-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  transition: background 0.2s;
+}
+
+.ohm-row.is-result { background: var(--color-accent-light); }
+
+.ohm-row-fixed {
+  background: #f6f5f2;
+  opacity: 0.85;
+}
+
+.ohm-fixed-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.ohm-sym {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  width: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ohm-name {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.ohm-track {
+  flex: 1;
+  min-width: 0;
+}
+
+.ohm-slider {
+  width: 100%;
+  display: block;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.ohm-bar {
+  display: none;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 9px 0;
+}
+
+.ohm-bar-fill {
+  height: 100%;
+  background: var(--color-accent);
+  opacity: 0.5;
+  border-radius: 2px;
+  transition: width 0.15s;
+}
+
+.ohm-row.is-result .ohm-slider { display: none; }
+.ohm-row.is-result .ohm-bar    { display: block; }
+
+.ohm-val {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 5.25rem;
+  text-align: right;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.ohm-row.is-result .ohm-val { color: var(--color-accent); }
+
+/* Dot button — filled = this row is being calculated */
+.ohm-pin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  position: relative;
+  transition: border-color 0.14s;
+}
+
+.ohm-pin::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.14s;
+}
+
+.ohm-row:not(.is-result) .ohm-pin:hover { border-color: var(--color-accent); }
+.ohm-row:not(.is-result) .ohm-pin:hover::after { background: var(--color-accent-light); }
+
+.ohm-row.is-result .ohm-pin {
+  border-color: var(--color-accent);
+  cursor: default;
+}
+.ohm-row.is-result .ohm-pin::after { background: var(--color-accent); }
+
+/* Formula bar */
+.ohm-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid var(--color-border);
+  background: #f9f8f6;
+  font-family: var(--font-ui);
+  font-size: 0.97rem;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.ohm-f-op { color: var(--color-text-muted); font-weight: 400; }
+
+.ohm-f-val {
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  color: var(--color-text);
+  transition: background 0.25s, color 0.25s;
+}
+
+.ohm-f-val.ohm-f-result {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* === Circuit Demo === */
+.circuit-demo {
+  margin: 2rem 0;
+  border: 1px solid var(--color-demo-border);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.circuit-demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-demo-bg);
+  border-bottom: 1px solid var(--color-demo-border);
+  flex-wrap: wrap;
+}
+
+.circuit-demo-label {
+  font-family: var(--font-ui);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-demo-label);
+  flex-shrink: 0;
+}
+
+.circuit-demo-hint {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.circuit-reset-btn {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.14s, color 0.14s;
+  flex-shrink: 0;
+}
+
+.circuit-reset-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.circuit-demo-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.circuit-panel {
+  padding: 1.1rem 0.75rem 0.85rem;
+  text-align: center;
+}
+
+.circuit-panel + .circuit-panel {
+  border-left: 1px solid var(--color-border);
+}
+
+.circuit-panel-name {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.circuit-panel-status {
+  font-family: var(--font-ui);
+  font-size: 0.71rem;
+  margin-top: 0.5rem;
+  min-height: 1.1em;
+  transition: color 0.25s;
+}
+
+.circuit-panel-status.status-ok    { color: var(--color-workbench-border); }
+.circuit-panel-status.status-fault { color: var(--color-safety-border); }
+
+.circuit-panel svg {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 280px;
+  overflow: visible;
+}
+
+.circuit-panel-full {
+  grid-column: 1 / -1;
+  border-left: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.circuit-panel-full svg {
+  max-width: 420px;
+}
+
+/* SVG wire elements */
+.c-wire {
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke 0.3s;
+}
+
+.c-wire.c-dead { stroke: #c0bdb8; }
+
+/* Power source */
+.c-power { fill: var(--color-accent); transition: fill 0.3s; }
+.c-power.c-dead { fill: #c0bdb8; }
+
+.c-power-text {
+  fill: #fff;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Bulbs */
+.c-bulb { cursor: pointer; }
+
+.c-bulb-glass {
+  fill: #f8c11a;
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.c-bulb:not(.c-broken):not(.c-dead):hover .c-bulb-glass { fill: #fad44d; }
+
+.c-bulb.c-broken .c-bulb-glass {
+  fill: #d4d1cb;
+  stroke: #9e9b96;
+}
+
+.c-bulb.c-dead .c-bulb-glass {
+  fill: #e8e5e0;
+  stroke: #b8b5b0;
+}
+
+/* X mark — only shown on the broken bulb, not on collateral-dead bulbs */
+.c-bulb-x {
+  display: none;
+  stroke: #c0392b;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.c-bulb.c-broken .c-bulb-x { display: block; }
+
+@media (max-width: 520px) {
+  .circuit-demo-panels {
+    grid-template-columns: 1fr;
+  }
+  .circuit-panel + .circuit-panel {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
 }
 
 /* === Print === */
