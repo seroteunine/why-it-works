@@ -68,7 +68,8 @@
       <div class="ohm-demo" id="ohm-demo">
         <div class="ohm-demo-header">
           <span class="ohm-demo-label">Try it</span>
-          <span class="ohm-demo-hint">Drag the resistance slider — current is always calculated at 230 V mains supply</span>
+          <span class="ohm-demo-hint">Try resistance first. Voltage is adjustable too, but it's normally fixed at 230 V.</span>
+          <button type="button" class="circuit-reset-btn" id="ohm-reset">Reset</button>
         </div>
         <div class="ohm-circuit-wrap">
           <svg id="ohm-svg" viewBox="0 0 420 155" aria-hidden="true">
@@ -99,14 +100,6 @@
         </div>
 
         <div class="ohm-rows">
-          <div class="ohm-row ohm-row-fixed" data-ohm="V">
-            <span class="ohm-sym">V</span>
-            <span class="ohm-name">Voltage</span>
-            <div class="ohm-track">
-              <span class="ohm-fixed-label">mains supply — fixed</span>
-            </div>
-            <span class="ohm-val">230&thinsp;V</span>
-          </div>
           <div class="ohm-row" data-ohm="R">
             <span class="ohm-sym">R</span>
             <span class="ohm-name">Resistance</span>
@@ -114,6 +107,14 @@
               <input type="range" class="ohm-slider" min="1" max="100" step="1" value="25"/>
             </div>
             <span class="ohm-val">25&thinsp;Ω</span>
+          </div>
+          <div class="ohm-row" data-ohm="V">
+            <span class="ohm-sym">V</span>
+            <span class="ohm-name">Voltage</span>
+            <div class="ohm-track">
+              <input type="range" class="ohm-slider" min="1" max="500" step="1" value="230"/>
+            </div>
+            <span class="ohm-val">230&thinsp;V</span>
           </div>
           <div class="ohm-row is-result" data-ohm="I">
             <span class="ohm-sym">I</span>

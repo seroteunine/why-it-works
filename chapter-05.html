@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5: AC vs DC — Why It Works</title>
+  <title>Chapter 5: The Multimeter — Why It Works</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,101 +29,260 @@
     <article>
       <header class="chapter-header">
         <p class="chapter-number">Chapter 5</p>
-        <h1>AC vs DC</h1>
+        <h1>The Multimeter</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>The laptop charger goes on the table — a black plastic brick about the size of two decks of cards, with a cable from each end. "It stopped charging my laptop a few days ago," the owner says. She picks it up and squeezes it slightly. "It's warm. Is that normal?" You tell her it usually is, slightly. But the real question is whether it's charging. You plug it in with a meter in line. No output voltage at all. The cable from the brick to the laptop looks undamaged. The cable from the wall to the brick is fine. Something inside has failed. Before you open it — or decide not to — it helps to understand what's actually going on inside that little box.</p>
+        <p>Mid-morning. A two-slot toaster goes on the table. The owner says one side heats fine, but the other barely gets warm — bread comes out pale and soft while the other slot browns perfectly. You set the toaster aside and reach for the multimeter. A newer volunteer watches you pick it up and turn the dial. "How do you know which setting to use?" It's a fair question. The multimeter can do several different things, and choosing the wrong one gives you either nothing useful or a dangerous situation. Let's go through what it can actually do.</p>
       </div>
 
       <div class="chapter-objectives">
         <span class="chapter-objectives-title">Learning goals</span>
         <ul>
-          <li>Understand the difference between AC and DC in terms that help with repair.</li>
-          <li>Know why 230V mains has a peak of about 325V even though the meter reads 230V.</li>
-          <li>Recognise the main stages inside a simple power supply.</li>
+          <li>Choose the right meter mode for voltage, resistance, continuity, current, and diode checks.</li>
+          <li>Understand why voltage is measured live, but resistance is measured unplugged.</li>
+          <li>Use the meter in a way that reduces risk instead of creating it.</li>
         </ul>
       </div>
 
-      <h2>Direct current</h2>
+      <h2>The instrument and its parts</h2>
 
-      <p>Direct current, DC, is what batteries produce. The voltage is steady. Current flows in one direction, continuously. A AA cell is 1.5V DC. A USB power supply is 5V DC. The 12V in a car electrical system is DC from a battery (or from the alternator, but regulated to steady DC).</p>
+      <p>A typical digital multimeter has three or four input sockets, a rotary dial to select measurement function and range, and a display. The probes — one red (positive), one black (negative, or common) — connect the meter to the circuit.</p>
 
-      <p>Most electronics — circuit boards, sensors, microcontrollers, LEDs, the logic inside your laptop — runs on DC. Specifically, low-voltage DC: 3.3V, 5V, 12V. The circuits are designed for stable, predictable voltages. Give them AC, or give them the wrong polarity, and things break.</p>
+      <p><strong>Input sockets</strong> — most meters have three: COM (black probe, always), V/Ω (red probe for voltage and resistance), and a high-current socket (often labelled 10A or 20A, red probe for current above the mA range). Some meters add a fourth socket for milliamps (200mA or 400mA). Getting the probe in the wrong socket is one of the most common — and occasionally dangerous — mistakes.</p>
 
-      <h2>Alternating current</h2>
+      <p><strong>The dial</strong> — selects the function (voltage, current, resistance, continuity, etc.) and sometimes the range. Auto-ranging meters select the appropriate range automatically; manual meters require you to choose. When in doubt with a manual meter, start at the highest range and work down.</p>
 
-      <p>Alternating current, AC, is what comes out of your wall socket. Instead of staying at a fixed voltage, AC swings back and forth: positive, through zero, negative, through zero, positive again. In the Netherlands (and across most of Europe) this happens as a sine wave repeating at 50 Hz — 50 complete cycles per second.</p>
+      <h2>Measuring voltage</h2>
 
-      <h2>Peak voltage vs RMS voltage</h2>
+      <p>Voltage measurement is the most-used function for mains appliance diagnosis. The meter is connected <strong>in parallel</strong> with the component being tested — one probe on each side.</p>
 
-      <p>Here's the part that surprises many people. When we say the Dutch mains is 230V, we don't mean the voltage is sitting at 230V — it's a sine wave that swings between about +325V and −325V. So why do we say 230V?</p>
+      <p>A voltmeter has to be <strong>high impedance</strong> — electrically, it must behave almost like an open circuit. If it drew much current of its own, the act of measuring would change the voltage you're trying to observe. A good voltmeter samples the potential difference while disturbing the circuit as little as possible.</p>
 
-      <p>Because 230V is the RMS (root mean square) voltage — the effective value. RMS is defined specifically so that AC at X volts RMS delivers the same power to a resistive load as DC at X volts. A 230V RMS supply heats a resistive element (kettle, toaster, iron) identically to what a DC supply at 230V would.</p>
+      <p>Select AC voltage (V~) for mains measurements. Select DC voltage (V—) for battery-powered circuits, power supply outputs, and anything downstream of a rectifier. Using AC on DC (or vice versa) will give wrong readings or no reading at all.</p>
 
-      <p>Why does RMS get this special role instead of the peak value? Because heating depends on instantaneous power, and instantaneous power in a resistance depends on the square of the voltage at that moment. During each AC cycle the voltage is sometimes small, sometimes large, and sometimes zero. RMS is the mathematical way of averaging that changing voltage so that the average heating effect comes out right. It is the DC-equivalent heating value, not just an average of the waveform.</p>
+      <p>What you're looking for:</p>
+      <ul>
+        <li><strong>Across the supply terminals</strong> (live to neutral at the socket): should read ~230V AC</li>
+        <li><strong>Across a component that should be conducting</strong>: should read close to 0V (if it's a wire, switch in the on position, or intact fuse)</li>
+        <li><strong>Across a component that's in the open position</strong>: should read the full supply voltage (the voltage "drops" across the open gap)</li>
+        <li><strong>Across the load</strong>: should read close to the supply voltage</li>
+      </ul>
 
-      <p>The relationship between peak voltage and RMS voltage for a sine wave is:</p>
+      <p>The voltage-drop technique is powerful: in a series circuit, all the supply voltage drops somewhere. If the load has less than the full supply voltage across it, voltage is dropping somewhere it shouldn't be — at a bad connection, a failing switch, a partially open thermal fuse.</p>
 
-      <div class="formula">V<sub>peak</sub> = V<sub>RMS</sub> × √2 &nbsp;&nbsp;&nbsp; ≈ &nbsp;&nbsp;&nbsp; 230 × 1.414 ≈ 325V</div>
+      <p>What you've just learned — measuring voltage drops to find hidden resistance — is one of the most reliable diagnostic techniques at the bench. It finds faults that continuity testing misses, because it tests under real load conditions rather than the meter's small internal current.</p>
 
-      <p>So the mains voltage is actually swinging between +325V and −325V. This matters for the design of capacitors and other components that must tolerate the peak voltage, not just the RMS. On mains circuits, voltage rating alone is not enough: components connected directly across line and neutral must also have the correct safety class for that job, such as an X-rated suppression capacitor.</p>
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>When measuring mains voltage, use insulated probes with minimal exposed metal. Make sure the probes are fully inserted in the COM and V/Ω sockets — not the current socket. Hold the probes by the insulated grip, never by the metal shaft. Position one probe, note where your other hand is (don't let it touch anything grounded), then position the second probe. Working on live circuits should be the exception, not the routine — only do it when you specifically need a voltage reading, and only on circuits you understand.</p>
+      </div>
+
+      <h2>Measuring resistance and continuity</h2>
+
+      <p>Resistance and continuity measurements require the circuit to be <strong>completely unpowered</strong>. This is not optional. A live circuit will give false readings and may damage the meter or injure you.</p>
+
+      <p>For resistance (Ω): select the appropriate range, and touch the probes to both ends of the component or conductor under test. The meter sends a small current through the component and measures the resulting voltage drop — calculating resistance from Ohm's law internally. Most digital meters read OL (overload/open) when there's no conducting path, and display the resistance in ohms when there is.</p>
+
+      <p>For continuity (the diode symbol or buzzer symbol): the meter beeps when resistance is below a threshold — typically a few tens of ohms. This is a faster way of checking "is this path intact?" without reading a specific value. Very useful for checking cable continuity, fuses, and switch contacts. The socket choice is part of the measurement, not just the display: in the V/Ω socket the meter behaves as a high-impedance voltmeter, while in the current socket it becomes a very low-resistance path intended to sit in series with the load.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>When you set your multimeter to AC voltage and measure the mains, you'll read approximately 230V — that's the RMS value. If you were to connect an oscilloscope (or a peak-hold function) you'd see the full 325V peak. This distinction matters when you're testing circuit components. A capacitor marked only 250V is not suitable for direct use across the mains. For across-the-mains service you need the correct safety-rated part — typically an X2 capacitor of the specified capacitance and voltage class — not just "something with a big enough number on it."</p>
+        <p>Continuity mode is fast and useful, but it has a trap: it tests at low current. A wire with several broken strands might still pass continuity if one or two strands remain intact — but under full load current, the remaining strands overheat and fail (or have enough resistance to cause problems). For cables, supplement continuity with a resistance check: a few meters of good copper flex should read well under 1 ohm. A reading of a few ohms in a short cable suggests partial damage. Also remember: the continuity check goes through the whole circuit from probe to probe. If your meter beeps when measuring resistance through an unpowered appliance, it means there's a path through the whole circuit — not just through the component you're holding the probes on.</p>
       </div>
 
-      <h2>Why mains is AC</h2>
+      <h2>Measuring current</h2>
 
-      <p>The important practical reason is that AC is easy to transform from one voltage to another. That makes it suitable for a power system that must transmit energy efficiently at high voltage and then deliver it safely at household voltage. You do not need the whole history of the electricity grid at the repair bench; the useful takeaway is simply that the mains arrives as AC, while much of the equipment inside modern appliances needs DC.</p>
+      <p>Current measurement is the most operationally awkward — the meter must be inserted <strong>in series</strong> with the circuit, which means breaking the circuit to insert it. You're measuring the current flowing through the meter itself.</p>
 
-      <p>For a resistive load, 230V RMS AC delivers the same heating power as 230V DC. The waveform differs; the effective power does not.</p>
+      <p>An ammeter therefore has to be <strong>low impedance</strong>. It is designed to add almost no extra resistance, so the normal circuit current can pass through it without being altered much. This is also why using the current socket across a voltage source is so dangerous: you are no longer "looking" at the circuit, you are inserting an almost direct short across it.</p>
 
-      <h2>Turning AC into DC: rectification</h2>
+      <p>Steps: select the appropriate range (use the high-current socket if you expect more than 400mA), break the circuit at a convenient point, insert the meter's probes in series. The measured current flows through an internal shunt resistor, and the voltage across it tells the meter the current. The meter's resistance in current mode is very low — milliohms — so it doesn't significantly affect the circuit.</p>
 
-      <p>Most electronic devices — phones, laptops, routers, many household appliances — need DC internally. The power supply's job is to convert mains AC to regulated DC. In broad terms, it does four things:</p>
-
-      <h3>1. Transformation or isolation</h3>
-      <p>The dangerous mains side and the low-voltage output side are separated and the voltage is brought to a useful range. In older supplies this is done directly with a mains-frequency transformer. In modern supplies the same job is often done in a different way, but the broad idea is the same: the appliance needs a safe, usable low-voltage supply, not raw mains.</p>
-
-      <h3>2. Rectification</h3>
-      <p>Convert AC to DC using diodes. A diode is a one-way valve for current — it conducts freely in one direction and blocks in the other. A bridge rectifier uses four diodes arranged so that both halves of the AC cycle push current through the load in the same direction. The output of a bridge rectifier is pulsating DC: it looks like a bumpy positive waveform, pulsing at 100 Hz (twice the mains frequency in a full-wave rectifier).</p>
-
-      <h3>3. Filtering</h3>
-      <p>Smooth out the pulsations using a large capacitor. The capacitor charges up on each pulse and partially discharges between pulses, filling in the dips. The result is a rippled DC voltage — close to steady, but with a small AC component superimposed. The bigger the capacitor, the smoother the output.</p>
-
-      <h3>4. Regulation</h3>
-      <p>Keep the output voltage constant despite varying load and varying mains input. This might be a linear regulator (simple, wastes energy as heat) or a switching regulator (complex, efficient).</p>
-
-      <p>That broad sequence — isolate or transform, rectify, filter, regulate — is the conceptual map to keep in your head. You do not need to know every internal design to understand what a charger or adapter is trying to achieve.</p>
-
-      <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>Rectification depends on the one-way behaviour of diodes. A bridge rectifier uses four diodes so that both halves of the AC waveform end up pushing current through the load in the same direction. After that, filtering and regulation turn the bumpy output into something the electronics can actually use.</p>
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>The most dangerous mistake with a multimeter is connecting it in current mode (probes in the current socket) and then trying to measure voltage — touching both probes across a mains supply. In current mode, the meter's input is near a short circuit. Measuring 230V across a near-short produces an enormous current surge that instantly blows the meter's internal fuse (if you're lucky) or destroys the meter in a flash and a bang (if the fuse is of insufficient breaking capacity). Always double-check which socket the red probe is in before measuring voltage. This sounds like a beginner mistake, but experienced people do it too — usually when they're tired or distracted.</p>
       </div>
+
+      <div class="concept-demo" id="meter-sim">
+        <div class="concept-demo-header">
+          <span class="concept-demo-label">Try it</span>
+          <span class="concept-demo-hint">Choose the scenario, click the meter mode, and switch the red lead between the `VΩ` and `10A` sockets. The probes are already placed for the test.</span>
+        </div>
+        <div class="concept-demo-body">
+          <div class="meter-sim-toolbar" role="tablist" aria-label="Measurement scenario">
+            <button class="meter-sim-tab is-active" data-meter-scene="socket" aria-pressed="true">Socket voltage</button>
+            <button class="meter-sim-tab" data-meter-scene="switch" aria-pressed="false">Closed switch</button>
+            <button class="meter-sim-tab" data-meter-scene="fuse" aria-pressed="false">Fuse continuity</button>
+            <button class="meter-sim-tab" data-meter-scene="element" aria-pressed="false">Heating element</button>
+            <button class="meter-sim-tab" data-meter-scene="current" aria-pressed="false">Current in series</button>
+          </div>
+
+          <svg viewBox="0 0 760 380" class="meter-sim-svg" aria-label="Multimeter and test circuit simulator">
+            <defs>
+              <filter id="meterProbeGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+
+            <rect x="26" y="26" width="250" height="328" rx="20" class="meter-body"/>
+            <rect id="meter-screen-bg" x="58" y="54" width="186" height="62" rx="10" class="meter-screen is-good"/>
+            <text x="151" y="91" id="meter-screen-text" class="meter-screen-text">230 V AC</text>
+            <text x="151" y="112" id="meter-screen-subtext" class="meter-screen-subtext">Good setup</text>
+
+            <circle cx="151" cy="188" r="56" class="meter-dial"/>
+            <g data-meter-mode="vac" class="meter-mode-group is-active">
+              <rect x="107" y="120" width="88" height="22" rx="11" class="meter-mode-pill"/>
+              <text x="151" y="135" class="meter-mode-text">V~</text>
+            </g>
+            <g data-meter-mode="vdc" class="meter-mode-group">
+              <rect x="197" y="165" width="64" height="22" rx="11" class="meter-mode-pill"/>
+              <text x="229" y="180" class="meter-mode-text">V-</text>
+            </g>
+            <g data-meter-mode="ohms" class="meter-mode-group">
+              <rect x="184" y="228" width="74" height="22" rx="11" class="meter-mode-pill"/>
+              <text x="221" y="243" class="meter-mode-text">Ω</text>
+            </g>
+            <g data-meter-mode="cont" class="meter-mode-group">
+              <rect x="44" y="228" width="92" height="22" rx="11" class="meter-mode-pill"/>
+              <text x="90" y="243" class="meter-mode-text">Beep</text>
+            </g>
+            <g data-meter-mode="amps" class="meter-mode-group">
+              <rect x="45" y="165" width="72" height="22" rx="11" class="meter-mode-pill"/>
+              <text x="81" y="180" class="meter-mode-text">A</text>
+            </g>
+
+            <circle cx="88" cy="311" r="13" class="meter-socket meter-socket-fixed"/>
+            <text x="88" y="336" class="meter-socket-label">COM</text>
+            <circle id="meter-red-socket-vohm" cx="152" cy="311" r="13" class="meter-socket meter-socket-selectable is-active"/>
+            <text x="152" y="336" class="meter-socket-label">VΩ</text>
+            <circle id="meter-red-socket-amps" cx="216" cy="311" r="13" class="meter-socket meter-socket-selectable"/>
+            <text x="216" y="336" class="meter-socket-label">10A</text>
+
+            <text x="370" y="44" class="meter-scene-title">Test circuit</text>
+            <text x="370" y="68" id="meter-scene-caption" class="meter-scene-caption">Live wall socket: measure between live and neutral.</text>
+
+            <g data-meter-scene-group="socket" class="meter-scene-group is-active">
+              <rect x="498" y="118" width="138" height="148" rx="24" class="meter-scene-panel"/>
+              <circle cx="546" cy="187" r="20" class="meter-terminal metal-live"/>
+              <circle cx="589" cy="187" r="20" class="meter-terminal metal-neutral"/>
+              <text x="546" y="192" class="meter-terminal-text">L</text>
+              <text x="589" y="192" class="meter-terminal-text">N</text>
+            </g>
+
+            <g data-meter-scene-group="switch" class="meter-scene-group">
+              <line x1="398" y1="188" x2="458" y2="188" class="meter-wire"/>
+              <line x1="514" y1="188" x2="630" y2="188" class="meter-wire"/>
+              <circle cx="458" cy="188" r="6" class="meter-node"/>
+              <circle cx="514" cy="188" r="6" class="meter-node"/>
+              <line x1="458" y1="188" x2="514" y2="166" class="meter-switch-blade"/>
+              <text x="484" y="148" class="meter-part-label">closed switch</text>
+            </g>
+
+            <g data-meter-scene-group="fuse" class="meter-scene-group">
+              <line x1="402" y1="188" x2="462" y2="188" class="meter-wire"/>
+              <line x1="560" y1="188" x2="622" y2="188" class="meter-wire"/>
+              <rect x="462" y="170" width="98" height="36" rx="18" class="meter-fuse-body"/>
+              <line x1="482" y1="188" x2="540" y2="188" class="meter-fuse-link"/>
+              <text x="511" y="151" class="meter-part-label meter-label-center">good fuse</text>
+            </g>
+
+            <g data-meter-scene-group="element" class="meter-scene-group">
+              <line x1="392" y1="188" x2="450" y2="188" class="meter-wire"/>
+              <line x1="574" y1="188" x2="634" y2="188" class="meter-wire"/>
+              <polyline points="450,188 468,166 486,210 504,166 522,210 540,166 558,210 574,188" class="meter-element"/>
+              <text x="512" y="150" class="meter-part-label meter-label-center">heating element</text>
+            </g>
+
+            <g data-meter-scene-group="current" class="meter-scene-group">
+              <line x1="386" y1="188" x2="464" y2="188" class="meter-wire"/>
+              <line x1="534" y1="188" x2="554" y2="188" class="meter-wire"/>
+              <line x1="598" y1="188" x2="642" y2="188" class="meter-wire"/>
+              <circle cx="576" cy="188" r="22" class="meter-lamp"/>
+              <line x1="564" y1="176" x2="588" y2="200" class="meter-lamp-filament"/>
+              <line x1="588" y1="176" x2="564" y2="200" class="meter-lamp-filament"/>
+              <text x="499" y="150" class="meter-part-label meter-label-center">open gap for current test</text>
+            </g>
+
+            <line id="meter-black-lead" x1="88" y1="311" x2="470" y2="258" class="meter-lead meter-lead-black"/>
+            <line id="meter-red-lead" x1="152" y1="311" x2="540" y2="258" class="meter-lead meter-lead-red"/>
+
+            <circle id="meter-black-probe-glow" cx="470" cy="258" r="14" class="meter-probe-glow meter-probe-glow-black"/>
+            <circle id="meter-red-probe-glow" cx="540" cy="258" r="14" class="meter-probe-glow meter-probe-glow-red"/>
+            <circle id="meter-black-probe" cx="470" cy="258" r="10" class="meter-probe meter-probe-black" data-probe="black"/>
+            <circle id="meter-red-probe" cx="540" cy="258" r="10" class="meter-probe meter-probe-red" data-probe="red"/>
+          </svg>
+
+          <div class="meter-sim-readout meter-demo-result is-good" id="meter-sim-result">
+            <p class="meter-demo-reading" id="meter-sim-reading">230 V AC</p>
+            <p class="meter-demo-summary" id="meter-sim-summary">That is the right setup for checking a live socket: AC volts, red probe in V/ohms, one probe on live and one on neutral.</p>
+            <p class="meter-demo-note" id="meter-sim-note">Try moving one probe away or switching the red probe to the 10A socket to see how quickly a sensible measurement becomes a bad setup.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>The diode test function</h2>
+
+      <p>Many meters have a dedicated diode test mode (marked with a diode symbol ▶|). In this mode, the meter applies a small forward voltage and reads the voltage drop across the diode. A good silicon diode reads about 0.5–0.7V in the forward direction and OL in reverse. This lets you quickly check diodes for open circuit (OL both ways — failed open) or short circuit (near 0V both ways — failed shorted).</p>
+
+      <h2>Practical diagnostic tests</h2>
+
+      <h3>Checking a fuse</h3>
+      <p>Set to continuity mode. Touch one probe to each end of the fuse. A working fuse should beep (close to zero resistance — it's just a piece of wire). OL means the fuse element has melted — blown. This test works whether the fuse is in or out of the circuit, but if in-circuit, ensure the circuit is unpowered and that there's no parallel path that would give a false continuity reading.</p>
+
+      <h3>Checking a heating element</h3>
+      <p>Unplug the appliance. Disconnect at least one end of the element to remove it from any parallel paths in the circuit. Set to resistance mode. Touch probes to the element terminals. A good element reads a specific resistance (as calculated from its wattage rating). OL means open circuit — failed. Near zero means shorted — also failed, less common.</p>
+
+      <h3>Checking a switch</h3>
+      <p>Unplug. Set to continuity mode. Measure across the switch terminals with the switch open: should read OL. Measure with the switch closed: should beep. A switch that reads OL in both positions is stuck open. A switch that beeps in both positions (or reads near zero with the switch open) is stuck closed — a safety concern.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>For this chapter, the important safety point is simple: the mains side of a power supply can contain dangerous voltage even after unplugging. The important diagnostic point is also simple: begin with the obvious. Damaged cables, cracked solder joints, failed output capacitors, and visibly burned parts are far more useful first observations than trying to understand every stage in detail.</p>
+        <p>Back to the toaster. One slot doesn't heat properly. Open the toaster (unplug it first). Each slot has its own set of heating elements — typically two or three nichrome wire elements per slot. With continuity mode, check each element in the cold slot individually. You'll likely find one reading OL — open circuit. The remaining elements are working, which is why the slot isn't completely dead, just underpowered. In a toaster, individual element wires are often impossible to replace without specialist parts, but the diagnostic process is exactly the same as for any other resistive load.</p>
       </div>
+
+      <h2>Auto-ranging vs manual ranging</h2>
+
+      <p>Auto-ranging meters select the appropriate measurement range automatically. They're slower to settle (they go through a brief selection cycle when you connect the probes) but much harder to damage by selecting the wrong range. Manual-ranging meters display a reading immediately but require you to select the right range: too high a range and the display shows something like "0.00" without useful precision; too low a range and it reads OL even for normal values (not dangerous, just uninformative).</p>
+
+      <p>For a beginners' bench, auto-ranging is strongly preferred. For experienced use, manual can be faster because you know what range to expect.</p>
+
+      <h2>CAT ratings and meter safety</h2>
+
+      <p>Meters are classified by their overvoltage protection capability, using a system called CAT (Category) ratings:</p>
+
+      <ul>
+        <li><strong>CAT I</strong>: electronic equipment, low energy (not for mains use)</li>
+        <li><strong>CAT II</strong>: single-phase mains — wall sockets, portable appliances</li>
+        <li><strong>CAT III</strong>: three-phase distribution, fixed building wiring, load centres</li>
+        <li><strong>CAT IV</strong>: origin of installation, electricity meters, overhead lines</li>
+      </ul>
+
+      <p>For repair cafe work — household appliances plugged into wall sockets — CAT II is the minimum, and CAT III is better. A higher category means the meter can withstand larger voltage transients without failing dangerously.</p>
 
       <div class="callout callout-predict">
         <span class="callout-label">Predict before measuring</span>
-        <p>If a bridge rectifier has failed open on one path, would you expect a smooth DC output, a lower and more rippled DC output, or zero volts? Try to predict the shape of the fault before you put the meter on the power supply.</p>
+        <p>If a closed switch is healthy and carrying current in a live circuit, what voltage should you expect across it: nearly the full supply, or close to zero? If you know the answer before measuring, the reading becomes diagnosis instead of surprise.</p>
+      </div>
+
+      <p>The voltage rating (e.g. "CAT II 600V") also matters. For 230V mains work, CAT II 600V is the standard minimum. Cheaper meters sometimes claim CAT ratings that aren't backed by genuine internal protection. Buy from reputable brands (Fluke, Brymen, UNI-T, CATIII-rated Meterk etc.) rather than the cheapest option available.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>The CAT rating specifically addresses transient overvoltages — brief voltage spikes that can occur on mains circuits due to switching inductive loads (motors, solenoids) or lightning-coupled disturbances. These spikes can reach thousands of volts for microseconds, even on a 230V circuit. A properly-rated meter can absorb such a spike safely (through internal protection components) without catastrophic failure. An under-rated meter may fail in a way that presents a safety hazard to the user. This is why the cheap €8 multimeter is a false economy for mains work — not because it gives bad readings in normal use, but because its failure mode under a transient can be dangerous.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>The charger is opened. A visual inspection reveals a cracked solder joint at the input connector — probably from the fall. The joint is reflowed, the case is reassembled, and the output voltage checks correctly. The owner gets their charger back. You've now seen both sides of the AC/DC divide — the raw mains and the clean regulated output that most devices actually run on. Next up: the tool that lets you look at voltages and currents directly.</p>
+        <p>The toaster gets a diagnosis: one element open in the right slot. The owner decides against repair (no spare elements available), and the toaster goes in the parts/recycling box. A vacuum cleaner that arrived an hour ago has been waiting patiently on the floor beside the table. "It just stopped working," the owner says — which is what everyone says. You pick it up, feel that it's unusually light for its size, and check the bag. It's so full it's solid. That tells you something already.</p>
       </div>
 
       <div class="chapter-takeaways">
         <span class="chapter-takeaways-title">Remember this</span>
         <ul>
-          <li>230V mains is an RMS value; the sine wave peaks at about 325V.</li>
-          <li>Most power supplies follow the same broad path: isolate or transform, rectify, filter, regulate.</li>
-          <li>The mains side of a power supply can contain dangerous stored DC even after unplugging.</li>
-          <li>Across-the-mains capacitors must be replaced with the correct safety-rated type, not just a similar capacitance.</li>
+          <li>Voltage is measured in parallel on a live circuit.</li>
+          <li>Resistance and continuity are measured only on an unpowered circuit.</li>
+          <li>Always check the probe sockets before touching mains.</li>
+          <li>Continuity is quick, but voltage-drop testing under load often tells you more.</li>
         </ul>
       </div>
 
@@ -133,44 +292,55 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q1</span>
-            <span class="question-text">A capacitor inside a mains power supply is marked "250V." The supply is 230V AC. Is this capacitor rated for the job?</span>
+            <span class="question-text">You measure voltage across a thermal fuse in a live circuit (with the appliance plugged in and switched on) and read 230V. What does this tell you about the fuse?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>No, not if it is connected directly across the mains. 230V AC is the RMS value; the peak is about 325V. A part marked only 250V would be overstressed. More importantly, mains-connected capacitors need the correct safety class as well as a suitable voltage rating. Across line and neutral that usually means an X-rated capacitor, such as X2, with the specified capacitance. If you find a 250V-only capacitor in that position, treat it as suspect until the circuit and part specification prove otherwise.</p>
+            <p>The thermal fuse is open circuit (blown). In a series circuit, when a component is open — not conducting — the full supply voltage appears across it. Think of it like this: on one side of the open fuse, the live voltage is present; on the other side, the neutral is present through the rest of the intact circuit. There's 230V across the gap. If the fuse were intact and conducting, there would be (nearly) zero voltage drop across it — you'd read close to 0V. A 230V reading across a fuse is a clear diagnosis: blown fuse. Now you need to find out why it blew before just replacing it.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q2</span>
-            <span class="question-text">A charger is giving a low output voltage — say, 9V instead of the 19V rated. The mains input seems fine. Which broad part of the AC-to-DC process should you suspect first?</span>
+            <span class="question-text">A colleague puts the red probe in the 10A current socket and then measures the voltage across a wall socket. What happens?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Start by suspecting the later stages: rectification, filtering, or regulation on the output side. Those are the stages that determine whether the final DC is clean and at the correct voltage. In practice, failed output capacitors or a fault in the regulation path are common explanations for a charger that still does something but no longer produces the correct output.</p>
+            <p>In current mode, the meter's input is very low resistance (near a short circuit). Connecting it across 230V AC essentially creates a short circuit across the mains. The resulting current is limited only by the meter's internal resistance and the source impedance of the mains — potentially hundreds or thousands of amperes for a brief moment. This will almost certainly blow the meter's high-current fuse immediately (if it has one and it's properly rated). If the fuse can't clear the fault quickly enough, the current surge can damage or destroy the meter — possibly with a flash, a bang, and flying debris. This is a real safety incident. If the fuse clears quickly, the person is probably unhurt but the meter is damaged. This is exactly why CAT ratings and proper meter fuses matter.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q3</span>
-            <span class="question-text">Why is the voltage difference usually more important than the 50 Hz versus 60 Hz difference for a simple resistive appliance?</span>
+            <span class="question-text">You test a switch in an unplugged appliance using continuity mode. With the switch in the off position you get a beep. With the switch in the on position you also get a beep. What does this mean?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Because the heat in a resistive load depends strongly on voltage. With a fixed resistance, power follows P = V²/R, so a large change in voltage gives a very large change in heating effect. The difference between 230V and 120V therefore changes appliance behaviour dramatically, while the difference between 50 Hz and 60 Hz is often secondary for simple heaters.</p>
+            <p>The switch is stuck closed (or shorted). Its contacts are conducting in both the on and off positions — it's no longer able to open the circuit. This means the switch cannot turn the appliance off. This is a safety fault: if the switch is on the live side (as it should be), the appliance's internal components are permanently connected to live through the switch, regardless of the switch position. An appliance with this fault should not be returned to service until the switch is replaced. Also worth checking: could there be a parallel path in the circuit giving a false reading? Rule that out by disconnecting one terminal of the switch before testing.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q4</span>
-            <span class="question-text">A bridge rectifier using four diodes is producing a pulsating DC output at 100 Hz from a 50 Hz input. Why 100 Hz rather than 50 Hz?</span>
+            <span class="question-text">Why must the circuit be unpowered when measuring resistance, but powered when measuring voltage?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Because a full-wave bridge rectifier conducts on both halves of the AC cycle, not just one. In the positive half-cycle, two of the four diodes conduct current through the load in the positive direction. In the negative half-cycle, the other two diodes conduct — but they redirect the current so it still flows through the load in the positive direction. Every half-cycle (twice per full AC cycle) produces a pulse of current through the load. At 50 Hz, there are 100 half-cycles per second, so the output pulses 100 times per second. A half-wave rectifier (single diode) would only produce 50 pulses per second — which is harder to smooth and less efficient.</p>
+            <p>Resistance measurement works by injecting a small known current from the meter's internal battery and measuring the resulting voltage drop. If the circuit is powered, the external voltage overwhelms the meter's internal test signal, making the reading meaningless — and the external voltage may damage the meter's resistance measurement circuitry (which is designed for low voltages only). Voltage measurement, conversely, requires the circuit to be at its operating voltage — you're measuring what the external circuit is producing. The meter's voltage input is designed for the expected range and is high-impedance, so it draws almost no current from the circuit under test. These two modes work in fundamentally different ways, which is why the power rules are opposite.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">You're tracing a fault in a live series circuit: fuse → switch (on) → heating element. You measure 230V before the fuse, 230V after the fuse, 0V after the switch. What is the fault, and what measurement would confirm it?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>230V is present after the fuse (fuse intact), but drops to 0V after the switch — meaning the switch is not conducting despite being in the "on" position. The switch is open-circuit: its contacts have either failed to make, or the switch mechanism has broken internally while appearing to be switched on. To confirm: unplug the appliance and measure resistance across the switch terminals with the switch set to on. A working switch in the on position should read near zero ohms (or beep in continuity mode). A reading of OL (open circuit) with the switch on confirms the fault. This is also why 230V would appear across the switch in the live circuit — in a series path, full supply voltage drops across any open component.</p>
           </div>
         </div>
 
@@ -178,7 +348,7 @@
 
       <div class="chapter-nav-footer">
         <a href="chapter-04.html" class="nav-prev">Chapter 4: Power and Heat</a>
-        <a href="chapter-06.html" class="nav-next">Chapter 6: The Multimeter</a>
+        <a href="chapter-06.html" class="nav-next">Chapter 6: Switches and Fuses</a>
       </div>
     </article>
 

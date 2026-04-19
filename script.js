@@ -4,17 +4,16 @@
    ============================================================ */
 
 const CHAPTERS = [
-  { href: 'index.html',       label: 'Cover' },
   { href: 'intro.html',       label: 'Introduction' },
   { href: 'chapter-01.html',  label: '1. Voltage, Current & Resistance' },
   { href: 'chapter-02.html',  label: '2. What a Circuit Actually Is' },
   { href: 'chapter-03.html',  label: '3. Series vs Parallel' },
   { href: 'chapter-04.html',  label: '4. Power and Heat' },
-  { href: 'chapter-05.html',  label: '5. AC vs DC' },
-  { href: 'chapter-06.html',  label: '6. The Multimeter' },
-  { href: 'chapter-07.html',  label: '7. Switches and Fuses' },
-  { href: 'chapter-08.html',  label: '8. Thermal Protection' },
-  { href: 'chapter-09.html',  label: '9. Motors' },
+  { href: 'chapter-05.html',  label: '5. The Multimeter' },
+  { href: 'chapter-06.html',  label: '6. Switches and Fuses' },
+  { href: 'chapter-07.html',  label: '7. Thermal Protection' },
+  { href: 'chapter-08.html',  label: '8. Motors' },
+  { href: 'chapter-09.html',  label: '9. AC vs DC' },
   { href: 'chapter-10.html',  label: '10. Reading a Circuit Diagram' },
   { href: 'chapter-11.html',  label: '11. Capacitors' },
   { href: 'chapter-12.html',  label: '12. Systematic Fault Diagnosis' },
@@ -70,7 +69,7 @@ function buildNav() {
 
   CHAPTERS.forEach((ch, i) => {
     // Section labels
-    if (i === 2) {
+    if (i === 1) {
       const li = document.createElement('li');
       li.innerHTML = '<span class="nav-section-label">Chapters</span>';
       list.appendChild(li);
@@ -157,7 +156,7 @@ function initOhmDemo() {
   const demo = document.getElementById('ohm-demo');
   if (!demo) return;
 
-  const V = 230;
+  let V = 230;
   let R = 25;
 
   const fmtV = v => Math.round(v) + '\u202fV';
@@ -189,10 +188,15 @@ function initOhmDemo() {
 
     const rl = document.getElementById('ohm-r-label');
     const il = document.getElementById('ohm-i-label');
+    const vl = document.getElementById('ohm-v-label');
+    if (vl) vl.textContent = fmtV(V);
     if (rl) rl.textContent = fmtR(R);
     if (il) il.textContent = fmtI(I);
 
     // Slider row values
+    const vRow = demo.querySelector('[data-ohm="V"]');
+    if (vRow) vRow.querySelector('.ohm-val').textContent = fmtV(V);
+
     const rRow = demo.querySelector('[data-ohm="R"]');
     if (rRow) rRow.querySelector('.ohm-val').textContent = fmtR(R);
 
@@ -211,6 +215,21 @@ function initOhmDemo() {
     if (fI) fI.textContent = fmtI(I);
     if (fR) fR.textContent = fmtR(R);
   }
+
+  demo.querySelector('[data-ohm="V"] .ohm-slider')?.addEventListener('input', e => {
+    V = parseFloat(e.target.value);
+    render();
+  });
+
+  demo.querySelector('#ohm-reset')?.addEventListener('click', () => {
+    V = 230;
+    R = 25;
+    const vSlider = demo.querySelector('[data-ohm="V"] .ohm-slider');
+    const rSlider = demo.querySelector('[data-ohm="R"] .ohm-slider');
+    if (vSlider) vSlider.value = String(V);
+    if (rSlider) rSlider.value = String(R);
+    render();
+  });
 
   demo.querySelector('[data-ohm="R"] .ohm-slider')?.addEventListener('input', e => {
     R = parseFloat(e.target.value);

@@ -771,6 +771,7 @@ li:last-child { margin-bottom: 0; }
   font-family: var(--font-ui);
   font-size: 0.78rem;
   color: var(--color-text-muted);
+  flex: 1;
 }
 
 .ohm-circuit-wrap {
@@ -860,18 +861,6 @@ li:last-child { margin-bottom: 0; }
 }
 
 .ohm-row.is-result { background: var(--color-accent-light); }
-
-.ohm-row-fixed {
-  background: #f6f5f2;
-  opacity: 0.85;
-}
-
-.ohm-fixed-label {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  color: var(--color-text-muted);
-  font-style: italic;
-}
 
 .ohm-sym {
   font-family: var(--font-ui);
