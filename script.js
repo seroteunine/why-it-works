@@ -65,7 +65,6 @@ function buildNav() {
 
   // Populate nav list
   const list = document.getElementById('nav-list');
-  let sectionOpen = false;
 
   CHAPTERS.forEach((ch, i) => {
     // Section labels
@@ -73,13 +72,16 @@ function buildNav() {
       const li = document.createElement('li');
       li.innerHTML = '<span class="nav-section-label">Chapters</span>';
       list.appendChild(li);
-      sectionOpen = true;
     }
-    if (ch.href === 'appendix.html' && sectionOpen) {
+    if (i === 5) {
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="nav-section-label nav-part-divider">Going Further</span>';
+      list.appendChild(li);
+    }
+    if (ch.href === 'appendix.html') {
       const li = document.createElement('li');
       li.innerHTML = '<span class="nav-section-label">Reference</span>';
       list.appendChild(li);
-      sectionOpen = false;
     }
 
     const li = document.createElement('li');

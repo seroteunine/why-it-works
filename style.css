@@ -31,9 +31,9 @@
   --color-demo-border:      #2563eb;
   --color-demo-label:       #1d4ed8;
 
-  --color-predict-bg:       #edf7f4;
-  --color-predict-border:   #1f7a5a;
-  --color-predict-label:    #175a43;
+  --color-predict-bg:       #fdf4e7;
+  --color-predict-border:   #c47a2b;
+  --color-predict-label:    #7a4a10;
 
   --font-body:   'Lora', Georgia, 'Times New Roman', serif;
   --font-ui:     'Inter', system-ui, -apple-system, sans-serif;
@@ -115,6 +115,23 @@ body {
   color: var(--color-text-muted);
   padding: 0.85rem 1.25rem 0.2rem;
 }
+
+.nav-part-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.25rem 1.25rem;
+  margin: 0;
+}
+
+.nav-part-divider::before,
+.nav-part-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
 
 .nav-list { list-style: none; }
 
