@@ -81,6 +81,11 @@
 
       <p>Inside, a TCO contains a small pellet of low-melting-point alloy. When the temperature reaches the trip point, the alloy melts, a spring opens the circuit, and the alloy resolidifies in the open position. There is no way to reset it — the alloy has physically moved, and the circuit is permanently open until the device is replaced.</p>
 
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"If a thermal cutoff has opened, replacing it fixes the problem." It restores the circuit, but it does not explain why the unsafe temperature was reached. The real fault is often the thing that overheated the appliance in the first place.</p>
+      </div>
+
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
         <p>A blown TCO is always telling you something. It opened because the temperature somewhere reached a level the designer considered unsafe. Before replacing the TCO and testing the appliance, ask why the temperature was too high. Common reasons: blocked airflow (vacuum cleaner with a full bag, hairdryer with a blocked grille), a failed thermostat that allowed the temperature to rise beyond normal cycling range, a motor running too hard due to a mechanical fault, or a component failure that changed the power dissipation. Replacing a TCO without addressing the root cause means the replacement TCO will blow again — or worse, if you've replaced it with the wrong trip temperature, the appliance now has no limit protection.</p>
@@ -91,6 +96,8 @@
       <p>Some appliances use resettable thermal cutouts — devices that open the circuit above a threshold temperature but spring back when cooled. Vacuum cleaners are a classic example: many have a thermal cutout that trips if the motor overheats (bag full, hose blocked), which can be reset by pressing a button on the machine after it's cooled down.</p>
 
       <p>These resettable devices use a bimetal disc or strip — similar in principle to a thermostat but designed to snap between two stable states (on and off) at specific temperatures, rather than modulating continuously. The snap action is important: a gradual transition would cause the device to operate with very high contact resistance in the transition zone, causing arcing and heating.</p>
+
+      <p>That "snap" behaviour matters because electrical contacts are happiest in one of two states: firmly closed or clearly open. The dangerous state is half-open, where current is still flowing through a tiny area of contact. That creates local heating and arcing. A snap-action device moves quickly through that bad region instead of lingering in it.</p>
 
       <p>Distinguishing a resettable cutout from a non-resettable TCO matters a great deal at the bench. If the owner says "the vacuum stopped and a red button popped out," that's a resettable cutout and the fix may be as simple as clearing the blockage and pressing the button after cooling. If there's a fuse-like component with no moving parts and it measures open circuit, it's likely a non-resettable TCO that needs replacement.</p>
 
@@ -131,6 +138,11 @@
       <p>Can you reset it? Press the reset button (if there is one) after the appliance has fully cooled. If it comes back to life, it's a resettable cutout — now find out why it tripped. If there's no reset button, measure continuity across the thermal device. If it reads open circuit, it's a one-shot TCO and must be replaced — after you've found the root cause.</p>
 
       <p>Is it heating too much or too little? Too much: thermostat calibration, stuck thermostat contacts (closed when they should open), or bypassed thermostat. Too little: partially open thermostat contacts, a thermostat tripping too early (possibly wrong part, or calibration has drifted the other way).</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a one-shot TCO has opened, what should continuity across it read with the appliance unplugged: a beep or OL? That single prediction often tells you whether you're looking at protection that operated or control that drifted.</p>
+      </div>
 
       <div class="chapter-closer">
         <p>The iron's thermostat has a small adjustment screw accessible from the base. A careful quarter-turn brings all settings within 5°C of the marked temperatures. The owner is asked to test it at home and report back — this kind of calibration may need fine-tuning over a few sessions. A coffee grinder goes on the table next. The owner says it makes a grinding noise and sparks inside when it runs. That's a motor problem, and motor problems are up next.</p>

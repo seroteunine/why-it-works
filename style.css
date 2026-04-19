@@ -31,6 +31,14 @@
   --color-demo-border:      #2563eb;
   --color-demo-label:       #1d4ed8;
 
+  --color-misconception-bg:     #fff8ea;
+  --color-misconception-border: #b7791f;
+  --color-misconception-label:  #8a5a13;
+
+  --color-predict-bg:       #edf7f4;
+  --color-predict-border:   #1f7a5a;
+  --color-predict-label:    #175a43;
+
   --font-body:   'Lora', Georgia, 'Times New Roman', serif;
   --font-ui:     'Inter', system-ui, -apple-system, sans-serif;
 
@@ -406,6 +414,18 @@ li:last-child { margin-bottom: 0; }
   border-color: var(--color-demo-border);
 }
 .callout-demo .callout-label { color: var(--color-demo-label); }
+
+.callout-misconception {
+  background: var(--color-misconception-bg);
+  border-color: var(--color-misconception-border);
+}
+.callout-misconception .callout-label { color: var(--color-misconception-label); }
+
+.callout-predict {
+  background: var(--color-predict-bg);
+  border-color: var(--color-predict-border);
+}
+.callout-predict .callout-label { color: var(--color-predict-label); }
 
 /* === Formula Display === */
 .formula {

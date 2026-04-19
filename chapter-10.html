@@ -110,6 +110,11 @@
 
       <p>What you've just done — using the schematic to rule out components that can't explain the symptom and focus on those that can — is the core of schematic-based diagnosis. The schematic doesn't tell you what's broken; it tells you what's possible. Your measurements narrow the possibilities. That's the whole skill.</p>
 
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"If I can read every symbol, I can read the fault." Not quite. A schematic tells you structure, not history. It shows where current can flow in a healthy appliance; diagnosis still depends on comparing that map with the symptom and with real measurements.</p>
+      </div>
+
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
         <p>A schematic captures the logical relationships in a circuit — which components share nodes (connection points). Two components sharing a node are either in parallel (both connected between the same two nodes) or linked in series (one's output node is another's input node). The schematic allows you to apply both Kirchhoff's laws: KVL (voltages around a loop must sum to zero) and KCL (currents at a node must sum to zero). Armed with these, you can predict exactly what measurement you should see at every point in a working circuit — and therefore identify exactly which measurement deviates from expectation when something is wrong. The schematic converts an opaque box of components into a predictable, testable system.</p>
@@ -127,6 +132,11 @@
       <h2>Where to find schematics</h2>
 
       <p>Search for the model number plus "service manual" or "schematic" — that's usually enough. Manufacturer websites, appliance-specific forums (espresso machine forums especially have remarkable documentation), and general sites like iFixit are the main sources. If nothing turns up, trace the protection chain yourself: fuse → switch → thermal protection → load. For simple appliances, a sketch you draw in fifteen minutes is often all you need.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If the pilot lamp branch works but the heater branch is dead, which series components can you already rule out from the schematic alone? Make that prediction before you reach for the meter. The drawing is already telling you where not to look.</p>
+      </div>
 
       <div class="chapter-closer">
         <p>The coffee machine turns out to have a failed solenoid valve — not immediately obvious from the schematic, but traceable with voltage testing. The repair is a bit beyond today's session, but the owner now knows what the fault is and where to source the part. A microwave has been waiting patiently on the floor. Someone wheels it onto a spare table. Before you open it, you need to have a serious conversation about capacitors.</p>

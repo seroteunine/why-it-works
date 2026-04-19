@@ -55,6 +55,11 @@
 
       <p>You don't need to be able to do the vector maths to understand motors at the repair table. The key insight is that <strong>the torque (rotational force) a motor produces is proportional to the current it carries</strong>. More current, more torque. A motor that's struggling against a mechanical load draws more current. A motor with a stalled rotor draws maximum current — limited only by the winding resistance.</p>
 
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Motors are energy converters, but at the bench the important idea is feedback between electricity and motion. As a motor spins, it generates a back electromotive force (back EMF) that opposes the supply. When the rotor is free and up to speed, this back EMF limits the current. When the rotor slows under load, or stalls, the back EMF falls and the current rises sharply. That is why mechanical drag causes electrical overheating, and why a stalled motor can burn itself out even though the supply voltage has not changed.</p>
+      </div>
+
       <h2>Brushed DC motors</h2>
 
       <p>The simplest type you'll encounter is the brushed DC motor. It has:</p>
@@ -97,6 +102,11 @@
       <h3>The start capacitor</h3>
       <p>A phase-shifting capacitor creates a shifted current in a second winding, giving the motor enough of a push to start from rest. Without it, the motor hums but won't rotate. A failed capacitor is one of the most common induction motor faults — and it's usually confirmed by giving the shaft a brief spin by hand (power off), then applying power. If the motor runs once started, the capacitor is the likely culprit.</p>
 
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"If a motor is hot and drawing high current, the supply voltage must be too high." More often the opposite story is true: the rotor is dragging, the load is excessive, or the winding is damaged, so the motor is taking more current because it cannot generate enough back EMF or torque efficiently.</p>
+      </div>
+
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
         <p>Never give a motor shaft a "helpful" spin while it's powered on. Position your fingers carefully, ensure no clothing or loose material can catch, and keep hands clear of the rotating parts once power is applied. The moment to spin is briefly with power off, then step clear and apply power. The motor will either start or it won't. Also, capacitors in motor circuits can hold charge — if you've been running a motor-capacitor appliance and it's just been switched off, treat the capacitor as live until you've measured it and confirmed it has discharged. We'll cover capacitor discharge properly in Chapter 11.</p>
@@ -125,6 +135,11 @@
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
         <p>When testing motor windings with a multimeter, connect to the brush holders (for universal motors) or directly to the winding terminals (for induction motors). The resistance you measure will depend on the motor's design and size — a vacuum cleaner motor might read 2–8 ohms between brushes; a small fan motor stator might read 50–200 ohms per winding. The absolute value matters less than relative comparison: if you have a working motor of the same type to compare, or a service manual, you have a reference. If not, look for obvious outliers: OL means open winding, near zero means shorted — anything in a plausible range for the motor size is likely fine. Check between the winding and the motor case too: should be OL (no connection to earth). A low resistance to earth is a winding-to-frame fault — serious.</p>
+      </div>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a motor winding has gone open-circuit, what should resistance across that winding read: a plausible value, near zero, or OL? And if the winding is shorted to the frame, what should you read from winding to case? Predicting first keeps motor testing from becoming guesswork.</p>
       </div>
 
       <div class="chapter-closer">

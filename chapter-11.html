@@ -68,6 +68,8 @@
 
       <p>The energy stored in a charged capacitor is E = ½CV², where C is capacitance and V is voltage. For the microwave capacitor: ½ × 1×10⁻⁶ × 2100² ≈ 2.2 joules. That's not a huge amount of energy by industrial standards, but it's delivered so rapidly (essentially instantaneously) that the peak current is enormous — enough to cause cardiac arrest or severe burns.</p>
 
+      <p>Why the square on the voltage? Because charging a capacitor is not like filling a bucket at constant effort. At the start, when the capacitor is uncharged, it's easy to push the first bit of charge onto the plates. As charge builds up, the electric field between the plates grows and pushes back harder. Each extra bit of charge takes more work than the last. That rising effort is why the stored energy scales with V² rather than just V.</p>
+
       <p>What you've just understood — that it's not the total stored energy but the speed of delivery that determines the danger — is why capacitor safety is treated so seriously. 2.2 joules released over an hour is barely noticeable. 2.2 joules released in a microsecond is a potentially lethal current spike. Energy ÷ time = power, and at microsecond timescales, even modest stored energy becomes enormous instantaneous power.</p>
 
       <div class="callout callout-principle">
@@ -101,6 +103,11 @@
       <h3>Interference suppression (X and Y capacitors)</h3>
       <p>SMPS and some appliances include capacitors directly across the mains supply (X capacitors) or between supply and earth (Y capacitors) to suppress high-frequency interference. These have specific safety ratings (X1, X2, Y1, Y2) and must be replaced only with identically rated parts — they're not interchangeable with ordinary film capacitors.</p>
 
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"A capacitor is just a little battery, so if the voltage is gone it's safe." A capacitor is not a battery, but it can still hold dangerous charge after the supply is removed. "Unplugged" and "discharged" are not the same condition.</p>
+      </div>
+
       <h2>Testing capacitors</h2>
 
       <h3>Visual inspection first</h3>
@@ -130,6 +137,11 @@
 
       <h3>Loss of capacitance</h3>
       <p>The capacitor has physically lost capacity — usually from electrolyte drying out in aged electrolytics. The reading on a capacitance meter will be significantly below the rated value. A motor run capacitor that's lost 30% of its rated capacitance will cause reduced motor efficiency and possibly failure to start under load.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a capacitor is shorted, what should a resistance test do: stay low, rise and then drift to OL, or show OL immediately? If it is open, which of those patterns should disappear? Predict the pattern before touching the probes.</p>
+      </div>
 
       <div class="chapter-closer">
         <p>The microwave's high-voltage capacitor is safely discharged. The fault turns out to be a failed magnetron — not repairable, and a magnetron replacement for this model costs more than a replacement oven. The honest diagnosis: time for recycling. But everyone in the room has learned something important about capacitors, about safety, and about knowing when repair is the right answer and when it isn't. One more appliance on the table. The session is almost done.</p>

@@ -100,7 +100,14 @@
 
       <p>In practice, the "divide" is often logical rather than geometric: test the mains supply chain (fuse → switch → thermal protection) first, since these affect everything. Then test each parallel branch individually. Within a branch, test from the supply end toward the load end.</p>
 
+      <p>The important mental shift is this: every measurement is a test of competing explanations. Before you measure, name the fault stories that could explain the symptom. Then choose the measurement that will eliminate the most stories at once. A reading is useful not because it gives you a number, but because it makes some explanations impossible and others more likely.</p>
+
       <p>What you've just described — narrowing the fault location by testing at logical midpoints — is the same method experienced repairers use on every job. Not because they memorise a checklist, but because they've internalised the question: where in this circuit would a fault explain this symptom? When that question becomes automatic, the sequence follows naturally.</p>
+
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"More measurements automatically mean better diagnosis." Not if the measurements are random. Ten unplanned readings can tell you less than two well-chosen ones. The goal is to collapse uncertainty, not to collect numbers.</p>
+      </div>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
@@ -144,6 +151,11 @@
 
       <h3>Reduced performance</h3>
       <p>Either the load isn't receiving full power (high-resistance path in the supply chain, failing switch contacts, corroded connections) or the load itself has degraded (partially failed heating element with some sections open, motor with worn brushes or shorted windings). Test the current draw if possible: compare to rated specification. Higher than rated suggests a fault in the load (motor winding issue). Lower than rated suggests a high-resistance supply chain reducing available power.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If an appliance is completely dead but one indicator lamp still works, what fault stories are immediately less likely? Ask that before the next measurement. The best prediction is often about which explanations have already been eliminated.</p>
+      </div>
 
       <h2>When to stop</h2>
 

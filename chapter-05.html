@@ -65,6 +65,8 @@
 
       <p>Because 230V is the RMS (root mean square) voltage — the effective value. RMS is defined specifically so that AC at X volts RMS delivers the same power to a resistive load as DC at X volts. A 230V RMS supply heats a resistive element (kettle, toaster, iron) identically to what a DC supply at 230V would.</p>
 
+      <p>Why does RMS get this special role instead of the peak value? Because heating depends on instantaneous power, and instantaneous power in a resistance depends on the square of the voltage at that moment. During each AC cycle the voltage is sometimes small, sometimes large, and sometimes zero. RMS is the mathematical way of averaging that changing voltage so that the average heating effect comes out right. It is the DC-equivalent heating value, not just an average of the waveform.</p>
+
       <p>The relationship between peak voltage and RMS voltage for a sine wave is:</p>
 
       <div class="formula">V<sub>peak</sub> = V<sub>RMS</sub> × √2 &nbsp;&nbsp;&nbsp; ≈ &nbsp;&nbsp;&nbsp; 230 × 1.414 ≈ 325V</div>
@@ -79,6 +81,13 @@
       <h2>Why we use AC for mains power</h2>
 
       <p>The honest answer is: transformers. A transformer converts AC voltage from one level to another with almost no energy loss. Step up the voltage for long-distance transmission and you need far less current for the same power — which means far less I²R loss in the cables. Step it back down at the destination for safe household use. There's no efficient equivalent of a transformer for DC, which is why AC won and the grid is still built around it.</p>
+
+      <p>And why does stepping up the voltage help so much? Because for a given power, higher voltage means lower current. Since cable heating rises with the square of the current, halving the current cuts transmission losses to a quarter. That is the whole economic logic of the AC grid: move energy around the country at high voltage and modest current, then transform it down only where people actually use it.</p>
+
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"230V AC must be gentler than 230V DC because the voltage keeps passing through zero." For a resistive load, 230V RMS AC delivers the same heating power as 230V DC. The waveform differs; the effective power does not.</p>
+      </div>
 
       <h2>Turning AC into DC: rectification</h2>
 
@@ -121,6 +130,11 @@
       <p>Transformers sometimes hum or buzz audibly. The hum frequency is twice the mains frequency — 100 Hz for a 50 Hz supply — because the magnetic core expands and contracts twice per cycle (once per half-cycle, regardless of polarity). A small amount of hum in a large transformer is normal.</p>
 
       <p>A transformer that suddenly starts humming much louder than before, or buzzing with a harsh sound, is usually telling you one of three things: the core laminations have loosened (mechanical), the transformer is being overloaded (magnetic saturation), or there's a partially shorted winding. A harsh buzz that gets hotter is usually a winding fault. A hum that's proportional to load is usually saturation or loose core. Neither is something to ignore.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a bridge rectifier has failed open on one path, would you expect a smooth DC output, a lower and more rippled DC output, or zero volts? Try to predict the shape of the fault before you put the meter on the power supply.</p>
+      </div>
 
       <div class="chapter-closer">
         <p>The charger is opened. A visual inspection reveals a cracked solder joint at the input connector — probably from the fall. The joint is reflowed, the case is reassembled, and the output voltage checks correctly. The owner gets their charger back. You've now seen both sides of the AC/DC divide — the raw mains and the clean regulated output that most devices actually run on. Next up: the tool that lets you look at voltages and currents directly.</p>

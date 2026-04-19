@@ -61,7 +61,14 @@
         <li>If any component fails open-circuit, the entire circuit goes dead</li>
       </ul>
 
+      <p>These rules are really consequences of there being only one loop. If charge has only one path available, every coulomb that leaves the source must pass through every component in turn, so the current is the same everywhere in the chain. And if the source gives that charge a fixed total energy push, that energy has to be spent somewhere along the loop — shared out as voltage drops across the individual components, whose drops add back up to the supply.</p>
+
       <p>That last point explains the old incandescent fairy lights. All the bulbs were wired in series, with each bulb designed for a fraction of the mains voltage. If you had 40 bulbs on 230V, each one was designed to drop about 5.75V. The problem: one bulb blows, and the entire string goes dark — because the single current path is broken.</p>
+
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"If one bulb in a series string fails, the other bulbs should get more voltage and glow brighter." That would only happen if current could still flow. In a true series string with one bulb open, the path is broken and the current everywhere falls to zero.</p>
+      </div>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
@@ -91,7 +98,14 @@
         <li>If one component fails open-circuit, the others continue working normally</li>
       </ul>
 
+      <p>Again, the "rules" follow from the geometry of the circuit. Each branch is connected to the same two nodes, so each one sees the same potential difference between those nodes — the same voltage. But the charge now has multiple routes available, so the total current from the source is simply the sum of what each branch draws. More branches means more available routes for charge, which is why the overall resistance falls instead of rises.</p>
+
       <p>Every wall socket in your house is in parallel with every other socket. The mains voltage — 230V — appears at all of them simultaneously. Plugging in more appliances adds more parallel branches and draws more current from the supply, but doesn't change the voltage available to any individual appliance.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If one branch in a parallel circuit goes open-circuit, what should happen to the voltage across the other healthy branches: stay the same, rise, or fall to zero? Make that prediction before testing fairy lights or multi-function appliances.</p>
+      </div>
 
       <p>What you've just described — voltage staying the same across all parallel branches — is Kirchhoff's Voltage Law in action. That's why you can plug in a kettle, a lamp, and a phone charger at the same time and each gets 230V regardless of the others.</p>
 

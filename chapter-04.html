@@ -55,6 +55,8 @@
 
       <p>Power equals voltage times current. This is the most useful form of the equation at the repair table, because voltage and current are the things you can measure directly. If you know the supply voltage and can measure the current, you know the power.</p>
 
+      <p>Why does that multiplication make sense? Voltage is energy made available per unit charge — how much energy each coulomb of charge can give up. Current is how much charge passes each second. Multiply "energy per coulomb" by "coulombs per second" and you get "energy per second" — which is exactly what power is. So P = V × I is not a magic electronics rule; it's just a compact way of saying: how much energy each bit of charge carries, times how many bits of charge pass each second.</p>
+
       <p>But using Ohm's law (V = I × R), we can derive two other useful forms:</p>
 
       <div class="formula">P = I² × R &nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp; P = V² ÷ R</div>
@@ -95,6 +97,11 @@
 
       <p>Energy calculations aren't usually directly useful at the repair table, but understanding the relationship matters when you're thinking about heat accumulation — why a motor might only smell hot after running for twenty minutes, or why a thermal fuse only triggers after sustained operation rather than immediately on power-up.</p>
 
+      <div class="callout callout-misconception">
+        <span class="callout-label">Tempting but wrong</span>
+        <p>"If something is getting hot, the appliance must be working hard, so the heat is probably normal." Not if the heat is appearing in the wrong place. Heat at the element is the intended job; heat at a plug, crimp, switch contact, or cable is evidence that power is being wasted in an unintended resistance.</p>
+      </div>
+
       <h2>Efficiency: where the energy goes</h2>
 
       <p>Not all electrical energy becomes useful work. Heating elements are nearly 100% efficient — all the electrical energy becomes heat, which is exactly what you want. But motors, which convert electrical energy to mechanical motion, always produce some heat as a by-product of electrical resistance in their windings and friction in their bearings.</p>
@@ -129,6 +136,11 @@
 
       <p>Good appliance design includes thermal protection specifically to interrupt these runaway processes before they cause damage — thermostats, thermal fuses, and PTC devices that limit current as temperature rises. We'll cover those in Chapter 8.</p>
 
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a cable or connector is dissipating far more heat than it should, what would you expect from a voltage-drop test across it under load: almost zero volts, or a noticeable voltage drop? Heat and voltage drop are two views of the same fault.</p>
+      </div>
+
       <div class="chapter-closer">
         <p>The fan turns out to have a bad bearing — a simple lubrication job. While you work on it, a laptop charger arrives: a small black brick that's warm to the touch and no longer charges. The owner says it was working fine until it fell off the desk. You look at the cable and the brick and start to think about what's inside that charger — which leads naturally to asking what kind of electricity it's actually converting, and why.</p>
       </div>
@@ -153,7 +165,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Current: I = P ÷ V = 1600 ÷ 230 ≈ 6.96A, call it 7A. Power in cable: P = I² × R = 7² × 0.5 = 49 × 0.5 = 24.5W. That's nearly 25 watts being dissipated in the cable — about 1.5% of the total power. In a standard good-quality iron cable this is acceptable. But if the cable resistance were higher (damaged conductors, too-thin a gauge, or a poor connection), that number rises with the square of the current. At 0.5 ohms and 7A you might not notice; at 3 ohms and 7A you'd have 147W in the cable, which would be very hot very quickly.</p>
+            <p>Current: I = P ÷ V = 1600 ÷ 230 ≈ 6.96A, call it 7A. Power in cable: P = I² × R = 7² × 0.5 = 49 × 0.5 = 24.5W. That's nearly 25 watts being dissipated in the cable — about 1.5% of the total power. For a short, healthy appliance flex this would actually be suspiciously high rather than normal; a good cable should waste far less than that. The point of the calculation is to show how quickly heating rises when resistance appears where it shouldn't. If the cable resistance really were 0.5 ohms, you'd inspect for damaged conductors, poor terminations, or an undersized lead. At 3 ohms and 7A you'd have 147W in the cable, which would be very hot very quickly.</p>
           </div>
         </div>
 
