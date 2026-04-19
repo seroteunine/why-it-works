@@ -59,6 +59,8 @@
 
       <p>A capacitor stores electrical energy in an electric field. The simplest form is two conducting plates separated by an insulating material (the dielectric). When voltage is applied, positive charge accumulates on one plate and negative charge on the other. The electric field between the plates stores the energy.</p>
 
+      <p>That is the key image to hold onto: the charges are not leaping across the dielectric and mixing together. They are being held apart. One plate becomes more positive, the other more negative, and that separation is what stores the energy. That is why a capacitor can sit there looking inert while still holding a dangerous charge.</p>
+
       <p>The amount of charge stored for a given voltage is the capacitance, measured in farads (F). One farad is a huge capacitance — you'll mostly see:
       <ul>
         <li>Microfarads (µF): millionths of a farad. Electrolytic capacitors in power supplies: 100–10,000 µF. Motor run capacitors: 1–100 µF.</li>
@@ -96,6 +98,8 @@
 
       <h3>Power supply filtering</h3>
       <p>After rectification, the raw DC from a bridge rectifier pulses at 100Hz. A large electrolytic capacitor across the output charges up on each pulse and partially discharges between pulses, smoothing the ripple. The larger the capacitor, the smoother the output. When this capacitor degrades (high ESR — internal resistance), it can no longer hold its charge between pulses effectively, and the output voltage ripples badly. This causes humming in audio equipment, instability in logic circuits, and failure of downstream electronics.</p>
+
+      <p>A simple way to picture this is that the capacitor fills up when the voltage peaks arrive and then feeds the circuit in the short gaps between them. Without it, the circuit sees a series of hills and valleys. With a healthy filter capacitor, many of those valleys get filled in, so the downstream electronics see something much closer to steady DC.</p>
 
       <h3>Motor phase shift</h3>
       <p>As discussed in Chapter 9, single-phase induction motors need a capacitor to create a phase-shifted current in the start winding, generating startup torque. The capacitor shifts the current phase by approximately 90°, creating an artificial two-phase supply from single-phase AC. Without it, the motor hums but won't start from rest.</p>

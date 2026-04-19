@@ -59,6 +59,8 @@
 
       <p>A voltmeter has to be <strong>high impedance</strong> — electrically, it must behave almost like an open circuit. If it drew much current of its own, the act of measuring would change the voltage you're trying to observe. A good voltmeter samples the potential difference while disturbing the circuit as little as possible.</p>
 
+      <p>That is the basic mental model for voltage mode: the meter is mostly just looking. It touches two points, compares their electrical potential, and tries not to participate in the circuit any more than necessary. If voltage mode changed the circuit significantly, it would be a bad voltmeter.</p>
+
       <p>Select AC voltage (V~) for mains measurements. Select DC voltage (V—) for battery-powered circuits, power supply outputs, and anything downstream of a rectifier. Using AC on DC (or vice versa) will give wrong readings or no reading at all.</p>
 
       <p>What you're looking for:</p>
@@ -86,6 +88,8 @@
 
       <p>For continuity (the diode symbol or buzzer symbol): the meter beeps when resistance is below a threshold — typically a few tens of ohms. This is a faster way of checking "is this path intact?" without reading a specific value. Very useful for checking cable continuity, fuses, and switch contacts. The socket choice is part of the measurement, not just the display: in the V/Ω socket the meter behaves as a high-impedance voltmeter, while in the current socket it becomes a very low-resistance path intended to sit in series with the load.</p>
 
+      <p>The mental model here is different from voltage mode: in resistance and continuity mode, the meter is not just looking, it is asking a question by injecting a tiny test current of its own. That is why the circuit must be unpowered. If the appliance's own voltage is still present, the meter can no longer tell whether the result is coming from its test current or from the live circuit.</p>
+
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
         <p>Continuity mode is fast and useful, but it has a trap: it tests at low current. A wire with several broken strands might still pass continuity if one or two strands remain intact — but under full load current, the remaining strands overheat and fail (or have enough resistance to cause problems). For cables, supplement continuity with a resistance check: a few meters of good copper flex should read well under 1 ohm. A reading of a few ohms in a short cable suggests partial damage. Also remember: the continuity check goes through the whole circuit from probe to probe. If your meter beeps when measuring resistance through an unpowered appliance, it means there's a path through the whole circuit — not just through the component you're holding the probes on.</p>
@@ -96,6 +100,8 @@
       <p>Current measurement is the most operationally awkward — the meter must be inserted <strong>in series</strong> with the circuit, which means breaking the circuit to insert it. You're measuring the current flowing through the meter itself.</p>
 
       <p>An ammeter therefore has to be <strong>low impedance</strong>. It is designed to add almost no extra resistance, so the normal circuit current can pass through it without being altered much. This is also why using the current socket across a voltage source is so dangerous: you are no longer "looking" at the circuit, you are inserting an almost direct short across it.</p>
+
+      <p>This is the mental model for current mode: the meter stops being an observer and becomes part of the circuit. All the charge you want to measure must physically pass through the meter. That is why current mode always means series connection, and why using it like a voltmeter is such a dramatic mistake.</p>
 
       <p>Steps: select the appropriate range (use the high-current socket if you expect more than 400mA), break the circuit at a convenient point, insert the meter's probes in series. The measured current flows through an internal shunt resistor, and the voltage across it tells the meter the current. The meter's resistance in current mode is very low — milliohms — so it doesn't significantly affect the circuit.</p>
 
