@@ -35,10 +35,10 @@ function buildNav() {
 
   inner.innerHTML = `
     <div class="sidebar-brand">
-      <a href="index.html">
+      <div>
         <span class="brand-title">Why It Works</span>
         <span class="brand-sub">Electronics Fundamentals<br>for Repair Cafe Volunteers</span>
-      </a>
+      </div>
     </div>
     <ul class="nav-list" id="nav-list" role="list"></ul>
   `;
@@ -50,7 +50,7 @@ function buildNav() {
   mobileBar.className = 'mobile-nav-bar';
   mobileBar.setAttribute('role', 'banner');
   mobileBar.innerHTML = `
-    <a href="index.html" class="mobile-brand">Why It Works</a>
+    <span class="mobile-brand">Why It Works</span>
     <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
       <span></span><span></span><span></span>
     </button>
