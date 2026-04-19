@@ -424,6 +424,8 @@ function initMeterSim() {
   const sceneData = {
     socket: {
       caption: 'Live wall socket: measure between live and neutral.',
+      defaultMode: 'vac',
+      defaultSocket: 'vohm',
       blackPos: { x: 589, y: 187 },
       redPos: { x: 546, y: 187 },
       evaluate(mode, socket) {
@@ -433,25 +435,37 @@ function initMeterSim() {
         if ((mode === 'ohms' || mode === 'cont') && socket === 'vohm') {
           return danger('LIVE?', 'Resistance or continuity mode on a live socket can damage the meter because the meter is trying to inject its own test signal into an energized circuit.', 'Ohms and continuity are only for unpowered circuits.');
         }
+        if ((mode === 'ohms' || mode === 'cont') && socket === 'amps') {
+          return danger('LIVE?', 'Resistance or continuity mode on a live socket is dangerous regardless of which socket you use — and the 10A socket bypasses the meter\'s fuse protection, making this even more hazardous.', 'Ohms and continuity are only for unpowered circuits.');
+        }
+        if ((mode === 'vac' || mode === 'vdc') && socket === 'amps') {
+          return danger('WRONG LEAD', 'The red lead is in the 10A socket, which connects directly to the internal shunt with very low resistance. Measuring 230 V mains with that lead creates a near-short across the supply — as dangerous as current mode.', 'Always use the V/Ω socket for any voltage measurement.');
+        }
         if (mode === 'vac' && socket === 'vohm') {
           return good('230 V~', 'That is the correct setup for checking the mains supply: AC volts, V/ohms socket, one probe on live and one on neutral.', 'This is a parallel voltage measurement on a live circuit.');
         }
         if (mode === 'vdc' && socket === 'vohm') {
           return caution('---', 'The probes are placed correctly, but the function is wrong. A wall socket is AC, so DC mode will mislead you.', 'Always match the meter function to the source you are measuring.');
         }
-        return caution('---', 'Current mode also needs the red lead in the 10A socket. Right now the setup is incomplete.', 'The meter mode and lead socket have to agree with each other.');
+        // amps + vohm
+        return caution('---', 'Current mode is selected but the red lead is in the V/Ω socket — the setup is incomplete. Do not complete it by moving the lead to 10A here: across a live socket that would be catastrophic.', 'The meter mode and lead socket must agree, but current mode is never used across a live socket.');
       },
     },
     switch: {
       caption: 'Live circuit: measure across a healthy closed switch.',
+      defaultMode: 'vac',
+      defaultSocket: 'vohm',
       blackPos: { x: 458, y: 188 },
       redPos: { x: 514, y: 188 },
       evaluate(mode, socket) {
         if (mode === 'amps' && socket === 'amps') {
-          return danger('SHORT', 'Across a closed live switch, ammeter mode is again acting like a near-short. That would usually just blow the meter fuse, but it is still the wrong and unsafe setup.', 'An ammeter goes in series, not across a live component.');
+          return caution('~0 A', 'The switch is closed, so there is almost no voltage across it — no dangerous surge, but no useful reading either. An ammeter belongs in series with the circuit, not across a component.', 'For live-circuit testing, use voltage mode to measure the drop across the switch.');
         }
         if ((mode === 'ohms' || mode === 'cont') && socket === 'vohm') {
           return danger('LIVE?', 'Ohms or continuity on a live circuit can damage the meter and gives a meaningless result.', 'Switch to a voltage range for live testing.');
+        }
+        if ((mode === 'ohms' || mode === 'cont') && socket === 'amps') {
+          return danger('LIVE?', 'Ohms or continuity mode on a live circuit can damage the meter regardless of which socket you use. The 10A socket bypasses the fuse, making this even riskier.', 'Switch to a voltage range for live testing.');
         }
         if (mode === 'vac' && socket === 'vohm') {
           return good('0.1 V~', 'A healthy closed switch should drop almost no voltage. If you saw several volts here, that would point to high-resistance contacts.', 'Voltage-drop testing under load is one of the most useful bench techniques.');
@@ -459,11 +473,17 @@ function initMeterSim() {
         if (mode === 'vdc' && socket === 'vohm') {
           return caution('---', 'The idea is right, but the function is wrong. This is an AC live-circuit test, not a DC one.', 'A wrong range can produce a misleading result even when the probes are placed well.');
         }
-        return caution('---', 'The red lead is still in the V/ohms socket, so current mode is not actually set up correctly.', 'Mode choice and lead socket must match.');
+        if (mode === 'amps' && socket === 'vohm') {
+          return caution('---', 'Current mode is selected but the red lead is in the V/Ω socket — the setup is incomplete. And even with the correct socket, an ammeter belongs in series, not across a component.', 'Mode choice and lead socket must match, and current mode goes in series.');
+        }
+        // vac or vdc with amps socket — switch is ~0 V, so no dangerous surge, but still wrong
+        return caution('---', 'The red lead is in the 10A socket but you have a voltage mode selected. Move the red lead back to the V/Ω socket for voltage measurements.', 'The 10A socket is only for current measurements in series.');
       },
     },
     fuse: {
       caption: 'Unplugged appliance: test both ends of a good fuse.',
+      defaultMode: 'cont',
+      defaultSocket: 'vohm',
       blackPos: { x: 462, y: 188 },
       redPos: { x: 560, y: 188 },
       evaluate(mode, socket) {
@@ -471,7 +491,10 @@ function initMeterSim() {
           return good('BEEP', 'That is exactly what a good fuse should do in continuity mode.', 'If it read OL or stayed silent, the fuse element would be open.');
         }
         if (mode === 'ohms' && socket === 'vohm') {
-          return good('0.3 ohms', 'Resistance mode also works well here. A good fuse should read very close to zero ohms.', 'Near-zero resistance means the fuse path is intact.');
+          return good('0.3 Ω', 'Resistance mode also works well here. A good fuse should read very close to zero ohms.', 'Near-zero resistance means the fuse path is intact.');
+        }
+        if ((mode === 'ohms' || mode === 'cont') && socket === 'amps') {
+          return caution('---', 'Right idea — continuity or resistance is the correct approach — but the red lead should be in the V/Ω socket, not 10A, for this test.', 'Move the red lead to the V/Ω socket.');
         }
         if (mode === 'amps' && socket === 'amps') {
           return caution('---', 'An ammeter does not tell you whether an unplugged fuse is healthy. There is no circuit current here to measure.', 'For an isolated fuse, choose continuity or resistance.');
@@ -481,14 +504,19 @@ function initMeterSim() {
     },
     element: {
       caption: 'Unplugged heating element: check resistance across the terminals.',
+      defaultMode: 'ohms',
+      defaultSocket: 'vohm',
       blackPos: { x: 450, y: 188 },
       redPos: { x: 574, y: 188 },
       evaluate(mode, socket) {
         if (mode === 'ohms' && socket === 'vohm') {
-          return good('26 ohms', 'That is a plausible reading for a healthy kettle-style heating element.', 'Now you can compare the measured resistance with the appliance wattage.');
+          return good('26 Ω', 'That is a plausible reading for a healthy kettle-style heating element.', 'Now you can compare the measured resistance with the appliance wattage.');
         }
         if (mode === 'cont' && socket === 'vohm') {
           return caution('BEEP', 'Continuity tells you the element is not fully open, but it hides the actual resistance you need for diagnosis.', 'For heating elements, ohms mode usually teaches you more than the buzzer.');
+        }
+        if ((mode === 'ohms' || mode === 'cont') && socket === 'amps') {
+          return caution('---', 'Right idea — resistance or continuity is correct here — but the red lead should be in the V/Ω socket, not 10A, for this test.', 'Move the red lead to the V/Ω socket.');
         }
         if (mode === 'amps' && socket === 'amps') {
           return caution('---', 'There is no live circuit current here to measure. This is an unplugged element check.', 'Use resistance mode for this test.');
@@ -497,7 +525,9 @@ function initMeterSim() {
       },
     },
     current: {
-      caption: 'Open the circuit and insert the meter in series to measure lamp current.',
+      caption: 'The circuit is opened at the gap so the meter can bridge it in series — circuit current flows through the meter itself.',
+      defaultMode: 'amps',
+      defaultSocket: 'amps',
       blackPos: { x: 464, y: 188 },
       redPos: { x: 534, y: 188 },
       evaluate(mode, socket) {
@@ -507,13 +537,20 @@ function initMeterSim() {
         if ((mode === 'ohms' || mode === 'cont') && socket === 'vohm') {
           return danger('LIVE?', 'This is a live circuit. Ohms or continuity mode here can damage the meter because the meter is trying to power the test itself.', 'Use current mode with the red lead in the 10A socket.');
         }
+        if ((mode === 'ohms' || mode === 'cont') && socket === 'amps') {
+          return danger('LIVE?', 'This is a live circuit and the 10A socket bypasses the fuse. Ohms or continuity mode here can damage the meter — a very risky combination.', 'Use current mode with the red lead in the 10A socket.');
+        }
+        if ((mode === 'vac' || mode === 'vdc') && socket === 'amps') {
+          return danger('WRONG LEAD', 'The red lead is in the 10A socket. Measuring voltage with that lead means 230 V across a near-short — as dangerous as current mode across a wall socket.', 'Move the red lead to the V/Ω socket for any voltage measurement.');
+        }
         if (mode === 'vac' && socket === 'vohm') {
           return caution('230 V~', 'Voltage mode across the open gap tells you the supply is present, but it does not measure current.', 'To measure current, switch to amps and move the red lead to the 10A socket.');
         }
         if (mode === 'vdc' && socket === 'vohm') {
           return caution('---', 'This is still the wrong function. The gap is in an AC circuit, and the task is current measurement anyway.', 'The correct setup is amps mode with the red lead in the 10A socket.');
         }
-        return caution('---', 'You have chosen current mode, but the red lead is still in the V/ohms socket. The setup is incomplete.', 'Current testing needs both the 10A socket and current mode.');
+        // amps + vohm
+        return caution('---', 'Current mode is selected, but the red lead is still in the V/Ω socket. Move the red lead to the 10A socket to complete the setup.', 'Current testing needs both the 10A socket and current mode.');
       },
     },
   };
@@ -566,6 +603,10 @@ function initMeterSim() {
   function setScene(nextScene) {
     scene = nextScene;
     const next = sceneData[scene];
+    mode = next.defaultMode;
+    redSocket = next.defaultSocket;
+    probes.red.anchorX = redSocket === 'amps' ? 216 : 152;
+    probes.red.anchorY = 311;
     probes.black.x = next.blackPos.x;
     probes.black.y = next.blackPos.y;
     probes.red.x = next.redPos.x;
