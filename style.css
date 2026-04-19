@@ -31,10 +31,6 @@
   --color-demo-border:      #2563eb;
   --color-demo-label:       #1d4ed8;
 
-  --color-misconception-bg:     #fff8ea;
-  --color-misconception-border: #b7791f;
-  --color-misconception-label:  #8a5a13;
-
   --color-predict-bg:       #edf7f4;
   --color-predict-border:   #1f7a5a;
   --color-predict-label:    #175a43;
@@ -414,12 +410,6 @@ li:last-child { margin-bottom: 0; }
   border-color: var(--color-demo-border);
 }
 .callout-demo .callout-label { color: var(--color-demo-label); }
-
-.callout-misconception {
-  background: var(--color-misconception-bg);
-  border-color: var(--color-misconception-border);
-}
-.callout-misconception .callout-label { color: var(--color-misconception-label); }
 
 .callout-predict {
   background: var(--color-predict-bg);
@@ -1178,6 +1168,654 @@ li:last-child { margin-bottom: 0; }
   .circuit-panel + .circuit-panel {
     border-left: none;
     border-top: 1px solid var(--color-border);
+  }
+}
+
+.concept-demo {
+  margin: 2rem 0;
+  border: 1px solid var(--color-demo-border);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.concept-demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background: var(--color-demo-bg);
+  border-bottom: 1px solid var(--color-demo-border);
+  flex-wrap: wrap;
+}
+
+.concept-demo-label {
+  font-family: var(--font-ui);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-demo-label);
+}
+
+.concept-demo-hint {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.concept-demo-body {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.concept-stage-tabs,
+.schematic-picker,
+.diagnosis-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.concept-stage-tab,
+.schematic-part-btn,
+.diagnosis-option {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 0.14s, background 0.14s, color 0.14s;
+}
+
+.concept-stage-tab:hover,
+.schematic-part-btn:hover,
+.diagnosis-option:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.concept-stage-tab.is-active,
+.schematic-part-btn.is-active {
+  border-color: var(--color-demo-border);
+  background: var(--color-demo-bg);
+  color: var(--color-demo-label);
+}
+
+.meter-sim-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.meter-sim-tab {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.14s, color 0.14s, background 0.14s;
+}
+
+.meter-sim-tab:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.meter-sim-tab.is-active {
+  border-color: var(--color-demo-border);
+  background: var(--color-demo-bg);
+  color: var(--color-demo-label);
+}
+
+.meter-sim-svg {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fbfaf7 0%, #f5f1ea 100%);
+}
+
+.meter-body {
+  fill: #2b3340;
+  stroke: #1b222c;
+  stroke-width: 2;
+}
+
+.meter-screen {
+  fill: #d9efd5;
+  stroke: #9fba95;
+  stroke-width: 2;
+}
+
+.meter-screen.is-good {
+  fill: #f4faf6;
+  stroke: #8db8a2;
+}
+
+.meter-screen.is-caution {
+  fill: #fff9ed;
+  stroke: #d7b46a;
+}
+
+.meter-screen.is-danger {
+  fill: #fff5f5;
+  stroke: #d89191;
+}
+
+.meter-screen-text,
+.meter-screen-subtext {
+  fill: #294530;
+  font-family: var(--font-ui);
+  text-anchor: middle;
+}
+
+.meter-screen-text {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.meter-screen-subtext {
+  font-size: 11px;
+}
+
+.meter-dial {
+  fill: #1f2730;
+  stroke: #556172;
+  stroke-width: 2;
+}
+
+.meter-mode-group {
+  cursor: pointer;
+}
+
+.meter-mode-pill {
+  fill: #4d5662;
+  stroke: #707b88;
+  stroke-width: 1.5;
+  transition: fill 0.15s, stroke 0.15s;
+}
+
+.meter-mode-text {
+  fill: #f4f5f7;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.meter-mode-group.is-active .meter-mode-pill {
+  fill: #f7d36d;
+  stroke: #b7791f;
+}
+
+.meter-mode-group.is-active .meter-mode-text {
+  fill: #5f4004;
+}
+
+.meter-socket {
+  fill: #1d232c;
+  stroke: #7f8b97;
+  stroke-width: 2;
+}
+
+.meter-socket-label {
+  fill: #e4e7eb;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.meter-socket-selectable {
+  cursor: pointer;
+}
+
+.meter-socket-selectable.is-active {
+  stroke: #f7d36d;
+  fill: #353c46;
+}
+
+.meter-scene-title,
+.meter-scene-caption,
+.meter-part-label {
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+}
+
+.meter-scene-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.meter-scene-caption {
+  font-size: 12px;
+  fill: var(--color-text-muted);
+}
+
+.meter-part-label {
+  font-size: 11px;
+}
+
+.meter-label-center {
+  text-anchor: middle;
+}
+
+.meter-scene-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+
+.meter-scene-group.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.meter-scene-panel {
+  fill: #efe7da;
+  stroke: #d3c7b5;
+  stroke-width: 2;
+}
+
+.meter-terminal {
+  stroke: #7a746d;
+  stroke-width: 2;
+}
+
+.metal-live {
+  fill: #c99732;
+}
+
+.metal-neutral {
+  fill: #a7b4c7;
+}
+
+.meter-terminal-text {
+  fill: #1e1e1c;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.meter-wire,
+.meter-wire-bg {
+  stroke: var(--color-accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.meter-node,
+.schematic-dot {
+  fill: var(--color-accent);
+}
+
+.meter-switch-blade,
+.meter-fuse-link,
+.meter-element,
+.meter-lamp-filament {
+  stroke: #715f46;
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.meter-fuse-body,
+.meter-lamp {
+  fill: #f2ecdf;
+  stroke: #8c7e69;
+  stroke-width: 2.5;
+}
+
+.meter-lead {
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.meter-lead-red {
+  stroke: #c0392b;
+}
+
+.meter-lead-black {
+  stroke: #1f2933;
+}
+
+.meter-probe {
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.meter-probe-red {
+  fill: #c0392b;
+}
+
+.meter-probe-black {
+  fill: #1f2933;
+}
+
+.meter-probe-glow {
+  opacity: 0.55;
+  filter: url(#meterProbeGlow);
+}
+
+.meter-probe-glow-red {
+  fill: rgba(192, 57, 43, 0.45);
+}
+
+.meter-probe-glow-black {
+  fill: rgba(31, 41, 51, 0.28);
+}
+
+.meter-sim-readout {
+  margin-top: 0.1rem;
+}
+
+.concept-wave-panel,
+.thermal-demo-panel,
+.schematic-panel {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fcfbf8;
+  padding: 0.9rem;
+}
+
+.concept-wave-svg,
+.schematic-svg {
+  width: 100%;
+  display: block;
+}
+
+.concept-axis {
+  stroke: #c9c4bc;
+  stroke-width: 1.5;
+}
+
+.concept-axis-label {
+  fill: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 11px;
+}
+
+.concept-wave {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.concept-wave.is-visible { opacity: 1; }
+
+.concept-wave-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.concept-card-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.concept-card-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.concept-card {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.85rem 0.95rem;
+}
+
+.concept-card-kicker {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.concept-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.concept-control-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.concept-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.concept-field-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.concept-field select,
+.concept-field input[type="range"] {
+  width: 100%;
+}
+
+.concept-field select {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  color: var(--color-text);
+}
+
+.meter-demo-result {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fcfbf8;
+  padding: 1rem;
+}
+
+.meter-demo-result.is-good {
+  border-color: #8db8a2;
+  background: #f4faf6;
+}
+
+.meter-demo-result.is-caution {
+  border-color: #d7b46a;
+  background: #fff9ed;
+}
+
+.meter-demo-result.is-danger {
+  border-color: #d89191;
+  background: #fff5f5;
+}
+
+.meter-demo-reading {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.meter-demo-summary,
+.meter-demo-note {
+  margin-top: 0.45rem;
+}
+
+.meter-demo-note {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.thermal-demo-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: end;
+  gap: 0.85rem;
+}
+
+.thermal-slider {
+  accent-color: var(--color-accent);
+}
+
+.thermal-temperature-readout {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.schematic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.schematic-panel-title {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.schematic-wire,
+.schematic-wire-bg,
+.layout-wire-bg {
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  fill: none;
+}
+
+.schematic-wire-bg,
+.layout-wire-bg {
+  opacity: 0.24;
+}
+
+.schematic-flow,
+.layout-flow {
+  fill: none;
+  stroke: #f0b429;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.schematic-flow.is-active,
+.layout-flow.is-active {
+  opacity: 0.95;
+}
+
+.schematic-part,
+.layout-part {
+  fill: #efe9df;
+  stroke: #76695a;
+  stroke-width: 2;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.schematic-part-line {
+  stroke: #76695a;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.schematic-dot {
+  fill: var(--color-accent);
+}
+
+.schematic-label {
+  fill: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 11px;
+}
+
+.schematic-label-center {
+  text-anchor: middle;
+}
+
+.layout-shell {
+  fill: #f7f3ec;
+  stroke: #d9d1c7;
+  stroke-width: 2;
+}
+
+.schematic-symbol,
+.layout-symbol {
+  cursor: pointer;
+}
+
+[data-schematic-part].is-active .schematic-part,
+[data-layout-part].is-active .layout-part {
+  fill: #f9d977;
+  stroke: #b7791f;
+}
+
+[data-schematic-part].is-active .schematic-part-line {
+  stroke: #b7791f;
+}
+
+.diagnosis-option.is-good {
+  border-color: #2d7a2d;
+  background: #f1f8f1;
+  color: #1e5a1e;
+}
+
+.diagnosis-option.is-caution {
+  border-color: #b7791f;
+  background: #fff8ea;
+  color: #8a5a13;
+}
+
+.diagnosis-option.is-danger,
+.diagnosis-option.is-bad {
+  border-color: #c0392b;
+  background: #fff5f4;
+  color: #922b21;
+}
+
+@media (max-width: 720px) {
+  .concept-card-grid-3,
+  .concept-control-grid,
+  .schematic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thermal-demo-panel {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 }
 

@@ -58,19 +58,11 @@
 
       <h2>Common symbols</h2>
 
-      <p>The following symbols appear in most domestic appliance schematics. You don't need to memorise them — you learn them by looking at real schematics with the appliance open in front of you.</p>
-
-      <p><strong>Supply rails:</strong> Live (L) and neutral (N) are usually shown as horizontal rails at top and bottom — components connect between them. Earth uses a descending triangle of horizontal lines.</p>
-
-      <p><strong>Passive components:</strong> A resistor is a rectangular box (European/IEC standard) or a zigzag line (American). A capacitor is two parallel lines; if one is curved, the curved plate is the negative terminal of a polarised electrolytic. An inductor is a series of humps; a transformer is two facing coils, sometimes with a vertical line indicating a core.</p>
-
-      <p><strong>Active and protection components:</strong> A diode is a triangle (current flows in the direction it points) with a bar at the tip. A fuse is a small rectangle or oval with a line through it. A switch is an angled line with a contact dot. A motor is a circle with M inside (M~ for AC, M= for DC).</p>
-
-      <p><strong>Thermal components:</strong> Thermostats and TCOs are drawn as switch symbols, often with a temperature label or small circle. Heating elements are usually shown as a resistor symbol, sometimes labelled explicitly.</p>
+      <p>You do not need a complete symbol vocabulary before a schematic becomes useful. For this book, the important symbols are the ones that teach circuit structure: supply rails, switches, fuses, thermostats, heaters, motors, resistors, capacitors, and earth. The goal is to recognise what kind of part you are looking at and whether it sits in the common supply path or in a branch.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>The best way to learn schematic symbols is to open a real appliance and find the schematic for it — either from the service manual, the manufacturer's website, or forums. Then sit with the appliance open and the schematic in front of you, and physically trace each component: "this is F1, here's the fuse in the machine. This is S1, here's the power switch." The connection between the abstract symbol and the physical component becomes solid very quickly with this kind of side-by-side work. European schematics almost always use IEC symbols. Older Japanese appliances may use a mix. American appliances often use ANSI symbols. When in doubt, context usually makes it clear.</p>
+        <p>The fastest way to learn symbols is side-by-side with a real appliance. Find F1 on the drawing, then find the fuse. Find S1, then the switch. That repeated translation from abstract symbol to physical part teaches more than memorising pages of notation.</p>
       </div>
 
       <h2>How to read a schematic</h2>
@@ -85,7 +77,7 @@
       <p>After the series protection chain, the schematic often branches. Each branch is a parallel load: the heating element, the pilot lamp, a pump motor. Each branch returns independently to neutral. A fault in one branch doesn't affect the others.</p>
 
       <h3>Follow reference designators</h3>
-      <p>Components on a schematic are labelled with reference designators: R for resistor, C for capacitor, F for fuse, S or SW for switch, M for motor, L for inductor, D for diode, T for thermostat, etc. These are followed by numbers: R1, R2, C1, C2. A parts list accompanying the schematic gives the specification of each component (resistance value, capacitance, voltage rating, temperature rating). These reference designators also appear on PCBs, printed alongside the component's footprint — making it possible to find a component on the board when you know its reference from the schematic.</p>
+      <p>Components on a schematic are labelled with reference designators: R for resistor, C for capacitor, F for fuse, S for switch, M for motor, and so on. These labels are the bridge between the drawing and the real appliance. If the board or wiring labels say F1, S1, or C3, the schematic can tell you what role that part plays in the circuit.</p>
 
       <h2>Tracing a fault using a schematic</h2>
 
@@ -108,16 +100,130 @@
 
       <p>Reading the schematic: pilot lamp working confirms L, F1, S1 are fine. Boiler branch has TH1 and H1. Check TH1 first (continuity with machine cool — should close). Then check H1 (resistance — should be in range). This is much faster than checking blindly.</p>
 
-      <p>What you've just done — using the schematic to rule out components that can't explain the symptom and focus on those that can — is the core of schematic-based diagnosis. The schematic doesn't tell you what's broken; it tells you what's possible. Your measurements narrow the possibilities. That's the whole skill.</p>
+      <div class="concept-demo" id="schematic-demo">
+        <div class="concept-demo-header">
+          <span class="concept-demo-label">Try it</span>
+          <span class="concept-demo-hint">Hover or click a symbol in the schematic or the real appliance view. The matching part lights up, and the full current path for that function is traced through the schematic.</span>
+        </div>
+        <div class="concept-demo-body">
+          <div class="schematic-grid">
+            <div class="schematic-panel">
+              <span class="schematic-panel-title">Logical schematic</span>
+              <svg viewBox="0 0 420 230" class="schematic-svg" aria-label="Simple espresso machine schematic with traced paths">
+                <path d="M 26 44 H 362" class="schematic-wire-bg"/>
+                <path d="M 26 188 H 392" class="schematic-wire-bg"/>
+                <text x="12" y="48" class="schematic-label">L</text>
+                <text x="12" y="192" class="schematic-label">N</text>
 
-      <div class="callout callout-misconception">
-        <span class="callout-label">Tempting but wrong</span>
-        <p>"If I can read every symbol, I can read the fault." Not quite. A schematic tells you structure, not history. It shows where current can flow in a healthy appliance; diagnosis still depends on comparing that map with the symptom and with real measurements.</p>
+                <path data-schematic-path="common" d="M 26 44 H 74 H 120 H 172" class="schematic-flow"/>
+                <path data-schematic-path="heater" d="M 172 44 H 214 V 92 H 254 V 188" class="schematic-flow"/>
+                <path data-schematic-path="lamp" d="M 172 44 H 306 V 188" class="schematic-flow"/>
+                <path data-schematic-path="pump" d="M 172 44 H 362 V 188" class="schematic-flow"/>
+
+                <path d="M 172 44 V 188" class="schematic-wire-bg"/>
+                <path d="M 214 44 V 92" class="schematic-wire-bg"/>
+                <path d="M 214 108 V 188" class="schematic-wire-bg"/>
+                <path d="M 254 44 V 74" class="schematic-wire-bg"/>
+                <path d="M 254 126 V 188" class="schematic-wire-bg"/>
+                <path d="M 306 44 V 80" class="schematic-wire-bg"/>
+                <path d="M 306 112 V 188" class="schematic-wire-bg"/>
+                <path d="M 362 44 V 80" class="schematic-wire-bg"/>
+                <path d="M 362 124 V 188" class="schematic-wire-bg"/>
+
+                <g data-schematic-part="f1" class="schematic-symbol is-active">
+                  <rect x="74" y="36" width="28" height="16" rx="3" class="schematic-part"/>
+                  <text x="88" y="30" class="schematic-label schematic-label-center">F1</text>
+                </g>
+
+                <g data-schematic-part="s1" class="schematic-symbol">
+                  <line x1="120" y1="44" x2="145" y2="31" class="schematic-part-line"/>
+                  <circle cx="120" cy="44" r="3" class="schematic-dot"/>
+                  <circle cx="148" cy="44" r="3" class="schematic-dot"/>
+                  <text x="134" y="29" class="schematic-label schematic-label-center">S1</text>
+                </g>
+
+                <g data-schematic-part="th1" class="schematic-symbol">
+                  <rect x="198" y="92" width="32" height="16" rx="3" class="schematic-part"/>
+                  <text x="214" y="86" class="schematic-label schematic-label-center">TH1</text>
+                </g>
+
+                <g data-schematic-part="h1" class="schematic-symbol">
+                  <rect x="236" y="74" width="36" height="52" rx="6" class="schematic-part"/>
+                  <text x="254" y="68" class="schematic-label schematic-label-center">H1</text>
+                </g>
+
+                <g data-schematic-part="l1" class="schematic-symbol">
+                  <circle cx="306" cy="96" r="16" class="schematic-part"/>
+                  <line x1="296" y1="86" x2="316" y2="106" class="schematic-part-line"/>
+                  <line x1="316" y1="86" x2="296" y2="106" class="schematic-part-line"/>
+                  <text x="306" y="74" class="schematic-label schematic-label-center">L1</text>
+                </g>
+
+                <g data-schematic-part="p1" class="schematic-symbol">
+                  <circle cx="362" cy="102" r="22" class="schematic-part"/>
+                  <text x="362" y="107" class="schematic-label schematic-label-center">M</text>
+                  <text x="362" y="72" class="schematic-label schematic-label-center">P1</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="schematic-panel">
+              <span class="schematic-panel-title">Physical appliance view</span>
+              <svg viewBox="0 0 420 230" class="schematic-svg" aria-label="Physical layout of the same appliance with traced wiring">
+                <rect x="28" y="30" width="364" height="166" rx="18" class="layout-shell"/>
+
+                <path d="M 58 112 H 112 H 176 H 236" class="layout-wire-bg"/>
+                <path d="M 236 112 V 78" class="layout-wire-bg"/>
+                <path d="M 236 112 V 148" class="layout-wire-bg"/>
+                <path d="M 176 112 V 150 H 300" class="layout-wire-bg"/>
+                <path d="M 176 112 V 62 H 308" class="layout-wire-bg"/>
+                <path d="M 300 112 H 346" class="layout-wire-bg"/>
+
+                <path data-layout-path="common" d="M 58 112 H 112 H 176" class="layout-flow"/>
+                <path data-layout-path="heater" d="M 176 112 H 236 V 148" class="layout-flow"/>
+                <path data-layout-path="lamp" d="M 176 112 V 62 H 308" class="layout-flow"/>
+                <path data-layout-path="pump" d="M 176 112 V 150 H 300" class="layout-flow"/>
+
+                <g data-layout-part="f1" class="layout-symbol is-active">
+                  <rect x="58" y="104" width="44" height="16" rx="5" class="layout-part"/>
+                  <text x="80" y="97" class="schematic-label schematic-label-center">F1</text>
+                </g>
+                <g data-layout-part="s1" class="layout-symbol">
+                  <rect x="112" y="96" width="54" height="32" rx="6" class="layout-part"/>
+                  <text x="139" y="89" class="schematic-label schematic-label-center">S1</text>
+                </g>
+                <g data-layout-part="th1" class="layout-symbol">
+                  <rect x="220" y="58" width="34" height="30" rx="6" class="layout-part"/>
+                  <text x="237" y="50" class="schematic-label schematic-label-center">TH1</text>
+                </g>
+                <g data-layout-part="h1" class="layout-symbol">
+                  <rect x="208" y="148" width="80" height="30" rx="10" class="layout-part"/>
+                  <text x="248" y="167" class="schematic-label schematic-label-center">H1</text>
+                </g>
+                <g data-layout-part="l1" class="layout-symbol">
+                  <circle cx="328" cy="62" r="16" class="layout-part"/>
+                  <text x="328" y="41" class="schematic-label schematic-label-center">L1</text>
+                </g>
+                <g data-layout-part="p1" class="layout-symbol">
+                  <circle cx="324" cy="154" r="24" class="layout-part"/>
+                  <text x="324" y="159" class="schematic-label schematic-label-center">P1</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div class="concept-card">
+            <span class="concept-card-kicker">What the highlight is telling you</span>
+            <p id="schematic-summary">F1 is in the shared supply path, so if it opens the heater, lamp, and pump all go dead together.</p>
+          </div>
+        </div>
       </div>
+
+      <p>What you've just done — using the schematic to rule out components that can't explain the symptom and focus on those that can — is the core of schematic-based diagnosis. The schematic doesn't tell you what's broken; it tells you what's possible. Your measurements narrow the possibilities. Reading every symbol is not enough by itself: diagnosis still depends on comparing the map with the symptom and with real measurements.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
-        <p>A schematic captures the logical relationships in a circuit — which components share nodes (connection points). Two components sharing a node are either in parallel (both connected between the same two nodes) or linked in series (one's output node is another's input node). The schematic allows you to apply both Kirchhoff's laws: KVL (voltages around a loop must sum to zero) and KCL (currents at a node must sum to zero). Armed with these, you can predict exactly what measurement you should see at every point in a working circuit — and therefore identify exactly which measurement deviates from expectation when something is wrong. The schematic converts an opaque box of components into a predictable, testable system.</p>
+        <p>A schematic captures logical connections rather than physical shape. Once you can see which parts share the same path and which parts sit on separate branches, you can make better predictions before measuring. That is the real power of the schematic: it turns a box of parts into a circuit you can reason about.</p>
       </div>
 
       <h2>Schematic vs PCB layout</h2>
@@ -126,12 +232,8 @@
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>If you can't find a service manual or schematic for an appliance, it's sometimes possible to trace the circuit yourself from the mains entry. Start where the cord enters the appliance and follow the conductors physically: where does the brown wire go, where does the blue wire go, and where is earth bonded if present? A fuse block? The switch? A thermal device? Sketch what you find. This kind of reverse-engineering teaches you more about circuit topology than reading any number of schematics — because you're making the connection between abstract and physical yourself. For simple appliances (kettle, toaster, iron), a circuit diagram you've drawn yourself in 15 minutes is often all you need.</p>
+        <p>If you cannot find a schematic, trace the circuit yourself from the mains entry: cord, fuse, switch, thermal device, load, return. For simple appliances, a hand-drawn sketch is often enough to capture the protection chain and the main branches.</p>
       </div>
-
-      <h2>Where to find schematics</h2>
-
-      <p>Search for the model number plus "service manual" or "schematic" — that's usually enough. Manufacturer websites, appliance-specific forums (espresso machine forums especially have remarkable documentation), and general sites like iFixit are the main sources. If nothing turns up, trace the protection chain yourself: fuse → switch → thermal protection → load. For simple appliances, a sketch you draw in fifteen minutes is often all you need.</p>
 
       <div class="callout callout-predict">
         <span class="callout-label">Predict before measuring</span>

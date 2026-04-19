@@ -53,11 +53,7 @@
 
       <h2>Alternating current</h2>
 
-      <p>Alternating current, AC, is what comes out of your wall socket. Instead of staying at a fixed voltage, AC swings back and forth: positive, through zero, negative, through zero, positive again. This cycle repeats 50 times per second in the Netherlands (and across most of Europe). That's 50 Hz — 50 complete cycles per second.</p>
-
-      <p>The waveform follows a sine wave: a smooth mathematical curve that rises to a peak, falls back through zero, drops to a negative peak, and returns. Nothing jerky, no sharp edges. Just a continuous smooth oscillation.</p>
-
-      <p>Why 50 Hz? It's a historical engineering choice that stuck. The frequency needed to be high enough that incandescent lights didn't visibly flicker (below about 30 Hz they do), but low enough that generating and transforming it at scale was practical with early 20th-century technology. The USA settled on 60 Hz, the rest of the world mostly on 50 Hz. There's no deep physical reason — it's just standardisation.</p>
+      <p>Alternating current, AC, is what comes out of your wall socket. Instead of staying at a fixed voltage, AC swings back and forth: positive, through zero, negative, through zero, positive again. In the Netherlands (and across most of Europe) this happens as a sine wave repeating at 50 Hz — 50 complete cycles per second.</p>
 
       <h2>Peak voltage vs RMS voltage</h2>
 
@@ -78,23 +74,18 @@
         <p>When you set your multimeter to AC voltage and measure the mains, you'll read approximately 230V — that's the RMS value. If you were to connect an oscilloscope (or a peak-hold function) you'd see the full 325V peak. This distinction matters when you're testing circuit components. A capacitor marked only 250V is not suitable for direct use across the mains. For across-the-mains service you need the correct safety-rated part — typically an X2 capacitor of the specified capacitance and voltage class — not just "something with a big enough number on it."</p>
       </div>
 
-      <h2>Why we use AC for mains power</h2>
+      <h2>Why mains is AC</h2>
 
-      <p>The honest answer is: transformers. A transformer converts AC voltage from one level to another with almost no energy loss. Step up the voltage for long-distance transmission and you need far less current for the same power — which means far less I²R loss in the cables. Step it back down at the destination for safe household use. There's no efficient equivalent of a transformer for DC, which is why AC won and the grid is still built around it.</p>
+      <p>The important practical reason is that AC is easy to transform from one voltage to another. That makes it suitable for a power system that must transmit energy efficiently at high voltage and then deliver it safely at household voltage. You do not need the whole history of the electricity grid at the repair bench; the useful takeaway is simply that the mains arrives as AC, while much of the equipment inside modern appliances needs DC.</p>
 
-      <p>And why does stepping up the voltage help so much? Because for a given power, higher voltage means lower current. Since cable heating rises with the square of the current, halving the current cuts transmission losses to a quarter. That is the whole economic logic of the AC grid: move energy around the country at high voltage and modest current, then transform it down only where people actually use it.</p>
-
-      <div class="callout callout-misconception">
-        <span class="callout-label">Tempting but wrong</span>
-        <p>"230V AC must be gentler than 230V DC because the voltage keeps passing through zero." For a resistive load, 230V RMS AC delivers the same heating power as 230V DC. The waveform differs; the effective power does not.</p>
-      </div>
+      <p>For a resistive load, 230V RMS AC delivers the same heating power as 230V DC. The waveform differs; the effective power does not.</p>
 
       <h2>Turning AC into DC: rectification</h2>
 
-      <p>Most electronic devices — phones, laptops, routers, many household appliances — need DC internally. The power supply's job is to convert mains AC to regulated DC. This conversion has several stages:</p>
+      <p>Most electronic devices — phones, laptops, routers, many household appliances — need DC internally. The power supply's job is to convert mains AC to regulated DC. In broad terms, it does four things:</p>
 
-      <h3>1. Transformation</h3>
-      <p>Step the mains voltage down (or up) using a transformer. In older, heavier power supplies, a traditional iron-core transformer does this at 50 Hz. In modern switched-mode power supplies, it's more complex (see below).</p>
+      <h3>1. Transformation or isolation</h3>
+      <p>The dangerous mains side and the low-voltage output side are separated and the voltage is brought to a useful range. In older supplies this is done directly with a mains-frequency transformer. In modern supplies the same job is often done in a different way, but the broad idea is the same: the appliance needs a safe, usable low-voltage supply, not raw mains.</p>
 
       <h3>2. Rectification</h3>
       <p>Convert AC to DC using diodes. A diode is a one-way valve for current — it conducts freely in one direction and blocks in the other. A bridge rectifier uses four diodes arranged so that both halves of the AC cycle push current through the load in the same direction. The output of a bridge rectifier is pulsating DC: it looks like a bumpy positive waveform, pulsing at 100 Hz (twice the mains frequency in a full-wave rectifier).</p>
@@ -105,31 +96,17 @@
       <h3>4. Regulation</h3>
       <p>Keep the output voltage constant despite varying load and varying mains input. This might be a linear regulator (simple, wastes energy as heat) or a switching regulator (complex, efficient).</p>
 
-      <p>What you've just described — transformation, rectification, filtering, regulation — is inside every charger, power adapter, and wall-wart you'll encounter. The process is always the same four stages. Once you know them, a dead power supply stops being a mystery and becomes a checklist.</p>
+      <p>That broad sequence — isolate or transform, rectify, filter, regulate — is the conceptual map to keep in your head. You do not need to know every internal design to understand what a charger or adapter is trying to achieve.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
-        <p>Rectification exploits the asymmetric behaviour of semiconductor diodes. A silicon diode conducts in the forward direction (positive side higher than negative) with a forward voltage drop of about 0.6V, and blocks reverse current almost completely. A bridge rectifier (four diodes) ensures that regardless of which half-cycle the AC is in, current is always directed through the load in the same direction. This is the standard approach for all mains power supplies. The "1N4007" marked on the diodes you'll see on many circuit boards is a common 1A rectifier diode rated to 1000V — suitable for rectifying mains voltage safely.</p>
+        <p>Rectification depends on the one-way behaviour of diodes. A bridge rectifier uses four diodes so that both halves of the AC waveform end up pushing current through the load in the same direction. After that, filtering and regulation turn the bumpy output into something the electronics can actually use.</p>
       </div>
-
-      <h2>Switched-mode power supplies</h2>
-
-      <p>The charger brick for your laptop doesn't contain a large, heavy iron transformer. It contains a <em>switched-mode power supply</em> (SMPS), and understanding the basic idea explains why these chargers are small, light, and efficient — and also why they fail in specific ways.</p>
-
-      <p>In an SMPS, the mains AC is first rectified to high-voltage DC (about 325V peak). This DC is then very rapidly switched on and off through a small transformer — at frequencies tens of thousands of times higher than the mains. At high frequency, transformers can be tiny: the size of a transformer scales with how slowly the voltage alternates, so a transformer running at a high switching frequency can use a ferrite core the size of a coin instead of the heavy iron core you'd need at 50 Hz.</p>
-
-      <p>The high-frequency AC from the switching stage goes through the small transformer, is rectified again on the secondary side, filtered, and regulated. This is why the charger on your table is light, compact, and warm rather than hot — the efficiency is far higher than older transformer-based designs.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>The most common SMPS failure modes at the repair table are: a blown primary-side fuse (often indicating a failed switching transistor or short on the primary side), a failed startup resistor, swollen or failed electrolytic capacitors on the output side (causing high ripple and low output voltage), and physical damage to the cable. Testing an SMPS requires caution — the primary side contains voltages up to 400V DC, not mains AC, and large capacitors that hold charge after unplugging. This particular charger went on a drop test: the most likely culprit is a broken solder joint on the input connector or a cracked component. Visual inspection first, always.</p>
+        <p>For this chapter, the important safety point is simple: the mains side of a power supply can contain dangerous voltage even after unplugging. The important diagnostic point is also simple: begin with the obvious. Damaged cables, cracked solder joints, failed output capacitors, and visibly burned parts are far more useful first observations than trying to understand every stage in detail.</p>
       </div>
-
-      <h2>What the buzz in a transformer tells you</h2>
-
-      <p>Transformers sometimes hum or buzz audibly. The hum frequency is twice the mains frequency — 100 Hz for a 50 Hz supply — because the magnetic core expands and contracts twice per cycle (once per half-cycle, regardless of polarity). A small amount of hum in a large transformer is normal.</p>
-
-      <p>A transformer that suddenly starts humming much louder than before, or buzzing with a harsh sound, is usually telling you one of three things: the core laminations have loosened (mechanical), the transformer is being overloaded (magnetic saturation), or there's a partially shorted winding. A harsh buzz that gets hotter is usually a winding fault. A hum that's proportional to load is usually saturation or loose core. Neither is something to ignore.</p>
 
       <div class="callout callout-predict">
         <span class="callout-label">Predict before measuring</span>
@@ -144,8 +121,8 @@
         <span class="chapter-takeaways-title">Remember this</span>
         <ul>
           <li>230V mains is an RMS value; the sine wave peaks at about 325V.</li>
-          <li>Most power supplies follow the same broad path: rectify, filter, regulate.</li>
-          <li>Primary-side power-supply work can involve dangerous stored DC even after unplugging.</li>
+          <li>Most power supplies follow the same broad path: isolate or transform, rectify, filter, regulate.</li>
+          <li>The mains side of a power supply can contain dangerous stored DC even after unplugging.</li>
           <li>Across-the-mains capacitors must be replaced with the correct safety-rated type, not just a similar capacitance.</li>
         </ul>
       </div>
@@ -167,22 +144,22 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q2</span>
-            <span class="question-text">A charger is giving a low output voltage — say, 9V instead of the 19V rated. The mains input seems fine. What stage of the SMPS is most likely at fault?</span>
+            <span class="question-text">A charger is giving a low output voltage — say, 9V instead of the 19V rated. The mains input seems fine. Which broad part of the AC-to-DC process should you suspect first?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Low output voltage with the mains input fine most commonly indicates a failure in the output stage: failed or high-ESR electrolytic capacitors (causing high ripple and poor regulation), a failed output rectifier diode (losing voltage in the rectification), or a fault in the feedback regulation circuit (the circuit that monitors output voltage and adjusts the duty cycle). Swollen or leaking electrolytic capacitors on the secondary side are a very common cause. If the output voltage is stable but low, the regulation circuit is running but can't achieve the correct voltage — possibly because the feedback reference or error amplifier has drifted. If the output voltage is erratic or very ripply, suspect the output capacitors.</p>
+            <p>Start by suspecting the later stages: rectification, filtering, or regulation on the output side. Those are the stages that determine whether the final DC is clean and at the correct voltage. In practice, failed output capacitors or a fault in the regulation path are common explanations for a charger that still does something but no longer produces the correct output.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">Q3</span>
-            <span class="question-text">Why do appliances designed for 230V/50Hz often work on 60Hz (North American) systems, but not at 120V?</span>
+            <span class="question-text">Why is the voltage difference usually more important than the 50 Hz versus 60 Hz difference for a simple resistive appliance?</span>
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Power consumption — and the heat produced in resistive elements — depends on the square of the voltage (P = V²/R). An appliance designed for 230V run at 120V would receive only (120/230)² ≈ 27% of its rated power. A kettle would take much longer to boil. A motor designed for 230V run at 120V would draw less current than intended — it might not have enough torque to start. Frequency (50 vs 60 Hz) affects things like motor speed (which is tied to supply frequency) and transformer core sizing, but most modern devices handle the 50/60Hz difference. Voltage is what really matters for power delivery. That's why "universal" SMPS chargers specify a voltage range (e.g. 100–240V) explicitly.</p>
+            <p>Because the heat in a resistive load depends strongly on voltage. With a fixed resistance, power follows P = V²/R, so a large change in voltage gives a very large change in heating effect. The difference between 230V and 120V therefore changes appliance behaviour dramatically, while the difference between 50 Hz and 60 Hz is often secondary for simple heaters.</p>
           </div>
         </div>
 
@@ -194,17 +171,6 @@
           </div>
           <div class="question-answer">
             <p>Because a full-wave bridge rectifier conducts on both halves of the AC cycle, not just one. In the positive half-cycle, two of the four diodes conduct current through the load in the positive direction. In the negative half-cycle, the other two diodes conduct — but they redirect the current so it still flows through the load in the positive direction. Every half-cycle (twice per full AC cycle) produces a pulse of current through the load. At 50 Hz, there are 100 half-cycles per second, so the output pulses 100 times per second. A half-wave rectifier (single diode) would only produce 50 pulses per second — which is harder to smooth and less efficient.</p>
-          </div>
-        </div>
-
-        <div class="question-item">
-          <div class="question-prompt">
-            <span class="question-num">Q5</span>
-            <span class="question-text">A customer brings a US appliance rated 120V/60Hz containing only a simple resistive heating element (no motor, no electronics). They've been using it in the Netherlands with only a plug adapter — no voltage converter. What has most likely happened to the element, and why?</span>
-            <span class="question-reveal">Show answer</span>
-          </div>
-          <div class="question-answer">
-            <p>Power in a resistive element is P = V²/R. The element's resistance is fixed, so power scales with voltage squared. At 230V instead of 120V, the power ratio is (230/120)² ≈ 3.67. The element was designed for, say, 500W; at 230V it's attempting to dissipate nearly 1840W — almost four times its rated power. The element would glow far hotter than designed, almost certainly burning out within seconds or minutes. If the appliance had a thermal fuse (many US appliances do), it may have also tripped or blown. The 50/60Hz frequency difference doesn't matter for a purely resistive element, but the voltage difference is catastrophic. A plug adapter changes the connector shape; it does nothing to convert the voltage. This is a surprisingly common cause of instant appliance death.</p>
           </div>
         </div>
 
