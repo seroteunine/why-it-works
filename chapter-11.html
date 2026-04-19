@@ -36,7 +36,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>The microwave is a counter-top model, about eight years old. "It just stopped heating," the owner says. "Everything else works — the light, the turntable, the timer. It just doesn't heat." You look at it and make a decision before picking up a single tool. "I'm going to open this," you say, "but before I do, we all need to understand something about what's inside." You turn to the room. A few people have gathered — it's an interesting job. "Microwave ovens contain a capacitor that can hold a lethal charge even when the oven is unplugged. This is not hypothetical. People have died. We discharge it before touching anything. That's the rule."</p>
+        <p>The microwave is a counter-top model, about eight years old. "It just stopped heating," the owner says. "Everything else works — the light, the turntable, the timer. It just doesn't heat." You look at it and make a decision before picking up a single tool. "I'm going to open this," you say, "but before I do, we all need to understand something about what's inside." You turn to the room. A few people have gathered — it's an interesting job. "Microwave ovens contain a capacitor that can hold a lethal charge even when the oven is unplugged. This is not hypothetical. People have died. We discharge it before touching anything. That's the rule — and it applies regardless of what the actual fault turns out to be."</p>
       </div>
 
       <div class="chapter-objectives">
@@ -114,7 +114,7 @@
       <p>Set to resistance mode. Briefly touch the probes to a discharged capacitor. You'll see the resistance reading start low (as the meter's internal battery charges the capacitor) and then rise to OL as the capacitor charges up. This tells you the capacitor is neither shorted (would stay low) nor completely open (would go immediately to OL without the initial low reading). It's a basic health check, not a precise test. An immediately OL reading suggests open circuit; a sustained near-zero reading suggests short circuit.</p>
 
       <h3>With a capacitance meter or multimeter with capacitance function</h3>
-      <p>Most modern multimeters have a capacitance function (marked with the capacitor symbol). Connect the discharged capacitor and read the value. Compare to the value printed on the capacitor body. A significant deviation (more than ±20% for most applications) suggests the capacitor has lost capacity. An ESR tester (a separate instrument, or a feature on better multimeters) tests the internal resistance of the capacitor — the most important measure of an electrolytic capacitor's health. High ESR means the capacitor can no longer supply or absorb current quickly, even if the capacitance reads approximately correct.</p>
+      <p>Most modern multimeters have a capacitance function (marked with the capacitor symbol). Connect the discharged capacitor and read the value. Compare to the value printed on the capacitor body. A significant deviation (more than ±20% for most applications) suggests the capacitor has lost capacity. Note that a capacitor can also degrade internally in a way that a capacitance reading alone won't catch — it may measure roughly the right value but still not work correctly in the circuit. Visual inspection and circuit symptoms often tell you as much as the meter does.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
@@ -129,8 +129,8 @@
       <h3>Short circuit</h3>
       <p>The dielectric has failed, creating a conducting path between the plates. This immediately blows the fuse or circuit breaker. A shorted capacitor in a mains circuit looks like a short circuit to the supply. Test: disconnect one end, measure resistance — should be OL. Near zero means shorted.</p>
 
-      <h3>High ESR (leaky)</h3>
-      <p>The most insidious failure mode in electrolytics. Capacitance may read approximately correct, but the internal resistance (ESR) is high, meaning the capacitor can't respond to rapid changes in voltage. Symptoms: high ripple on power supply output, electronics that don't quite work right, SMPS that powers up but doesn't regulate properly. An ESR meter is the right tool for this — a capacitance-only test will miss it.</p>
+      <h3>Internal degradation</h3>
+      <p>An electrolytic capacitor can degrade internally while still measuring roughly the right capacitance. The electrolyte dries out or breaks down, and the capacitor can no longer respond quickly to voltage changes. Symptoms: humming in audio equipment, electronics that seem unstable or misbehave under load, a power supply that powers up but doesn't hold a steady voltage. A capacitor showing any of these symptoms alongside a vented or bulging top should be replaced even if the capacitance reading looks close.</p>
 
       <h3>Loss of capacitance</h3>
       <p>The capacitor has physically lost capacity — usually from electrolyte drying out in aged electrolytics. The reading on a capacitance meter will be significantly below the rated value. A motor run capacitor that's lost 30% of its rated capacitance will cause reduced motor efficiency and possibly failure to start under load.</p>
@@ -149,7 +149,7 @@
         <ul>
           <li>Capacitors store energy as well as charge, and some stay dangerous after unplugging.</li>
           <li>Capacitance value, voltage rating, and safety class all matter.</li>
-          <li>High ESR and loss of capacitance are common faults in electrolytics.</li>
+          <li>Capacitance loss and internal degradation are common faults in electrolytics — visual inspection is often the best first check.</li>
           <li>Microwave HV work is specialist territory if you lack the right tools and training.</li>
         </ul>
       </div>
