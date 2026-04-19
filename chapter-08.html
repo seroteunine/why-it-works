@@ -64,9 +64,7 @@
 
       <h2>Brushed DC motors</h2>
 
-      <p>The simplest type you'll encounter is the brushed DC motor. It has:</p>
-
-      <p>A brushed motor has a stationary magnetic part (the stator), a rotating wound part (the rotor or armature), and a commutator with brushes to keep the current in the rotor changing direction at the right moment. That brush-and-commutator system is what makes these motors easy to recognise and easy to diagnose.</p>
+      <p>The simplest type you'll encounter is the brushed DC motor. It has three main parts: a stationary outer assembly (the stator) that provides a fixed magnetic field, a rotating wound coil (the rotor or armature), and a commutator with carbon brushes that maintain sliding contact with the rotor as it turns, reversing the current direction at the right moment to sustain rotation. That brush-and-commutator system is what makes these motors easy to recognise and easy to diagnose.</p>
 
       <p>The price of that simplicity is wear. Brushes are sacrificial parts, and the commutator surface can become dirty or rough. That is why brushed motors often announce their problems with visible sparking, noise, smell, or intermittent running.</p>
 
@@ -174,7 +172,8 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>A lamp dimmer is designed for a simple resistive load, not for a motor with inductance, changing torque demands, and brush arcing. A universal motor may run badly, arc excessively, or lose torque on a crude dimmer. The broader lesson is that "reducing power" is not the same thing as controlling a motor properly.</p>
+            <p>A standard lamp dimmer works by rapidly switching the mains supply on and off — using a component called a TRIAC — cutting out part of each AC half-cycle. For a resistive load (a filament bulb), this reduces average power smoothly and predictably. For a universal motor, it creates several problems.</p>
+            <p>First, the chopped waveform delivers current in brief bursts rather than continuously. A motor depends on sustained current to maintain torque, so at low dimmer settings it either stalls entirely or runs erratically rather than slowing smoothly. Second, a universal motor is an inductive load — its windings resist sudden changes in current, and when the TRIAC cuts the supply, the collapsing magnetic field generates a voltage spike back into the circuit. These spikes can damage both the dimmer's switching components and the motor's winding insulation over time. Third, the commutator and brushes arc at the moments of abrupt current change, accelerating brush wear far beyond normal use. A proper motor speed controller accounts for the motor's inductance and back EMF, adjusting the switching waveform to maintain smooth current delivery. A lamp dimmer does none of this. The result is not "running at lower speed" but "running badly at unpredictable speed, with accelerated wear."</p>
           </div>
         </div>
 
