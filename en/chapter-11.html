@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 11: Capacitors — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 11 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 11</p>
+        <h1>Capacitors</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>The microwave is a counter-top model, about eight years old. "It just stopped heating," the owner says. "Everything else works — the light, the turntable, the timer. It just doesn't heat." You look at it and make a decision before picking up a single tool. "I'm going to open this," you say, "but before I do, we all need to understand something about what's inside." You turn to the room. A few people have gathered — it's an interesting job. "Microwave ovens contain a capacitor that can hold a lethal charge even when the oven is unplugged. This is not hypothetical. People have died. We discharge it before touching anything. That's the rule — and it applies regardless of what the actual fault turns out to be."</p>
+      </div>
+
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand what capacitors store and why that matters for repair.</li>
+          <li>Recognise the main capacitor types used in appliances and electronics.</li>
+          <li>Know where capacitor work stops being routine and becomes specialist-only.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety — read this before opening a microwave</span>
+        <p>Microwave ovens contain a high-voltage capacitor — typically rated at 0.9–1.1 µF and 2100V AC. When the oven is running, this capacitor is charged to over 2000V DC. Unlike household wiring which stops being dangerous the moment you switch off or unplug, a capacitor stores charge. After unplugging, the capacitor may still hold 2000V or more for minutes to hours, depending on the leakage of the circuit.</p>
+        <p>The safe practical rule before touching any internal components is this: unplug the oven, wait, verify the capacitor's voltage with appropriately rated equipment if you are trained to do so, and only discharge it with a purpose-built high-voltage discharge tool and procedure suitable for microwave service. Never short a charged capacitor with a screwdriver or bare wire — the resulting arc can blind you, cause severe burns, and destroy the capacitor. If you do not have the correct HV tools and training, stop and refer the repair.</p>
+        <p>If you are not certain of the procedure and the risks, do not open microwave ovens at a repair cafe unless you have a competent person supervising. It is better to refer this repair than to proceed without understanding.</p>
+      </div>
+
+      <h2>What a capacitor is</h2>
+
+      <p>A capacitor stores electrical energy in an electric field. The simplest form is two conducting plates separated by an insulating material (the dielectric). When voltage is applied, positive charge accumulates on one plate and negative charge on the other. The electric field between the plates stores the energy.</p>
+
+      <p>The amount of charge stored for a given voltage is the capacitance, measured in farads (F). One farad is a huge capacitance — you'll mostly see:
+      <ul>
+        <li>Microfarads (µF): millionths of a farad. Electrolytic capacitors in power supplies: 100–10,000 µF. Motor run capacitors: 1–100 µF.</li>
+        <li>Nanofarads (nF): billionths of a farad. Film capacitors, many ceramic capacitors.</li>
+        <li>Picofarads (pF): trillionths of a farad. Small ceramic capacitors, RF circuits.</li>
+      </ul>
+
+      <p>The energy stored in a charged capacitor is E = ½CV², where C is capacitance and V is voltage. For the microwave capacitor: ½ × 1×10⁻⁶ × 2100² ≈ 2.2 joules. That's not a huge amount of energy by industrial standards, but it's delivered so rapidly (essentially instantaneously) that the peak current is enormous — enough to cause cardiac arrest or severe burns.</p>
+
+      <p>Why the square on the voltage? Because charging a capacitor is not like filling a bucket at constant effort. At the start, when the capacitor is uncharged, it's easy to push the first bit of charge onto the plates. As charge builds up, the electric field between the plates grows and pushes back harder. Each extra bit of charge takes more work than the last. That rising effort is why the stored energy scales with V² rather than just V.</p>
+
+      <p>What you've just understood — that it's not the total stored energy but the speed of delivery that determines the danger — is why capacitor safety is treated so seriously. 2.2 joules released over an hour is barely noticeable. 2.2 joules released in a microsecond is a potentially lethal current spike. Energy ÷ time = power, and at microsecond timescales, even modest stored energy becomes enormous instantaneous power.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>A capacitor is a reservoir of charge, not a source of continuous energy like a battery. It can release its stored charge very quickly — the discharge time depends on the capacitance and on the resistance of the discharge path. Lower resistance means faster discharge but much higher peak current. That is why "just short it out" is dangerous, and why high-voltage capacitors need a controlled discharge method rather than improvisation.</p>
+      </div>
+
+      <h2>Capacitor types and where you'll find them</h2>
+
+      <h3>Electrolytic capacitors</h3>
+      <p>The large, cylindrical, aluminium-cased capacitors on PCBs. They're polarised — one lead is positive, one negative, and connecting them backwards causes rapid failure. They're found wherever large capacitance is needed: power supply filtering (smoothing rectified DC), motor run/start circuits in older designs, audio coupling stages.</p>
+
+      <p>Electrolytic capacitors use a liquid or gel electrolyte that gives them high capacitance in a small physical size. The electrolyte degrades with age, heat, and voltage stress. Failed electrolytics are the most common fault in ageing electronics — and they're often visually identifiable: the top of the capacitor case bulges, splits, or leaks brown fluid. Any capacitor with a bulging or vented top should be replaced, regardless of whether it's measuring correctly at the moment.</p>
+
+      <h3>Film capacitors</h3>
+      <p>Made from plastic film (polyester, polypropylene) as the dielectric. Not polarised. More stable and longer-lived than electrolytics. Common applications: motor run and start capacitors (the oval or round plastic-cased components in washing machine and air conditioning fan motors), mains interference suppression (X and Y capacitors across the supply), and timing and coupling in circuits where stability matters.</p>
+
+      <p>Motor run capacitors in AC induction motors are film capacitors rated for continuous AC operation — typically 250VAC or 400VAC, not DC. Don't confuse their AC rating with DC. A 250VAC film capacitor has a peak voltage handling of 250 × √2 ≈ 354V.</p>
+
+      <h3>Ceramic capacitors</h3>
+      <p>Small disc or chip components. Not polarised. Low capacitance. Used for high-frequency decoupling on PCBs — bypassing noise from power supply rails. They fail less often than electrolytics but do fail, usually by going open or short circuit from physical stress or thermal shock.</p>
+
+      <h2>What capacitors do in circuits</h2>
+
+      <h3>Power supply filtering</h3>
+      <p>After rectification, the raw DC from a bridge rectifier pulses at 100Hz. A large electrolytic capacitor across the output charges up on each pulse and partially discharges between pulses, smoothing the ripple. The larger the capacitor, the smoother the output. When this capacitor degrades (high ESR — internal resistance), it can no longer hold its charge between pulses effectively, and the output voltage ripples badly. This causes humming in audio equipment, instability in logic circuits, and failure of downstream electronics.</p>
+
+      <h3>Motor phase shift</h3>
+      <p>As discussed in Chapter 9, single-phase induction motors need a capacitor to create a phase-shifted current in the start winding, generating startup torque. The capacitor shifts the current phase by approximately 90°, creating an artificial two-phase supply from single-phase AC. Without it, the motor hums but won't start from rest.</p>
+
+      <h3>Interference suppression (X and Y capacitors)</h3>
+      <p>SMPS and some appliances include capacitors directly across the mains supply (X capacitors) or between supply and earth (Y capacitors) to suppress high-frequency interference. These have specific safety ratings (X1, X2, Y1, Y2) and must be replaced only with identically rated parts — they're not interchangeable with ordinary film capacitors.</p>
+
+      <p>A capacitor is not a little battery, but it can still hold dangerous charge after the supply is removed. "Unplugged" and "discharged" are not the same condition.</p>
+
+      <h2>Testing capacitors</h2>
+
+      <h3>Visual inspection first</h3>
+      <p>On an electrolytic capacitor, look for: the top vent (should be flat — if domed or split, the capacitor has vented); leakage (brown or dark fluid around the base); physical damage. A visually failed capacitor should be replaced without further testing.</p>
+
+      <h3>With a standard multimeter (basic)</h3>
+      <p>Set to resistance mode. Briefly touch the probes to a discharged capacitor. You'll see the resistance reading start low (as the meter's internal battery charges the capacitor) and then rise to OL as the capacitor charges up. This tells you the capacitor is neither shorted (would stay low) nor completely open (would go immediately to OL without the initial low reading). It's a basic health check, not a precise test. An immediately OL reading suggests open circuit; a sustained near-zero reading suggests short circuit.</p>
+
+      <h3>With a capacitance meter or multimeter with capacitance function</h3>
+      <p>Most modern multimeters have a capacitance function (marked with the capacitor symbol). Connect the discharged capacitor and read the value. Compare to the value printed on the capacitor body. A significant deviation (more than ±20% for most applications) suggests the capacitor has lost capacity. Note that a capacitor can also degrade internally in a way that a capacitance reading alone won't catch — it may measure roughly the right value but still not work correctly in the circuit. Visual inspection and circuit symptoms often tell you as much as the meter does.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Always discharge a capacitor before testing it. Even small electrolytics in low-voltage circuits can retain enough charge to damage your multimeter or surprise you. In low-voltage electronics, follow the service guidance for that device and use a controlled discharge method where appropriate rather than casual shorting. For larger capacitors in mains circuits, use a proper resistor-based discharge tool. For the microwave high-voltage capacitor: see the safety box at the top of this chapter. Non-negotiable.</p>
+      </div>
+
+      <h2>Common capacitor failure modes</h2>
+
+      <h3>Open circuit</h3>
+      <p>The capacitor no longer conducts at all. In a motor start circuit, this causes the "hums but won't start" symptom. In a power supply filter, the ripple increases dramatically. In a decoupling role, RF noise increases.</p>
+
+      <h3>Short circuit</h3>
+      <p>The dielectric has failed, creating a conducting path between the plates. This immediately blows the fuse or circuit breaker. A shorted capacitor in a mains circuit looks like a short circuit to the supply. Test: disconnect one end, measure resistance — should be OL. Near zero means shorted.</p>
+
+      <h3>Internal degradation</h3>
+      <p>An electrolytic capacitor can degrade internally while still measuring roughly the right capacitance. The electrolyte dries out or breaks down, and the capacitor can no longer respond quickly to voltage changes. Symptoms: humming in audio equipment, electronics that seem unstable or misbehave under load, a power supply that powers up but doesn't hold a steady voltage. A capacitor showing any of these symptoms alongside a vented or bulging top should be replaced even if the capacitance reading looks close.</p>
+
+      <h3>Loss of capacitance</h3>
+      <p>The capacitor has physically lost capacity — usually from electrolyte drying out in aged electrolytics. The reading on a capacitance meter will be significantly below the rated value. A motor run capacitor that's lost 30% of its rated capacitance will cause reduced motor efficiency and possibly failure to start under load.</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a capacitor is shorted, what should a resistance test do: stay low, rise and then drift to OL, or show OL immediately? If it is open, which of those patterns should disappear? Predict the pattern before touching the probes.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>The microwave's high-voltage capacitor is safely discharged. The fault turns out to be a failed magnetron — not repairable, and a magnetron replacement for this model costs more than a replacement oven. The honest diagnosis: time for recycling. But everyone in the room has learned something important about capacitors, about safety, and about knowing when repair is the right answer and when it isn't. One more appliance on the table. The session is almost done.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Capacitors store energy as well as charge, and some stay dangerous after unplugging.</li>
+          <li>Capacitance value, voltage rating, and safety class all matter.</li>
+          <li>Capacitance loss and internal degradation are common faults in electrolytics — visual inspection is often the best first check.</li>
+          <li>Microwave HV work is specialist territory if you lack the right tools and training.</li>
+        </ul>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">You're replacing a failed component on a PCB and notice a nearby electrolytic capacitor: flat top, reads 980µF against a rated 1000µF, runs in a 12V circuit well below its 25V rating. Should you replace it while you have the soldering iron out?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Probably not. This capacitor shows no evidence of failure — flat top (no venting), within 2% of rated capacitance, and running comfortably within its voltage rating. The temptation to "replace it while you're in there" sounds cautious, but it has a real downside: every solder joint you make on an ageing PCB is a potential new failure point. Pads can lift, thermal stress can crack nearby traces, and a working capacitor that you disturb may be less reliable than one that was left alone. Reserve replacement for capacitors that have clear symptoms: domed or vented top, measurably low capacitance, or high ESR with a circuit that's misbehaving. Replacing components without evidence of failure is parts-swapping, not repair.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A washing machine drum motor is supposed to have a 12µF run capacitor. You measure the old capacitor and get 7.5µF. The washing machine runs but struggles to accelerate to full spin speed. Are these two facts related?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Yes, directly related. The run capacitor in a single-phase induction motor creates the phase-shifted current that produces torque. A capacitor that's lost nearly 40% of its rated capacitance will produce less phase shift than intended, reducing the motor's torque — particularly at startup and during acceleration when torque demand is highest. The motor can run lightly loaded, but under the load of a full drum of wet laundry trying to reach spin speed, it doesn't have enough torque to accelerate. The fix is straightforward: replace the capacitor with one of the correct rating — same capacitance (12µF, or within ±5%), same or higher voltage rating, and film type (not electrolytic) for the continuous AC duty.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">A power supply board has a large electrolytic capacitor (4700µF, 16V) in the output filter section. The supply output voltage is correct (12V DC) but there's a loud 100Hz hum from the audio amplifier connected to it. What is the most likely cause?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The 4700µF electrolytic filter capacitor has high ESR — it can no longer effectively smooth the 100Hz ripple from the bridge rectifier. The output voltage averages to 12V (so the regulator is working), but the 100Hz ripple is insufficiently filtered and is modulating the supply. An audio amplifier powered from a poorly filtered supply will reproduce the 100Hz ripple as audible hum (100Hz is a note in the lower bass range, clearly audible). Testing: measure AC voltage on the output rail while under load — should be millivolts; if it's hundreds of millivolts or more, the filter capacitor is failing. Replace the electrolytic. ESR testing would confirm the diagnosis definitively.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why must a motor run capacitor in an AC induction motor circuit be a film capacitor rated for AC use, rather than an electrolytic capacitor of the same capacitance?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Two fundamental reasons: (1) Polarity: electrolytic capacitors are polarised — they can only be connected one way. In an AC circuit, the voltage across the capacitor reverses every half-cycle (50 times per second). Connecting a polarised electrolytic to an AC circuit subjects it to reverse polarity on alternate half-cycles, which rapidly destroys the electrolytic layer and causes failure, often violently. Film capacitors are non-polarised and handle reversing voltage safely. (2) Continuous duty rating: a motor run capacitor must handle continuous AC operation — it's being charged and discharged at 50Hz continuously during motor operation. The voltage rating for film capacitors in AC service must account for the peak AC voltage (VAC rating × √2 for peak). Electrolytics are not designed for continuous AC stress. Film capacitors designed for motor duty are rated in VAC (not VDC) specifically because they're designed for this continuous alternating stress.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A motor run capacitor is marked "12µF 450V AC." The only replacement in your stock drawer is marked "12µF 250V DC." The capacitance matches. Can you use it?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>No — for two separate reasons. First, the voltage rating: a motor run capacitor in a 230V AC circuit sees the peak AC voltage, which is 230 × √2 ≈ 325V. The 450V AC original was rated well above this. The replacement's 250V DC rating is lower than the 325V peak the circuit will actually produce — it would be overstressed on every cycle and could fail quickly. Second, the type: a "DC" voltage rating almost certainly means an electrolytic (polarised) capacitor. As covered in Q4, an electrolytic capacitor in an AC motor circuit will reverse-charge on alternate half-cycles and fail rapidly, possibly violently. A motor run capacitor must be a film type rated in VAC for continuous alternating operation. The right replacement is 12µF, film type, rated 400V or 450V AC — the same capacitance value, but completely different construction and voltage class.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-10.html" class="nav-prev">Chapter 10: Reading a Circuit Diagram</a>
+        <a href="chapter-12.html" class="nav-next">Chapter 12: Systematic Fault Diagnosis</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

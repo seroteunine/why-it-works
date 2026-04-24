@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reference Appendix — Why It Works</title>
+  <title>Naslagbijlage — Why It Works</title>
+  <meta name="description" content="Nederlandse naslagbijlage voor Why It Works met multimeteroverzicht, formules, symbolen, foutzoekchecklists en Nederlandse netspanningsreferenties.">
+  <link rel="alternate" hreflang="en" href="en/appendix.html">
+  <link rel="alternate" hreflang="nl" href="appendix.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Reference Appendix</span>
+      <span class="progress-label">Naslagbijlage</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -32,179 +35,175 @@
 
     <article>
       <header class="chapter-header">
-        <p class="intro-label">Appendix</p>
-        <h1>Quick Reference</h1>
+        <p class="intro-label">Bijlage</p>
+        <h1>Snelle naslag</h1>
       </header>
 
-      <p>This appendix collects the practical reference material from across the book. Print it out, laminate it, keep it at your station.</p>
+      <p>Deze bijlage bundelt het praktische naslagmateriaal uit het hele boek. Print hem uit, lamineer hem desnoods en leg hem op tafel bij de meters.</p>
 
-      <!-- ============================================================ -->
-      <h2>Multimeter quick reference</h2>
+      <h2>Multimeter in één oogopslag</h2>
 
       <table class="appendix-table">
         <thead>
           <tr>
-            <th>What you're measuring</th>
-            <th>Dial setting</th>
+            <th>Wat je meet</th>
+            <th>Meterstand</th>
             <th>Probes</th>
-            <th>Circuit state</th>
-            <th>What you're looking for</th>
+            <th>Toestand circuit</th>
+            <th>Waar je op let</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mains voltage (socket)</td>
+            <td>Netspanning (stopcontact)</td>
             <td>VAC / V~</td>
-            <td>V/Ω + COM; probes in parallel</td>
-            <td>Live (plugged in)</td>
-            <td>~230V. Significantly less = supply problem.</td>
+            <td>V/Ω + COM; parallel</td>
+            <td>Onder spanning</td>
+            <td>Ongeveer 230V. Veel lager wijst op voedingsprobleem.</td>
           </tr>
           <tr>
-            <td>DC voltage (PSU output, battery)</td>
-            <td>VDC / V—</td>
-            <td>V/Ω + COM; probes in parallel</td>
-            <td>Live</td>
-            <td>Expected rated voltage ± 10%</td>
+            <td>DC-spanning (voeding, batterij)</td>
+            <td>VDC / V-</td>
+            <td>V/Ω + COM; parallel</td>
+            <td>Onder spanning</td>
+            <td>Nominale spanning ongeveer halen</td>
           </tr>
           <tr>
-            <td>Fuse continuity</td>
-            <td>Continuity (buzzer)</td>
+            <td>Continuiteit zekering</td>
+            <td>Continuiteit / buzzer</td>
             <td>V/Ω + COM</td>
-            <td>Unpowered</td>
-            <td>Beep = intact. OL/silence = blown.</td>
+            <td>Spanningsloos</td>
+            <td>Piep = intact, OL = door</td>
           </tr>
           <tr>
-            <td>Heating element resistance</td>
-            <td>Ω (resistance)</td>
-            <td>V/Ω + COM</td>
-            <td>Unpowered, element isolated</td>
-            <td>~V²/W ohms. OL = open. Near 0 = shorted.</td>
-          </tr>
-          <tr>
-            <td>Switch operation</td>
-            <td>Continuity (buzzer)</td>
-            <td>V/Ω + COM</td>
-            <td>Unpowered</td>
-            <td>OFF → OL; ON → beep. Any other result = suspect.</td>
-          </tr>
-          <tr>
-            <td>Cable continuity</td>
-            <td>Continuity (buzzer)</td>
-            <td>V/Ω + COM</td>
-            <td>Unpowered</td>
-            <td>Beep = intact. OL = broken conductor.</td>
-          </tr>
-          <tr>
-            <td>Motor winding resistance</td>
+            <td>Weerstand element</td>
             <td>Ω</td>
-            <td>V/Ω + COM; isolated</td>
-            <td>Unpowered</td>
-            <td>Model-specific. OL = open winding. Near 0 = shorted.</td>
-          </tr>
-          <tr>
-            <td>Winding-to-frame insulation</td>
-            <td>Ω (highest range)</td>
             <td>V/Ω + COM</td>
-            <td>Unpowered, motor isolated</td>
-            <td>Should read OL (>1 MΩ). Any low reading = insulation fault.</td>
+            <td>Spanningsloos, liefst losgenomen</td>
+            <td>Rond V²/P. OL = open, bijna 0 = kort</td>
           </tr>
           <tr>
-            <td>Capacitance</td>
-            <td>F or µF (cap function)</td>
-            <td>V/Ω + COM; discharged cap</td>
-            <td>Unpowered, discharged</td>
-            <td>Within ±20% of rated value. Lower = degraded.</td>
-          </tr>
-          <tr>
-            <td>Diode check</td>
-            <td>Diode (▶|)</td>
+            <td>Schakelaar</td>
+            <td>Continuiteit</td>
             <td>V/Ω + COM</td>
-            <td>Unpowered, isolated</td>
-            <td>Forward: 0.5–0.7V. Reverse: OL. Other = failed.</td>
+            <td>Spanningsloos</td>
+            <td>Uit → OL, aan → piep</td>
           </tr>
           <tr>
-            <td>Current draw</td>
-            <td>A or mA</td>
-            <td>A socket + COM; probes in series</td>
-            <td>Live, circuit broken to insert meter</td>
-            <td>Compare to P/V from appliance's watt rating.</td>
+            <td>Kabelcontinuiteit</td>
+            <td>Continuiteit</td>
+            <td>V/Ω + COM</td>
+            <td>Spanningsloos</td>
+            <td>Piep = intact, OL = breuk</td>
+          </tr>
+          <tr>
+            <td>Motorwikkeling</td>
+            <td>Ω</td>
+            <td>V/Ω + COM</td>
+            <td>Spanningsloos, geïsoleerd</td>
+            <td>Modelafhankelijk; OL = open, verdacht laag = mogelijk kort</td>
+          </tr>
+          <tr>
+            <td>Isolatie wikkeling naar frame</td>
+            <td>Ω, hoogste bereik</td>
+            <td>V/Ω + COM</td>
+            <td>Spanningsloos</td>
+            <td>Hoort OL of zeer hoog te zijn</td>
+          </tr>
+          <tr>
+            <td>Capaciteit</td>
+            <td>F of µF</td>
+            <td>V/Ω + COM</td>
+            <td>Spanningsloos, ontladen</td>
+            <td>Binnen tolerantie van nominale waarde</td>
+          </tr>
+          <tr>
+            <td>Diodetest</td>
+            <td>Diode</td>
+            <td>V/Ω + COM</td>
+            <td>Spanningsloos</td>
+            <td>Voorwaarts circa 0,5–0,7V, achterwaarts OL</td>
+          </tr>
+          <tr>
+            <td>Stroomopname</td>
+            <td>A of mA</td>
+            <td>Stroombus + COM; in serie</td>
+            <td>Onder spanning</td>
+            <td>Vergelijk met P/V van het typeplaatje</td>
           </tr>
         </tbody>
       </table>
 
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p><strong>Always double-check probe sockets before measuring voltage.</strong> Red probe in V/Ω, never in A or mA socket. Never measure resistance or continuity on a live circuit. Discharge capacitors before testing. Use a CAT II 600V or better rated meter for mains work.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p><strong>Controleer altijd eerst de probe-bussen vóór je spanning meet.</strong> Rood in V/Ω, nooit in A of mA voor een spanningsmeting. Meet nooit weerstand of continuiteit op een levend circuit. Ontlaad condensatoren vóór je ze test.</p>
       </div>
 
-      <!-- ============================================================ -->
-      <h2>Key formulas</h2>
+      <h2>Belangrijkste formules</h2>
 
       <table class="appendix-table">
         <thead>
           <tr>
-            <th>Formula</th>
-            <th>What it means</th>
-            <th>Practical use</th>
+            <th>Formule</th>
+            <th>Betekenis</th>
+            <th>Praktisch gebruik</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>V = I × R</strong></td>
-            <td>Ohm's law: voltage = current × resistance</td>
-            <td>Calculate expected current (I = V/R) or resistance (R = V/I)</td>
+            <td>Wet van Ohm</td>
+            <td>Stroom of weerstand berekenen uit spanning</td>
           </tr>
           <tr>
             <td><strong>P = V × I</strong></td>
-            <td>Power = voltage × current</td>
-            <td>Find expected current from watt rating: I = P/V</td>
+            <td>Vermogen = spanning × stroom</td>
+            <td>Verwachte stroom uit wattage bepalen</td>
           </tr>
           <tr>
             <td><strong>P = V² ÷ R</strong></td>
-            <td>Power from voltage and resistance</td>
-            <td>Calculate expected resistance: R = V²/P</td>
+            <td>Vermogen uit spanning en weerstand</td>
+            <td>Elementweerstand uit typeplaatje schatten</td>
           </tr>
           <tr>
             <td><strong>P = I² × R</strong></td>
-            <td>Power (heat) from current and resistance</td>
-            <td>Understand heat in cables: doubles current = 4× heat</td>
+            <td>Warmteontwikkeling door stroom</td>
+            <td>Begrijpen waarom extra stroom snel extra hitte geeft</td>
           </tr>
           <tr>
-            <td><strong>V<sub>peak</sub> = V<sub>RMS</sub> × √2</strong></td>
-            <td>Peak voltage from RMS (AC mains)</td>
-            <td>230V RMS → 325V peak. Component ratings must exceed peak.</td>
+            <td><strong>V<sub>piek</sub> = V<sub>RMS</sub> × √2</strong></td>
+            <td>Piekspanning van AC</td>
+            <td>230V RMS is ongeveer 325V piek</td>
           </tr>
           <tr>
-            <td><strong>R<sub>total</sub> = R₁ + R₂</strong></td>
-            <td>Series resistance</td>
-            <td>Total resistance increases with each added series element</td>
+            <td><strong>R<sub>totaal</sub> = R₁ + R₂</strong></td>
+            <td>Serie-weerstand</td>
+            <td>Elke extra serieweerstand verhoogt het totaal</td>
           </tr>
           <tr>
-            <td><strong>1/R<sub>total</sub> = 1/R₁ + 1/R₂</strong></td>
-            <td>Parallel resistance</td>
-            <td>Total resistance decreases; always lower than smallest branch</td>
+            <td><strong>1/R<sub>totaal</sub> = 1/R₁ + 1/R₂</strong></td>
+            <td>Parallel-weerstand</td>
+            <td>Het totaal wordt lager dan de kleinste tak</td>
           </tr>
           <tr>
             <td><strong>τ = R × C</strong></td>
-            <td>RC time constant</td>
-            <td>Capacitor discharge time; 5τ ≈ fully discharged</td>
+            <td>Tijdconstante</td>
+            <td>Nuttig bij ontladen van condensatoren</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- ============================================================ -->
-      <h2>Common component symbols (IEC)</h2>
+      <h2>Veelgebruikte componentsymbolen</h2>
 
       <div class="symbol-grid">
-
         <div class="symbol-item">
           <svg width="60" height="40" viewBox="0 0 60 40">
             <line x1="0" y1="20" x2="15" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
             <rect x="15" y="10" width="30" height="20" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
             <line x1="45" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
-          <span class="symbol-name">Resistor (IEC)</span>
-          <span class="symbol-desc">Fixed resistance</span>
+          <span class="symbol-name">Weerstand</span>
+          <span class="symbol-desc">Vaste weerstand</span>
         </div>
 
         <div class="symbol-item">
@@ -214,20 +213,8 @@
             <line x1="27" y1="12" x2="27" y2="28" stroke="#1c1c1a" stroke-width="2"/>
             <line x1="27" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
-          <span class="symbol-name">Capacitor</span>
-          <span class="symbol-desc">Non-polarised</span>
-        </div>
-
-        <div class="symbol-item">
-          <svg width="60" height="40" viewBox="0 0 60 40">
-            <line x1="0" y1="20" x2="20" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="20" y1="8" x2="20" y2="32" stroke="#1c1c1a" stroke-width="2"/>
-            <path d="M27 12 Q32 20 27 28" fill="none" stroke="#1c1c1a" stroke-width="2"/>
-            <line x1="27" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <text x="22" y="36" font-size="8" fill="#1c1c1a" font-family="sans-serif">+</text>
-          </svg>
-          <span class="symbol-name">Electrolytic cap</span>
-          <span class="symbol-desc">Polarised; + plate flat</span>
+          <span class="symbol-name">Condensator</span>
+          <span class="symbol-desc">Niet-gepolariseerd</span>
         </div>
 
         <div class="symbol-item">
@@ -238,8 +225,8 @@
             <line x1="42" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
             <circle cx="42" cy="20" r="2.5" fill="#1c1c1a"/>
           </svg>
-          <span class="symbol-name">Switch (SPST)</span>
-          <span class="symbol-desc">Single pole, single throw</span>
+          <span class="symbol-name">Schakelaar</span>
+          <span class="symbol-desc">SPST</span>
         </div>
 
         <div class="symbol-item">
@@ -249,8 +236,8 @@
             <line x1="24" y1="20" x2="36" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
             <line x1="45" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
-          <span class="symbol-name">Fuse</span>
-          <span class="symbol-desc">Overcurrent protection</span>
+          <span class="symbol-name">Zekering</span>
+          <span class="symbol-desc">Overstroombeveiliging</span>
         </div>
 
         <div class="symbol-item">
@@ -261,44 +248,7 @@
             <line x1="44" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
           <span class="symbol-name">Motor</span>
-          <span class="symbol-desc">AC or DC type</span>
-        </div>
-
-        <div class="symbol-item">
-          <svg width="60" height="40" viewBox="0 0 60 40">
-            <line x1="0" y1="20" x2="12" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="12" y1="20" x2="24" y2="10" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="24" y1="10" x2="24" y2="30" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="24" y1="10" x2="36" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="36" y1="20" x2="36" y2="20" stroke="#1c1c1a" stroke-width="2"/>
-            <line x1="36" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-          </svg>
-          <span class="symbol-name">Diode</span>
-          <span class="symbol-desc">One-way current valve</span>
-        </div>
-
-        <div class="symbol-item">
-          <svg width="60" height="40" viewBox="0 0 60 40">
-            <circle cx="30" cy="20" r="14" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="22" y1="14" x2="38" y2="26" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="22" y1="26" x2="38" y2="14" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="0" y1="20" x2="16" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="44" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-          </svg>
-          <span class="symbol-name">Lamp / bulb</span>
-          <span class="symbol-desc">Indicator or load</span>
-        </div>
-
-        <div class="symbol-item">
-          <svg width="60" height="40" viewBox="0 0 60 40">
-            <line x1="0" y1="20" x2="14" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <path d="M14 20 C14 11 22 11 22 20 C22 29 30 29 30 20 C30 11 38 11 38 20" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="38" y1="20" x2="46" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
-            <line x1="46" y1="6" x2="46" y2="34" stroke="#1c1c1a" stroke-width="1.5"/>
-            <path d="M53 20 C53 11 61 11 61 20 C61 29 69 29 69 20 C69 11 77 11 77 20" fill="none" stroke="#1c1c1a" stroke-width="1.5" transform="translate(-10,0)"/>
-          </svg>
-          <span class="symbol-name">Transformer</span>
-          <span class="symbol-desc">Two coupled coils</span>
+          <span class="symbol-desc">AC of DC</span>
         </div>
 
         <div class="symbol-item">
@@ -308,8 +258,8 @@
             <line x1="23" y1="32" x2="37" y2="32" stroke="#1c1c1a" stroke-width="1.5"/>
             <line x1="26" y1="36" x2="34" y2="36" stroke="#1c1c1a" stroke-width="1"/>
           </svg>
-          <span class="symbol-name">Earth / Ground</span>
-          <span class="symbol-desc">Safety reference</span>
+          <span class="symbol-name">Aarde</span>
+          <span class="symbol-desc">Veiligheidsreferentie</span>
         </div>
 
         <div class="symbol-item">
@@ -320,8 +270,8 @@
             <line x1="48" y1="14" x2="48" y2="26" stroke="#1c1c1a" stroke-width="2"/>
             <line x1="48" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
-          <span class="symbol-name">Thermal cutoff</span>
-          <span class="symbol-desc">One-shot protector</span>
+          <span class="symbol-name">Thermische zekering</span>
+          <span class="symbol-desc">Eenmalige beveiliging</span>
         </div>
 
         <div class="symbol-item">
@@ -332,201 +282,164 @@
             <line x1="50" y1="20" x2="60" y2="20" stroke="#1c1c1a" stroke-width="1.5"/>
           </svg>
           <span class="symbol-name">Thermistor</span>
-          <span class="symbol-desc">Temperature-sensitive R</span>
+          <span class="symbol-desc">Temperatuurafhankelijke weerstand</span>
         </div>
-
       </div>
 
-      <!-- ============================================================ -->
-      <h2>Typical appliance resistances (at 230V)</h2>
+      <h2>Typische weerstanden van apparaten bij 230V</h2>
 
       <table class="appendix-table">
         <thead>
           <tr>
-            <th>Appliance / element</th>
-            <th>Typical power</th>
-            <th>Expected resistance (R = V²/P)</th>
-            <th>Notes</th>
+            <th>Apparaat / onderdeel</th>
+            <th>Typisch vermogen</th>
+            <th>Verwachte weerstand</th>
+            <th>Opmerking</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Kettle element</td>
+            <td>Waterkokerelement</td>
             <td>2000–2400W</td>
             <td>22–26 Ω</td>
-            <td>OL = open element (most common fault)</td>
+            <td>OL wijst vaak op open element</td>
           </tr>
           <tr>
-            <td>Toaster element (per element)</td>
+            <td>Broodroosterelement</td>
             <td>300–500W per element</td>
             <td>106–176 Ω</td>
-            <td>Multiple elements per slot; test each individually</td>
+            <td>Meerdere elementen per sleuf</td>
           </tr>
           <tr>
-            <td>Steam iron element</td>
+            <td>Strijkijzerelement</td>
             <td>1600–2400W</td>
             <td>22–33 Ω</td>
-            <td>Thermostat in series; must be isolated to test element alone</td>
+            <td>Thermostaat zit meestal in serie</td>
           </tr>
           <tr>
-            <td>Fan heater element</td>
+            <td>Ventilatorkachel-element</td>
             <td>1000–2000W</td>
             <td>26–53 Ω</td>
-            <td>Thermal cutout usually in series</td>
+            <td>Vaak met thermische cutout in serie</td>
           </tr>
           <tr>
-            <td>Vacuum cleaner motor</td>
+            <td>Stofzuigermotor</td>
             <td>900–2200W</td>
-            <td>Universal motor; measure between brushes</td>
-            <td>2–10 Ω typical winding resistance (brush to brush)</td>
+            <td>Typisch enkele ohms</td>
+            <td>Meet tussen de borstels</td>
           </tr>
           <tr>
-            <td>Hand mixer motor</td>
-            <td>200–400W</td>
-            <td>Universal motor; varies widely</td>
-            <td>10–50 Ω typical between brushes</td>
-          </tr>
-          <tr>
-            <td>Coffee machine pump</td>
+            <td>Koffiemachinepomp</td>
             <td>30–60W</td>
-            <td>Induction pump; ~880–1760 Ω DC</td>
-            <td>Vibration pumps have very high winding resistance</td>
+            <td>Hoog, vaak honderden ohms of meer</td>
+            <td>Modelafhankelijk</td>
           </tr>
           <tr>
-            <td>Mains cable (per conductor)</td>
+            <td>Netsnoer per ader</td>
             <td>—</td>
-            <td>&lt;0.5 Ω (good) / OL (broken)</td>
-            <td>More than 1 Ω in a short cable = damaged</td>
+            <td>&lt; 0,5 Ω</td>
+            <td>Hoger wijst op schade of slechte verbinding</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- ============================================================ -->
-      <h2>Fault-finding checklist</h2>
+      <h2>Checklist foutzoeken</h2>
 
-      <h3>Before opening anything</h3>
+      <h3>Voor je iets openmaakt</h3>
       <ul class="checklist">
-        <li><strong>Safety assessment:</strong> damaged cable? Liquid ingress? Burn marks? Class I earth intact?</li>
-        <li><strong>Get the story:</strong> sudden failure or gradual? Sound or smell at failure? Anything changed?</li>
-        <li><strong>Identify the class:</strong> Class I (metal case, earth wire) or Class II (plastic, double-insulated)?</li>
-        <li><strong>Check the socket:</strong> is the mains supply actually present and correct?</li>
+        <li><strong>Veiligheid:</strong> beschadigd snoer, vocht, brandsporen, aarde in orde?</li>
+        <li><strong>Vraag het verhaal uit:</strong> plots of geleidelijk, geur of geluid, iets veranderd?</li>
+        <li><strong>Bepaal de klasse:</strong> klasse I of klasse II?</li>
+        <li><strong>Controleer het stopcontact:</strong> is de voeding echt aanwezig?</li>
       </ul>
 
-      <h3>Completely dead appliance</h3>
+      <h3>Volledig dood apparaat</h3>
       <ul class="checklist">
-        <li><strong>External fuse</strong> (in plug or inline): continuity check</li>
-        <li><strong>Internal fuse</strong>: continuity check</li>
-        <li><strong>Main switch</strong>: continuity (closed position)</li>
-        <li><strong>Thermal cutoff (TCO)</strong>: continuity — OL means triggered, find root cause</li>
-        <li><strong>Resettable cutout</strong>: press reset button after full cooling</li>
-        <li><strong>Power supply output</strong> (if applicable): voltage correct?</li>
-        <li><strong>Load</strong>: resistance in expected range?</li>
+        <li><strong>Externe zekering</strong>: continuiteit</li>
+        <li><strong>Interne zekering</strong>: continuiteit</li>
+        <li><strong>Hoofdschakelaar</strong>: continuiteit</li>
+        <li><strong>TCO of thermische beveiliging</strong>: continuiteit</li>
+        <li><strong>Resetbare beveiliging</strong>: na afkoelen resetten</li>
+        <li><strong>Voedingsuitgang</strong>: als er een voeding is, levert die nog?</li>
+        <li><strong>Belasting</strong>: weerstand in verwacht bereik?</li>
       </ul>
 
-      <h3>Partial failure (one function dead)</h3>
+      <h3>Gedeeltelijke storing</h3>
       <ul class="checklist">
-        <li><strong>Identify which functions work:</strong> this tells you where the common supply chain is intact</li>
-        <li><strong>Identify the branch:</strong> trace from the branch point to the dead function</li>
-        <li><strong>Check series elements in that branch:</strong> sub-thermostat, sub-TCO, branch switch</li>
-        <li><strong>Check the load in that branch:</strong> resistance, continuity</li>
-        <li><strong>Check wiring to branch:</strong> cable continuity, connector integrity</li>
+        <li><strong>Wat werkt nog wel?</strong> Dat vertelt waar de gemeenschappelijke keten nog intact is.</li>
+        <li><strong>Zoek de juiste tak</strong> en werk vanaf het vertakkingspunt richting fout.</li>
+        <li><strong>Controleer serieonderdelen</strong> in die tak.</li>
+        <li><strong>Controleer de belasting</strong> in die tak.</li>
+        <li><strong>Controleer bedrading en connectoren</strong> specifiek voor die tak.</li>
       </ul>
 
-      <h3>Overheating</h3>
+      <h3>Oververhitting</h3>
       <ul class="checklist">
-        <li><strong>Check airflow:</strong> blocked intake, full bag, blocked filter</li>
-        <li><strong>Check thermostat operation:</strong> does it cycle? Does it trip at the right temperature?</li>
-        <li><strong>Check bearings:</strong> spin shaft by hand — free and smooth?</li>
-        <li><strong>Current draw:</strong> compare to rated P/V — higher than rated = extra heat somewhere</li>
-        <li><strong>Check for hotspots:</strong> feel (safely) for components hotter than the rest</li>
+        <li><strong>Luchtstroom controleren</strong>: verstopping, volle zak, vies filter</li>
+        <li><strong>Thermostaatgedrag</strong>: schakelt hij op het juiste moment?</li>
+        <li><strong>Lagers controleren</strong>: draait de as vrij?</li>
+        <li><strong>Stroomopname vergelijken</strong> met P/V</li>
+        <li><strong>Hotspots zoeken</strong> met beleid en veilig</li>
       </ul>
 
-      <h3>Tripping circuit breaker / blowing fuse</h3>
+      <h3>Automaat valt / zekering springt</h3>
       <ul class="checklist">
-        <li><strong>Check resistance L-to-N</strong> with appliance unplugged and switch off: should not be near zero</li>
-        <li><strong>Isolate branches:</strong> disconnect loads one by one until resistance rises — last disconnected = fault location</li>
-        <li><strong>Check capacitors</strong> (if in primary circuit): short circuit?</li>
-        <li><strong>Check motor winding to case:</strong> insulation fault?</li>
-        <li><strong>Check switch position:</strong> tripping before switch is engaged = fault in always-live section</li>
+        <li><strong>Weerstand fase-nul</strong> met stekker eruit en schakelaar uit</li>
+        <li><strong>Takken losnemen</strong> tot de weerstand weer normaal wordt</li>
+        <li><strong>Condensatoren controleren</strong> als die in de primaire kring zitten</li>
+        <li><strong>Wikkeling naar frame</strong> controleren bij motoren</li>
+        <li><strong>Moment van trippen noteren</strong>: vóór of ná inschakelen zegt veel</li>
       </ul>
 
-      <h3>Before returning to owner</h3>
+      <h3>Voor je het apparaat teruggeeft</h3>
       <ul class="checklist">
-        <li><strong>Earth continuity</strong> (Class I): check plug earth pin to chassis — should be &lt;1 Ω</li>
-        <li><strong>Cable integrity:</strong> no damage, correct strain relief at appliance and plug</li>
-        <li><strong>Correct fuse type and rating:</strong> matches original specification</li>
-        <li><strong>Functional test:</strong> run through full operating cycle</li>
-        <li><strong>No unusual heat, smell, or noise</strong> during functional test</li>
-        <li><strong>Note written:</strong> what fault was found and what was done</li>
+        <li><strong>Aardecontinuïteit</strong> controleren bij klasse I</li>
+        <li><strong>Snoer en trekontlasting</strong> nalopen</li>
+        <li><strong>Juiste zekering</strong> qua type en waarde</li>
+        <li><strong>Functionele test</strong> door een normale cyclus</li>
+        <li><strong>Geen vreemde geur, warmte of geluid</strong> tijdens test</li>
+        <li><strong>Korte notitie</strong> van wat je vond en deed</li>
       </ul>
 
-      <!-- ============================================================ -->
-      <h2>Dutch mains reference</h2>
+      <h2>Nederlandse netspanningsreferentie</h2>
 
       <table class="appendix-table">
         <thead>
-          <tr><th>Parameter</th><th>Value</th><th>Notes</th></tr>
+          <tr><th>Parameter</th><th>Waarde</th><th>Opmerking</th></tr>
         </thead>
         <tbody>
-          <tr><td>Nominal mains voltage</td><td>230V RMS</td><td>Peak: ~325V</td></tr>
-          <tr><td>Frequency</td><td>50 Hz</td><td>Rectified ripple: 100 Hz</td></tr>
-          <tr><td>Plug type</td><td>Type F (Schuko)</td><td>Round 2-pin + side earth clips</td></tr>
-          <tr><td>Standard circuit breaker (socket)</td><td>16A</td><td>Max load: ~3680W per circuit</td></tr>
-          <tr><td>Standard circuit breaker (lighting)</td><td>10A or 16A</td><td>—</td></tr>
-          <tr><td>Earth colour</td><td>Yellow-green</td><td>Never use for anything else</td></tr>
-          <tr><td>Live colour</td><td>Brown</td><td>(Older wiring: red)</td></tr>
-          <tr><td>Neutral colour</td><td>Blue</td><td>(Older wiring: black)</td></tr>
-          <tr><td>RCD trip threshold</td><td>30 mA</td><td>Standard domestic RCD (aardlekschakelaar)</td></tr>
-          <tr><td>RCD trip time</td><td>Typically up to 300 ms at rated trip current</td><td>Trips faster at higher residual current</td></tr>
+          <tr><td>Nominale netspanning</td><td>230V RMS</td><td>Piek ongeveer 325V</td></tr>
+          <tr><td>Frequentie</td><td>50 Hz</td><td>Na gelijkrichting vaak 100 Hz-rimpel</td></tr>
+          <tr><td>Stekkertype</td><td>Type F (Schuko)</td><td>Twee pennen en zij-aarde</td></tr>
+          <tr><td>Standaard automaat groep</td><td>16A</td><td>Max. ongeveer 3680W per groep</td></tr>
+          <tr><td>Aardekleur</td><td>Geel-groen</td><td>Nooit anders gebruiken</td></tr>
+          <tr><td>Fasekleur</td><td>Bruin</td><td>Oudere installaties kunnen afwijken</td></tr>
+          <tr><td>Nulkleur</td><td>Blauw</td><td>Oudere installaties kunnen afwijken</td></tr>
+          <tr><td>Aardlekschakelaar</td><td>30 mA</td><td>Gebruikelijke huishoudelijke waarde</td></tr>
         </tbody>
       </table>
 
-      <!-- ============================================================ -->
-      <h2>When to stop and refer</h2>
+      <h2>Wanneer stoppen en doorverwijzen</h2>
 
       <table class="appendix-table">
         <thead>
-          <tr><th>Situation</th><th>Reason to stop</th></tr>
+          <tr><th>Situatie</th><th>Waarom stoppen</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Microwave or CRT TV internals</td>
-            <td>Lethal stored voltage in capacitors; specialist procedures required</td>
-          </tr>
-          <tr>
-            <td>Gas-connected appliances</td>
-            <td>Gas safety is outside electrical repair scope</td>
-          </tr>
-          <tr>
-            <td>Fuse blowing repeatedly with no clear cause</td>
-            <td>Risk of fire if appliance returned without root cause resolved</td>
-          </tr>
-          <tr>
-            <td>Winding-to-case insulation fault in motor</td>
-            <td>Risk of electric shock from appliance casing</td>
-          </tr>
-          <tr>
-            <td>Damaged or absent earth on Class I appliance</td>
-            <td>Must be repaired before returning — latent lethal hazard</td>
-          </tr>
-          <tr>
-            <td>PCB-level fault requiring component-level diagnosis</td>
-            <td>Refer to someone with SMD soldering skills and test equipment</td>
-          </tr>
-          <tr>
-            <td>Safety-critical components (RCD, smoke detector, CO detector)</td>
-            <td>No margin for error; replace rather than repair</td>
-          </tr>
-          <tr>
-            <td>Repair cost approaching replacement cost</td>
-            <td>Honest assessment: sometimes recycling is the right answer</td>
-          </tr>
+          <tr><td>Magnetron of CRT-internals</td><td>Dodelijk opgeslagen spanningen, specialistische procedures nodig</td></tr>
+          <tr><td>Gasapparaten</td><td>Valt buiten elektrische reparatiescope</td></tr>
+          <tr><td>Zekering blijft springen zonder duidelijke oorzaak</td><td>Brandrisico als je het apparaat toch teruggeeft</td></tr>
+          <tr><td>Isolatiefout wikkeling naar frame</td><td>Schokgevaar via behuizing</td></tr>
+          <tr><td>Ontbrekende of defecte aarde bij klasse I</td><td>Latent dodelijk gevaar tot het goed hersteld is</td></tr>
+          <tr><td>Printplaatfout op componentniveau</td><td>Vaak specialistisch meet- en soldeerwerk nodig</td></tr>
+          <tr><td>Veiligheidskritische melders en beveiligingen</td><td>Geen foutmarge acceptabel, liever vervangen</td></tr>
+          <tr><td>Reparatie bijna duurder dan vervanging</td><td>Soms is recyclen de eerlijke uitkomst</td></tr>
         </tbody>
       </table>
 
       <div class="chapter-nav-footer">
-        <a href="chapter-12.html" class="nav-prev">Chapter 12: Systematic Fault Diagnosis</a>
-        <a href="index.html" class="nav-next">Back to cover</a>
+        <a href="chapter-12.html" class="nav-prev">Hoofdstuk 12: Systematische foutdiagnose</a>
+        <a href="index.html" class="nav-next">Terug naar de cover</a>
       </div>
     </article>
 

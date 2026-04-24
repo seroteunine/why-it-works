@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1: Voltage, Current &amp; Resistance — Why It Works</title>
+  <title>Hoofdstuk 1: Spanning, stroom en weerstand — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 1 van Why It Works: spanning, stroom, weerstand, de wet van Ohm en veelvoorkomende storingen in apparaten.">
+  <link rel="alternate" hreflang="en" href="en/chapter-01.html">
+  <link rel="alternate" hreflang="nl" href="chapter-01.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Chapter 1 of 12</span>
+      <span class="progress-label">Hoofdstuk 1 van 12</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot current"></span>
@@ -26,49 +29,49 @@
 
     <article>
       <header class="chapter-header">
-        <p class="chapter-number">Chapter 1</p>
-        <h1>Voltage, Current, and Resistance</h1>
+        <p class="chapter-number">Hoofdstuk 1</p>
+        <h1>Spanning, stroom en weerstand</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>Saturday morning. Someone sets a kettle on your repair table. "It just stopped working," they say. "It was fine yesterday." You plug it in — nothing. No hum, no heat, no click. Dead. Before you unscrew anything, you already have a mental model running. Something is preventing electricity from doing its job. To figure out what, you need to understand what electricity is actually doing inside that kettle when it works — and what has to go wrong for it to stop. That's what this chapter is about.</p>
+        <p>Zaterdagochtend. Iemand zet een waterkoker op jouw reparatietafel. "Hij doet het ineens niet meer," zeggen ze. "Gisteren werkte hij nog prima." Je steekt de stekker in het stopcontact en er gebeurt niets. Geen gezoem, geen warmte, geen klik. Dood. Nog voordat je een schroef losdraait, draait er al een mentaal model mee. Iets verhindert de elektriciteit om haar werk te doen. Om uit te zoeken wat, moet je begrijpen wat elektriciteit in die waterkoker eigenlijk doet als alles goed werkt en wat er mis moet gaan om dat te stoppen. Daar gaat dit hoofdstuk over.</p>
       </div>
 
       <div class="chapter-objectives">
-        <span class="chapter-objectives-title">Learning goals</span>
+        <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Understand the difference between voltage, current, and resistance in plain language.</li>
-          <li>Use Ohm's law to estimate what a normal appliance should be doing.</li>
-          <li>Recognise the difference between an open circuit, a short circuit, and a high-resistance fault.</li>
+          <li>Het verschil begrijpen tussen spanning, stroom en weerstand in gewone taal.</li>
+          <li>De wet van Ohm gebruiken om in te schatten wat een normaal apparaat zou moeten doen.</li>
+          <li>Het verschil herkennen tussen een open circuit, een kortsluiting en een weerstandsfout.</li>
         </ul>
       </div>
 
-      <h2>The water analogy</h2>
+      <h2>De water-analogie</h2>
 
-      <p>Electricity is invisible and it moves fast — too fast to watch. That makes it hard to reason about intuitively. So we use an analogy: water flowing through pipes. It's not a perfect model, but it's close enough to be genuinely useful, and every electronics engineer has it somewhere in the back of their head.</p>
+      <p>Elektriciteit is onzichtbaar en beweegt snel, te snel om te kunnen volgen. Daardoor is het lastig om er intuïtief over na te denken. Daarom gebruiken we een analogie: water dat door buizen stroomt. Het is geen perfect model, maar wel bruikbaar genoeg om echt te helpen.</p>
 
-      <p>Imagine a water system: a pump, some pipes, and a water wheel at the end. The pump creates pressure. That pressure pushes water through the pipes. The water wheel turns — doing useful work — and then the water loops back to the pump to be pushed around again.</p>
+      <p>Stel je een watersysteem voor: een pomp, een aantal leidingen en aan het einde een waterrad. De pomp creëert druk. Die druk duwt water door de leidingen. Het waterrad draait en verricht nuttig werk, waarna het water terugloopt naar de pomp om opnieuw rondgeduwd te worden.</p>
 
-      <p><strong>Voltage</strong> is the electrical equivalent of water pressure. It's the push — the force that drives current around the circuit. A higher voltage pushes harder. It's measured in volts (V), and the Dutch mains supply delivers 230V — enough pressure to push a lot of current through a lot of resistance. An AA battery, by contrast, delivers 1.5V. Same concept, much gentler push.</p>
+      <p><strong>Spanning</strong> is het elektrische equivalent van waterdruk. Het is de duw, de kracht die de stroom door de kring drijft. Een hogere spanning duwt harder. We meten die in volt (V), en het Nederlandse lichtnet levert 230V, genoeg druk om veel stroom door veel weerstand te duwen. Een AA-batterij levert daarentegen 1,5V. Hetzelfde idee, maar een veel zachtere duw.</p>
 
-      <p><strong>Current</strong> is the flow rate — how much charge is moving past a given point per second. Like flow rate in a pipe: litres per second for water, amperes (A) for electricity. A kettle heating element might carry 8 or 9 amperes during normal operation. A small LED might carry 20 milliamps (0.02A). Both are "current" — just very different amounts of it.</p>
+      <p><strong>Stroom</strong>: hoeveel er per seconde langs een bepaald punt beweegt. Zoals liters per seconde bij water, maar dan ampère (A) bij elektriciteit. Een verwarmingselement van een waterkoker kan tijdens normaal gebruik 8 of 9 ampère voeren. Een kleine led voert misschien 20 milliampère (0,02A). Allebei zijn het stroom, alleen in heel verschillende hoeveelheden.</p>
 
-      <p><strong>Resistance</strong> is the narrowness of the pipe — anything that restricts flow. A thin pipe offers more resistance than a wide one; a long pipe more than a short one. In electrical terms, resistance is a property of materials and geometry. It's measured in ohms (Ω). Copper wire has very low resistance — it gets out of the way. A heating element has high resistance — it deliberately restricts current, and converts the energy to heat in the process.</p>
+      <p><strong>Weerstand</strong> is te vergelijken met de vernauwing van een waterleiding, alles wat de doorstroming beperkt. Een dunne leiding biedt meer weerstand dan een brede, een lange meer dan een korte. Elektrisch gezien is weerstand een eigenschap van materiaal en vorm. We meten haar in ohm (Ω). Koperdraad heeft heel weinig weerstand en zit dus weinig in de weg. Een verwarmingselement heeft juist veel weerstand: het beperkt de stroom opzettelijk en zet de energie daarbij om in warmte.</p>
 
-      <h2>Ohm's law</h2>
+      <h2>De wet van Ohm</h2>
 
-      <p>These three quantities — voltage, current, and resistance — are related by one of the most useful equations in all of electronics:</p>
+      <p>Deze drie grootheden, spanning, stroom en weerstand, hangen samen via een van de nuttigste vergelijkingen in de hele elektronica:</p>
 
       <div class="formula">V = I × R</div>
 
-      <p>Voltage equals current times resistance. It's an easily rewritable formula — rearrange it to solve for whichever quantity you don't know: current, resistance, or voltage. One equation, three variables.</p>
+      <p>Spanning is gelijk aan stroom maal weerstand. Het is een formule die je makkelijk kunt herschrijven om uit te rekenen welke grootheid je maar wilt weten: stroom, weerstand of spanning. Een vergelijking, drie variabelen.</p>
 
-      <p>What this tells you in plain language: given a fixed voltage (like 230V from the mains), the current that flows depends on the resistance. A low-resistance path allows a lot of current. A high-resistance path restricts it. A break in the circuit — infinite resistance — allows no current at all. That is why a dead appliance does not necessarily mean the voltage is gone; voltage can still be present right up to the fault, while the missing ingredient is a complete path for current.</p>
+      <p>In gewone taal zegt dit: bij een vaste spanning, bijvoorbeeld 230V uit het lichtnet, hangt de stroom af van de weerstand. Een pad met weinig weerstand laat veel stroom door. Een pad met veel weerstand beperkt die stroom. Een onderbreking in de kring, oneindige weerstand dus, laat helemaal geen stroom door. Daarom betekent een dood apparaat niet automatisch dat de spanning weg is; spanning kan nog steeds aanwezig zijn tot vlak voor de fout, maar een compleet pad voor de stroom ontbreekt dan.</p>
 
       <div class="ohm-demo" id="ohm-demo">
         <div class="ohm-demo-header">
-          <span class="ohm-demo-label">Try it</span>
-          <span class="ohm-demo-hint">Try resistance first. Voltage is adjustable too, but it's normally fixed at 230 V.</span>
+          <span class="ohm-demo-label">Probeer het</span>
+          <span class="ohm-demo-hint">Probeer eerst de weerstand. De spanning is ook verstelbaar, maar normaal gesproken staat die vast op 230 V.</span>
           <button type="button" class="circuit-reset-btn" id="ohm-reset">Reset</button>
         </div>
         <div class="ohm-circuit-wrap">
@@ -78,31 +81,25 @@
                 <feGaussianBlur stdDeviation="5"/>
               </filter>
             </defs>
-            <!-- Wire background (continuous dim line) -->
             <path class="ohm-wire-bg" d="M 20,40 L 400,40 L 400,115 L 20,115 Z"/>
-            <!-- Animated dashes — show current flow direction, not individual electrons -->
             <path id="ohm-flow-path" class="ohm-flow-path" d="M 20,40 L 400,40 L 400,115 L 20,115 Z"/>
-            <!-- Power source -->
             <rect class="ohm-svg-source" x="11" y="67" width="18" height="26" rx="3"/>
             <text class="ohm-svg-source-text" x="20" y="80">~</text>
             <text class="ohm-svg-label" id="ohm-v-label" x="20" y="105">230&thinsp;V</text>
-            <!-- Element glow (behind element) -->
             <rect id="ohm-element-glow" x="145" y="28" width="130" height="24" rx="4"
                   fill="#f8c11a" opacity="0" filter="url(#element-glow-filter)"/>
-            <!-- Element -->
             <rect id="ohm-element" x="145" y="28" width="130" height="24" rx="4"
                   fill="#9a9a9a" stroke="#777" stroke-width="1.5"/>
             <text class="ohm-svg-label" id="ohm-r-label" x="210" y="21">25&thinsp;Ω</text>
-            <!-- Current label -->
             <text class="ohm-svg-label ohm-label-i" id="ohm-i-label" x="348" y="132">9.2&thinsp;A</text>
           </svg>
-          <p class="ohm-circuit-caption">Dashes show conventional current flow direction — not the movement of individual electrons</p>
+          <p class="ohm-circuit-caption">De streepjes tonen de conventionele stroomrichting, niet de beweging van individuele elektronen</p>
         </div>
 
         <div class="ohm-rows">
           <div class="ohm-row" data-ohm="R">
             <span class="ohm-sym">R</span>
-            <span class="ohm-name">Resistance</span>
+            <span class="ohm-name">Weerstand</span>
             <div class="ohm-track">
               <input type="range" class="ohm-slider" min="1" max="100" step="1" value="25"/>
             </div>
@@ -110,7 +107,7 @@
           </div>
           <div class="ohm-row" data-ohm="V">
             <span class="ohm-sym">V</span>
-            <span class="ohm-name">Voltage</span>
+            <span class="ohm-name">Spanning</span>
             <div class="ohm-track">
               <input type="range" class="ohm-slider" min="1" max="500" step="1" value="230"/>
             </div>
@@ -118,7 +115,7 @@
           </div>
           <div class="ohm-row is-result" data-ohm="I">
             <span class="ohm-sym">I</span>
-            <span class="ohm-name">Current</span>
+            <span class="ohm-name">Stroom</span>
             <div class="ohm-track">
               <div class="ohm-bar"><div class="ohm-bar-fill" style="width:46%"></div></div>
             </div>
@@ -134,173 +131,170 @@
         </div>
       </div>
 
-      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically — a nickel-chromium alloy designed to resist and generate heat) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
+      <p>Voor de waterkoker: het verwarmingselement is een spoel van draad met hoge weerstand, meestal nichroom, een legering van nikkel en chroom die ontworpen is om weerstand te bieden en warmte te produceren. Die weerstand is zo gekozen dat er bij 230V precies de juiste hoeveelheid stroom loopt en dus precies de juiste hoeveelheid warmte ontstaat. Meet je de weerstand van het element en deel je de voedingsspanning door dat getal, dan krijg je de verwachte stroom. Als die berekende waarde overeenkomt met het vermogen van het apparaat, bijvoorbeeld 8 à 9 ampère voor een waterkoker van 2000W, dan is het element waarschijnlijk in orde.</p>
 
-      <p>If the resistance reads OL (over limit) on a digital meter — meaning the resistance is too high to measure, effectively infinite — the element has failed open-circuit.</p>
+      <p>Als de weerstand op een digitale meter als OL verschijnt, over limit dus, betekent dat dat de weerstand te hoog is om te meten, praktisch oneindig. Dan is het element open onderbroken.</p>
 
       <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>Ohm's law is not really a law of physics in the deep sense — it's an observed property of many materials under normal conditions. Materials that follow it are called "ohmic." What makes it powerful is that it holds across an enormous range of conditions: most metals, most resistors, most heating elements, most wiring. In an ohmic material, the relationship between voltage and current is linear and predictable. Double the voltage, double the current. This predictability is what makes circuits calculable and faults findable.</p>
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>De wet van Ohm is niet echt een natuurwet in de diepste zin; het is een waargenomen eigenschap van veel materialen onder normale omstandigheden. Materialen die zich zo gedragen noemen we ohms. De kracht van de wet is dat ze geldt in een enorm bereik aan praktische situaties: de meeste metalen, weerstanden, verwarmingselementen en bedrading. In een ohms materiaal is de relatie tussen spanning en stroom lineair en voorspelbaar. Verdubbel je de spanning, dan verdubbelt de stroom. Die voorspelbaarheid maakt schakelingen berekenbaar en storingen vindbaar.</p>
       </div>
 
       <div class="section-break"></div>
 
-      <h2>Voltage as a difference</h2>
+      <h2>Spanning als verschil</h2>
 
-      <p>Ohm's law treats voltage as a known number — 230V from the mains, say. But there's something important about what that number actually means. Voltage isn't a property of a single point. It's always a difference between two points. When we say "the mains is 230V," we mean there's a 230-volt difference between the live wire and neutral. When we measure voltage across a component, we're measuring the difference between one side and the other.</p>
+      <p>Spanning is geen eigenschap van één punt. Het is altijd een verschil tussen twee punten. Als we zeggen "het lichtnet is 230V", bedoelen we dat er een verschil van 230 volt is tussen fase en nul. Als we spanning over een component meten, meten we het verschil tussen de ene kant en de andere.</p>
 
-      <p>This matters practically. If you measure the voltage between the live terminal of the kettle's heating element and neutral, you should read 230V. If you read 0V, it means there's no difference — either because there's no supply (a blown fuse, an open switch) or because both probes are at the same potential.</p>
+      <p>Praktisch is dat belangrijk. Als je de spanning meet tussen de fasedraad van het verwarmingselement van de waterkoker en nul, moet je 230V zien. Zie je 0V, dan is er geen verschil, bijvoorbeeld omdat de voeding ontbreekt door een doorgebrande zekering of open schakelaar, of omdat beide meetpennen op hetzelfde potentiaal zitten.</p>
 
-      <p>Think of height in the water analogy: pressure differences drive flow, not absolute height. A pump in a basement and a pump at the top of a hill can both produce 3 bar of pressure — what matters is the difference, not the absolute level.</p>
+      <p>Denk in de water-analogie aan hoogteverschil: drukverschillen zorgen voor stroming, niet absolute hoogte. Een pomp in een kelder en een pomp boven op een heuvel kunnen allebei 3 bar leveren. Wat telt is het verschil, niet het absolute niveau.</p>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>When you're measuring voltage on a live circuit and you get an unexpected reading, the most common mistake is having one probe connected to the wrong reference point. Always ask yourself: what are my two measurement points, and what should the difference between them be? That reframing will save you a lot of head-scratching.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Wanneer je spanning meet in een live circuit en een onverwachte waarde krijgt, is de meest voorkomende fout dat één meetpen aan het verkeerde referentiepunt zit. Vraag jezelf altijd af: wat zijn mijn twee meetpunten, en welk verschil verwacht ik daartussen? Alleen al dat herformuleren voorkomt veel frustratie.</p>
       </div>
 
-      <h2>Current conservation: what goes in must come out</h2>
+      <h2>Behoud van stroom: wat erin gaat, moet er ook weer uit</h2>
 
-      <p>Here's something that matters deeply for fault diagnosis: in a series circuit, the same current flows through every component in the loop. Not approximately the same — exactly the same. Every electron that enters the heating element must also leave it. There's nowhere else for it to go.</p>
+      <p>In een serieschakeling loopt precies dezelfde stroom door elk onderdeel van het circuit. Niet ongeveer dezelfde, maar exact dezelfde. Elk elektron dat het verwarmingselement ingaat, moet er ook weer uit. Het kan nergens anders heen.</p>
 
-      <p>This seems obvious once stated, but it has a useful implication. If you have a series circuit — a fuse, a switch, and a heating element wired in a loop — and you measure current anywhere in that loop, you'll get the same reading. If you measure in two places and get different readings, something has gone wrong with your measurement, or there's a parallel path you haven't accounted for.</p>
+      <p>Dat klinkt misschien logisch, maar het kan je helpen tijdens diagnosticeren. Als je een seriekring hebt, bijvoorbeeld een zekering, een schakelaar en een verwarmingselement in één circuit, dan meet je overal in dat circuit dezelfde stroom. Meet je op twee plekken verschillende waarden, dan klopt er iets niet aan je meting, of er is toch ergens een parallel pad dat je nog niet hebt meegenomen.</p>
 
       <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>Current conservation is simply a consequence of the conservation of electric charge. Charge doesn't appear from nowhere and doesn't disappear. At any junction in a circuit, the total current flowing in equals the total current flowing out. In a simple series loop with no junctions, that means the same current flows everywhere. In a branched circuit, the currents in each branch add up to the total coming in.</p>
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>Behoud van stroom is simpelweg een gevolg van het behoud van elektrische lading. Lading verschijnt niet uit het niets en verdwijnt niet zomaar. Bij elk knooppunt in een schakeling is de totale stroom die binnenkomt gelijk aan de totale stroom die weggaat. In een eenvoudige serieschakeling zonder aftakkingen betekent dat dat overal dezelfde stroom loopt. In een vertakte schakeling tellen de stromen in de takken samen op tot de totale inkomende stroom.</p>
       </div>
 
-      <h2>Resistance and where it comes from</h2>
+      <h2>Weerstand en waar die vandaan komt</h2>
 
-      <p>So where does resistance actually come from? The answer matters for fault diagnosis — it explains why certain materials are used where they are, and how they fail when they do.</p>
+      <p>Op atoomniveau komt weerstand doordat elektronen botsen met het rooster van atomen terwijl ze door een materiaal bewegen. Stel je de binnenkant van een metaal voor als een dicht raster van atomen. Elektronen bewegen door de openingen, maar niet in een rechte lijn. Ze botsen op atomen, veranderen van richting en verliezen energie. Elke botsing vertraagt ze een beetje en geeft een klein beetje energie af als warmte. Daarom worden draden warm onder belasting.</p>
 
-      <p>At the atomic level, resistance comes from electrons colliding with the lattice of atoms as they travel through a material. Picture the inside of a metal as a tightly packed grid of atoms. Electrons move through the gaps — but they don't travel in a straight line. They bounce off atoms, change direction, lose energy. Each collision slows them down slightly and releases a tiny amount of energy as heat. This is why wires get warm under load.</p>
+      <p>Verschillende materialen hebben heel verschillende atoomstructuren. In koper is het rooster netjes en uniform, waardoor elektronen er met relatief weinig botsingen doorheen gaan en de weerstand laag is. In nichroom, de legering die in de meeste verwarmingselementen zit, is het rooster veel rommeliger. Elektronen botsen daar veel vaker en geven daardoor veel meer energie als warmte af per meter draad. Dat is geen fout, dat is precies het ontwerp. Het element zet elektrische energie bewust om in warmte dankzij zijn hoge weerstand.</p>
 
-      <p>Different materials have very different atomic structures. In copper, the lattice is tightly ordered and uniform — electrons pass through with relatively few collisions, so resistance is low. In nichrome (the alloy used in most heating elements — a mix of nickel and chromium), the lattice is more disordered. Electrons collide far more often, and far more energy is released as heat per metre of wire. That's not a flaw — it's the design. The element converts electrical energy to heat deliberately, because of its high resistance.</p>
+      <p>De vorm doet er ook toe. Langere draad betekent meer botsingen en dus meer weerstand. Dunnere draad betekent een smaller pad, meer opstopping en dus meer weerstand. Verdubbel je de lengte van een draad, dan verdubbelt de weerstand. Halveer je de doorsnede, dan verdubbelt die nog eens. Daarom zijn netsnoeren van apparaten met hoog vermogen, zoals waterkokers, wasmachines en ovens, dik: om hun eigen weerstand laag te houden en dus ook de warmteontwikkeling in de kabel zelf. Het element hoort heet te worden. De kabel niet. Een kabel die onder normaal gebruik warm aanvoelt, vertelt je iets belangrijks.</p>
 
-      <p>Geometry also matters. Longer wire means more collisions, more resistance. Thinner wire means a narrower path, more congestion, more resistance. Doubling the length of a wire doubles its resistance; halving its cross-sectional area doubles it again. This is why the supply cables to high-power appliances (kettles, washing machines, ovens) are thick — to keep their resistance low, and therefore the heat generated in the cable itself to a minimum. The element is supposed to get hot. The cable is not. A cable that's warm to the touch under normal use is telling you something.</p>
+      <h3>Afhankelijkheid van temperatuur</h3>
 
-      <h3>Temperature dependence</h3>
+      <p>Weerstand is niet vast, ze verandert met temperatuur. Voor de meeste metalen geldt: hoe warmer het metaal, hoe hoger de weerstand. In de praktijk betekent dat bijvoorbeeld dat de wolfraamgloeidraad in een klassieke gloeilamp een veel lagere weerstand heeft wanneer hij koud is dan wanneer hij gloeiend heet is. Een koude motorwikkeling heeft minder weerstand dan nadat hij een uur heeft gedraaid.</p>
 
-      <p>Resistance isn't fixed — it changes with temperature. For most metals, resistance increases as the metal gets hotter. This matters in practice: a tungsten filament — the wire inside a traditional incandescent bulb — has a much lower resistance when cold than when glowing hot. A cold motor winding has lower resistance than when it's been running for an hour.</p>
-
-      <p>This matters for testing. If you measure the resistance of a cold heating element and compare it to published specs, remember that the specs may be for room temperature. A reading that seems slightly high might be normal. What you're really looking for is whether it's in the right ballpark, or whether it's reading open circuit (broken) or near zero (shorted).</p>
+      <p>Dat is relevant bij metingen. Als je de weerstand van een koud verwarmingselement meet en vergelijkt met de specificaties, bedenk dan dat die specificaties misschien gelden bij kamertemperatuur of juist bedrijfstemperatuur. Een waarde die iets hoger lijkt, kan nog steeds normaal zijn. Waar je vooral naar kijkt is of hij in de juiste orde van grootte zit, of dat hij open is, dus onderbroken, of juist bijna nul is, dus kortgesloten.</p>
 
       <div class="callout callout-predict">
-        <span class="callout-label">Predict before measuring</span>
-        <p>If a kettle element has failed open-circuit, what should your meter read across the element with the appliance unplugged: a normal resistance value, near zero ohms, or OL? Make the prediction before you touch the probes.</p>
+        <span class="callout-label">Voorspel voordat je meet</span>
+        <p>Als een verwarmingselement van een waterkoker open onderbroken is, wat zou je meter dan moeten aangeven over het element terwijl de stekker eruit is: een normale weerstandswaarde, bijna nul ohm of OL? Doe de voorspelling voordat je de meetpennen neerzet.</p>
       </div>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>Kettle elements typically measure between 20 and 40 ohms cold (for a 2000–2500W element at 230V). A quick check: divide the supply voltage squared by the power rating. For a 2400W kettle: 230² ÷ 2400 ≈ 22 ohms. If you measure OL (over limit — resistance too high to measure, meaning the circuit is broken), the element has failed open-circuit. If you measure less than 5 ohms, suspect a partial short — a fault where part of the element's coil has made contact with itself, bypassing some of the resistance and allowing far more current than intended to flow. Chapter 6 covers the multimeter in full, including how to use the resistance function and interpret what you read.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Waterkokerelementen meten koud meestal tussen de 20 en 40 ohm, voor een element van ongeveer 2000 tot 2500W bij 230V. Een snelle controle: deel de voedingsspanning in het kwadraat door het vermogen. Voor een waterkoker van 2400W geldt: 230² ÷ 2400 ≈ 22 ohm. Meet je OL, dan is het circuit onderbroken en is het element open. Meet je minder dan 5 ohm, denk dan aan een gedeeltelijke kortsluiting, waarbij een deel van de spiraal elkaar raakt en zo een stuk weerstand overbrugt, waardoor veel meer stroom loopt dan bedoeld. Hoofdstuk 6 gaat uitgebreider in op de multimeter, inclusief hoe je de weerstandstand gebruikt en interpreteert wat je leest.</p>
       </div>
 
       <div class="section-break"></div>
 
-      <h2>Open circuits, short circuits, and partial faults</h2>
+      <h2>Open circuits, kortsluiting en gedeeltelijke fouten</h2>
 
-      <p>Back to the kettle on the repair table. With voltage, current, and resistance now in hand, there's a language for what can go wrong. Most faults fall into one of three categories:</p>
+      <p>Terug naar de waterkoker op tafel. Met spanning, stroom en weerstand in de hand hebben we nu taal voor wat er mis kan gaan. De meeste storingen vallen in één van drie categorieën:</p>
 
-      <p><strong>Open circuit</strong>: the path for current has been broken. Resistance is effectively infinite, current is zero, the appliance does nothing. Causes: broken wire, blown fuse, failed heating element, corroded contact, open switch. This is the most common failure mode and usually the easiest to find.</p>
+      <p><strong>Open circuit</strong>: het pad voor de stroom is ergens onderbroken. De weerstand is praktisch oneindig, de stroom nul, en het apparaat doet niets. Oorzaken: gebroken draad, doorgebrande zekering, defect verwarmingselement, gecorrodeerd contact, open schakelaar. Dit is de meest voorkomende fout en meestal ook de makkelijkst te vinden.</p>
 
-      <p><strong>Short circuit</strong>: two conductors that should be separate have made contact, creating a very low-resistance path. Current rushes through this path at far above the design level. Fuses blow, circuit breakers trip, cables get hot. Causes: insulation failure, component failure, conductive contamination (spilled liquid, carbon tracking).</p>
+      <p><strong>Kortsluiting</strong>: twee geleiders die gescheiden horen te zijn raken elkaar, waardoor een pad met heel lage weerstand ontstaat. De stroom schiet dan omhoog tot ruim boven het ontwerpniveau. Zekeringen gaan eruit, automaten schakelen af en kabels worden heet. Oorzaken: isolatiefout, componentfout, geleidende vervuiling zoals gemorste vloeistof of koolsporen.</p>
 
-      <p><strong>Partial resistance fault</strong>: something in the circuit has higher resistance than it should. The appliance may still work, but with reduced performance — lower power, more heat generated in the wrong place, voltage drop across the faulty component. Causes: corroded contacts, loose connections, a heating element that hasn't fully failed yet. These are often the hardest faults to find because the appliance still does something.</p>
+      <p><strong>Weerstandsfout</strong>: iets in het circuit heeft meer weerstand dan het zou moeten hebben. Het apparaat kan nog wel werken, maar slechter, met minder vermogen, meer warmte op de verkeerde plek en spanningsval over het defecte onderdeel. Oorzaken: gecorrodeerde contacten, losse verbindingen of een verwarmingselement dat nog niet volledig defect is. Dit zijn vaak de lastigste fouten, juist omdat het apparaat nog iets doet.</p>
 
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p>Probing an appliance while it's plugged in is only appropriate when you're specifically measuring voltage, you know what you're touching, and you're using a properly rated meter with insulated probes. Mains voltage across your body is 230V — enough to cause ventricular fibrillation. When in doubt, unplug first and use resistance measurements to narrow down the fault before going anywhere near a live circuit.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p>Met meetpennen in een apparaat prikken terwijl het is ingeplugd is alleen gepast wanneer je bewust spanning meet, weet wat je aanraakt en een goed geclassificeerde meter met geïsoleerde probes gebruikt. 230V netspanning door het lichaam is voldoende om kamerfibrillatie te veroorzaken. Trek bij twijfel eerst de stekker uit het stopcontact en gebruik weerstandmetingen om de storing te vernauwen voordat je in de buurt van een live circuit komt.</p>
       </div>
 
-      <h2>Putting it together</h2>
+      <h2>Alles samenbrengen</h2>
 
-      <p>A working kettle is, in electrical terms, elegantly simple. The 230V mains supply drives current through a series loop: cable → plug → switch → thermal protection → heating element → back through neutral. The element has a resistance chosen to draw about 8–10 amps at 230V, which dissipates roughly 2000–2400 watts as heat. Everything in the path is sized to handle that current safely.</p>
+      <p>Een werkende waterkoker is elektrisch gezien elegant eenvoudig. De 230V netspanning jaagt stroom door een serieschakeling: kabel → stekker → schakelaar → thermische beveiliging → verwarmingselement → terug via nul. Het element heeft een weerstand die zo gekozen is dat het bij 230V ongeveer 8 tot 10 ampère trekt, wat neerkomt op grofweg 2000 tot 2400 watt aan warmte. Alles in dat pad is zo gedimensioneerd dat het die stroom veilig aankan.</p>
 
-      <p>When the kettle goes dead, something in that loop has opened up. The voltage is still there — you can measure it at the socket. But something is preventing current from flowing all the way around. Your job, over the next few chapters, is to build the toolkit to find where that break is.</p>
+      <p>Wanneer de waterkoker dood is, is ergens in dat circuit een onderbreking ontstaan. De spanning is er nog steeds, je kunt die gewoon aan het stopcontact meten. Maar iets verhindert de stroom om de hele kring rond te gaan. Jouw taak in de komende hoofdstukken is het gereedschap opbouwen om te vinden waar die onderbreking zit.</p>
 
       <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>At the deepest level, resistance in a material arises from quantum mechanical interactions between charge carriers (electrons) and the material's crystal lattice. The electrons aren't flowing smoothly like water — they're being scattered repeatedly. Each scattering event transfers energy from the electron to the lattice, which we experience as heat. This is Joule heating, and it's not a defect or inefficiency — it's exactly what heating elements are designed to do. We'll return to this in Chapter 4 when we look at power and heat more carefully.</p>
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>Op het diepste niveau ontstaat weerstand in een materiaal uit kwantummechanische interacties tussen ladingsdragers, de elektronen, en het kristalrooster van het materiaal. De elektronen bewegen niet soepel als water; ze worden steeds weer verstrooid. Elke verstrooiing draagt energie over van het elektron naar het rooster, en dat ervaren wij als warmte. Dit is jouleverwarming. Geen defect of inefficiëntie, maar precies waarvoor verwarmingselementen ontworpen zijn. In hoofdstuk 4 komen we daarop terug wanneer we nauwkeuriger naar vermogen en warmte kijken.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>Back to the kettle on your table. You now have a language for what might be wrong: an open circuit somewhere in the series loop, most likely at the element, the thermal protection, or the switch. The next chapters give you the tools to find out which.</p>
+        <p>Terug naar de waterkoker op je tafel. Je hebt nu woorden voor wat er mis kan zijn: waarschijnlijk een open onderbreking ergens in de serieschakeling, het meest waarschijnlijk bij het element, de thermische beveiliging of de schakelaar. De volgende hoofdstukken geven je het gereedschap om uit te zoeken welke van de drie het is.</p>
       </div>
 
       <div class="chapter-takeaways">
-        <span class="chapter-takeaways-title">Remember this</span>
+        <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Voltage is the push, current is the flow, and resistance limits the flow.</li>
-          <li>At a fixed supply voltage, lower resistance means higher current.</li>
-          <li>OL on a resistance measurement usually means the current path is broken.</li>
-          <li>Most appliance faults can be described as open, shorted, or too resistive.</li>
+          <li>Spanning is de duw, stroom is de doorstroming en weerstand beperkt die doorstroming.</li>
+          <li>Bij een vaste voedingsspanning betekent minder weerstand meer stroom.</li>
+          <li>OL bij een weerstandsmeting betekent meestal dat het stroompad onderbroken is.</li>
+          <li>De meeste apparaatstoringen kun je beschrijven als open, kortgesloten of te weerstandrijk.</li>
         </ul>
       </div>
 
-      <!-- Questions -->
       <section class="chapter-questions">
-        <h2>Check your understanding</h2>
+        <h2>Controleer je begrip</h2>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q1</span>
-            <span class="question-text">You measure the resistance of a kettle's heating element. Your multimeter displays OL — meaning "over limit", the resistance is higher than the meter can measure. What does this tell you about the fault, and what would you recommend?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V1</span>
+            <span class="question-text">Je meet de weerstand van het verwarmingselement van een waterkoker. Je multimeter toont OL, oftewel over limit, de weerstand is hoger dan de meter kan meten. Wat vertelt dit je over de fout en wat zou je adviseren?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>OL means the resistance is effectively infinite — there is no continuous path for current through the element. The resistance wire inside has broken; the element has failed open-circuit. Current cannot flow, no heat is produced, and the kettle is dead. This is the most common kettle failure mode. The element is not repairable — it needs replacing, or if parts aren't available, the kettle should be recycled. Before condemning the element, it's also worth checking whether the fault might be upstream — a blown thermal fuse or a broken wire connection would produce exactly the same OL reading on the element terminals.</p>
+            <p>OL betekent dat de weerstand praktisch oneindig is; er is geen doorlopend pad voor stroom door het element. De weerstandsdraad binnenin is gebroken en het element is open onderbroken. Er kan geen stroom lopen, er ontstaat geen warmte en de waterkoker blijft dood. Dit is de meest voorkomende fout bij waterkokers. Het element is niet te repareren; het moet vervangen worden of, als onderdelen niet verkrijgbaar zijn, de waterkoker moet worden afgevoerd. Voordat je het element definitief afschrijft, is het wel verstandig te controleren of de fout misschien verderop of ervoor zit, bijvoorbeeld een doorgebrande thermische zekering of een gebroken draadverbinding, want die kunnen exact dezelfde OL-meting op de aansluitingen van het element veroorzaken.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q2</span>
-            <span class="question-text">A kettle element measures 28.75 ohms at room temperature. The mains supply is 230V. What current flows through the element when it's running? How much power does it convert to heat — that is, how many watts? Is this consistent with a kettle labelled "1800W"?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V2</span>
+            <span class="question-text">Een verwarmingselement meet 28,75 ohm bij kamertemperatuur. De netspanning is 230V. Welke stroom loopt er door het element tijdens gebruik? Hoeveel vermogen zet het om in warmte, dus hoeveel watt? Past dat bij een waterkoker met opschrift "1800W"?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Using I = V / R: current = 230 ÷ 28.75 = 8 amperes. Power (covered in depth in Chapter 4) is P = V × I = 230 × 8 = 1840 watts, or about 1.84 kW. That's close to 1800W — consistent with the label, given that element resistance varies slightly with temperature and manufacturing tolerance. If the calculation gave something very different — say, 50 amps or 0.5 amps — that would suggest the element had partially failed, or that the resistance reading was taken with a wiring fault in the circuit.</p>
+            <p>Met I = V / R krijg je: stroom = 230 ÷ 28,75 = 8 ampère. Vermogen, dat we in hoofdstuk 4 uitgebreider behandelen, is P = V × I = 230 × 8 = 1840 watt, dus ongeveer 1,84 kW. Dat ligt dicht bij 1800W en is dus consistent met het label, zeker omdat de weerstand van een element licht varieert met temperatuur en fabricagetolerantie. Als de uitkomst heel anders was geweest, bijvoorbeeld 50 ampère of 0,5 ampère, dan zou dat erop wijzen dat het element gedeeltelijk defect is of dat de weerstandsmeting beïnvloed werd door een fout elders in de bedrading.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q3</span>
-            <span class="question-text">A colleague says "I measured 230V at the plug, so the problem must be the element." What are they missing?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V3</span>
+            <span class="question-text">Een collega zegt: "Ik heb 230V op de stekker gemeten, dus het probleem moet in het element zitten." Wat missen ze?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Measuring voltage at the plug only confirms the socket is live. It tells you nothing about what happens downstream in the circuit. The fault could equally be in the cable (broken conductor), the plug connections (loose or corroded), the switch, the thermal fuse, or the connection to the element itself — all of which are in series with the element and would produce the same dead symptom. You need to follow the voltage through the circuit — measuring across each component or section — to narrow down where the open circuit is. Only once you've confirmed voltage is present right up to the element can you blame the element.</p>
+            <p>Spanning meten op de stekker bevestigt alleen dat het stopcontact spanning levert. Het zegt niets over wat er verderop in het apparaat gebeurt. De fout kan net zo goed in de kabel zitten, in de stekkerverbindingen, in de schakelaar, in de thermische zekering of in de verbinding naar het element zelf. Al die onderdelen staan in serie met het element en geven hetzelfde dode symptoom. Je moet de spanning door het circuit heen volgen, over elk onderdeel of elke sectie meten, om te vernauwen waar de onderbreking zit. Pas als je hebt bevestigd dat de spanning daadwerkelijk tot aan het element komt, kun je het element de schuld geven.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q4</span>
-            <span class="question-text">In a simple series circuit (fuse → switch → heating element), is the current flowing through the fuse the same as or different from the current flowing through the element? Why?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V4</span>
+            <span class="question-text">In een eenvoudige seriekring, zekering → schakelaar → verwarmingselement, is de stroom door de zekering dan gelijk aan of anders dan de stroom door het element? Waarom?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>The same. In a series circuit, there is only one path for current — it has to flow through every component in sequence. Since charge is conserved (Kirchhoff's current law), the number of electrons per second passing through the fuse must equal the number passing through the switch and the element. This is why a fuse works: it's in series with the load, so all the current that powers the appliance also passes through the fuse. If the current exceeds the fuse rating, the fuse blows — protecting the entire circuit.</p>
+            <p>Gelijk. In een serieschakeling is er maar één pad voor de stroom, dus die moet achtereenvolgens door elk onderdeel heen. Omdat lading behouden blijft, Kirchhoff's stroomwet, moet het aantal elektronen per seconde dat door de zekering gaat gelijk zijn aan het aantal dat door de schakelaar en het element gaat. Daarom werkt een zekering ook: ze staat in serie met de belasting, dus alle stroom die het apparaat voedt gaat ook door de zekering. Overschrijdt die stroom de zekeringwaarde, dan smelt de zekering en beschermt de hele kring.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q5</span>
-            <span class="question-text">A kettle element measures 35 ohms on your meter at room temperature. The label on the kettle says 2000W at 230V. Should you condemn the element based on this reading?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V5</span>
+            <span class="question-text">Een waterkokerelement meet 35 ohm op je meter bij kamertemperatuur. Op het typeplaatje staat 2000W bij 230V. Moet je het element op basis van die meting afkeuren?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>No — not without further thought. The expected resistance at operating temperature is V²/P = 230² ÷ 2000 = 26.5 ohms. But nichrome's resistance increases with temperature: an element that reads 26.5 ohms when glowing hot will read higher when cold. 35 ohms cold is a plausible reading for an element whose hot resistance is ~26 ohms, and the workbench guideline (20–40 ohms cold for a 2000–2500W element) puts this squarely in the normal range. What would condemn it: OL (open circuit — the element wire has broken) or near zero ohms (shorted turns). A cold reading that's somewhat above the calculated hot resistance is expected, not a fault. This is the kind of reasoning that prevents unnecessary part replacements.</p>
+            <p>Nee, niet zonder verder na te denken. De verwachte weerstand bij bedrijfstemperatuur is V²/P = 230² ÷ 2000 = 26,5 ohm. Maar de weerstand van nichroom verandert met temperatuur: een element dat heet 26,5 ohm is, zal koud vaak hoger meten. 35 ohm koud is een plausibele waarde voor een element dat heet rond de 26 ohm zit, en ook de praktische richtlijn van 20 tot 40 ohm koud voor een waterkoker van 2000 tot 2500W plaatst dit nog keurig in het normale gebied. Wat het element wél zou veroordelen is OL, dus open onderbroken, of bijna nul ohm, dus kortgesloten windingen. Een koude meting die wat hoger is dan de berekende hete weerstand is eerder verwacht gedrag dan een fout. Juist dit soort redeneren voorkomt onnodige vervanging van onderdelen.</p>
           </div>
         </div>
 
       </section>
 
       <div class="chapter-nav-footer">
-        <a href="intro.html" class="nav-prev">Introduction</a>
-        <a href="chapter-02.html" class="nav-next">Chapter 2: What a Circuit Actually Is</a>
+        <a href="intro.html" class="nav-prev">Inleiding</a>
+        <a href="chapter-02.html" class="nav-next">Hoofdstuk 2: Wat een circuit eigenlijk is</a>
       </div>
     </article>
 

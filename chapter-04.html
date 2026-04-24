@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 4: Power and Heat — Why It Works</title>
+  <title>Hoofdstuk 4: Vermogen en warmte — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 4 van Why It Works: elektrisch vermogen, warmte, wattages, oververhitting van motoren en waarom te veel warmte op een verkeerde plek wijst op een fout.">
+  <link rel="alternate" hreflang="en" href="en/chapter-04.html">
+  <link rel="alternate" hreflang="nl" href="chapter-04.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Chapter 4 of 12</span>
+      <span class="progress-label">Hoofdstuk 4 van 12</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -28,193 +31,193 @@
 
     <article>
       <header class="chapter-header">
-        <p class="chapter-number">Chapter 4</p>
-        <h1>Power and Heat</h1>
+        <p class="chapter-number">Hoofdstuk 4</p>
+        <h1>Vermogen en warmte</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>A small desk fan arrives in a paper bag. The owner pulls it out carefully. "It's been making a burning smell for a few weeks," she says. "I kept using it because it still spins. But this morning it smelled worse than usual and I thought I should stop." You lift it to your nose. There it is — that specific hot-wire smell, faintly sweet and synthetic, coming from the body of the motor. Not the same as burning plastic. Something is running too hot inside. Before you open it, you start thinking about where that heat is coming from, and why.</p>
+        <p>Een kleine bureauventilator komt in een papieren tas binnen. De eigenaar haalt hem voorzichtig tevoorschijn. "Hij ruikt al een paar weken een beetje branderig," zegt ze. "Ik bleef hem gebruiken omdat hij nog gewoon draaide. Maar vanochtend rook het erger dan normaal en toen dacht ik: nu moet ik stoppen." Je tilt hem naar je neus. Daar is het, die specifieke geur van hete draadisolatie, een beetje zoet en synthetisch, uit de motorbehuizing. Niet hetzelfde als brandend plastic. Iets binnenin wordt te heet. Nog voordat je hem openmaakt, begin je te denken over waar die warmte vandaan komt en waarom.</p>
       </div>
 
       <div class="chapter-objectives">
-        <span class="chapter-objectives-title">Learning goals</span>
+        <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Understand power as the rate at which electrical energy is turned into heat or motion.</li>
-          <li>Use watt ratings and simple formulas to judge whether an appliance is behaving normally.</li>
-          <li>Recognise why excess heat in the wrong place is often the fault itself.</li>
+          <li>Vermogen begrijpen als de snelheid waarmee elektrische energie wordt omgezet in warmte of beweging.</li>
+          <li>Wattages en eenvoudige formules gebruiken om te beoordelen of een apparaat zich normaal gedraagt.</li>
+          <li>Herkennen waarom overtollige warmte op de verkeerde plek vaak de fout zelf is.</li>
         </ul>
       </div>
 
-      <h2>What power actually means</h2>
+      <h2>Wat vermogen eigenlijk betekent</h2>
 
-      <p>Power is the rate at which energy is transferred or converted. When a kettle element heats water, it's converting electrical energy into heat energy. When a motor drives a fan, it's converting electrical energy into kinetic energy (plus some heat, unavoidably). Power is measured in watts (W), and one watt means one joule of energy per second.</p>
+      <p>Vermogen is de snelheid waarmee energie wordt overgedragen of omgezet. Als een waterkoker water verwarmt, zet hij elektrische energie om in warmte. Als een motor een ventilator aandrijft, zet hij elektrische energie om in bewegingsenergie, plus onvermijdelijk ook wat warmte. Vermogen meten we in watt (W), en één watt betekent één joule energie per seconde.</p>
 
-      <p>The formula connecting power, voltage, and current is:</p>
+      <p>De formule die vermogen, spanning en stroom verbindt is:</p>
 
       <div class="formula">P = V × I</div>
 
-      <p>Power equals voltage times current. This is the most useful form of the equation at the repair table, because voltage and current are the things you can measure directly. If you know the supply voltage and can measure the current, you know the power.</p>
+      <p>Vermogen is dus spanning maal stroom. Dit is aan de reparatietafel de bruikbaarste vorm van de vergelijking, omdat spanning en stroom juist de grootheden zijn die je direct kunt meten. Ken je de voedingsspanning en kun je de stroom meten, dan weet je het vermogen.</p>
 
-      <p>Why does that multiplication make sense? Voltage is energy made available per unit charge — how much energy each coulomb of charge can give up. Current is how much charge passes each second. Multiply "energy per coulomb" by "coulombs per second" and you get "energy per second" — which is exactly what power is. So P = V × I is not a magic electronics rule; it's just a compact way of saying: how much energy each bit of charge carries, times how many bits of charge pass each second.</p>
+      <p>Waarom klopt die vermenigvuldiging eigenlijk? Spanning is de hoeveelheid energie die per eenheid lading beschikbaar wordt gemaakt, hoeveel energie elke coulomb kan afgeven. Stroom is hoeveel lading er per seconde langskomt. Vermenigvuldig je "energie per coulomb" met "coulomb per seconde", dan krijg je "energie per seconde", en dat is precies wat vermogen is. P = V × I is dus geen magische elektronicaregel, maar gewoon een compacte manier om te zeggen: hoeveel energie elk stukje lading meedraagt, maal hoeveel stukjes lading er elke seconde passeren.</p>
 
-      <p>But using Ohm's law (V = I × R), we can derive two other useful forms:</p>
+      <p>Maar met de wet van Ohm, V = I × R, kun je nog twee andere nuttige vormen afleiden:</p>
 
-      <div class="formula">P = I² × R &nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp; P = V² ÷ R</div>
+      <div class="formula">P = I² × R &nbsp;&nbsp;&nbsp; en &nbsp;&nbsp;&nbsp; P = V² ÷ R</div>
 
-      <p>These three forms are equivalent — all say the same thing, just in different terms. The second one (P = I²R) is particularly important for understanding heat in wiring, and we'll return to it shortly.</p>
+      <p>Deze drie vormen zijn volledig gelijkwaardig. Ze zeggen allemaal hetzelfde, alleen in andere termen. Vooral de tweede, P = I²R, is cruciaal om warmte in bedrading te begrijpen, en daar komen we zo op terug.</p>
 
-      <h2>Why resistance generates heat</h2>
+      <h2>Waarom weerstand warmte produceert</h2>
 
-      <p>When current flows through resistance, the electrons collide with the atomic lattice of the material. Each collision transfers energy from the electron to the lattice — the atoms vibrate faster, the temperature rises, heat is produced. This is called Joule heating, and it happens in every resistive element in every circuit, all the time.</p>
+      <p>Als stroom door een weerstand loopt, botsen elektronen tegen het atomaire rooster van het materiaal. Bij elke botsing wordt energie van het elektron overgedragen aan het rooster, de atomen gaan harder trillen, de temperatuur stijgt en er ontstaat warmte. Dit heet jouleverwarming, en het gebeurt in elk weerstandselement van elke schakeling, voortdurend.</p>
 
-      <p>In a heating element, this is the whole point. The element is designed to have a specific resistance that, at the operating voltage, produces a specific amount of heat. In a copper supply cable, the same process occurs — but the cable's resistance is so low that the heat produced is negligible, and the energy delivered to the load is nearly all of what left the supply.</p>
+      <p>In een verwarmingselement is dat precies de bedoeling. Het element is ontworpen met een specifieke weerstand die bij de werkspanning een specifieke hoeveelheid warmte produceert. In een koperen netsnoer gebeurt hetzelfde proces ook, maar de weerstand van dat snoer is zo laag dat de geproduceerde warmte verwaarloosbaar is en vrijwel alle energie bij de belasting aankomt.</p>
 
-      <p>The formula P = I²R explains something critical: heat in a conductor scales with the <em>square</em> of the current. Double the current, produce four times the heat. This is why undersized cables are dangerous: they have more resistance per unit length than they should, and at high current they dissipate more heat than they can safely shed. The insulation melts, the cable becomes a fire hazard.</p>
+      <p>De formule P = I²R verklaart iets heel belangrijks: warmte in een geleider schaalt met het <em>kwadraat</em> van de stroom. Verdubbel je de stroom, dan krijg je vier keer zoveel warmte. Daarom zijn te dunne kabels gevaarlijk: ze hebben per meter meer weerstand dan ze zouden moeten hebben en dissiperen bij hoge stroom meer warmte dan ze veilig kwijt kunnen. De isolatie smelt en de kabel wordt brandgevaarlijk.</p>
 
-      <p>What you've just understood — that heat scales with current squared, not linearly — is why electrical faults can escalate so quickly. A cable running at 80% of its rated current is fine. The same cable suddenly carrying double its rated current produces four times the heat. That's why overcurrent protection needs to act fast.</p>
+      <p>Wat je net hebt begrepen, dat warmte niet lineair maar kwadratisch toeneemt met de stroom, is precies waarom elektrische fouten zo snel kunnen escaleren. Een kabel die op 80% van zijn nominale stroom draait is meestal prima. Dezelfde kabel die ineens dubbel zoveel stroom voert, produceert vier keer zoveel warmte. Daarom moet overstroombeveiliging snel ingrijpen.</p>
 
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p>An appliance that feels unusually hot at the cable or plug — not at the appliance body, but at the cable or plug — is worth treating as a fire risk. It usually means a high-resistance connection: a loose terminal, a damaged conductor, or a cable that's too thin for the current it's carrying. This kind of overheating can be invisible until the cable insulation has already been damaged. Inspect the cable end-to-end, the plug terminals, and the strain relief at the appliance entry before returning it to service.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p>Een apparaat dat ongewoon warm aanvoelt bij het snoer of de stekker, niet aan de behuizing van het apparaat zelf, maar echt bij snoer of stekker, moet je als mogelijk brandrisico behandelen. Meestal betekent het een verbinding met te hoge weerstand: een losse aansluiting, een beschadigde geleider of een kabel die te dun is voor de stroom die hij voert. Zulke oververhitting blijft soms onzichtbaar tot de isolatie al beschadigd is. Controleer het snoer van begin tot eind, de aansluitingen in de stekker en de trekontlasting waar de kabel het apparaat binnenkomt voordat je het terug in gebruik geeft.</p>
       </div>
 
-      <h2>Reading watt ratings</h2>
+      <h2>Wattages lezen</h2>
 
-      <p>Every mains appliance is rated in watts. That rating tells you how much power it consumes when operating normally. It's the number the designer intended, calculated for the correct supply voltage (230V in the Netherlands).</p>
+      <p>Elk apparaat op netspanning heeft een vermogensrating in watt. Dat getal vertelt hoeveel vermogen het apparaat verbruikt wanneer het normaal werkt. Het is het getal dat de ontwerper bedoeld heeft, berekend voor de juiste voedingsspanning, in Nederland dus 230V.</p>
 
-      <p>A 2400W kettle element: P = V²/R means R = V²/P = 230² ÷ 2400 ≈ 22 ohms. Current: I = P/V = 2400 ÷ 230 ≈ 10.4A. This is the number the fuse and cable must handle.</p>
+      <p>Een waterkoker van 2400W: uit P = V²/R volgt R = V²/P = 230² ÷ 2400 ≈ 22 ohm. De stroom is I = P/V = 2400 ÷ 230 ≈ 10,4A. Dat is dus wat zekering en kabel moeten kunnen dragen.</p>
 
-      <p>A 400W motor: at 230V, it draws about 1.7A. Much gentler on the wiring — but remember that motors draw more current when they're starting up or stalling than when they're running freely. A 400W fan motor might draw 3–4A momentarily when it starts, before the fan blade gets up to speed. This is why motor fuses are often rated higher than the steady-state running current.</p>
+      <p>Een motor van 400W trekt bij 230V ongeveer 1,7A. Veel vriendelijker voor de bedrading. Maar vergeet niet dat motoren meer stroom trekken bij het opstarten of stilvallen dan wanneer ze vrij ronddraaien. Een ventilatormotor van 400W kan kortstondig 3 à 4A vragen wanneer hij opstart, voordat de waaier op snelheid is. Daarom zijn motorzekeringen vaak hoger gekozen dan de normale bedrijfsstroom.</p>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>When an appliance blows its fuse repeatedly, the instinct is often to fit a higher-rated fuse. Don't. The fuse is rated to protect the cable and the appliance — it's sized to blow before the cable gets dangerously hot. A higher-rated fuse just means the cable can overheat and melt before the fuse blows. The correct response to a repeatedly blowing fuse is to find the fault that's causing excessive current — not to give the fault more headroom. The only exception is if the appliance has a time-lag (T) fuse and someone has replaced it with a fast-blow fuse of the same rating, which might blow on motor startup current. That's a different problem: fit the correct type, not a higher rating.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Wanneer een apparaat steeds opnieuw een zekering laat springen, is de reflex vaak om een zwaardere zekering te plaatsen. Niet doen. De zekering is er om kabel en apparaat te beschermen en is juist zo gekozen dat hij doorsmelt vóórdat de bedrading gevaarlijk heet wordt. Een zwaardere zekering geeft de fout alleen meer ruimte, zodat de kabel kan oververhitten en smelten voordat de zekering reageert. De juiste reactie op een zekering die telkens springt, is de fout vinden die te veel stroom veroorzaakt. De enige uitzondering is wanneer een apparaat een trage zekering hoort te hebben en iemand daar per ongeluk een snelle zekering van dezelfde waarde in gezet heeft. Dan los je het op door het juiste type te plaatsen, niet een hogere waarde.</p>
       </div>
 
-      <h2>Watts and joules: energy vs power</h2>
+      <h2>Watt en joule: energie versus vermogen</h2>
 
-      <p>Power (watts) and energy (joules) are related but different. Power is the rate; energy is the total. A 2400W kettle running for 3 minutes (180 seconds) uses 2400 × 180 = 432,000 joules of energy. On your electricity meter, this appears as kilowatt-hours: 432,000 joules ÷ 3,600,000 joules/kWh = 0.12 kWh. At €0.35 per kWh, that's about 4 cents for one kettle boil.</p>
+      <p>Vermogen, watt, en energie, joule, horen bij elkaar maar zijn niet hetzelfde. Vermogen is de snelheid, energie is de totale hoeveelheid. Een waterkoker van 2400W die drie minuten draait, dus 180 seconden, gebruikt 2400 × 180 = 432.000 joule energie. Op de energiemeter verschijnt dat als kilowattuur: 432.000 joule ÷ 3.600.000 joule per kWh = 0,12 kWh. Bij €0,35 per kWh kost één keer water koken dan ongeveer 4 cent.</p>
 
-      <p>Energy calculations aren't usually directly useful at the repair table, but understanding the relationship matters when you're thinking about heat accumulation — why a motor might only smell hot after running for twenty minutes, or why a thermal fuse only triggers after sustained operation rather than immediately on power-up.</p>
+      <p>Energieberekeningen zijn aan de reparatietafel meestal niet direct nodig, maar de relatie is wel belangrijk wanneer je nadenkt over warmteopbouw, waarom een motor pas na twintig minuten heet gaat ruiken, of waarom een thermische zekering pas aanspreekt na langere tijd in bedrijf en niet direct bij het inschakelen.</p>
 
-      <p>Heat is only "normal" when it appears where the design intends it. Heat at the element is the job; heat at a plug, crimp, switch contact, or cable is evidence that power is being wasted in an unintended resistance.</p>
+      <p>Warmte is alleen "normaal" als ze optreedt waar het ontwerp haar verwacht. Warmte in het element is het werk. Warmte in een stekker, krimpverbinding, schakelcontact of snoer betekent dat vermogen verspild wordt in een onbedoelde weerstand.</p>
 
-      <h2>Efficiency: where the energy goes</h2>
+      <h2>Rendement: waar de energie naartoe gaat</h2>
 
-      <p>Not all electrical energy becomes useful work. Heating elements are nearly 100% efficient — all the electrical energy becomes heat, which is exactly what you want. But motors, which convert electrical energy to mechanical motion, always produce some heat as a by-product of electrical resistance in their windings and friction in their bearings.</p>
+      <p>Niet alle elektrische energie wordt nuttig werk. Verwarmingselementen zijn bijna 100% efficiënt, alle elektrische energie wordt warmte en dat is precies de bedoeling. Maar motoren, die elektrische energie omzetten in beweging, produceren altijd ook warmte als bijproduct van weerstand in de wikkelingen en wrijving in de lagers.</p>
 
-      <p>A motor running at rated load might be 70–85% efficient — meaning 70–85% of the electrical energy becomes useful shaft power, and 15–30% becomes heat. That heat has to go somewhere. In a well-designed motor, it's conducted to the casing and radiated or convected away. In a degraded motor — worn bearings, partially shorted windings, or poor ventilation — more heat is generated and less is shed, and the motor runs hotter than designed.</p>
+      <p>Een motor die op zijn nominale belasting draait kan 70 tot 85% efficiënt zijn. Dat betekent dat 70 tot 85% van de elektrische energie nuttig asvermogen wordt en 15 tot 30% warmte. Die warmte moet ergens heen. In een goed ontworpen motor wordt ze naar de behuizing geleid en via lucht of straling afgevoerd. In een versleten motor, met slechte lagers, gedeeltelijk kortgesloten windingen of slechte ventilatie, wordt meer warmte geproduceerd en minder warmte kwijtgeraakt, en draait de motor dus heter dan bedoeld.</p>
 
-      <p>This is almost certainly what's happening in the fan on the table. The burning smell is coming from the winding insulation getting hot enough to degrade. If the bearings have worn (common in small fan motors that run for thousands of hours), the motor has to work harder to spin the blade, drawing more current, generating more heat via I²R. Eventually the insulation fails entirely.</p>
+      <p>Dat is vrijwel zeker wat er bij de ventilator op tafel gebeurt. De brandlucht komt van de isolatie van de windingen die warm genoeg wordt om af te breken. Als de lagers versleten zijn, wat vaak voorkomt bij kleine ventilatormotoren die duizenden uren draaien, moet de motor harder werken om de waaier rond te krijgen. Hij trekt dan meer stroom en produceert meer warmte via I²R. Uiteindelijk faalt de isolatie volledig.</p>
 
       <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>Joule heating (P = I²R) has an important consequence in poorly wound or damaged motors: when part of a winding is shorted — a few turns of wire with their insulation damaged touching each other — you get a "shorted turn." The short creates a small closed loop with very low resistance. A large current circulates in this loop, dissipating enormous heat in a small area. The winding insulation burns, the short spreads, the smell gets worse. A shorted winding can often be identified by the fact that the motor draws more current than normal while producing less torque — current is going in, but some of it is being wasted in the short rather than doing useful work.</p>
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>Jouleverwarming, P = I²R, heeft een belangrijk gevolg in slecht gewikkelde of beschadigde motoren: als een deel van een winding kortsluit, een paar windingen waarvan de isolatie beschadigd is raken elkaar, krijg je een "kortgesloten winding". Die kortsluiting vormt een klein gesloten circuit met zeer lage weerstand. Daarin circuleert een grote stroom, die enorme warmte ontwikkelt op een klein oppervlak. De isolatie verbrandt, de kortsluiting verspreidt zich en de geur wordt erger. Zo'n kortgesloten winding herken je vaak aan het feit dat de motor meer stroom trekt dan normaal, maar minder koppel levert. Er gaat wel stroom in, maar een deel ervan wordt in de kortsluiting verspild in plaats van nuttig werk te doen.</p>
       </div>
 
-      <h2>Fuse sizing and power</h2>
+      <h2>Zekeringkeuze en vermogen</h2>
 
-      <p>Fuses are rated in amperes, but the underlying reason for any particular rating is power (and therefore heat). A 13A fuse in a UK-style plug protects the cable by ensuring the current never exceeds 13A, which corresponds to a maximum of 2990W at 230V. Dutch appliances don't usually have individual plug fuses in the Schuko connector — protection normally comes from the automaat in the groepenkast. But cartridge fuses inside appliances are sized for the specific appliance load, and that sizing is based on the appliance's rated current.</p>
+      <p>Zekeringen zijn in ampère gespecificeerd, maar de onderliggende reden voor elke gekozen waarde is vermogen en dus warmte. In Nederland hebben Schuko-stekkers meestal geen losse zekering in de stekker zelf; de beveiliging zit normaal in de automaat in de groepenkast. Maar patroonzekeringen in apparaten zijn wel degelijk afgestemd op de specifieke belasting van dat apparaat, en die afstemming gebeurt op basis van de nominale stroom van het apparaat.</p>
 
-      <p>The fuse is sized to carry normal operating current — including brief startup spikes — without blowing, while still blowing on a sustained fault before the wiring gets dangerously hot. Replacing a blown fuse with a higher-rated one upsets that balance. It's not a repair — it's removing the protection.</p>
+      <p>De zekering moet de normale bedrijfsstroom, inclusief korte opstartpieken, kunnen verdragen zonder door te smelten, maar wel op een blijvende fout aanspreken voordat de bedrading gevaarlijk heet wordt. Een doorgebrande zekering vervangen door een zwaarder exemplaar verstoort dat evenwicht. Dat is geen reparatie, maar het wegnemen van de bescherming.</p>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>Open the fan. Check the bearing by spinning the blade shaft with your finger — it should spin freely with almost no resistance and no wobble. Worn bearings feel gritty, wobbly, or stiff. If the bearings are the problem, some fan motors can be lubricated (a small drop of light machine oil on the bearing sleeves) or have their bearings replaced if you can source them. If the winding itself smells burned and shows dark discolouration or visible damage, the motor is beyond straightforward repair. Declare it and don't return it to service — a burning motor is a fire waiting to happen.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Maak de ventilator open. Controleer het lager door de as van de waaier met je vinger rond te draaien. Hij moet bijna zonder weerstand en zonder speling soepel draaien. Versleten lagers voelen korrelig, wiebelig of stroef. Als de lagers het probleem zijn, kun je sommige ventilatormotoren nog smeren, een klein druppeltje dunne machineolie op de lagerbus, of de lagers vervangen als je passende onderdelen kunt vinden. Als de winding zelf verbrand ruikt en donker verkleurd is of zichtbaar beschadigd is, is de motor niet meer eenvoudig te repareren. Keur hem dan af en geef hem niet terug: een brandende motor is een wachtende brandhaard.</p>
       </div>
 
-      <h2>Thermal runaway</h2>
+      <h2>Thermische runaway</h2>
 
-      <p>One phenomenon worth understanding is thermal runaway: a self-reinforcing cycle where heat causes more heat. It can happen in several ways in electrical equipment.</p>
+      <p>Een verschijnsel dat de moeite waard is om te begrijpen is thermische runaway, een zichzelf versterkende cyclus waarin warmte meer warmte veroorzaakt. Dat kan op verschillende manieren in elektrische apparatuur gebeuren.</p>
 
-      <p>In a motor with a shorted winding: the short generates heat, heat degrades more insulation, more insulation failure creates more shorts, which generate more heat. The process accelerates until something fails or the protection device acts.</p>
+      <p>In een motor met een kortgesloten winding: de kortsluiting produceert warmte, warmte beschadigt nog meer isolatie, meer isolatiefalen veroorzaakt meer kortsluitingen, en die produceren weer meer warmte. Het proces versnelt totdat er iets definitief faalt of de beveiliging ingrijpt.</p>
 
-      <p>In an electrolytic capacitor with damaged insulation (more on capacitors in Chapter 11): as temperature rises, leakage current increases, which generates more heat, which causes more leakage, which causes more heat. You'll often find failed electrolytic capacitors on circuit boards that have "puffed" or leaked — the top or base of the capacitor has swollen or split. This is the visible end result of thermal runaway inside the capacitor.</p>
+      <p>In een elektrolytische condensator met beschadigde isolatie, daar komen we in hoofdstuk 11 uitgebreider op terug, stijgt de lekstroom als de temperatuur oploopt. Die hogere lekstroom produceert meer warmte, wat weer tot nog meer lekstroom leidt. Defecte elektrolytische condensatoren op printplaten zie je vaak bol staan of lekkage vertonen. De bovenkant of onderkant is dan opgezwollen of opengebarsten. Dat zichtbare defect is het eindresultaat van thermische runaway binnenin de condensator.</p>
 
-      <p>Good appliance design includes thermal protection specifically to interrupt these runaway processes before they cause damage — thermostats, thermal fuses, and PTC devices that limit current as temperature rises. We'll cover those in Chapter 8.</p>
+      <p>Goed apparaatontwerp bevat juist thermische beveiliging om zulke runaway-processen te onderbreken voordat ze schade veroorzaken: thermostaten, thermische zekeringen en PTC-componenten die de stroom beperken als de temperatuur stijgt. Daar komen we later nog op terug.</p>
 
       <div class="callout callout-predict">
-        <span class="callout-label">Predict before measuring</span>
-        <p>If a cable or connector is dissipating far more heat than it should, what would you expect from a voltage-drop test across it under load: almost zero volts, or a noticeable voltage drop? Heat and voltage drop are two views of the same fault.</p>
+        <span class="callout-label">Voorspel voordat je meet</span>
+        <p>Als een kabel of connector veel meer warmte ontwikkelt dan zou moeten, wat verwacht je dan van een spanningsvaltest erover onder belasting: bijna nul volt, of een duidelijke spanningsval? Warmte en spanningsval zijn twee manieren om naar dezelfde fout te kijken.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>The fan turns out to have a bad bearing — a simple lubrication job. At the next table, a toaster is waiting with one side that barely browns at all. You can already tell the next step is not more theory but measurement: where is the voltage dropping, what still has continuity, and which meter setting will answer the right question fastest?</p>
+        <p>De ventilator blijkt uiteindelijk een slecht lager te hebben, een klusje dat met smeren op te lossen is. Op de tafel ernaast wacht een broodrooster waarvan één kant nauwelijks bruint. Je voelt al dat de volgende stap niet nóg meer theorie is, maar meten: waar valt de spanning weg, wat heeft nog continuïteit, en welke meterstand geeft het snelst het juiste antwoord?</p>
       </div>
 
       <div class="chapter-takeaways">
-        <span class="chapter-takeaways-title">Remember this</span>
+        <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Watts tell you how fast energy is being converted.</li>
-          <li>If a cable or connector gets hot, power is being wasted there instead of in the intended load.</li>
-          <li>Doubling current gives four times the heating in a resistance.</li>
-          <li>A higher-rated fuse is never the right fix for unexplained overheating or repeated fuse failure.</li>
+          <li>Watt vertelt hoe snel energie wordt omgezet.</li>
+          <li>Als een kabel of connector heet wordt, wordt daar vermogen verspild in plaats van in de bedoelde belasting.</li>
+          <li>Een verdubbeling van de stroom geeft vier keer zoveel verwarming in een weerstand.</li>
+          <li>Een zwaardere zekering is nooit de juiste oplossing voor onverklaarbare oververhitting of een zekering die steeds springt.</li>
         </ul>
       </div>
 
       <section class="chapter-questions">
-        <h2>Check your understanding</h2>
+        <h2>Controleer je begrip</h2>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q1</span>
-            <span class="question-text">A 1600W iron is plugged into a 230V socket. What current does it draw? If the supply cable has a resistance of 0.5 ohms, how much power is wasted in the cable?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V1</span>
+            <span class="question-text">Een strijkijzer van 1600W zit in een stopcontact van 230V. Welke stroom trekt het? En als het netsnoer een weerstand van 0,5 ohm heeft, hoeveel vermogen wordt er dan in het snoer verspild?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Current: I = P ÷ V = 1600 ÷ 230 ≈ 6.96A, call it 7A. Power in cable: P = I² × R = 7² × 0.5 = 49 × 0.5 = 24.5W. That's nearly 25 watts being dissipated in the cable — about 1.5% of the total power. For a short, healthy appliance flex this would actually be suspiciously high rather than normal; a good cable should waste far less than that. The point of the calculation is to show how quickly heating rises when resistance appears where it shouldn't. If the cable resistance really were 0.5 ohms, you'd inspect for damaged conductors, poor terminations, or an undersized lead. At 3 ohms and 7A you'd have 147W in the cable, which would be very hot very quickly.</p>
+            <p>Stroom: I = P ÷ V = 1600 ÷ 230 ≈ 6,96A, dus afgerond 7A. Vermogen in het snoer: P = I² × R = 7² × 0,5 = 49 × 0,5 = 24,5W. Dat is bijna 25 watt die in het snoer zelf wordt verstookt, ongeveer 1,5% van het totale vermogen. Voor een kort en gezond apparaatsnoer zou dat eigenlijk verdacht hoog zijn; een goede kabel hoort veel minder te verspillen. De berekening laat vooral zien hoe snel de warmte oploopt zodra weerstand ontstaat waar die niet hoort. Als de kabelweerstand echt 0,5 ohm was, zou je direct zoeken naar beschadigde aders, slechte aansluitingen of een te dun snoer.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q2</span>
-            <span class="question-text">A vacuum cleaner is drawing noticeably more current than its rated value, but the suction feels weak. What might explain both symptoms together?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V2</span>
+            <span class="question-text">Een stofzuiger trekt duidelijk meer stroom dan volgens het typeplaatje hoort, maar de zuigkracht voelt zwak. Wat kan beide symptomen tegelijk verklaren?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>High current draw with low mechanical output strongly suggests a problem in the motor itself: either a partially shorted winding (current circulates in the short, generating heat, but doesn't contribute to torque — so current is up, power output is down) or, more commonly, a mechanical obstruction or bearing failure that's causing the motor to work against excessive load. A motor driving a stiff or seized bearing draws more current (it's essentially stalling partially) while converting less of that energy to airflow. Check the bearings and the fan blade for obstructions. Also check whether the fan blade is intact — a broken blade reduces airflow while not reducing current draw proportionately.</p>
+            <p>Hoge stroomopname gecombineerd met weinig mechanisch effect wijst sterk op een probleem in de motor zelf: ofwel een gedeeltelijk kortgesloten winding, waarbij stroom in de kortsluiting circuleert en warmte maakt maar geen extra koppel levert, of, vaker nog, een mechanische belemmering of lagerprobleem waardoor de motor tegen een te hoge belasting werkt. Een motor met een stroef of vastlopend lager trekt meer stroom, omdat hij deels aan het "afremmen" is, terwijl er minder van die energie in luchtverplaatsing terechtkomt. Controleer daarom lagers en waaier op blokkades. Kijk ook of de waaier zelf nog heel is; een beschadigd schoepenblad kan de luchtstroom verminderen zonder dat de stroomopname evenredig daalt.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q3</span>
-            <span class="question-text">Someone has replaced a blown fuse in a toaster with one rated twice as high. The toaster works fine. Is this safe, and why or why not?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V3</span>
+            <span class="question-text">Iemand heeft in een broodrooster een doorgebrande zekering vervangen door een exemplaar met het dubbele amperage. Het broodrooster werkt prima. Is dat veilig, en waarom wel of niet?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>No, it is not safe. The fuse protects the cable and the appliance — it's the last line of defence against a sustained overcurrent that could start a fire. The original fuse was rated for a specific reason: it's sized to blow before the cable connected to it gets dangerously hot. A fuse twice the rating requires twice the current to blow. In a fault condition (short circuit, failed component drawing excess current), the higher fuse allows far more current to flow for far longer before clearing. This means the cable can overheat and catch fire before the fuse blows. The correct action is to find out why the original fuse blew — not to install a higher-rated one. "Works fine" just means the fault hasn't recurred yet.</p>
+            <p>Nee, dat is niet veilig. De zekering beschermt kabel en apparaat; het is de laatste verdedigingslinie tegen een langdurige overstroom die brand kan veroorzaken. De originele zekering was om een specifieke reden gekozen: hij moest doorsmelten voordat de bedrading gevaarlijk heet werd. Een zekering met dubbele waarde vraagt ook ongeveer dubbel zoveel stroom voordat hij aanspreekt. Bij een fout, bijvoorbeeld een kortsluiting of defect onderdeel dat te veel stroom trekt, laat de zwaardere zekering veel langer en veel meer stroom door. Daardoor kan de kabel oververhit raken en brand veroorzaken voordat de zekering eindelijk reageert. De juiste aanpak is uitzoeken waarom de originele zekering doorbrandde, niet een zwaardere zekering plaatsen. "Hij werkt prima" betekent alleen dat de fout zich nog niet opnieuw heeft gemeld.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q4</span>
-            <span class="question-text">Why does P = I²R mean that doubling the current in a cable produces four times the heat, not twice?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V4</span>
+            <span class="question-text">Waarom betekent P = I²R dat het verdubbelen van de stroom in een kabel vier keer zoveel warmte oplevert, en niet twee keer zoveel?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Because current appears squared in the formula. If current is I, power (heat) is I² × R. If current doubles to 2I, power is (2I)² × R = 4I² × R — four times the original. This squared relationship has important practical consequences: a cable running at 80% of its rated current is well within safe limits. The same cable suddenly carrying double its rated current (after a fault) produces four times the heat — which may exceed what the insulation can tolerate within seconds. This is why overcurrent protection needs to act quickly under fault conditions, not just eventually.</p>
+            <p>Omdat de stroom in de formule in het kwadraat staat. Als de stroom I is, dan is het vermogen, dus de warmte, gelijk aan I² × R. Verdubbelt de stroom naar 2I, dan wordt het vermogen (2I)² × R = 4I² × R, dus vier keer het oorspronkelijke. Die kwadratische relatie is praktisch enorm belangrijk: een kabel die op 80% van zijn nominale stroom draait blijft netjes binnen veilige grenzen. Diezelfde kabel die plots twee keer zijn nominale stroom voert na een fout, produceert vier keer zoveel warmte en kan binnen seconden boven de limiet van de isolatie uitkomen. Daarom moet overstroombeveiliging snel werken bij fouten.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q5</span>
-            <span class="question-text">A 2000W electric heater is connected via a 10-metre extension cable. The cable is rated for 6A and has a total resistance of 1.2 ohms. Calculate the actual current, the power wasted in the cable, and explain why this is a safety concern.</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V5</span>
+            <span class="question-text">Een elektrische kachel van 2000W is aangesloten via een verlengsnoer van 10 meter. Dat snoer is geschikt voor 6A en heeft een totale weerstand van 1,2 ohm. Bereken de werkelijke stroom, het vermogen dat in het snoer verloren gaat, en leg uit waarom dit gevaarlijk is.</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>The heater draws I = P ÷ V = 2000 ÷ 230 ≈ 8.7A. This is already 45% above the cable's 6A rating — a problem before we even calculate the heat. Power wasted in cable: P = I² × R = 8.7² × 1.2 ≈ 75.7 × 1.2 ≈ 91W. That's 91 watts being dissipated across 10 metres of cable — enough to make it noticeably warm along its full length. Voltage drop across the cable: V = I × R = 8.7 × 1.2 ≈ 10.4V, meaning the heater only receives about 219V. The safety concern: the cable is carrying (8.7/6)² ≈ 2.1× more heat than it was designed for. The insulation can degrade or melt, especially if the cable is coiled up (which traps the heat). A 2000W heater should be plugged directly into a wall socket, not run through an undersized extension cable.</p>
+            <p>De kachel trekt I = P ÷ V = 2000 ÷ 230 ≈ 8,7A. Dat is al zo'n 45% boven de 6A-waarde van het snoer, dus nog voordat je de warmte uitrekent heb je al een probleem. Het vermogen in het snoer is P = I² × R = 8,7² × 1,2 ≈ 75,7 × 1,2 ≈ 91W. Dus 91 watt wordt verspreid als warmte over dat verlengsnoer, genoeg om het voelbaar warm te maken over de hele lengte. De spanningsval over het snoer is V = I × R = 8,7 × 1,2 ≈ 10,4V, wat betekent dat de kachel nog maar ongeveer 219V krijgt. Het veiligheidsprobleem is dat het snoer ongeveer (8,7/6)² ≈ 2,1 keer zoveel warmte moet verwerken als waarvoor het ontworpen is. De isolatie kan daardoor verouderen of smelten, vooral als het snoer opgerold is en de warmte niet kwijt kan. Een kachel van 2000W hoort dus rechtstreeks in een wandcontactdoos, niet op een te licht verlengsnoer.</p>
           </div>
         </div>
 
       </section>
 
       <div class="chapter-nav-footer">
-        <a href="chapter-03.html" class="nav-prev">Chapter 3: Series vs Parallel</a>
-        <a href="chapter-05.html" class="nav-next">Chapter 5: The Multimeter</a>
+        <a href="chapter-03.html" class="nav-prev">Hoofdstuk 3: Serie versus parallel</a>
+        <a href="en/chapter-05.html?fallback=nl" class="nav-next">Hoofdstuk 5: De multimeter</a>
       </div>
     </article>
 
