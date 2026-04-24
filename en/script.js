@@ -75,9 +75,8 @@ const CHAPTERS = [
   { href: 'chapter-07.html', labels: { en: '7. Thermal Protection', nl: '7. Thermische beveiliging' } },
   { href: 'chapter-08.html', labels: { en: '8. Motors', nl: '8. Motoren' } },
   { href: 'chapter-09.html', labels: { en: '9. AC vs DC', nl: '9. Wisselstroom versus gelijkstroom' } },
-  { href: 'chapter-10.html', labels: { en: '10. Reading a Circuit Diagram', nl: '10. Een schakelschema lezen' } },
-  { href: 'chapter-11.html', labels: { en: '11. Capacitors', nl: '11. Condensatoren' } },
-  { href: 'chapter-12.html', labels: { en: '12. Systematic Fault Diagnosis', nl: '12. Systematische foutdiagnose' } },
+  { href: 'chapter-11.html', labels: { en: '10. Capacitors', nl: '10. Condensatoren' } },
+  { href: 'chapter-12.html', labels: { en: '11. Systematic Fault Diagnosis', nl: '11. Systematische foutdiagnose' } },
   { href: 'appendix.html', labels: { en: 'Reference Appendix', nl: 'Naslagbijlage' } },
 ];
 
