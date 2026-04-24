@@ -151,6 +151,11 @@ body {
   letter-spacing: 0.01em;
 }
 
+.language-switch-short {
+  display: none;
+  letter-spacing: 0.04em;
+}
+
 .nav-section-label {
   display: block;
   font-family: var(--font-ui);
@@ -234,8 +239,6 @@ body {
   background: #f3f1ed;
   border-bottom: 1px solid var(--color-border);
   padding: 0.7rem 1rem 0.8rem;
-  flex-direction: column;
-  gap: 0.7rem;
 }
 
 .mobile-nav-top {
@@ -243,9 +246,11 @@ body {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .mobile-brand {
+  flex: 1;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 1rem;
@@ -273,10 +278,39 @@ body {
 }
 
 .language-switch-mobile {
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: auto;
   margin: 0;
-  background: #e4ddd2;
+  padding: 0;
+  gap: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
+
+.language-switch-mobile .language-switch-option {
+  min-height: auto;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: transparent;
+}
+
+.language-switch-mobile .language-switch-option:hover {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.language-switch-mobile .language-switch-option.is-active {
+  color: var(--color-accent);
+  background: transparent;
+  box-shadow: none;
+}
+
+.language-switch-mobile .language-switch-label { display: none; }
+.language-switch-mobile .language-switch-short { display: inline; }
 
 .sidebar-overlay {
   display: none;
@@ -1946,7 +1980,7 @@ li:last-child { margin-bottom: 0; }
   .main-content { margin-left: 0; }
   .mobile-nav-bar { display: flex; }
 
-  .content-wrapper { padding: 8.4rem 1.25rem 4rem; }
+  .content-wrapper { padding: 4.5rem 1.25rem 4rem; }
 
   .cover-page { margin-left: 0; }
   .cover-image-wrap { padding: 1.5rem 1.25rem 1rem; }
@@ -1961,9 +1995,5 @@ li:last-child { margin-bottom: 0; }
     padding-left: 0.85rem;
     padding-right: 0.85rem;
   }
-  .language-switch-option {
-    min-height: 2.75rem;
-    font-size: 0.77rem;
-  }
-  .content-wrapper { padding-top: 8.9rem; }
+  .content-wrapper { padding-top: 4.5rem; }
 }

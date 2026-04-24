@@ -75,14 +75,18 @@ const CHAPTERS = [
   { href: 'chapter-07.html', labels: { en: '7. Thermal Protection', nl: '7. Thermische beveiliging' } },
   { href: 'chapter-08.html', labels: { en: '8. Motors', nl: '8. Motoren' } },
   { href: 'chapter-09.html', labels: { en: '9. AC vs DC', nl: '9. Wisselstroom versus gelijkstroom' } },
-  { href: 'chapter-11.html', labels: { en: '10. Capacitors', nl: '10. Condensatoren' } },
-  { href: 'chapter-12.html', labels: { en: '11. Systematic Fault Diagnosis', nl: '11. Systematische foutdiagnose' } },
+  { href: 'chapter-10.html', labels: { en: '10. Capacitors', nl: '10. Condensatoren' } },
+  { href: 'chapter-11.html', labels: { en: '11. Systematic Fault Diagnosis', nl: '11. Systematische foutdiagnose' } },
   { href: 'appendix.html', labels: { en: 'Reference Appendix', nl: 'Naslagbijlage' } },
 ];
 
+function getChapterHref(chapter, lang) {
+  return typeof chapter.href === 'string' ? chapter.href : chapter.href[lang];
+}
+
 const TRANSLATED_PAGES = {
-  en: new Set(CHAPTERS.map(ch => ch.href).concat(['index.html'])),
-  nl: new Set(CHAPTERS.map(ch => ch.href).concat(['index.html'])),
+  en: new Set(CHAPTERS.map(ch => getChapterHref(ch, 'en')).concat(['index.html'])),
+  nl: new Set(CHAPTERS.map(ch => getChapterHref(ch, 'nl')).concat(['index.html'])),
 };
 
 function isEnglishDir() {
@@ -106,6 +110,11 @@ function isTranslated(lang, file) {
   return TRANSLATED_PAGES[lang]?.has(file) || false;
 }
 
+function getEquivalentFile(file, sourceLang, targetLang) {
+  const chapter = CHAPTERS.find(ch => getChapterHref(ch, sourceLang) === file);
+  return chapter ? getChapterHref(chapter, targetLang) : file;
+}
+
 function getPageHref(file, targetLang) {
   if (targetLang === 'en') {
     return isEnglishDir() ? file : `en/${file}`;
@@ -119,15 +128,18 @@ function withQuery(href, params) {
 }
 
 function getLanguageTarget(targetLang, file = getCurrentFile()) {
-  if (isTranslated(targetLang, file)) {
+  const sourceLang = getCurrentLang();
+  const targetFile = getEquivalentFile(file, sourceLang, targetLang);
+
+  if (isTranslated(targetLang, targetFile)) {
     return {
-      href: getPageHref(file, targetLang),
+      href: getPageHref(targetFile, targetLang),
       isExact: true,
     };
   }
 
   return {
-    href: withQuery(getPageHref('intro.html', targetLang), { missing: file }),
+    href: withQuery(getPageHref('intro.html', targetLang), { missing: targetFile }),
     isExact: false,
   };
 }
@@ -146,6 +158,7 @@ function buildLanguageSwitch(location) {
       ${isActive ? 'aria-current="true"' : ''}
     >
       <span class="language-switch-label">${SITE_COPY[lang].language[lang]}</span>
+      <span class="language-switch-short" aria-hidden="true">${lang.toUpperCase()}</span>
     </a>
   `;
 
@@ -225,11 +238,11 @@ function buildNav() {
   mobileBar.innerHTML = `
     <div class="mobile-nav-top">
       <a href="${homeHref}" class="mobile-brand" aria-label="${copy.brand.homeLabel}">${copy.brand.title}</a>
+      ${buildLanguageSwitch('mobile')}
       <button class="hamburger" id="hamburger" aria-label="${copy.aria.openNav}" aria-expanded="false" aria-controls="sidebar">
         <span></span><span></span><span></span>
       </button>
     </div>
-    ${buildLanguageSwitch('mobile')}
   `;
   document.body.insertBefore(mobileBar, document.body.firstChild);
 
@@ -254,7 +267,9 @@ function buildNav() {
       li.innerHTML = `<span class="nav-section-label nav-part-divider">${copy.sections.goingFurther}</span>`;
       list.appendChild(li);
     }
-    if (ch.href === 'appendix.html') {
+    const chapterHref = getChapterHref(ch, currentLang);
+
+    if (chapterHref === 'appendix.html') {
       const li = document.createElement('li');
       li.innerHTML = `<span class="nav-section-label">${copy.sections.reference}</span>`;
       list.appendChild(li);
@@ -262,15 +277,15 @@ function buildNav() {
 
     const li = document.createElement('li');
     const a = document.createElement('a');
-    const isDutchFallback = currentLang === 'nl' && !isTranslated('nl', ch.href);
+    const isDutchFallback = currentLang === 'nl' && !isTranslated('nl', chapterHref);
     a.href = isDutchFallback
-      ? withQuery(getPageHref(ch.href, 'en'), { fallback: 'nl' })
-      : getPageHref(ch.href, currentLang);
+      ? withQuery(getPageHref(getChapterHref(ch, 'en'), 'en'), { fallback: 'nl' })
+      : getPageHref(chapterHref, currentLang);
     a.innerHTML = `
       <span>${ch.labels[currentLang]}</span>
       ${isDutchFallback ? '<span class="nav-fallback-badge">EN</span>' : ''}
     `;
-    if (ch.href === current) a.classList.add('active');
+    if (chapterHref === current) a.classList.add('active');
     li.appendChild(a);
     list.appendChild(li);
   });
