@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 8 van 12</span>
+      <span class="progress-label">Hoofdstuk 8 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -38,7 +38,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>De koffiemolen komt binnen in een stoffen tas. Een nette conische maalmolen, van het duurdere soort. De eigenaar kijkt er wat sip bij. "Hij maakt een akelig geluid bij het starten en soms zie ik vonken door het rooster. Ik heb dat eigenlijk al een maand genegeerd." Je kijkt door het ventilatierooster en ziet het bijna meteen: een zwarte, vervuilde commutator en een koolborstel die bijna tot op de veer is afgesleten. Jij weet wat dat betekent. De nieuwe vrijwilliger naast je nog niet. Mooi moment om motoren uit te leggen.</p>
+        <p>Een koffiemolen komt binnen in een linnen tas — een conische burrmolen, een duur exemplaar. De eigenaar heeft hem zorgvuldig meegebracht: bij het starten maakt hij een akelig geluid en soms zijn er vonken door het rooster zichtbaar. Je zet hem op tafel, kijkt door het rooster en ziet het meteen: een vuile, aangeslagen commutator en een koolborstel die bijna tot op zijn veer is afgesleten. Je hebt dit eerder gezien. De vrijwilliger naast je nog niet. Tijd om uit te leggen hoe dit werkt.</p>
       </div>
 
       <div class="chapter-objectives">
@@ -52,65 +52,67 @@
 
       <h2>Het fundamentele principe: magnetisme en kracht</h2>
 
-      <p>Elektrische motoren zetten elektrische energie om in mechanische rotatie. Dat lukt omdat een stroomvoerende geleider in een magnetisch veld een kracht ondervindt. Rangschik je die kracht rond een as, dan krijg je draaiing.</p>
+      <p>Elektrische motoren zetten elektrische energie om in rotatie. Dat lukt doordat een stroomvoerende geleider in een magnetisch veld een kracht ondervindt. Rangschik je meerdere van die geleiders zo dat hun krachten steeds dezelfde kant op werken, dan ontstaat continue rotatie.</p>
 
-      <p>Voor reparatie hoef je de volledige wiskunde niet te kennen. Het belangrijkste inzicht is dat <strong>het koppel van een motor sterk samenhangt met de stroom die hij trekt</strong>. Meer belasting betekent meestal meer stroom. Een stilgevallen motor trekt vaak veel meer stroom dan een motor die vrij rondloopt.</p>
+      <p>Voor reparatie hoef je dit principe niet wiskundig te beheersen. De belangrijkste praktische conclusie is dat <strong>het koppel van een motor sterk samenhangt met de stroom die hij trekt</strong>. Meer belasting betekent meestal meer stroom. Een stilgevallen motor trekt vaak veel meer stroom dan een motor die vrij loopt.</p>
 
       <p>That last part feels backwards to many beginners. If the motor is not moving, shouldn't it be doing less? Mechanically, yes. Electrically, no. A spinning motor pushes back against the supply with back EMF, which limits current. When the rotor stops, that push-back largely disappears, so the winding behaves much more like a low-resistance load. The motor can then draw a large current while producing almost no useful motion, which is why stalls are so hard on windings.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Een draaiende motor wekt een tegen-EMK op, ook wel back EMF. Die tegen-EMK werkt de voedingsspanning tegen. Zolang de rotor goed draait, beperkt dat de stroom. Wordt de motor zwaar belast of loopt hij vast, dan zakt de tegen-EMK en stijgt de stroom sterk. Daarom veroorzaakt mechanische weerstand vaak elektrische oververhitting.</p>
+        <p>Een draaiende motor wekt een tegen-EMK op die de stroom beperkt. Wordt de motor zwaar belast of loopt hij vast, dan zakt die tegen-EMK en stijgt de stroom sterk. Daarom veroorzaakt mechanische weerstand vaak elektrische oververhitting.</p>
       </div>
 
       <h2>Geborstelde DC-motoren</h2>
 
-      <p>De eenvoudigste motor die je vaak tegenkomt is de geborstelde DC-motor. Hij heeft een stator met vast magnetisch veld, een draaiende rotor met windingen en een commutator met koolborstels die tijdens het draaien het contact met de rotor maken en op het juiste moment de stroomrichting omkeren.</p>
+      <p>De eenvoudigste motor die je vaak tegenkomt is de geborstelde DC-motor. Hij heeft drie hoofdonderdelen: een vaste buitenring (de stator) die het magnetisch veld levert, een ronddraaiende wikkelspoel (de rotor of anker), en een commutator met koolborstels die het contact met de rotor onderhouden terwijl hij draait en de stroomrichting op het juiste moment omwisselen.</p>
 
-      <p>Het voordeel is eenvoud. Het nadeel is slijtage. Koolborstels zijn verbruiksdelen en de commutator kan vervuilen of inbranden. Daarom verraden deze motoren hun problemen vaak via vonken, geur, lawaai of onregelmatig lopen.</p>
+      <p>Het voordeel is eenvoud. Het nadeel is slijtage. Koolborstels zijn verbruiksdelen en de commutator kan vervuilen of inbranden. Problemen verraden zich daarom vaak via vonken, geur, lawaai of onregelmatig lopen.</p>
 
       <h2>Universeelmotoren</h2>
 
-      <p>De motor die je in heel veel huishoudelijke apparaten vindt — stofzuigers, handmixers, slijpers, routers, föhns, koffiemolens — is de universeelmotor. Dat is een geborstelde motor waarbij zowel stator- als rotorwikkelingen op gelamineerde ijzerkernen zitten.</p>
+      <p>De motor die je in veel huishoudelijke apparaten vindt — stofzuigers, handmixers, slijpers, föhns, koffiemolens — is de universeelmotor. Dat is een geborstelde motor waarbij zowel de statorveldwikkelingen als de rotorwikkelingen op gelamineerd ijzer zijn gewonden.</p>
 
-      <p>Hij heet "universeel" omdat hij zowel op AC als op DC kan lopen. In de praktijk draait hij in huishoudelijke apparaten bijna altijd op wisselspanning. Zijn sterke kanten zijn hoog toerental en veel vermogen in een compact pakket. Zijn zwakke kanten zie je bijna letterlijk voor je: lawaai, borstelslijtage, vonken en een beperktere levensduur.</p>
+      <p>De naam 'universeel' verwijst naar zijn vermogen om op zowel AC als DC te draaien. Bij wisselstroom wisselen het statorveld en de rotorstroom tegelijkertijd van richting, waardoor de krachtsrichting onveranderd blijft. In de praktijk draaien universeelmotoren vrijwel altijd op AC.</p>
+
+      <p>Zijn sterke kanten zijn hoog toerental en veel vermogen in een compact pakket. Zijn zwakke kanten zijn lawaai, borstelslijtage, vonken en een beperktere levensduur.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Bij de koffiemolen is de diagnose minder ingewikkeld dan een complete motorrevisie. Zie je sterke vonkvorming, minder vermogen en duidelijk afgesleten borstels, begin dan bij borstels en commutator. Je hoeft geen motorexpert te worden om een versleten contactstelsel te herkennen.</p>
+        <p>Zie je sterke vonkvorming, minder vermogen en duidelijk afgesleten borstels, begin dan bij borstels en commutator. Je hoeft geen motorexpert te worden om een versleten contactstelsel te herkennen.</p>
       </div>
 
       <h2>AC-inductiemotoren</h2>
 
-      <p>Het andere grote motortype in huishoudelijke apparaten is de inductiemotor. Die heeft <em>geen</em> borstels en <em>geen</em> commutator. De rotor heeft geen direct elektrisch contact met de voeding.</p>
+      <p>Het andere grote motortype in huishoudelijke apparaten is de inductiemotor. Die heeft <em>geen</em> borstels en <em>geen</em> commutator.</p>
 
-      <p>In plaats daarvan maakt de stator een wisselend magnetisch veld dat stroom in de rotor opwekt. Daardoor gaat de rotor het veld volgen. Inductiemotoren zijn mechanisch eenvoudiger, stiller en duurzamer dan geborstelde motoren.</p>
+      <p>De stator maakt een wisselend magnetisch veld dat stroom in de rotor opwekt. Inductiemotoren zijn daardoor stiller en duurzamer dan geborstelde motoren.</p>
 
-      <p>Op eenfasige netspanning hebben ze wel hulp nodig om vanuit stilstand op gang te komen. Daarvoor wordt vaak een condensator gebruikt die in een tweede wikkeling een faseverschuiving veroorzaakt.</p>
+      <p>Op eenfasige netspanning hebben ze vaak hulp nodig om vanuit stilstand op gang te komen. Daarvoor wordt vaak een condensator gebruikt.</p>
 
       <h3>De start- of bedrijfscondensator</h3>
-      <p>Een defecte condensator geeft een van de nuttigste symptoompatronen in reparatie: de motor bromt, wordt misschien warm, maar start niet goed vanuit stilstand. Dat koppelt een elektrisch onderdeel rechtstreeks aan zichtbaar gedrag.</p>
+      <p>Een defecte condensator geeft een nuttig symptoompatroon: de motor bromt en wordt misschien warm, maar start niet goed vanuit stilstand.</p>
 
-      <p>Is een motor heet en trekt hij veel stroom, dan is het verhaal eerder mechanische weerstand, te zware belasting of windingenschade. Hij kan dan onvoldoende tegen-EMK of koppel opwekken.</p>
+      <p>Is een motor heet en trekt hij veel stroom, dan denk je eerder aan mechanische weerstand, te zware belasting of windingenschade.</p>
 
       <h2>Veelvoorkomende motorfouten en hun symptomen</h2>
 
       <h3>Versleten borstelstelsel</h3>
-      <p>Symptomen: zichtbare vonken, minder vermogen, onregelmatig lopen of hard geluid rond de commutatorzijde. De brede diagnose: de stroomoverdracht naar het draaiende deel verloopt niet meer schoon.</p>
+      <p>Symptomen: zichtbare vonken, minder vermogen, onregelmatig lopen of hard geluid rond de commutatorzijde.</p>
 
       <h3>Defecte startcondensator</h3>
       <p>Symptomen: de motor bromt maar start niet goed vanuit stilstand. Dat wijst vaak op een eenfasige inductiemotor die zijn faseverschuiving mist.</p>
 
       <h3>Mechanische weerstand of windingenschade</h3>
-      <p>Symptomen: oververhitting, geur, weinig koppel, hoge stroomopname of een as die stroef of ruw aanvoelt. Dit is een goede herinnering dat motorproblemen vaak tegelijk elektrisch en mechanisch zijn.</p>
+      <p>Symptomen: oververhitting, geur, weinig koppel, hoge stroomopname of een as die stroef of ruw aanvoelt. Motorproblemen zijn vaak tegelijk elektrisch en mechanisch.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Denk bij het meten van motoren in patronen in plaats van in exacte getallen. Een winding die OL meet is open. Een winding die onwaarschijnlijk laag meet kan kortgesloten zijn. Een winding die continuiteit naar het metalen frame laat zien is onveilig. Koppel die meetwaarden altijd aan wat je ogen, oren en handen vertellen over geur, temperatuur, lawaai en weerstand.</p>
+        <p>Denk bij het meten van motoren in patronen in plaats van in exacte getallen. OL wijst op een open winding. Een onwaarschijnlijk lage waarde kan op een kortsluiting wijzen. Continuiteit naar het frame is onveilig. Koppel metingen altijd aan geur, temperatuur, lawaai en mechanische weerstand.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>Nieuwe borstels, een schone commutator en de koffiemolen loopt weer rustig. De eigenaar is zichtbaar opgelucht. De tafelfan die alleen bromde en niet op gang kwam, wacht nog even op het hoofdstuk over condensatoren. Maar eerst nog één stap terug: niet elk apparaat leeft in dezelfde elektrische wereld. Soms werk je met wisselstroom, soms met gelijkstroom, soms met allebei.</p>
+        <p>Nieuwe borstels en een schone commutator laten de koffiemolen weer rustig lopen. Daarmee wordt ook de hoofdles van dit hoofdstuk praktisch: motorstoringen lees je niet alleen met de meter, maar ook met je ogen, oren en handen.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -124,7 +126,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Test je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">
@@ -133,7 +135,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Bijvoorbeeld versleten borstels, een vuile commutator, gedeeltelijk kortgesloten windingen of versleten lagers. Al die fouten verlagen het bruikbare koppel terwijl ze extra warmte veroorzaken.</p>
+            <p>Bijvoorbeeld versleten borstels, een vuile commutator, gedeeltelijk kortgesloten windingen of versleten lagers. Al die fouten verlagen het bruikbare koppel en veroorzaken extra warmte.</p>
           </div>
         </div>
 
@@ -144,7 +146,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Een defecte start- of bedrijfscondensator. De motor kan dan nog wel draaien als hij eenmaal snelheid heeft, maar mist het aanloopkoppel om zelf uit stilstand te vertrekken.</p>
+            <p>Een defecte start- of bedrijfscondensator. De motor kan dan soms nog wel draaien als hij eenmaal snelheid heeft, maar mist het aanloopkoppel om zelf uit stilstand te vertrekken.</p>
           </div>
         </div>
 
@@ -166,7 +168,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Omdat een lampdimmer het netsignaal afkapt op een manier die voor een resistieve belasting prima werkt, maar voor een motor ongunstige stroompulsen, extra arcing en slecht koppel geeft. Het resultaat is geen mooie snelheidsregeling maar onrustig en slijtagegevoelig gedrag.</p>
+            <p>Omdat een lampdimmer het netsignaal afkapt op een manier die voor een resistieve belasting prima werkt, maar voor een motor ongunstige stroompulsen, extra arcing en slecht koppel geeft. Het resultaat is onrustig en slijtagegevoelig gedrag.</p>
           </div>
         </div>
 

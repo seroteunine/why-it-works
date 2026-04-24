@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 9 van 12</span>
+      <span class="progress-label">Hoofdstuk 9 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -38,7 +38,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Van het vorige hoofdstuk staan er nog twee apparaten op tafel. De ventilator die bromde maar niet startte, wacht op zijn condensator. Daarnaast staat een batteryradio die "gewoon ineens ophield". Nog voordat je de multimeter pakt, sta je even stil. Deze twee apparaten leven niet in dezelfde elektrische wereld. De een werkt op netgevoede AC, de ander op laagspannings-DC. Dat verschil bepaalt welke meterstand je kiest, wat gevaarlijk is en waar je in het apparaat begint te zoeken.</p>
+        <p>Op tafel staan nog twee apparaten: een ventilator op netspanning en een batterij-radio. Nog voor je de meter pakt, is het verschil al belangrijk. De een leeft in de wereld van AC, de ander in die van DC. Dat bepaalt welke meterstand je kiest, wat gevaarlijk is en waar je begint te zoeken.</p>
       </div>
 
       <div class="chapter-objectives">
@@ -52,53 +52,53 @@
 
       <h2>Gelijkstroom</h2>
 
-      <p>Gelijkstroom, DC, is wat batterijen leveren. De spanning blijft dezelfde polariteit houden en de stroom loopt in één richting. Kleine batterijapparaten, simpele elektronica en de laagspanningszijde van adapters leven in die wereld.</p>
+      <p>Gelijkstroom, DC, is wat batterijen leveren. De polariteit blijft gelijk en de stroom loopt in één richting. Kleine batterijapparaten, simpele elektronica en de laagspanningszijde van adapters leven in die wereld.</p>
 
-      <p>In een repair cafe wordt DC vooral relevant bij batterijapparaten, adapters, LED-circuits, besturingsprinten en alles wat het lichtnet al heeft omgezet naar een lagere spanning. Het punt is niet dat je elektronicaspecialist moet worden, maar dat je herkent dat zulke delen stabiele lage DC willen en geen ruwe net-AC.</p>
+      <p>In een repair cafe wordt DC vooral relevant bij batterijapparaten, adapters, LED-circuits en besturingsprinten. Het punt is vooral dat je herkent dat zulke delen lage, stabiele DC willen en geen ruwe net-AC.</p>
 
       <h2>Wisselstroom</h2>
 
-      <p>Wisselstroom, AC, is wat uit het stopcontact komt. Die spanning blijft niet constant op één waarde, maar slingert heen en weer: positief, door nul, negatief, weer door nul. In Nederland gebeurt dat als sinusvorm met 50 volledige cycli per seconde, dus 50 Hz.</p>
+      <p>Wisselstroom, AC, is wat uit het stopcontact komt. Die spanning slingert heen en weer: positief, door nul, negatief, weer door nul. In Nederland gebeurt dat als sinusvorm met 50 cycli per seconde, dus 50 Hz.</p>
 
       <h2>Wat er aan net-AC echt toe doet</h2>
 
-      <p>Wanneer we zeggen dat de netspanning 230V is, bedoelen we niet dat de golf de hele tijd precies 230V is. De sinus gaat juist boven en onder nul en bereikt ongeveer +325V en -325V op zijn toppen.</p>
+      <p>Wanneer we zeggen dat de netspanning 230V is, bedoelen we niet dat de golf de hele tijd precies 230V is. De sinus gaat boven en onder nul en bereikt ongeveer +325V en -325V op zijn toppen.</p>
 
-      <p>Die 230V die je multimeter laat zien is de RMS-waarde, de effectieve waarde. Voor een zuiver ohmse belasting zoals een waterkoker of strijkijzer geeft 230V RMS AC hetzelfde verwarmingseffect als 230V DC.</p>
+      <p>Die 230V die je multimeter laat zien is de RMS-waarde, de effectieve waarde. Voor een ohmse belasting zoals een waterkoker of strijkijzer geeft 230V RMS AC hetzelfde verwarmingseffect als 230V DC.</p>
 
       <div class="formula">V<sub>piek</sub> = V<sub>RMS</sub> × √2 &nbsp;&nbsp;&nbsp; ≈ &nbsp;&nbsp;&nbsp; 230 × 1,414 ≈ 325V</div>
 
-      <p>Je hoeft dit niet te onthouden voor ingewikkelde golfvormberekeningen. Je hebt het om twee simpele redenen nodig: om te begrijpen wat je AC-meting eigenlijk betekent en om te onthouden dat onderdelen aan de netzijde de piekspanning moeten overleven, niet alleen het getal op het stopcontact.</p>
+      <p>Je hoeft dit niet te onthouden voor ingewikkelde berekeningen. Je hebt het vooral nodig om te begrijpen wat je AC-meting betekent en om te onthouden dat onderdelen aan de netzijde de piekspanning moeten overleven, niet alleen het getal op het stopcontact.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Meet je met de multimeter op AC-stand het lichtnet, dan zie je ongeveer 230V: de RMS-waarde. Met een oscilloscoop zou je de toppen rond 325V zien. Dat is precies waarom je een willekeurige 250V-condensator niet zomaar over de netspanning mag zetten. Voor die toepassing heb je een correct veiligheidsgeclassificeerd onderdeel nodig, bijvoorbeeld een X2-condensator.</p>
+        <p>Meet je met de multimeter op AC-stand het lichtnet, dan zie je ongeveer 230V: de RMS-waarde. Met een oscilloscoop zou je de toppen rond 325V zien. Daarom mag je geen willekeurige 250V-condensator over de netspanning zetten; daarvoor heb je een correct veiligheidsgeclassificeerd onderdeel nodig, zoals een X2-condensator.</p>
       </div>
 
       <h2>Wanneer dit hoofdstuk ertoe doet</h2>
 
       <p>Bij veel reparaties in dit boek is AC versus DC niet de hoofdzaak. Een dode waterkoker, defecte lamp, verbrande schakelaar, gesprongen zekering of open verwarmingselement kun je prima begrijpen met spanning, stroom, weerstand, circuits en vermogen.</p>
 
-      <p>Dit hoofdstuk wordt belangrijk in drie situaties: wanneer je de juiste AC- of DC-stand op de meter moet kiezen, wanneer je dicht bij de netzijde werkt en helder over veiligheid moet nadenken, en wanneer een apparaat motoren, condensatoren, voedingen of besturingsprinten bevat waar AC en DC verschillende rollen spelen.</p>
+      <p>Dit hoofdstuk wordt vooral belangrijk wanneer je de juiste meterstand moet kiezen, wanneer je dicht bij de netzijde werkt, of wanneer een apparaat zowel een netgedeelte als een laagspanningsdeel bevat.</p>
 
       <h2>Waar AC binnen een apparaat DC wordt</h2>
 
-      <p>Sommige apparaten zijn bijna volledig net-AC-machines: waterkokers, broodroosters, strijkijzers en eenvoudige ventilatoren. Andere apparaten bevatten daarnaast een deel dat de netspanning omzet naar laagspannings-DC voor timers, displays, sensoren of elektronische schakelingen.</p>
+      <p>Sommige apparaten zijn bijna volledig net-AC-machines: waterkokers, broodroosters, strijkijzers en eenvoudige ventilatoren. Andere apparaten zetten de netspanning intern ook om naar laagspannings-DC voor timers, displays, sensoren of besturing.</p>
 
-      <p>Je hoeft de hele interne voedingleer niet te beheersen om zulke apparaten te repareren. Het is genoeg om te weten dat het pad grofweg zo loopt: AC komt binnen, wordt gelijkgericht, wordt met condensatoren afgevlakt en wordt daarna gebruikt als DC waar nodig.</p>
+      <p>Je hoeft de hele voedingleer daarvoor niet te beheersen. Het is genoeg om te weten dat het pad grofweg zo loopt: AC komt binnen, wordt gelijkgericht, wordt afgevlakt en wordt daarna gebruikt als DC waar nodig.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Gelijkrichting berust op diodes. Die laten stroom in één richting door en blokkeren de andere richting. Plaats je ze slim, dan verandert een wisselende golf in een eenrichtingsstroom die je met condensatoren kunt afvlakken tot bruikbare DC.</p>
+        <p>Gelijkrichting berust op diodes. Die laten stroom in één richting door en blokkeren de andere. Zo verander je een wisselende golf in een stroom die daarna met condensatoren tot bruikbare DC kan worden afgevlakt.</p>
       </div>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Laat je niet meteen afschrikken door een klein printje in een apparaat. Vraag eerst: wat is dit apparaat in de kern? Als het vooral een verwarming, motor, schakelaar, zekering of kabelprobleem is, blijf daar dan bij. Gebruik het AC/DC-onderscheid vooral om de juiste meetstand te kiezen en niet verdwaald te raken zodra er een laagspanningsdeel opduikt.</p>
+        <p>Laat je niet meteen afschrikken door een klein printje in een apparaat. Vraag eerst: wat is dit apparaat in de kern? Is het vooral een verwarming, motor, schakelaar, zekering of kabelprobleem, blijf daar dan bij. Gebruik het AC/DC-onderscheid vooral om de juiste meetstand te kiezen en niet te verdwalen zodra er een laagspanningsdeel opduikt.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>De ventilator wacht netjes op hoofdstuk 11. De radio blijkt uiteindelijk een gecorrodeerd batterijcontact te hebben, gevonden door simpelweg de spanning op de DC-zijde stap voor stap te volgen. Dat is ook meteen de les: AC/DC-theorie hoeft niet overal de hoofdrol te spelen. Maar wanneer het ertoe doet, voorkomt het verwarring én onveilige aannames. De volgende stap is die kennis weer terugvertalen naar schema's op papier.</p>
+        <p>De radio blijkt uiteindelijk een gecorrodeerd batterijcontact te hebben. Daarmee is ook de les duidelijk: AC/DC-theorie hoeft niet overal de hoofdrol te spelen, maar wanneer het ertoe doet voorkomt ze verwarring en onveilige aannames.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -112,7 +112,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Test je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">
@@ -173,7 +173,7 @@
 
       <div class="chapter-nav-footer">
         <a href="chapter-08.html" class="nav-prev">Hoofdstuk 8: Motoren</a>
-        <a href="chapter-11.html" class="nav-next">Hoofdstuk 10: Condensatoren</a>
+        <a href="chapter-10.html" class="nav-next">Hoofdstuk 10: Condensatoren</a>
       </div>
     </article>
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoofdstuk 10: Condensatoren — Why It Works</title>
-  <meta name="description" content="Hoofdstuk 10 van Why It Works: wat condensatoren opslaan, welke typen je in apparaten tegenkomt en waarom sommige condensatoren ook na uitschakelen levensgevaarlijk blijven.">
+  <title>Hoofdstuk 11: Systematische foutdiagnose — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 11 van Why It Works: veilig en systematisch storingen analyseren, van symptoom tot conclusie, en weten wanneer doorverwijzen de juiste keuze is.">
   <link rel="alternate" hreflang="en" href="en/chapter-11.html">
   <link rel="alternate" hreflang="nl" href="chapter-11.html">
   <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 10 van 11</span>
+      <span class="progress-label">Hoofdstuk 11 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -27,105 +27,115 @@
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
         <span class="progress-dot current"></span>
-        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span>
       </div>
     </div>
 
     <article>
       <header class="chapter-header">
-        <p class="chapter-number">Hoofdstuk 10</p>
-        <h1>Condensatoren</h1>
+        <p class="chapter-number">Hoofdstuk 11</p>
+        <h1>Systematische foutdiagnose</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>De magnetron is een aanrechtmodel van een jaar of acht oud. "Hij warmt niet meer," zegt de eigenaar. "Het licht, draaiplateau en de timer doen het nog wel." Nog voor je één schroevendraaier pakt, neem je een besluit. "Ik wil hem wel openen," zeg je, "maar eerst moeten we met z'n allen begrijpen wat erin zit." Er is inmiddels een klein groepje om de tafel verzameld. "In een magnetron zit een condensator die ook na het uitpluggen een dodelijke lading kan vasthouden. Dat is geen theoretisch risico. Mensen zijn eraan overleden. Eerst veilig ontladen, of niet openen. Zo simpel is het."</p>
+        <p>Het is halverwege de middag. Op tafel staan nog een paar apparaten, waaronder een open koffiemachine waar je eerder al meetpunten op hebt gemarkeerd. Juist aan het eind van zo'n repair-cafe-dag wordt duidelijk dat niet alleen kennis telt, maar vooral de manier waarop je een storing benadert.</p>
       </div>
 
       <div class="chapter-objectives">
         <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Begrijpen wat condensatoren opslaan en waarom dat voor reparatie belangrijk is.</li>
-          <li>De belangrijkste condensatortypen in apparaten en elektronica herkennen.</li>
-          <li>Weten waar condensatorwerk ophoudt routine te zijn en specialistisch wordt.</li>
+          <li>Storingen systematisch benaderen in plaats van op gevoel onderdelen te wisselen.</li>
+          <li>Een veilige eerste diagnose-opbouw maken voor dode, gedeeltelijke en intermitterende fouten.</li>
+          <li>Weten wanneer stoppen, eerlijk uitleggen en doorverwijzen de juiste keuze is.</li>
         </ul>
       </div>
 
-      <div class="callout callout-safety">
-        <span class="callout-label">Veiligheid — lees dit vóór je een magnetron opent</span>
-        <p>Magnetrons bevatten een hoogspanningscondensator, vaak rond 0,9–1,1 µF en 2100V AC. Tijdens bedrijf wordt die opgeladen tot ruim boven de 2000V DC. In tegenstelling tot gewone huisinstallatie blijft zo'n condensator ook na uitschakelen nog energie bevatten.</p>
-        <p>De praktische regel is simpel: stekker eruit, wachten, spanning alleen controleren met geschikt hoogspanningsgereedschap als je daarvoor bent opgeleid, en ontladen volgens een procedure en met een gereedschap dat voor magnetronservice bedoeld is. Nooit kortsluiten met schroevendraaier of draad. Heb je de juiste kennis en tools niet, stop dan en verwijs de reparatie door.</p>
-      </div>
+      <h2>Het probleem met willekeurig onderdelen vervangen</h2>
 
-      <h2>Wat een condensator is</h2>
+      <p>In reparatie is de verleiding groot om direct op de vermoedelijke boosdoener te springen. Soms heb je geluk. Maar vaak kost dat tijd, onderdelen en vertrouwen wanneer dat onderdeel uiteindelijk prima blijkt te zijn.</p>
 
-      <p>Een condensator slaat elektrische energie op in een elektrisch veld. In de simpelste vorm bestaat hij uit twee geleiders met daartussen een isolerende laag, het diëlektricum. Leg je er spanning over, dan verzamelt positieve lading zich op de ene plaat en negatieve lading op de andere. Het veld daartussen bevat de energie.</p>
+      <p>Systematische foutdiagnose is de discipline van niet gokken. Je werkt met een logische reeks testen die mogelijkheden uitsluit tot de fout met zo min mogelijk metingen overblijft. Dat voelt eerst trager, maar blijkt meestal sneller.</p>
 
-      <p>De hoeveelheid lading die bij een gegeven spanning opgeslagen kan worden heet capaciteit en wordt gemeten in farad. In de praktijk kom je vooral tegen:</p>
+      <h2>Voor alles: is dit veilig om aan te werken?</h2>
+
+      <p>Elk apparaat verdient eerst een korte veiligheidscheck:</p>
       <ul>
-        <li>microfarad (µF): voedingen, motorcondensatoren, grotere filters</li>
-        <li>nanofarad (nF): foliecaps en veel kleine toepassing op printen</li>
-        <li>picofarad (pF): kleine keramische condensatoren en HF-circuits</li>
+        <li>Is snoer of stekker fysiek beschadigd?</li>
+        <li>Zijn er tekenen van vocht of vloeistof binnengedrongen?</li>
+        <li>Is de aarde intact bij klasse-I-apparaten?</li>
+        <li>Zijn er brandsporen, gesprongen onderdelen of duidelijke hittebeschadiging?</li>
+        <li>Valt het apparaat in een categorie met extra risico, zoals magnetron, oud CRT-scherm of gereedschap met beschadigde veiligheidsdelen?</li>
       </ul>
 
-      <p>De opgeslagen energie is E = ½CV². Juist dat V²-deel maakt spanning zo belangrijk. Een condensator met bescheiden capaciteit kan bij hoge spanning toch gevaarlijk veel energie bevatten, zeker als die in een heel korte tijd vrijkomt.</p>
+      <p>Als één van die vragen "ja" of "weet ik niet" oplevert, moet dát eerst worden opgelost. Een apparaat is pas gerepareerd als het weer veilig is.</p>
 
-      <p>Wat vooral gevaarlijk is, is niet alleen de totale energie maar de snelheid waarmee die kan worden afgegeven. Een paar joule uitgesmeerd over minuten voel je nauwelijks. Diezelfde energie in een fractie van een seconde levert een enorme piekstroom op.</p>
-
-      <div class="callout callout-principle">
-        <span class="callout-label">Het onderliggende principe</span>
-        <p>Een condensator is geen continue energiebron zoals een batterij, maar een reservoir dat zijn lading heel snel kan afgeven. Hoe snel dat gebeurt hangt af van de capaciteit en van de weerstand van het ontlaadpad. Lager padweerstand betekent snellere ontlading en dus hogere piekstroom. Daarom is "even kortsluiten" zo gevaarlijk.</p>
+      <div class="callout callout-safety">
+        <span class="callout-label">Veiligheid</span>
+        <p>Twijfel je of een apparaat veilig onder spanning getest kan worden, begin dan met spanningsloze tests. Continuiteit en weerstand geven vaak al veel informatie. Als je toch onder spanning moet meten: zorg dat je weet hoe je direct kunt uitschakelen, werk met geïsoleerde probes, houd één hand weg van het circuit en werk bij voorkeur niet alleen.</p>
       </div>
 
-      <h2>Typen condensatoren en waar je ze vindt</h2>
+      <h2>De diagnostische volgorde</h2>
 
-      <h3>Elektrolytische condensatoren</h3>
-      <p>Dit zijn de grotere cilindrische onderdelen op printplaten. Ze zijn gepolariseerd: plus en min doen ertoe. Ze worden gebruikt waar veel capaciteit nodig is, zoals in voedingsfilters.</p>
+      <h3>Stap 1: begrijp het symptoom precies</h3>
+      <p>Vraag de eigenaar wat het apparaat wel doet en wat niet. Stopte het ineens of werd het langzaam slechter? Was er een geur of geluid? Is er iets veranderd: val, vloeistof, verhuizing, intensiever gebruik? Het verhaal van de eigenaar is bewijs, geen ruis.</p>
 
-      <p>Hun elektrolyt veroudert door warmte, tijd en spanningsbelasting. Daarom zijn defecte elco's een van de meest voorkomende storingen in oudere elektronica. Opbollende of lekkende toppen zijn een belangrijk visueel alarmsignaal.</p>
+      <h3>Stap 2: visuele inspectie (spanningsloos)</h3>
+      <p>Kijk eerst, raak later aan. Zoek naar verbrande onderdelen, opgebolde condensatoren, losse draden, gecorrodeerde contacten, droge solderingen, afgebroken veren of versleten borstels. Veel fouten laten zich al zien voordat je één meting doet.</p>
 
-      <h3>Foliecondensatoren</h3>
-      <p>Die zijn niet-gepolariseerd, stabieler en langer houdbaar. Je vindt ze in motor-runcondensatoren, netontstoringscaps en toepassingen waar stabiliteit belangrijker is dan maximale capaciteit per kubieke centimeter.</p>
+      <h3>Stap 3: begrijp de circuitstructuur</h3>
+      <p>Bepaal wat de serieonderdelen zijn in de gemeenschappelijke voedingsketen en wat de parallelle takken zijn. Heb je een schema, gebruik het. Heb je er geen, schets dan zelf het hoofdpad van stekker naar belasting.</p>
 
-      <h3>Keramische condensatoren</h3>
-      <p>Kleine schijfjes of chiponderdelen op printen. Niet-gepolariseerd en meestal met lage capaciteit. Ze falen minder vaak dan elco's, maar kunnen open of kort gaan door mechanische of thermische stress.</p>
+      <h3>Stap 4: verdeel het probleem</h3>
+      <p>De efficiëntste strategie is vaak delen-en-heersen. Test halverwege het relevante circuit. Is het signaal daar goed, dan zit de fout verderop. Is het daar al fout, dan zit hij eerder. Herhaal dat een paar keer en twintig mogelijke onderdelen worden er één of twee.</p>
 
-      <h2>Wat condensatoren in een circuit doen</h2>
+      <p>Belangrijker nog: kies metingen die in één klap meerdere verklaringen uitsluiten.</p>
 
-      <h3>Voedingsafvlakking</h3>
-      <p>Na gelijkrichting is DC uit een voeding nog geribbeld. Een grote elco laadt op bij elke piek en levert tussen de pieken door weer lading terug, zodat de spanning vlakker wordt. Als die condensator intern verslechtert, neemt de rimpelspanning toe en krijg je brom, instabiliteit of slecht gedrag van de elektronica.</p>
+      <div class="callout callout-workbench">
+        <span class="callout-label">Van de werkbank</span>
+        <p>Bij een volledig dood apparaat is het pad vaak: zekering → hoofdschakelaar → thermische beveiliging → voeding (als die er is) → belasting. Bij gedeeltelijk falen begin je bij de vertakking: wat werkt nog wél? Bij intermitterende fouten kijk je extra naar kabels, thermische effecten en droge solderingen.</p>
+      </div>
 
-      <h3>Faseverschuiving voor motoren</h3>
-      <p>Zoals in hoofdstuk 8 besproken gebruiken eenfasige inductiemotoren een condensator om in een tweede winding een verschoven stroom te maken. Zo ontstaat het aanloopkoppel dat de motor anders mist.</p>
+      <h2>Metingen strategisch inzetten</h2>
 
-      <h3>Netontstoring</h3>
-      <p>Sommige condensatoren zitten direct over de netspanning of tussen net en aarde. Zulke onderdelen hebben veiligheidsklassen zoals X2 of Y2. Daar mag je nooit zomaar "iets met dezelfde waarde" voor terugzetten.</p>
+      <h3>Spanning meten</h3>
+      <p>Volg de spanning van voeding richting belasting. Spanning vóór een onderdeel maar niet erna wijst vaak op een open onderdeel. Volledige voedingsspanning over iets dat eigenlijk gesloten hoort te zijn, wijst meestal op een onderbreking of hoge ongewenste weerstand.</p>
 
-      <h2>Veelvoorkomende condensatorfouten</h2>
+      <h3>Weerstand en continuiteit</h3>
+      <p>Gebruik die spanningsloos om paden te bevestigen, zekeringen te controleren, elementen te testen en bedrading na te lopen. Een meetgetal is pas nuttig als je weet wat je verwacht.</p>
 
-      <h3>Open circuit</h3>
-      <p>De condensator doet elektrisch bijna niets meer. In een motorcircuit betekent dat vaak weinig of geen aanloopkoppel. In een voeding betekent het veel meer rimpelspanning.</p>
+      <h3>Patronen boven losse cijfers</h3>
+      <p>Tien willekeurige metingen zeggen minder dan twee goede. Het doel is niet zo veel mogelijk getallen verzamelen, maar onzekerheid verkleinen.</p>
 
-      <h3>Kortsluiting</h3>
-      <p>Het diëlektricum is defect geraakt en de platen geleiden direct. In netcircuits leidt dat vaak tot een gesprongen zekering of automaat.</p>
+      <h2>Wanneer je moet stoppen</h2>
 
-      <h3>Interne degradatie</h3>
-      <p>Een elco kan intern verslechteren en toch nog ongeveer de juiste capaciteit lijken te hebben. De ESR stijgt dan, waardoor de condensator slecht reageert op snelle veranderingen. Symptomen: brom, instabiele voedingen en printen die zich onder belasting raar gedragen.</p>
+      <p>Soms is de goede uitkomst niet "gerepareerd" maar "eerlijk uitgelegd". Een magnetron zonder juiste HV-tools, een printfout die microsolderen vraagt, een veiligheidskritisch onderdeel of een reparatie die economisch nergens meer op slaat: al die gevallen kunnen betekenen dat doorverwijzen de beste keuze is.</p>
 
-      <h3>Capaciteitsverlies</h3>
-      <p>Oudere elco's en motorcondensatoren verliezen vaak een flink deel van hun capaciteit. Een motor-runcondensator die 30 tot 40% te laag is, levert duidelijk minder koppel en laat een motor slecht starten.</p>
+      <p>Stoppen is geen mislukking. Onveilig of halfbegrepen werk teruggeven is dat wel.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">Van de werkbank</span>
+        <p>Maak bij elke reparatie een korte notitie: wat je hebt gevonden, wat je hebt gemeten en wat je conclusie was. Dat helpt de volgende vrijwilliger, maar ook jezelf. Patronen worden pas echt kennis als je ze later terugkunt herkennen.</p>
+      </div>
+
+      <h2>De repair-cafe-manier van kijken</h2>
+
+      <p>Na een dag repareren merk je dat heel verschillende apparaten uiteindelijk terugvallen op dezelfde basisideeën: spanning, stroom, weerstand, serie, parallel, warmte, beveiliging en logica. Het apparaat is uiteindelijk vooral de verpakking van die principes.</p>
+
+      <p>Daarin zit het echte vertrouwen. Je hoeft niet altijd meteen het antwoord te kennen. Maar als je het circuit begrijpt, weet je wel hoe je het antwoord vindt.</p>
 
       <div class="chapter-closer">
-        <p>De hoogspanningscondensator van de magnetron blijft keurig een specialistische klus. Uiteindelijk blijkt niet de condensator maar de magnetronbuis defect, en vervanging is duurder dan een nieuw apparaat. Eerlijke diagnose: recyclen is hier verstandiger. Maar iedereen rond de tafel heeft intussen iets belangrijks geleerd over condensatoren, veiligheid en het moment waarop een reparatie níét meer verantwoord of zinvol is.</p>
+        <p>De sessie loopt ten einde. De open koffiemachine krijgt een label "volgende keer verder". Dat is een passende afsluiting van dit hoofdstuk: systematisch werken betekent niet dat je altijd alles afmaakt, maar dat je weet waar je staat en waarom.</p>
       </div>
 
       <div class="chapter-takeaways">
         <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Condensatoren slaan niet alleen lading maar ook energie op, en sommige blijven gevaarlijk na uitschakelen.</li>
-          <li>Capaciteitswaarde, spanningsklasse en veiligheidsklasse zijn allemaal belangrijk.</li>
-          <li>Capaciteitsverlies en interne degradatie zijn veelvoorkomende fouten, vooral bij elco's.</li>
-          <li>Hoogspanningswerk in magnetrons is specialistisch terrein als je niet de juiste tools en training hebt.</li>
+          <li>Begin met veiligheid, symptoom en visuele inspectie vóór je dieper gaat testen.</li>
+          <li>Werk van het voedingspad naar de belasting en deel het probleem onderweg steeds verder op.</li>
+          <li>Metingen zijn alleen nuttig als je weet wat je verwacht te zien.</li>
+          <li>Stoppen en doorverwijzen hoort bij vakbekwame reparatie.</li>
         </ul>
       </div>
 
@@ -135,63 +145,63 @@
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V1</span>
-            <span class="question-text">Een elco op een print ziet er plat uit en meet nog bijna zijn nominale waarde. Moet je hem dan "voor de zekerheid" vervangen?</span>
+            <span class="question-text">Een waterkoker is helemaal dood, terwijl het stopcontact goed is. Wat is een logische diagnosevolgorde?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Niet automatisch. Zonder symptomen of visuele schade kan vervangen meer risico op nieuwe solderingsproblemen geven dan voordeel. Evidence first.</p>
+            <p>Eerst visueel inspecteren. Daarna vanaf de voeding naar binnen werken: snoer, schakelaar, thermische beveiliging en pas dan het element. Elke stap sluit een deel van het circuit uit of bevestigt juist de fout.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V2</span>
-            <span class="question-text">Een motor-runcondensator moet 12 µF zijn en meet 7,5 µF. De machine draait, maar komt slecht op snelheid. Hangen die twee dingen samen?</span>
+            <span class="question-text">Een broodrooster laat de automaat meteen afvallen zodra je de stekker insteekt, nog vóór je de hendel indrukt. Wat zegt dat?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Ja. Minder capaciteit betekent minder faseverschuiving en dus minder koppel. Vooral bij starten en versnellen merk je dat direct.</p>
+            <p>Dat de fout zit in een deel dat altijd al aan het lichtnet hangt zodra je de stekker insteekt, dus vóór de bedienschakelaar. Denk aan snoer, stekker, netfilter of bedrading vlak na de netingang.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V3</span>
-            <span class="question-text">Waarom kan een voeding met de juiste DC-uitgangsspanning toch een hoorbare brom veroorzaken?</span>
+            <span class="question-text">Een apparaat werkt koud prima maar valt na tien minuten uit, en werkt na afkoelen weer. Welk type fout suggereert dit?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Omdat de gemiddelde spanning nog goed kan zijn terwijl de afvlakking slecht is. Een verslechterde elco laat dan veel rimpel door, en die rimpel hoor je als brom.</p>
+            <p>Een thermisch intermitterende fout: bijvoorbeeld een cutout die te vroeg aanspreekt, een droge soldering die met warmte opent of een onderdeel dat elektrisch wegloopt zodra het warm wordt.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V4</span>
-            <span class="question-text">Waarom mag een AC-motorcondensator geen gewone gepolariseerde elco zijn, ook niet als de capaciteit overeenkomt?</span>
+            <span class="question-text">Je vervangt een zekering en het apparaat werkt in je test. Is dat genoeg om het meteen terug te geven?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Omdat de spanning in een AC-circuit elke halve cyclus van polariteit wisselt. Een gepolariseerde elco kan daar niet tegen en raakt snel defect, soms spectaculair. Voor die toepassing heb je een niet-gepolariseerde foliecondensator met juiste AC-rating nodig.</p>
+            <p>Nee. Eerst moet je begrijpen waarom de zekering is gesprongen en of die oorzaak echt weg is. Anders heb je alleen bevestigd dat de fout nu even niet zichtbaar is.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V5</span>
-            <span class="question-text">Wat maakt een magnetroncondensator zo bijzonder gevaarlijk?</span>
+            <span class="question-text">Waarom verdient een elektrische deken extra voorzichtigheid bij eindcontrole?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>De combinatie van hoge spanning en opgeslagen energie. Zelfs uitgeschakeld kan zo'n condensator nog een dodelijke lading vasthouden en die in zeer korte tijd afgeven.</p>
+            <p>Omdat ze langdurig direct tegen het lichaam aan gebruikt wordt, vaak terwijl de gebruiker slaapt. Een gemiste fout in aarde, temperatuurregeling of kabel kan daar veel ernstiger gevolgen hebben dan bij bijvoorbeeld een waterkoker.</p>
           </div>
         </div>
 
       </section>
 
       <div class="chapter-nav-footer">
-        <a href="chapter-09.html" class="nav-prev">Hoofdstuk 9: Wisselstroom versus gelijkstroom</a>
-        <a href="chapter-12.html" class="nav-next">Hoofdstuk 11: Systematische foutdiagnose</a>
+        <a href="chapter-10.html" class="nav-prev">Hoofdstuk 10: Condensatoren</a>
+        <a href="appendix.html" class="nav-next">Naslagbijlage</a>
       </div>
     </article>
 

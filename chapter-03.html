@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 3 van 12</span>
+      <span class="progress-label">Hoofdstuk 3 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -35,7 +35,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Een snoer met led-kerstlampjes komt in een tas op tafel. "De helft van de lampjes doet het niet meer," zegt de eigenaar. "De andere helft wel." Het is een moderne set, geen ouderwetse gloeilampjes, maar het verhaal blijft hetzelfde. De eigenaar heeft al op de zekeringdopjes van het bedieningskastje gedrukt. Je steekt de stekker in het stopcontact, bevestigt welk deel nog brandt, en grijpt naar de multimeter. Maar voordat je iets meet, sta je stil bij de vraag hoe dit snoer eigenlijk bedraad is. Dat is het lastige aan kerstlampjes: er zijn minstens drie heel verschillende antwoorden mogelijk, afhankelijk van het ontwerp.</p>
+        <p>Een snoer met led-kerstlampjes komt op tafel. De helft brandt, de andere helft niet. Voor je iets meet, is de eerste vraag niet welke led kapot is, maar hoe het snoer bedraad is. Bij kerstlampjes bepaalt de topologie bijna meteen welk soort fout je zoekt.</p>
       </div>
 
       <div class="chapter-objectives">
@@ -49,11 +49,11 @@
 
       <h2>Twee manieren om dingen te verbinden</h2>
 
-      <p>Alles in een schakeling is op een van twee fundamentele manieren verbonden: in <strong>serie</strong>, dus achter elkaar en met dezelfde stroom, of in <strong>parallel</strong>, dus naast elkaar en met dezelfde spanning. De meeste echte schakelingen gebruiken beide tegelijk. Het verschil begrijpen is een kerndeel van foutdiagnose, omdat serie- en parallelschakelingen op totaal verschillende manieren falen.</p>
+      <p>Alles in een schakeling is fundamenteel ofwel <strong>serie</strong>, ofwel <strong>parallel</strong> verbonden. De meeste echte apparaten combineren beide. Dat onderscheid is belangrijk omdat serie- en parallelschakelingen heel anders falen.</p>
 
       <h2>Serieschakelingen</h2>
 
-      <p>In een serieschakeling zijn onderdelen eind-aan-eind in één keten verbonden. Er is maar één pad waarlangs stroom kan lopen, en die stroom gaat achtereenvolgens door elk onderdeel.</p>
+      <p>In een serieschakeling zijn onderdelen eind-aan-eind verbonden. Er is maar één pad waarlangs stroom kan lopen.</p>
 
       <p>De belangrijkste regels voor serieschakelingen:</p>
 
@@ -64,30 +64,26 @@
         <li>Als één onderdeel open onderbreekt, valt de hele schakeling uit</li>
       </ul>
 
-      <p>Die regels zijn eigenlijk directe gevolgen van het feit dat er maar één circuit is. Als lading maar één route heeft, moet elke coulomb die de bron verlaat door elk onderdeel heen. Daarom is de stroom overal gelijk. En als de bron die lading een vaste totale energieduw meegeeft, moet die energie ergens in het circuit uitgegeven worden, verdeeld als spanningsvallen over de afzonderlijke onderdelen, die samen weer optellen tot de voedingsspanning.</p>
-
-      <p>Dat laatste punt verklaart de oude kerstlampjes met gloeidraad. Alle lampjes stonden in serie, en elk lampje was ontworpen voor een fractie van de netspanning. Had je 40 lampjes op 230V, dan was elk lampje bedoeld voor ongeveer 5,75V. Het nadeel: als één lampje doorbrandt, gaat het hele snoer uit, omdat het enige stroompad onderbroken is.</p>
-
-      <p>Als één lampje in een echte seriestring open gaat, is het pad onderbroken en valt de stroom overal naar nul. De andere lampjes worden dus niet helderder, omdat er helemaal geen stroom meer doorheen loopt.</p>
+      <p>Bij oude kerstlampjes met gloeidraad stonden alle lampjes vaak in serie. Elk lampje kreeg dan maar een klein deel van de netspanning. Het nadeel is bekend: als één lampje open gaat, ligt het hele snoer stil.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>De oude reparatietruc voor gloeilamp-kerstverlichting, lampje voor lampje langsgaan en continuïteit testen, was zo vermoeiend omdat er soms vijftig of meer lampjes in serie zaten. De moderne oplossing was een shunt in elke fitting: een klein onderdeel met hoge weerstand tijdens normaal gebruik, maar dat kortsluit als de gloeidraad breekt. Zo wordt een open onderbreking omgezet in een bijna-kortsluiting, waardoor de rest van het snoer blijft branden. Daarom kon je soms een "dood" lampje vinden terwijl de rest gewoon bleef werken: het lampje zelf was stuk, maar de shunt deed zijn werk.</p>
+        <p>Bij oude kerstverlichting was zoeken frustrerend omdat soms tientallen lampjes in serie stonden. Sommige sets gebruikten daarom een shunt in de fitting: als het lampje open ging, nam de shunt het pad over en bleef de rest branden.</p>
       </div>
 
       <h3>Spanningsdelers</h3>
 
-      <p>Weerstanden in serie verdelen de spanning in verhouding tot hun waarde. Dat noemen we een spanningsdeler. Het is nuttig om dat te begrijpen omdat het overal opduikt, in instelbare verwarmingsregelingen, snelheidsregelingen en sensorschakelingen.</p>
+      <p>Weerstanden in serie verdelen de spanning in verhouding tot hun waarde. Dat noemen we een spanningsdeler.</p>
 
       <p>Als twee weerstanden in serie over een 230V-voeding staan en de ene heeft waarde R₁ en de andere R₂, dan is de spanning over R₂:</p>
 
       <div class="formula">V₂ = 230 × R₂ ÷ (R₁ + R₂)</div>
 
-      <p>Aan de reparatietafel hoef je dat niet vaak precies uit te rekenen, maar het inzicht is belangrijk: serieweerstand laat spanning vallen. Als er onverwachte weerstand in een seriepad zit, bijvoorbeeld een gecorrodeerd contact of een gedeeltelijke draadbreuk, dan ontstaat daar een onverwachte spanningsval. Die spanningsval kun je meten, en zo vind je verborgen fouten met hoge weerstand.</p>
+      <p>Voor reparatie is vooral dit nuttig: extra weerstand in een seriepad veroorzaakt spanningsval. Die spanningsval kun je meten en zo verborgen hoge-weerstandsfouten vinden.</p>
 
       <h2>Parallelschakelingen</h2>
 
-      <p>In een parallelschakeling zijn onderdelen zij-aan-zij verbonden. Elk onderdeel loopt zelfstandig van fase naar nul, onafhankelijk van de andere. Elk onderdeel krijgt de volle voedingsspanning en trekt zijn eigen stroom. De stromen tellen zich op bij het knooppunt.</p>
+      <p>In een parallelschakeling zijn onderdelen zij-aan-zij verbonden. Elke tak krijgt de volle voedingsspanning en trekt zijn eigen stroom.</p>
 
       <p>De belangrijkste regels voor parallelschakelingen:</p>
 
@@ -98,15 +94,11 @@
         <li>Als één onderdeel open onderbreekt, blijven de andere normaal doorwerken</li>
       </ul>
 
-      <p>Ook hier volgen de "regels" rechtstreeks uit de geometrie van de schakeling. Elke tak zit tussen dezelfde twee knooppunten en ziet dus hetzelfde potentiaalverschil, dezelfde spanning. Maar de lading heeft nu meerdere routes beschikbaar, dus de totale stroom uit de bron is simpelweg de som van wat elke tak vraagt. Meer takken betekent meer beschikbare routes voor lading, en daarom daalt de totale weerstand in plaats van te stijgen.</p>
-
-      <p>Elk stopcontact in je huis staat parallel aan elk ander stopcontact. De netspanning, 230V, staat overal tegelijk ter beschikking. Meer apparaten inpluggen voegt meer parallelle takken toe en trekt meer totale stroom uit de voeding, maar verandert niets aan de spanning die elk individueel apparaat krijgt.</p>
-
-      <p>De spanning blijft dus gelijk over alle parallelle takken. Daarom kun je tegelijk een waterkoker, lamp en telefoonlader gebruiken en krijgt elk apparaat nog steeds 230V, ongeacht wat de andere doen.</p>
+      <p>Elk stopcontact in huis staat parallel aan de andere. Daarom krijgt een waterkoker nog steeds 230V, ook als er tegelijk een lamp of telefoonlader aan staat. Meer apparaten voegen stroom toe, niet spanning.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Parallelle weerstanden delen dezelfde spanning, maar verdelen de stroom. De formule voor twee parallelle weerstanden is 1/R_totaal = 1/R₁ + 1/R₂. Daarom verlaagt het toevoegen van meer parallelle paden altijd de totale weerstand: je geeft de stroom meer routes. In het extreme geval, een kortsluiting met nul weerstand parallel aan iets anders, zakt de totale weerstand naar nul. Dat is precies wat een kortsluitfout doet: een pad met bijna nul weerstand parallel aan de bedoelde belasting plaatsen, die belasting omzeilen en een enorme stroom uit de voeding trekken.</p>
+        <p>Parallelle weerstanden delen dezelfde spanning, maar verdelen de stroom. Meer parallelle paden verlagen dus de totale weerstand. Een kortsluiting is het extreme geval: een extra pad met bijna nul weerstand.</p>
       </div>
 
       <div class="circuit-demo">
@@ -246,59 +238,59 @@
 
       <h2>De vraag van de kerstlampjes</h2>
 
-      <p>Terug naar de led-kerstlampjes op tafel. Er zijn eigenlijk drie manieren waarop dit ontwerp bedraad kan zijn:</p>
+      <p>Bij led-kerstlampjes kom je grofweg drie ontwerpen tegen:</p>
 
-      <p><strong>Alles in serie</strong>: één onderbreking schakelt alles uit. Maar bij 40 tot 100 leds heeft elke led maar 2 tot 3V nodig, samen kom je dan ongeveer op 230V uit. Waarschijnlijk als het hele snoer dood is.</p>
+      <p><strong>Alles in serie</strong>: één onderbreking schakelt alles uit.</p>
 
-      <p><strong>Alles parallel met stroombegrenzende weerstanden</strong>: elke led krijgt 230V met een weerstand die het overschot wegwerkt. Als één led open gaat, heeft dat geen effect op de rest. Maar dit is inefficiënt en niet gebruikelijk bij snoeren die direct op het lichtnet werken.</p>
+      <p><strong>Alles parallel met stroombegrenzing</strong>: één defecte led beïnvloedt de rest niet, maar dit is bij netsnoeren niet gebruikelijk.</p>
 
-      <p><strong>Groepen in serie, groepen parallel</strong>: het meest voorkomende ontwerp voor moderne led-snoeren. Het snoer is opgedeeld in secties, en elke sectie is een serie van leds. Die secties staan vervolgens parallel. Als één sectie open onderbreekt, bijvoorbeeld door één defecte led, valt alleen die sectie uit. Dat verklaart precies wat je ziet: de helft van het snoer is donker, de andere helft brandt.</p>
+      <p><strong>Groepen in serie, groepen parallel</strong>: het meest voorkomende moderne ontwerp. Valt één sectie open, dan blijft de rest gewoon branden. Dat past precies bij een snoer waarvan maar een deel donker is.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Led-kerstverlichting repareren is vaak meer moeite dan het waard is, maar het diagnostische proces is leerzaam. Zoek bij een snoer dat deels donker is de overgang tussen werkende en dode secties. Meet spanning bij de eerste donkere led: staat er spanning aan de ene kant maar niet aan de andere, dan is die led open en blokkeert hij de serieschakeling. Met een eenvoudige led-tester of de diodestand van je multimeter kun je de defecte led vaak vinden zonder iets los te solderen. In de praktijk is eerlijk adviseren om te recyclen en te vervangen vaak de beste uitkomst.</p>
+        <p>Bij een deels donker ledsnoer zoek je de overgang tussen werkende en dode secties. Vaak zit daar de open led of verbinding die een hele seriesectie blokkeert. Praktisch gezien is vervangen vaak verstandiger dan repareren.</p>
       </div>
 
       <h2>Serie en parallel in echte apparaten</h2>
 
-      <p>Zodra je geleerd hebt om serie- en parallelschakelingen te herkennen, zie je ze overal terug.</p>
+      <p>Serie en parallel zie je overal terug in echte apparaten.</p>
 
       <h3>Verwarmingselementen in serie</h3>
 
-      <p>Sommige apparaten gebruiken twee verwarmingselementen die tussen serie en parallel geschakeld kunnen worden om het vermogen te veranderen. Een eenvoudige broodrooster of grill met twee vermogensstanden kan beide elementen in serie zetten voor lage warmte, elk element krijgt dan ongeveer 115V en het totale vermogen zakt grofweg naar een kwart van het maximum, en in parallel voor volle kracht, waarbij elk element 230V krijgt. De schakelaar verandert letterlijk de topologie van het circuit. Als zo'n apparaat op één stand minder warm wordt dan verwacht, controleer dan of het serie/parallel-mechanisme nog correct schakelt.</p>
+      <p>Sommige apparaten schakelen twee verwarmingselementen tussen serie en parallel om het vermogen te veranderen. In serie krijgt elk element minder spanning en daalt het vermogen sterk; in parallel krijgt elk element de volle spanning. Werkt één stand vreemd, controleer dan of dat omschakelen nog goed gebeurt.</p>
 
       <h3>Motoren met serieweerstand</h3>
 
-      <p>Oudere apparaten gebruikten soms een serieweerstand om de motorsnelheid te verlagen. Minder spanning over de motor betekent minder snelheid. Een keukenmixer met een "langzame" stand kan bijvoorbeeld op die stand een weerstand in serie met de motor zetten. Die weerstand verspilt energie als warmte, niet efficiënt maar goedkoop. Als de langzame stand ineens op volle snelheid draait, denk dan aan een defect in de schakeling rond die weerstand. Krijgt de motor ineens de volle spanning, dan zit de weerstand niet meer effectief in serie.</p>
+      <p>Oudere apparaten gebruikten soms een serieweerstand om de motorsnelheid te verlagen. Draait een mixer op de langzame stand ineens voluit, dan zit die weerstand waarschijnlijk niet meer effectief in serie.</p>
 
       <h3>Beveiligingen in serie</h3>
 
-      <p>Elke zekering, thermische beveiliging en schakelaar in een apparaat staat in serie met de belasting die hij beschermt. Dat moet ook zo: het beveiligingsonderdeel moet dezelfde stroom voeren als de belasting, zodat het ook de foutstroom ziet wanneer er iets misgaat. Een zekering parallel aan de belasting zou nooit goed beschermen, omdat de belastingstroom er niet doorheen loopt. Dus altijd in serie.</p>
+      <p>Zekeringen, thermische beveiligingen en schakelaars staan in serie met de belasting die ze beschermen. Alleen dan voeren ze dezelfde stroom en kunnen ze ook echt ingrijpen bij een fout.</p>
 
       <h2>Serie en parallel gecombineerd: het praktische beeld</h2>
 
-      <p>De meeste echte schakelingen zijn combinaties. Neem een eenvoudig strijkijzer: de voeding komt binnen via een zekering, serie, dan via een thermostaat, ook serie, en daarna vertakt de schakeling. Eén tak gaat naar het hoofdelement, een andere naar een klein controlelampje, parallel. Elke tak trekt zijn eigen stroom. De zekering en thermostaat beschermen beide takken tegelijk, omdat ze vóór de vertakking in serie zitten.</p>
+      <p>De meeste echte schakelingen zijn combinaties. In een strijkijzer kunnen zekering en thermostaat bijvoorbeeld in serie staan, waarna de schakeling splitst naar het element en het controlelampje.</p>
 
-      <p>Wanneer je een fout zoekt in zo'n gecombineerde schakeling, begin je met de vraag welk deel van de schakeling door het symptoom aangewezen wordt. Brandt het controlelampje wel maar verwarmt het element niet, dan zit de fout waarschijnlijk in de parallelle tak van het element: het element zelf of de verbinding ernaartoe. Werkt noch lampje noch warmte, dan zit de fout in het seriedeel vóór de vertakking: zekering, thermostaat, netsnoer of schakelaar.</p>
+      <p>Voor foutdiagnose is de vraag dan: wat deelt het defecte deel met de rest? Brandt het lampje wel maar verwarmt het element niet, dan zit de fout waarschijnlijk in de tak van het element. Werkt geen van beide, dan zit de fout vóór de vertakking.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Een praktische truc om topologie snel te herkennen: trek de stekker eruit, zet je multimeter op continuïteit of lage weerstand, en meet van klem naar klem over onderdelen. Onderdelen in serie laten elkaar in volgorde terugzien als pad. Onderdelen in parallel laten een laagohmig pad zien tussen hun uiteinden omdat beide kanten aan dezelfde twee punten hangen. Met het apparaat spanningsloos kun je zo veilig de structuur van de schakeling uittekenen voordat je ook maar iets inplugt.</p>
+        <p>Trek de stekker eruit en meet met continuïteit of lage weerstand van klem naar klem. Zo kun je vaak al uittekenen welke onderdelen in serie staan en welke parallel, nog voor je iets onder spanning zet.</p>
       </div>
 
       <h2>Kortsluiting als parallel pad</h2>
 
-      <p>Een kortsluiting is technisch gezien een pad met zeer lage weerstand dat parallel verschijnt aan de bedoelde belasting. Als isolatie faalt en fase raakt nul, ontstaat er ineens een bijna weerstandloos pad van 230V naar 0V, parallel aan alles wat verder nog in de schakeling zit. De stroom door dat pad wordt enorm, V ÷ R waarbij R heel klein is, veel meer dan zekering of automaat aankan. De beveiliging schakelt af.</p>
+      <p>Een kortsluiting is in feite een extra parallel pad met zeer lage weerstand. Daardoor trekt het circuit ineens enorm veel stroom en spreekt de beveiliging aan.</p>
 
-      <p>Daarom is een kortsluiting zo anders dan een open onderbreking: open onderbrekingen geven stilte, niets werkt, er loopt geen stroom. Kortsluitingen geven juist knallen, vonken, doorgebrande zekeringen en uitgevallen automaten, omdat er heel kort enorm veel stroom door het verkeerde pad loopt.</p>
+      <p>Dat is het tegenovergestelde van een open onderbreking: open betekent geen stroom, kortsluiting betekent veel te veel stroom.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Het kerninzicht is dat in een parallelschakeling meer paden de totale weerstand verlagen. Een kortsluiting is het extreme geval: een pad met vrijwel nul weerstand domineert de hele parallelcombinatie en trekt de totale weerstand naar bijna nul, ongeacht wat er verder parallel staat. Dat is de wet van Ohm in actie: I = V/R, en als R naar nul gaat, loopt I enorm op. In echte circuits begrenzen bedrading en bronimpedantie de stroom nog enigszins, maar in de milliseconden voordat de beveiliging aanspreekt kan die nog steeds in de honderden of duizenden ampères lopen.</p>
+        <p>Meer parallelle paden verlagen de totale weerstand. Een kortsluiting is het extreme geval: een pad met bijna nul weerstand, waardoor de stroom volgens `I = V / R` enorm oploopt.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>De led-kerstlampjes blijken uiteindelijk een ontwerp met groepen in serie en parallel te zijn. Eén sectie van zes leds heeft een defect exemplaar. Je noteert welke sectie het is en geeft het snoer terug met een eerlijke inschatting van de repareerbaarheid. De eigenaar besluit dat het niet de moeite waard is en het snoer gaat in de recyclebak. Dat is een prima uitkomst: je begrijpt de fout en kunt haar uitleggen. De ventilator met brandlucht staat al twintig minuten op de tafel ernaast, en het is tijd om te kijken waar daar de warmte vandaan komt.</p>
+        <p>De kerstlampjes blijken groepen-in-serie-en-parallel te gebruiken. Eén sectie is open geraakt, waardoor alleen dat deel donker blijft. Dat is genoeg om de fout te begrijpen en eerlijk uit te leggen, ook als reparatie niet de moeite waard is.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -312,7 +304,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Controleer je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">
@@ -321,8 +313,8 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p><strong>Serie:</strong> totale weerstand = 80 + 80 = 160 ohm. Stroom = 230 ÷ 160 = 1,44A. Vermogen = 230 × 1,44 ≈ 330W.</p>
-            <p><strong>Parallel:</strong> totale weerstand = 1 ÷ (1/80 + 1/80) = 40 ohm. Stroom = 230 ÷ 40 = 5,75A. Vermogen = 230 × 5,75 ≈ 1322W, dus ongeveer vier keer zo hoog. Dit laat zien waarom parallel gebruikt wordt voor vol vermogen: dezelfde elementen leveren, wanneer ze parallel geschakeld zijn, vier keer zoveel vermogen.</p>
+            <p><strong>Serie:</strong> 80 + 80 = 160 ohm, dus 230 ÷ 160 = 1,44A.</p>
+            <p><strong>Parallel:</strong> samen 40 ohm, dus 230 ÷ 40 = 5,75A. De parallelstand trekt dus veel meer stroom en levert veel meer vermogen.</p>
           </div>
         </div>
 
@@ -333,7 +325,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>De serieweerstand zit nog steeds in het circuit en wordt nog warm, dus hij is niet open defect. Als hij open was, zou er helemaal geen stroom lopen en zou de motor op die stand stilstaan. Dat de motor toch op volle snelheid draait terwijl de weerstand warmte produceert, wijst erop dat de snelheidskeuzeschakelaar de weerstand omzeilt en de motor direct op de volle voedingsspanning zet. Het contact dat op de lage stand de stroom via de weerstand zou moeten sturen is waarschijnlijk kortgesloten of vastgelast. Controleer dus de keuzeschakelaar; die zet de weerstand niet meer correct in serie.</p>
+            <p>De weerstand doet nog iets, want hij wordt warm. De meest waarschijnlijke fout is dus dat de keuzeschakelaar de weerstand tegelijk omzeilt en de motor toch de volle spanning geeft. Controleer de snelheidskeuzeschakelaar.</p>
           </div>
         </div>
 
@@ -344,7 +336,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Het controlelampje en het verwarmingselement staan parallel aan elkaar en delen dus dezelfde voedingspunten. Dat het lampje werkt bevestigt dat de voeding het vertakkingspunt bereikt en dat de gemeenschappelijke serieonderdelen, zoals zekering, netsnoer en schakelaar, in orde zijn. De fout moet daarom in de tak van het verwarmingselement zelf zitten: waarschijnlijk het element zelf, open onderbroken, een thermostaat die alleen in serie met het element staat, of een draadbreuk in die tak. Het lampje is hier een nuttige diagnostische aanwijzing: het vertelt je dat het probleem pas ná het vertakkingspunt zit.</p>
+            <p>Waarschijnlijk in de tak van het verwarmingselement zelf. Dat het lampje werkt, laat zien dat de voeding en de gemeenschappelijke serieonderdelen tot aan het vertakkingspunt nog in orde zijn.</p>
           </div>
         </div>
 
@@ -355,7 +347,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Een beveiligingsonderdeel werkt door de stroom te onderbreken zodra die stroom te hoog wordt. Om die stroom te kunnen "zien", moet het onderdeel die stroom zelf voeren. Dat betekent dus: in serie met de belasting. In serie loopt dezelfde stroom door zowel de belasting als de beveiliging. Als de belasting te veel stroom trekt, voert de zekering of thermische beveiliging diezelfde foutstroom en kan hij aanspreken. In parallel zou het beveiligingsonderdeel slechts een klein deel van de totale stroom zien, vaak vrijwel niets, omdat de belasting zelf het laagohmige hoofdpad vormt. Dan zou de beveiliging bij een fout niet aanspreken en dus helemaal niet beschermen.</p>
+            <p>Omdat de beveiliging dezelfde stroom moet voeren als de belasting om te kunnen ingrijpen. Daarom moet ze in serie staan. In parallel zou ze de foutstroom niet betrouwbaar zien en dus niet goed beschermen.</p>
           </div>
         </div>
 
@@ -366,8 +358,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Op de zachte stand, serie dus, vormen beide elementen samen één keten. Als één element open is, is de hele keten onderbroken en loopt er geen stroom door beide elementen. De rechter sleuf blijft dus volledig koud op die stand.</p>
-            <p>Op de normale stand, parallel, heeft elk element zijn eigen pad naar de voeding. De tak van het defecte element is open en verwarmt niet, maar de tak van het goede element blijft intact en werkt gewoon door. De rechter sleuf wordt dan nog wel warm, maar met ongeveer de helft van het normale vermogen. Daarom zie je de storing dan eerder als "het brood komt bleek uit de toaster" dan als "er gebeurt niets": een gedeeltelijke fout die je makkelijk mist als je serie en parallel niet goed uit elkaar houdt.</p>
+            <p>Op de zachte stand, serie dus, valt de hele keten uit en blijft die sleuf koud. Op de normale stand, parallel, blijft het goede element werken en verwarmt de sleuf nog maar gedeeltelijk.</p>
           </div>
         </div>
 

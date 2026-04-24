@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 5 van 12</span>
+      <span class="progress-label">Hoofdstuk 5 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -36,33 +36,31 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Halverwege de ochtend komt er een broodrooster op tafel, eentje met twee sleuven. De eigenaar zegt dat de ene kant prima verwarmt, maar dat de andere nauwelijks warm wordt: het brood komt er bleek en zacht uit, terwijl de andere sleuf gewoon bruint. Je zet het apparaat opzij en pakt de multimeter. Een nieuwe vrijwilliger ziet je aan de draaiknop draaien en vraagt: "Hoe weet je welke stand je moet kiezen?" Terechte vraag. Een multimeter kan meerdere dingen meten, en de verkeerde stand levert óf nutteloze informatie op óf een gevaarlijke situatie. Laten we precies bekijken wat hij doet.</p>
+        <p>Een broodrooster verwarmt aan één kant goed en aan de andere nauwelijks. Je pakt de multimeter. Een nieuwe vrijwilliger vraagt: "Hoe weet je welke stand je moet kiezen?" Dat is precies de juiste vraag, want de waarde van een multimeter zit niet alleen in meten, maar in het kiezen van de juiste meting.</p>
       </div>
 
       <div class="chapter-objectives">
         <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
           <li>De juiste meterstand kiezen voor spanning, weerstand, continuiteit, stroom en diodetest.</li>
-          <li>Begrijpen waarom spanning onder bedrijf wordt gemeten, maar weerstand alleen spanningsloos.</li>
+          <li>Begrijpen waarom spanning wordt gemeten met de stekker erin, maar weerstand alleen spanningsloos.</li>
           <li>De meter zo gebruiken dat hij risico verlaagt in plaats van veroorzaakt.</li>
         </ul>
       </div>
 
       <h2>Het instrument en zijn onderdelen</h2>
 
-      <p>Een typische digitale multimeter heeft drie of vier ingangen voor meetsnoeren, een draaiknop om functie en bereik te kiezen, en een display. De probes, een rode en een zwarte, verbinden de meter met het circuit.</p>
+      <p>Een typische digitale multimeter heeft ingangen voor meetsnoeren, een draaiknop om functie en bereik te kiezen, en een display. De zwarte probe gaat in COM; de rode gebruik je in de juiste bus voor de gekozen meting.</p>
 
-      <p><strong>Ingangsbussen</strong> — de meeste meters hebben er drie: COM (voor de zwarte probe, altijd), V/Ω (voor de rode probe bij spanning en weerstand), en een hoge-stroombus (vaak 10A of 20A genoemd, voor metingen boven het mA-bereik). Sommige meters hebben ook een aparte mA-bus. De rode probe in de verkeerde bus steken is een van de meest voorkomende en soms gevaarlijke fouten.</p>
+      <p><strong>Ingangsbussen</strong> — de meeste meters hebben COM, V/Ω en een hoge-stroombus zoals 10A. Sommige hebben ook een aparte mA-bus. De rode probe in de verkeerde bus steken is een van de meest voorkomende en gevaarlijkste fouten.</p>
 
-      <p><strong>De draaiknop</strong> — hiermee kies je de functie: spanning, stroom, weerstand, continuiteit enzovoort, en soms ook het bereik. Auto-ranging meters kiezen dat bereik zelf. Handmatige meters vragen dat jij het instelt. Twijfel je, begin dan bij het hoogste bereik en werk naar beneden.</p>
+      <p><strong>De draaiknop</strong> — hiermee kies je spanning, stroom, weerstand, continuiteit enzovoort, en soms ook het bereik. Twijfel je bij een handmatige meter, begin dan hoog en werk naar beneden.</p>
 
       <h2>Spanning meten</h2>
 
-      <p>Spanning meten is de meest gebruikte functie bij diagnose van netgevoede apparaten. De meter wordt <strong>parallel</strong> aan het onderdeel gezet dat je wilt controleren: één probe aan elke kant.</p>
+      <p>In reparatie begin je vaak juist met continuiteit of weerstand, omdat je dan spanningsloos kunt werken. Spanning meten gebruik je wanneer je wilt weten wat een circuit doet terwijl er spanning op staat. De meter wordt dan <strong>parallel</strong> gezet: één probe aan elke kant van het punt of onderdeel dat je wilt controleren.</p>
 
-      <p>Een voltmeter moet <strong>hoogohmig</strong> zijn. Elektrisch gezien moet hij zich bijna gedragen als een open circuit. Als hij zelf merkbaar stroom zou trekken, zou de meting de spanning veranderen die je juist wilt observeren. Een goede voltmeter bemonstert het potentiaalverschil terwijl hij het circuit zo weinig mogelijk verstoort.</p>
-
-      <p>Kies AC-spanning (V~) voor netmetingen. Kies DC-spanning (V-) voor batterijcircuits, voedingen en alles na een gelijkrichter. AC gebruiken op een DC-punt, of andersom, geeft verkeerde waarden of helemaal geen bruikbare meting.</p>
+      <p>Een voltmeter is hoogohmig: hij hoort het circuit zo weinig mogelijk te belasten. Kies AC-spanning (V~) voor netmetingen en DC-spanning (V-) voor batterijen, voedingen en gelijkgerichte circuits.</p>
 
       <p>Waar je naar kijkt:</p>
       <ul>
@@ -72,9 +70,7 @@
         <li><strong>Over de belasting</strong>: bijna de volledige voedingsspanning</li>
       </ul>
 
-      <p>Die spanningsvaltechniek is krachtig: in een serieschakeling valt alle voedingsspanning ergens. Krijgt de belasting niet bijna de volledige voedingsspanning, dan valt er ergens spanning weg waar dat niet hoort, bijvoorbeeld over een slechte verbinding, versleten schakelaar of half defecte thermische zekering.</p>
-
-      <p>Wat je hier leert, spanningvallen gebruiken om verborgen weerstand te vinden, is een van de betrouwbaarste technieken aan de werkbank. Hij vindt fouten die een continuiteitstest mist, omdat je onder echte belasting meet in plaats van met het kleine interne teststroompje van de meter.</p>
+      <p>Die spanningsvaltechniek is krachtig: in een serieschakeling valt alle voedingsspanning ergens. Krijgt de belasting niet bijna de volledige spanning, dan valt er ergens spanning weg waar dat niet hoort, bijvoorbeeld over een slechte verbinding of versleten schakelaar.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
@@ -85,26 +81,26 @@
 
       <p>Weerstand en continuiteit meet je alleen wanneer het circuit <strong>volledig spanningsloos</strong> is. Dat is geen aanbeveling maar een eis. Een actief circuit geeft foute metingen en kan de meter beschadigen of jou verwonden.</p>
 
-      <p>Voor weerstand (Ω): kies de juiste stand en raak met de probes beide uiteinden van het onderdeel of de geleider aan. De meter stuurt een kleine stroom door het onderdeel, meet de daarbij ontstane spanningsval en rekent intern de weerstand uit. Bij geen geleidende verbinding tonen de meeste meters OL; bij wel geleiding tonen ze een waarde in ohm.</p>
+      <p>Voor weerstand (Ω) stuurt de meter een kleine teststroom door het onderdeel en berekent daaruit de weerstand. OL betekent meestal dat er geen doorlopend pad is.</p>
 
-      <p>Voor continuiteit (diode- of buzzer-symbool): de meter piept wanneer de weerstand onder een bepaalde drempel blijft, meestal enkele tientallen ohm. Dat is een snelle manier om te testen of een pad nog intact is, zonder een exact getal te hoeven lezen. Handig voor kabels, zekeringen en schakelcontacten. De gekozen ingang hoort bij de meting: in de V/Ω-bus gedraagt de meter zich hoogohmig, in de stroombus juist als een bijna weerstandloos pad dat bedoeld is om in serie te staan.</p>
+      <p>Voor continuiteit piept de meter wanneer de weerstand laag genoeg is. Dat is handig voor kabels, zekeringen en schakelcontacten. Gebruik hiervoor de V/Ω-bus, niet de stroombus.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Continuiteitsstand is snel, maar heeft een valkuil: hij test met lage stroom. Een draad waarvan meerdere aders zijn gebroken kan nog steeds piepen als er nog één of twee aders contact maken. Onder echte belasting raken die dan oververhit of geven ze te veel spanningsval. Vul continuiteit daarom aan met een weerstandstest. Een paar meter goed kopersnoer hoort ruim onder 1 ohm te zitten. Een paar ohm in een korte kabel wijst op beschadiging. Onthoud ook dat de meter het hele circuit test van probe tot probe. Een piep betekent dus niet automatisch dat alleen het onderdeel onder je probes goed is.</p>
+        <p>Continuiteitsstand is snel, maar test met heel lage stroom. Een half gebroken draad kan dus nog piepen en onder echte belasting toch problemen geven. Gebruik daarom zo nodig ook een weerstandstest of een spanningsvalmeting onder belasting.</p>
       </div>
 
       <h2>Stroom meten</h2>
 
-      <p>Stroom meten is operationeel het onhandigst: de meter moet <strong>in serie</strong> in het circuit worden opgenomen. Je moet het circuit dus openen en de meter ertussen zetten. Je meet de stroom die door de meter zelf loopt.</p>
+      <p>Stroom meten is het minst handig: de meter moet <strong>in serie</strong> in het circuit worden opgenomen. Je moet het circuit dus openen en de meter ertussen zetten.</p>
 
-      <p>Een ampèremeter moet daarom <strong>laagohmig</strong> zijn. Hij is ontworpen om bijna geen extra weerstand toe te voegen, zodat de normale circuitstroom erdoorheen kan zonder sterk te veranderen. Daarom is het ook zo gevaarlijk om de stroombus over een spanningsbron te zetten: je kijkt dan niet naar het circuit, je legt bijna een directe kortsluiting aan.</p>
+      <p>Een ampèremeter is laagohmig. Daarom is de stroombus zo gevaarlijk op een spanningsbron: je legt dan bijna een kortsluiting aan.</p>
 
-      <p>Werkwijze: kies het juiste bereik, gebruik de hoge-stroombus als je meer dan 400mA verwacht, onderbreek het circuit op een handig punt en zet de meter in serie. De gemeten stroom loopt door een interne shuntweerstand, en de spanning over die shunt vertelt de meter hoeveel stroom er loopt. In stroomstand is de meterweerstand heel laag, vaak in milliohms.</p>
+      <p>Werkwijze: kies het juiste bereik, gebruik de hoge-stroombus als je meer dan enkele honderden milliampères verwacht, onderbreek het circuit en zet de meter in serie.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
-        <p>De gevaarlijkste multimeterfout is meten in stroomstand en vervolgens spanning willen meten door beide probes over de netspanning te zetten. In stroomstand is de meter-ingang vrijwel een kortsluiting. 230V over een bijna-kortsluiting geeft een enorme stroompiek die de interne zekering van de meter direct opblaast, of erger. Controleer vóór elke spanningsmeting opnieuw in welke bus de rode probe zit.</p>
+        <p>De gevaarlijkste multimeterfout is meten in stroomstand en daarna de probes over de netspanning zetten. In stroomstand is de meter vrijwel een kortsluiting. Controleer vóór elke spanningsmeting opnieuw in welke bus de rode probe zit.</p>
       </div>
 
       <div class="concept-demo" id="meter-sim">
@@ -225,7 +221,7 @@
       </div>
 
       <div class="chapter-closer">
-        <p>Het broodrooster blijkt geen ingewikkeld mysterie. De ene sleuf warmt nauwelijks omdat er in het voedingspad naar dat element ergens een slechte verbinding zit. Met spanningsvalmeting is de fout snel gelokaliseerd. De nieuwe vrijwilliger kijkt nog eens naar de meter en zegt: "Dus de stand hangt niet af van het apparaat, maar van de vraag die je stelt." Precies dat. Op de volgende tafel staat een stofzuiger die helemaal niets meer doet. Tijd om te praten over schakelaars en zekeringen.</p>
+        <p>Het broodrooster blijkt geen ingewikkeld mysterie. De ene sleuf warmt nauwelijks omdat er ergens in het voedingspad te veel weerstand zit. Met spanningsvalmeting is dat snel te vinden. De juiste meterstand hangt dus niet af van het apparaat, maar van de vraag die je stelt.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -239,7 +235,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Test je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">

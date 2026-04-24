@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 2 van 12</span>
+      <span class="progress-label">Hoofdstuk 2 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -35,7 +35,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>De waterkoker staat even aan de kant. Je hebt vastgesteld dat hij een nieuw element nodig heeft, en de eigenaar twijfelt nog of dat de moeite waard is. Ondertussen zet iemand anders een kleine tafellamp neer. "Hij gaat gewoon niet meer aan," zeggen ze. "Het lampje is goed, ik heb het in een andere lamp getest." Je tilt de lamp op, kijkt naar de kabel bij de voet waar die de behuizing in gaat, en ziet dat hij bekneld is geweest. Waarschijnlijk lang genoeg onder een tafelpoot om de binnenkant te beschadigen. Nog voordat je hem in het stopcontact steekt, heb je al een theorie.</p>
+        <p>De waterkoker gaat even opzij. Er komt een tafellamp op tafel die niet meer aangaat, terwijl het lampje zelf nog goed is. Bij de voet zie je meteen een beknelde kabel. Nog voor je meet, heb je al een vermoeden: ergens is de kring onderbroken.</p>
       </div>
 
       <div class="chapter-objectives">
@@ -49,90 +49,82 @@
 
       <h2>Elektriciteit moet in een kring lopen</h2>
 
-      <p>Het allerbelangrijkste om over een circuit te begrijpen is dit: elektriciteit heeft een compleet, ononderbroken circuit nodig om te kunnen stromen. Niet een pad van A naar B, maar een pad van A naar B <em>en weer terug naar A</em>. Onderbreek je dat circuit ergens, dan stopt alles.</p>
+      <p>Elektriciteit heeft een compleet circuit nodig om te kunnen stromen: heen naar de belasting en terug naar de bron. Onderbreek je dat pad ergens, dan stopt alles.</p>
 
-      <p>Zodra je het zo zegt klinkt het eenvoudig, maar het is niet altijd vanzelfsprekend wanneer je naar een echt apparaat kijkt. Draden lopen overal, componenten zitten verspreid, er zijn connectoren, printplaten en aansluitingen. De sleutel is om het circuit mentaal te volgen: waar komt de stroom vandaan, waar gaat ze door de belasting heen en hoe komt ze terug? Zodra je dat circuit kunt zien, kun je ook zien waar het mogelijk onderbroken is.</p>
+      <p>Bij een echte reparatie betekent dat: volg de kring mentaal. Waar komt de stroom vandaan, waar doet het apparaat nuttig werk, en hoe komt de stroom terug? Zodra je die lus ziet, zie je ook waar ze onderbroken kan zijn.</p>
 
-      <p>In jouw lamp werkt het zo: de stroom loopt vanaf het lichtnet via de fasedraad door de schakelaar, vervolgens door de gloeidraad van de lamp, de belasting dus waar het nuttige werk gebeurt, en via de nuldraad terug om het circuit compleet te maken. Ergens in die beknelde kabel is een van die geleiders beschadigd geraakt. Het circuit is niet meer compleet. Er stroomt niets.</p>
+      <p>Bij deze lamp loopt de stroom via fase door de schakelaar en de lamp, en via nul terug. Als in de beknelde kabel een geleider gebroken is, is de kring open en gebeurt er niets.</p>
 
       <h2>Fase, nul en aarde</h2>
 
-      <p>In Nederlandse huisinstallaties, en in het grootste deel van continentaal Europa, komen er bij een standaard netaansluiting drie geleiders uit het stopcontact:</p>
+      <p>In Nederlandse huisinstallaties kom je bij een standaard netaansluiting drie geleiders tegen:</p>
 
-      <p><strong>Fase (L)</strong>, de bruine draad. Dit is de geleider waarop spanning staat. Het elektriciteitsnet en de transformatoren houden die op ongeveer 230V ten opzichte van nul. Dit is de "hoge druk" kant van de kring.</p>
+      <p><strong>Fase (L)</strong>, de bruine draad. Hierop staat ongeveer 230V ten opzichte van nul.</p>
 
-      <p><strong>Nul (N)</strong>, de blauwe draad. Dit is het terugpad. In het transformatorstation is nul verbonden met aarde, letterlijk met de grond, en daarom ligt die bij jouw stopcontact dicht bij 0V. De stroom loopt via fase naar buiten en via nul terug.</p>
+      <p><strong>Nul (N)</strong>, de blauwe draad. Dit is het terugpad van de stroom en ligt normaal dicht bij 0V.</p>
 
-      <p><strong>Aarde (PE, geel-groen)</strong> is een veiligheidsgeleider, geen stroomvoerende geleider in normaal bedrijf. Die verbindt metalen behuizingen met aarde, zodat als de fasedraad door een fout de behuizing raakt, de foutstroom veilig naar aarde loopt en de beveiliging aanspreekt, in plaats van te wachten tot een persoon de behuizing aanraakt en zo via zijn lichaam het circuit sluit.</p>
+      <p><strong>Aarde (PE, geel-groen)</strong> is een veiligheidsgeleider. In normaal bedrijf hoort hier geen stroom door te lopen; hij is er om metalen behuizingen veilig te houden bij een fout.</p>
 
-      <p>De kabel van jouw lamp heeft waarschijnlijk maar twee geleiders: fase en nul. Kleine klasse II-apparaten, zoals lampen, telefoonladers en veel keukenapparaten, hebben geen aardverbinding omdat hun veiligheid berust op dubbele isolatie in plaats van op aarding. Daar komen we zo op terug.</p>
+      <p>De kabel van deze lamp heeft waarschijnlijk alleen fase en nul. Veel kleine klasse II-apparaten hebben geen aarde, omdat ze op dubbele isolatie vertrouwen.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Nederlandse Schuko-stekkers, type F, de ronde tweepolige stekker die je overal ziet, hebben twee ronde pennen voor lijn en nul en twee aardclips aan de zijkant. Die clips maken contact met aarde in het stopcontact. Heeft het apparaat een drieaderige kabel met aarde, geel-groen dus, dan heeft de stekker ook een aardverbinding. Is de kabel tweeaderig, dan niet. Het belangrijke praktische feit is dat Schuko niet gepolariseerd is: je kunt de stekker op beide manieren insteken. Je kunt er dus niet op vertrouwen dat een specifieke pen altijd fase is zodra het apparaat is ingeplugd.</p>
+        <p>Schuko-stekkers zijn omkeerbaar. Je kunt er dus niet op vertrouwen dat een bepaalde pen altijd fase is zodra het apparaat is ingeplugd. Bij reparaties is dat belangrijk: ontwerp of bedrading mag niet alleen veilig zijn in één stekkerstand.</p>
       </div>
 
       <h2>Klasse I en klasse II apparaten</h2>
 
-      <p>De meeste apparaten vallen in een van twee beschermingsklassen, en weten naar welke je kijkt verandert hoe je naar foutdiagnose en veiligheid kijkt.</p>
+      <p>De meeste apparaten vallen in een van twee beschermingsklassen. Welke klasse je voor je hebt, bepaalt hoe je naar veiligheid kijkt.</p>
 
-      <p><strong>Klasse I</strong>-apparaten vertrouwen op aarding voor veiligheid. Ze hebben een metalen behuizing of blootliggende metalen delen, en de aarddraad verbindt die delen met aarde. Als de fasedraad de behuizing raakt, voert de aarde die foutstroom veilig af zodat de zekering of automaat kan afschakelen. Voorbeelden: wasmachines, vaatwassers, elektrische ovens, oudere waterkokers met metalen behuizing en sommige acculaders.</p>
+      <p><strong>Klasse I</strong>-apparaten vertrouwen op aarding voor veiligheid. Ze hebben vaak een metalen behuizing en een aarddraad die foutstroom veilig moet afvoeren.</p>
 
-      <p><strong>Klasse II</strong>-apparaten vertrouwen op <em>dubbele isolatie</em>. De interne delen onder netspanning zijn één keer geïsoleerd van de behuizing, en de behuizing zelf vormt een tweede isolatielaag. Er is dus geen aardverbinding, omdat de behuizing ook bij een fout niet op netspanning zou mogen komen. Voorbeelden: de meeste moderne waterkokers met kunststof behuizing, föhns, telefoonladers en veel lamptransformatoren. Klasse II-apparaten herken je aan het symbool van een vierkant in een vierkant.</p>
+      <p><strong>Klasse II</strong>-apparaten vertrouwen op <em>dubbele isolatie</em>. Ze hebben geen aarde nodig, omdat de behuizing zelf geen aanraakbaar live deel mag kunnen worden. Je herkent ze aan het symbool van een vierkant in een vierkant.</p>
 
       <p>The useful physical picture is simple: fault current will take whatever path has the lowest resistance. With a good earth connection, the metal case is tied to a low-resistance path back to the supply, so the fault current takes that route instead of waiting for a human body to provide one. That is why the earth conductor can save a life without doing anything visible during normal operation.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
-        <p>Wanneer je een klasse I-apparaat open hebt gehad, is het verstandig om te controleren of de aardverbinding intact is voordat je het teruggeeft. Een onderbroken aarde heeft geen invloed op de normale werking, het apparaat lijkt dus gewoon goed te functioneren, maar de bescherming is weg. Als de fasedraad later de behuizing raakt, krijgt de gebruiker de schok. Het is een van de gevaarlijkste onzichtbare fouten in apparaatreparatie. Controleer de aardgeleider aan beide uiteinden: in de stekker en op het chassis van het apparaat.</p>
+        <p>Open je een klasse I-apparaat, controleer dan altijd de aardverbinding voordat je het teruggeeft. Een apparaat kan normaal lijken te werken terwijl de bescherming verdwenen is. Controleer de aardgeleider in de stekker en op het chassis.</p>
       </div>
 
       <h2>Waarom de kring compleet moet zijn</h2>
 
-      <p>Ga terug naar de water-analogie: je kunt geen eenrichtingsleiding hebben. Als water aan één kant uit een buis stroomt en nergens heen kan, loopt de druk op en stopt alles. Bij elektriciteit is dat net zo: lading heeft een doorlopend pad nodig om te kunnen circuleren.</p>
+      <p>Zowel fase als nul moeten intact zijn om iets te laten werken. Een onderbreking in een van beide opent de kring, ook al is de andere draad nog prima.</p>
 
-      <p>In de praktijk betekent dit dat zowel fase als nul intact moeten zijn om iets te laten werken. Een onderbreking in één van beide opent de kring. Dat verrast sommige mensen: "maar nul is toch alleen maar het retourpad?" Juist daarom is die net zo belangrijk. De stroom loopt door beide in gelijke hoeveelheid. Onderbreek je er één, dan is de stroom nul.</p>
-
-      <p>In jouw lamp betekent dat: als de beknelde kabel de fasedraad heeft gebroken, is er geen pad naar de lamp. Is juist de nuldraad gebroken, dan is er geen retourpad. In beide gevallen blijft de lamp uit. Je vindt dat met een continuïteitsmeting: meten van het ene uiteinde van elke geleider naar het andere. Bij één van beide krijg je geen continuïteit.</p>
+      <p>Bij deze lamp maakt het dus niet uit welke geleider in de beknelde kabel is gebroken: in beide gevallen blijft de lamp uit. Met een continuïteitsmeting van elk uiteinde naar het andere vind je welke draad onderbroken is.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Elektrisch gezien telt maar één ding: is er een doorlopend geleidend pad waarlangs lading zich kan verplaatsen? De labels fase en nul beschrijven het spanningsniveau en aan welke kant beveiliging hoort te zitten, maar binnen het circuit zijn beide geleiders even essentieel. In het transformatorstation is nul aan aarde gekoppeld, daarom ligt nul bij het stopcontact dicht bij 0V. Maar de stroom in de nuldraad is exact dezelfde stroom als in de fasedraad, alleen op de terugweg.</p>
+        <p>Fase en nul hebben verschillende spanningsniveaus, maar binnen een gesloten kring zijn ze allebei onmisbaar. Door beide loopt dezelfde stroom, alleen in tegengestelde richting door de lus.</p>
       </div>
 
       <h2>Waar schakelaars horen</h2>
 
-      <p>Als een schakelaar de bedoelde fasedraad onderbreekt, koppelt het uitschakelen de belasting los van die geleider. In een gepolariseerd systeem laat dat de belasting meestal in de buurt van nulpotentiaal achter. In de praktijk is dat veiliger dan alleen nul onderbreken, maar het blijft geen vervanging voor de stekker eruit halen voordat je aan blootliggende delen komt.</p>
+      <p>In een gepolariseerd systeem is het logisch om de fasedraad te schakelen. Dan blijft de belasting niet onnodig aan de gevaarlijke geleider hangen wanneer het apparaat uit staat.</p>
 
-      <p>Als een schakelaar alleen de nuldraad onderbreekt, kan de belasting bij uitgeschakelde stand nog steeds met de fasedraad verbonden zijn. Dat is slecht ontwerp. In landen met gepolariseerde stekkers hoort de schakelaar in de fasedraad te zitten. In Schuko-systemen, waar de stekker omkeerbaar is, gebruiken veel apparaten dubbelpolige schakeling of andere beschermende ontwerptrucs zodat veiligheid niet afhangt van de richting van de stekker alleen.</p>
+      <p>In Nederlandse Schuko-systemen ligt dat lastiger, omdat de stekker omkeerbaar is. Een draagbaar apparaat kan dus niet betrouwbaar weten welke pen op dat moment fase is en welke nul. Daarom gebruiken veel apparaten dubbelpolige schakeling of een ontwerp waarbij de veiligheid niet afhangt van de stand van de stekker.</p>
 
-      <p>Wanneer je een oudere lamp of een aangepast apparaat repareert, is het de moeite waard om het schakelpad te volgen, vooral als stekker, snoerschakelaar of kabel ooit vervangen zijn. Wat je controleert is of de schakelaar de geleider onderbreekt die de ontwerper als lijn bedoelde en of het ontwerp veilig blijft, ook al kan een Schuko-stekker omgedraaid worden.</p>
-
-      <p>Je hebt zojuist iets uitgedacht waar veel beginners over struikelen: waarom de plek van een schakelaar ertoe doet. Die logica is niet willekeurig, ze volgt rechtstreeks uit weten welke geleider de gevaarlijke spanning voert. Zodra je dat begrijpt, volgt de juiste bedrading vanzelf.</p>
+      <p>Toch kom je in eenvoudige lampen en kleine apparaten nog steeds enkelpolige schakelaars tegen. Dan is de praktische les: beschouw "uit" niet als volledig spanningsloos. Bij oudere lampen of aangepaste apparaten is het dus slim om het schakelpad na te lopen, vooral als kabel of snoerschakelaar ooit vervangen is.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Beknelde of geplette kabels zijn een van de meest voorkomende fouten in tafellampen en kleine apparaten. Aan de buitenkant lijkt de kabel vaak nog prima; de isolatie overleeft soms een kneuzing die de koperen kern binnenin niet overleeft. Meet daarom continuïteit terwijl je de kabel bij de invoer heen en weer buigt. Een geleider die alleen contact maakt als de kabel op een bepaalde manier gebogen staat, is een gevaarlijke intermitterende fout. Dat verklaart precies waarom de lamp "soms wel en soms niet" werkte.</p>
+        <p>Beknelde kabels zijn een klassieke lampfout. Meet continuïteit terwijl je de kabel bij de invoer buigt. Een draad die alleen in een bepaalde stand contact maakt, verklaart precies waarom een lamp soms wel en soms niet werkt.</p>
       </div>
 
       <h2>De rol van aarde in veiligheid</h2>
 
-      <p>Aarde verdient wat extra aandacht, omdat die vaak verkeerd begrepen wordt. Aarde maakt geen deel uit van het normale circuit; er hoort in normaal bedrijf geen stroom door te lopen. Haar taak is volledig beschermend.</p>
+      <p>Aarde maakt geen deel uit van het normale werkcircuit. Haar taak is bescherming: bij een fout moet de foutstroom via aarde lopen, niet via een mens.</p>
 
-      <p>Waar beschermt aarde tegen? Stel je een wasmachine voor. Binnenin lopen geleiders met 230V. De wasmachine heeft een stalen trommel en metalen buitenkast. Als de isolatie van de fasedraad verslechtert en die draad de metalen kast raakt, staat de hele kast ineens op 230V. Een persoon die op een vochtige vloer staat en de machine aanraakt, sluit dan via zijn lichaam een circuit naar aarde en kan een dodelijke schok krijgen.</p>
-
-      <p>Met een goede aardverbinding kan op het moment dat fase de metalen kast raakt een grote foutstroom via de aardgeleider naar de beveiliging lopen. De automaat, zekering of aardlekschakelaar zal de fout dan veel sneller afschakelen. Hoe snel precies hangt af van de foutstroom en de aanwezige beveiliging, maar het wezenlijke punt is dat aarde een laagohmig pad biedt dat niet door een mens heen loopt.</p>
-
-      <p>De aardgeleider moet die foutstroom ook kunnen dragen zonder zelf te falen. Hij moet doorlopend zijn van het chassis van het apparaat tot terug naar de groepenkast. Een gecorrodeerde aardverbinding, een ontbrekende aardpen of een aarddraad die alleen in de stekker is aangesloten maar niet op het chassis, dat zijn allemaal fouten die op papier aarding tonen maar in de praktijk geen bescherming bieden.</p>
+      <p>Bij een klasse I-apparaat met metalen behuizing zorgt een goede aardverbinding ervoor dat een fout snel genoeg een beveiliging laat aanspreken. Daarvoor moet de aardgeleider wel echt doorlopend zijn van chassis tot stekker en verder naar de installatie.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
-        <p>Een aardlekschakelaar is een extra beveiligingslaag die het verschil detecteert tussen de stroom in fase en nul. In een gezonde kring zijn die gelijk. Als er stroom weglekt, via aarde, via vochtige isolatie of via een persoon naar de grond, dan ziet de aardlekschakelaar dat verschil en schakelt af. Dat redt levens. Maar het vervangt een goede aardverbinding niet: de aardgeleider blijft nodig om blootliggende metalen delen dicht bij aardpotentiaal te houden en om een sterke, voorspelbare foutweg te creëren.</p>
+        <p>Een aardlekschakelaar vergelijkt de stroom in fase en nul. Is er verschil, dan lekt er ergens stroom weg en schakelt hij af. Dat is extra bescherming, maar geen vervanging voor een goede aardverbinding.</p>
       </div>
 
       <h2>Wat "open circuit" fysiek betekent</h2>
 
-      <p>Nu kunnen we precies zijn over wat een open circuit is: een onderbreking in het geleidende pad van het circuit. Die onderbreking kan bijvoorbeeld zijn:</p>
+      <p>Een open circuit is gewoon een onderbreking in het geleidende pad. Dat kan bijvoorbeeld zijn:</p>
 
       <ul>
         <li>Een gebroken draad, afgebroken of volledig door corrosie aangetast</li>
@@ -143,12 +135,12 @@
         <li>Gecorrodeerde contacten, met zo veel weerstand dat er effectief geen stroom meer loopt</li>
       </ul>
 
-      <p>In al deze gevallen is de spanning nog steeds aanwezig bij de bron, het lichtnet staat nog aan, een batterij heeft nog lading, maar er loopt geen stroom omdat het circuit onvolledig is. Dat onderscheid is cruciaal: spanning kan bestaan zonder stroom, maar stroom kan niet lopen zonder een compleet pad.</p>
+      <p>In al die gevallen kan de bron nog steeds spanning leveren, maar er loopt geen stroom omdat de kring onvolledig is. Spanning kan bestaan zonder stroom; stroom niet zonder compleet pad.</p>
 
-      <p>Voor jouw lamp is het beeld nu helder: de beknelde kabel heeft één geleider gebroken. De spanning staat nog op het stopcontact. Maar het circuit is open en er loopt geen stroom naar de lamp. De diagnose is kabel vervangen. Een vrij eenvoudige reparatie.</p>
+      <p>Voor deze lamp is het beeld dus eenvoudig: de beknelde kabel heeft waarschijnlijk een geleider gebroken. De diagnose is kabel vervangen.</p>
 
       <div class="chapter-closer">
-        <p>Je hebt nu een helder beeld van het circuit: twee geleiders, een belasting, een schakelaar aan de fasekant en aarde voor veiligheid bij apparaten met metalen behuizing. Elk apparaat dat je ooit openmaakt is een variatie op datzelfde fundamentele circuit. In het volgende hoofdstuk gaan we verder: wat gebeurt er als er meerdere belastingen zijn en het circuit zich splitst?</p>
+        <p>Je kunt een apparaat nu zien als een kring: voeding, belasting, retourpad en soms aarde als bescherming. In het volgende hoofdstuk kijken we naar wat er gebeurt als die kring zich splitst.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -162,7 +154,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Controleer je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">
@@ -171,7 +163,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Ja, dat is een probleem. Een schakelaar in de nul betekent dat wanneer de lamp uit staat, fitting en lamp nog steeds met de fasedraad en dus met 230V verbonden kunnen zijn, ook al loopt er geen stroom. Wie de fitting aanraakt of een lamp vervangt terwijl de schakelaar uit staat, kan dus nog steeds een live deel aanraken. De schakelaar hoort in de bruine fasedraad te zitten. Dit moet correct worden herbedraad voordat de lamp terug in gebruik mag.</p>
+            <p>Ja, dat is ongunstig. Als de schakelaar alleen de nul onderbreekt, kan de fitting nog steeds aan fase hangen terwijl de lamp uit staat. In een Schuko-systeem blijft bovendien altijd gelden dat je de stekker niet als gepolariseerd mag behandelen. Herbedraden naar de bedoelde schakeling is dus verstandig, maar de veiligste regel blijft: eerst uit het stopcontact.</p>
           </div>
         </div>
 
@@ -182,7 +174,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Nee. Een broodrooster met metalen behuizing is een klasse I-apparaat, en de aardverbinding hoort bij de veiligheidsvoorziening. Een losgeraakte aarde heeft geen enkel effect op de normale werking, en juist daarom is dit type fout zo gevaarlijk. Als het live element of een andere fasedraad ooit contact maakt met de metalen behuizing, komt die behuizing op 230V te staan. Met een goede aarde zou dan meteen de zekering of automaat aanspreken. Zonder aarde blijft de behuizing stilletjes live, wachtend tot iemand hem aanraakt. Sluit de aarde dus eerst correct aan voordat het apparaat teruggaat.</p>
+            <p>Nee. Dit is een klasse I-apparaat en de aarde is onderdeel van de veiligheid. Zonder goede aardverbinding kan de metalen behuizing bij een fout live worden zonder dat de beveiliging snel genoeg aanspreekt. Eerst aarde herstellen, dan pas teruggeven.</p>
           </div>
         </div>
 
@@ -193,7 +185,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Een paar ohm in een kort stuk koperdraad wijst op een verbinding met te hoge weerstand. Waarschijnlijk is er ergens een gedeeltelijke breuk waarbij nog maar een deel van de aders intact is, of een gecorrodeerde aansluiting. Dit is een gedeeltelijke fout: genoeg continuïteit om op de meter een waarde te geven, maar genoeg weerstand om onder belasting spanningsval, plaatselijke opwarming en mogelijk intermitterend gedrag te veroorzaken. Het snoer moet vervangen worden. Een gecorrodeerde of halfgebroken draad die bij een continuïteitsmeting op lage teststroom nog "goed genoeg" lijkt, kan onder de werkelijke belasting van het apparaat alsnog falen.</p>
+            <p>Dat wijst op te hoge weerstand in een draad of aansluiting. Waarschijnlijk is er een gedeeltelijke breuk of corrosie. Het snoer kan bij lage meetstroom nog net geleiden, maar onder belasting spanningsval en warmte veroorzaken, dus het moet worden vervangen.</p>
           </div>
         </div>
 
@@ -204,7 +196,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>De nuldraad is in het transformatorstation verbonden met de echte aarde, fysiek dus met aardelektroden in de grond. De aarde geldt als universeel referentiepunt en wordt als 0V gedefinieerd. Door nul op die referentie aan te sluiten, blijft de nuldraad overal in het netwerk dicht bij 0V. De fasedraad wordt door de transformator op ongeveer 230V boven die referentie gehouden. Daarom is nul normaal gezien dicht bij aardpotentiaal en fase bewust gevaarlijk hoog. Maar "dicht bij 0V" betekent niet "veilig om aan te raken": onder belasting kan nul iets oplopen, hij kan verkeerd bedraad zijn en hij moet altijd behandeld worden als een geleider die gevaarlijk kan zijn.</p>
+            <p>Door nul in het transformatorstation aan aarde te koppelen, krijgt het net een vast referentiepunt van ongeveer 0V. De fasedraad ligt daar ongeveer 230V boven. Daardoor is nul normaal dicht bij aardpotentiaal, maar nog steeds geen draad die je zomaar als veilig mag behandelen.</p>
           </div>
         </div>
 
@@ -215,7 +207,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>De lamp trekt ongeveer 40 ÷ 230 ≈ 0,17A. Met de wet van Ohm, V = I × R, volgt dat de weerstand van de nuldraad 2,8 ÷ 0,17 ≈ 16,5 ohm moet zijn. Dat is veel te hoog voor een goede koperen kabel, die normaal maar een fractie van een ohm zou hebben. Dit wijst op flinke schade: veel gebroken aders, zware corrosie of een geplet deel waarin bijna geen koper meer over is. Ondanks dat de lamp nog brandt, wordt in dat beschadigde stukje kabel wel degelijk warmte ontwikkeld: I²R = 0,17² × 16,5 ≈ 0,5W op een heel klein oppervlak. Bij een zwaardere belasting loopt die warmte met het kwadraat van de stroom verder op. De kabel moet dus direct vervangen worden. Een nuldraad die "een paar volt" laat zien terwijl die vrijwel 0V zou moeten zijn, is altijd een waarschuwingssignaal.</p>
+            <p>Die spanning wijst op veel te hoge weerstand in de nuldraad. Met de wet van Ohm volgt uit 2,8V gedeeld door ongeveer 0,17A een weerstand van circa 16,5 ohm. Voor een goede kabel is dat veel te hoog, dus er is waarschijnlijk schade of corrosie. De lamp brandt nog, maar in dat beschadigde deel ontstaat warmte. De kabel moet direct worden vervangen.</p>
           </div>
         </div>
 

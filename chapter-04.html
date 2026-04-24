@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Hoofdstuk 4 van 12</span>
+      <span class="progress-label">Hoofdstuk 4 van 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -36,7 +36,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Een kleine bureauventilator komt in een papieren tas binnen. De eigenaar haalt hem voorzichtig tevoorschijn. "Hij ruikt al een paar weken een beetje branderig," zegt ze. "Ik bleef hem gebruiken omdat hij nog gewoon draaide. Maar vanochtend rook het erger dan normaal en toen dacht ik: nu moet ik stoppen." Je tilt hem naar je neus. Daar is het, die specifieke geur van hete draadisolatie, een beetje zoet en synthetisch, uit de motorbehuizing. Niet hetzelfde als brandend plastic. Iets binnenin wordt te heet. Nog voordat je hem openmaakt, begin je te denken over waar die warmte vandaan komt en waarom.</p>
+        <p>Een kleine bureauventilator komt binnen met een branderige geur. Hij draait nog, maar iets in de motor wordt te heet. Nog voor je hem openmaakt, is de kernvraag al duidelijk: waar wordt hier vermogen omgezet in warmte, en hoort dat daar wel?</p>
       </div>
 
       <div class="chapter-objectives">
@@ -50,94 +50,76 @@
 
       <h2>Wat vermogen eigenlijk betekent</h2>
 
-      <p>Vermogen is de snelheid waarmee energie wordt overgedragen of omgezet. Als een waterkoker water verwarmt, zet hij elektrische energie om in warmte. Als een motor een ventilator aandrijft, zet hij elektrische energie om in bewegingsenergie, plus onvermijdelijk ook wat warmte. Vermogen meten we in watt (W), en één watt betekent één joule energie per seconde.</p>
+      <p>Vermogen is de snelheid waarmee energie wordt omgezet. Een waterkoker maakt er warmte van, een motor vooral beweging plus onvermijdelijk ook warmte. Vermogen meten we in watt: één watt is één joule per seconde.</p>
 
       <p>De formule die vermogen, spanning en stroom verbindt is:</p>
 
       <div class="formula">P = V × I</div>
 
-      <p>Vermogen is dus spanning maal stroom. Dit is aan de reparatietafel de bruikbaarste vorm van de vergelijking, omdat spanning en stroom juist de grootheden zijn die je direct kunt meten. Ken je de voedingsspanning en kun je de stroom meten, dan weet je het vermogen.</p>
-
-      <p>Waarom klopt die vermenigvuldiging eigenlijk? Spanning is de hoeveelheid energie die per eenheid lading beschikbaar wordt gemaakt, hoeveel energie elke coulomb kan afgeven. Stroom is hoeveel lading er per seconde langskomt. Vermenigvuldig je "energie per coulomb" met "coulomb per seconde", dan krijg je "energie per seconde", en dat is precies wat vermogen is. P = V × I is dus geen magische elektronicaregel, maar gewoon een compacte manier om te zeggen: hoeveel energie elk stukje lading meedraagt, maal hoeveel stukjes lading er elke seconde passeren.</p>
+      <p>Vermogen is dus spanning maal stroom. Dat is aan de reparatietafel de handigste vorm, omdat spanning en stroom precies de grootheden zijn die je vaak kunt meten.</p>
 
       <p>Maar met de wet van Ohm, V = I × R, kun je nog twee andere nuttige vormen afleiden:</p>
 
       <div class="formula">P = I² × R &nbsp;&nbsp;&nbsp; en &nbsp;&nbsp;&nbsp; P = V² ÷ R</div>
 
-      <p>Deze drie vormen zijn volledig gelijkwaardig. Ze zeggen allemaal hetzelfde, alleen in andere termen. Vooral de tweede, P = I²R, is cruciaal om warmte in bedrading te begrijpen, en daar komen we zo op terug.</p>
+      <p>Vooral `P = I²R` is belangrijk, omdat die direct laat zien waarom bedrading en contacten warm worden.</p>
 
       <h2>Waarom weerstand warmte produceert</h2>
 
-      <p>Als stroom door een weerstand loopt, botsen elektronen tegen het atomaire rooster van het materiaal. Bij elke botsing wordt energie van het elektron overgedragen aan het rooster, de atomen gaan harder trillen, de temperatuur stijgt en er ontstaat warmte. Dit heet jouleverwarming, en het gebeurt in elk weerstandselement van elke schakeling, voortdurend.</p>
+      <p>Als stroom door een weerstand loopt, ontstaat warmte. In een verwarmingselement is dat de bedoeling. In een netsnoer of connector juist niet.</p>
 
-      <p>In een verwarmingselement is dat precies de bedoeling. Het element is ontworpen met een specifieke weerstand die bij de werkspanning een specifieke hoeveelheid warmte produceert. In een koperen netsnoer gebeurt hetzelfde proces ook, maar de weerstand van dat snoer is zo laag dat de geproduceerde warmte verwaarloosbaar is en vrijwel alle energie bij de belasting aankomt.</p>
-
-      <p>De formule P = I²R verklaart iets heel belangrijks: warmte in een geleider schaalt met het <em>kwadraat</em> van de stroom. Verdubbel je de stroom, dan krijg je vier keer zoveel warmte. Daarom zijn te dunne kabels gevaarlijk: ze hebben per meter meer weerstand dan ze zouden moeten hebben en dissiperen bij hoge stroom meer warmte dan ze veilig kwijt kunnen. De isolatie smelt en de kabel wordt brandgevaarlijk.</p>
-
-      <p>Wat je net hebt begrepen, dat warmte niet lineair maar kwadratisch toeneemt met de stroom, is precies waarom elektrische fouten zo snel kunnen escaleren. Een kabel die op 80% van zijn nominale stroom draait is meestal prima. Dezelfde kabel die ineens dubbel zoveel stroom voert, produceert vier keer zoveel warmte. Daarom moet overstroombeveiliging snel ingrijpen.</p>
+      <p>`P = I²R` laat zien waarom dat zo belangrijk is: verdubbel je de stroom, dan krijg je vier keer zoveel warmte. Daarom zijn te dunne kabels, slechte verbindingen en overbelasting zo gevaarlijk.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
-        <p>Een apparaat dat ongewoon warm aanvoelt bij het snoer of de stekker, niet aan de behuizing van het apparaat zelf, maar echt bij snoer of stekker, moet je als mogelijk brandrisico behandelen. Meestal betekent het een verbinding met te hoge weerstand: een losse aansluiting, een beschadigde geleider of een kabel die te dun is voor de stroom die hij voert. Zulke oververhitting blijft soms onzichtbaar tot de isolatie al beschadigd is. Controleer het snoer van begin tot eind, de aansluitingen in de stekker en de trekontlasting waar de kabel het apparaat binnenkomt voordat je het terug in gebruik geeft.</p>
+        <p>Wordt een snoer of stekker ongewoon warm, behandel dat dan als brandrisico. Vaak zit daar een verbinding met te hoge weerstand: een losse aansluiting, beschadigde draad of te lichte kabel. Controleer snoer, stekker en trekontlasting volledig voordat je het apparaat teruggeeft.</p>
       </div>
 
       <h2>Wattages lezen</h2>
 
-      <p>Elk apparaat op netspanning heeft een vermogensrating in watt. Dat getal vertelt hoeveel vermogen het apparaat verbruikt wanneer het normaal werkt. Het is het getal dat de ontwerper bedoeld heeft, berekend voor de juiste voedingsspanning, in Nederland dus 230V.</p>
+      <p>Elk apparaat op netspanning heeft een vermogensrating in watt. Dat is het bedoelde verbruik bij normaal gebruik op 230V.</p>
 
-      <p>Een waterkoker van 2400W: uit P = V²/R volgt R = V²/P = 230² ÷ 2400 ≈ 22 ohm. De stroom is I = P/V = 2400 ÷ 230 ≈ 10,4A. Dat is dus wat zekering en kabel moeten kunnen dragen.</p>
-
-      <p>Een motor van 400W trekt bij 230V ongeveer 1,7A. Veel vriendelijker voor de bedrading. Maar vergeet niet dat motoren meer stroom trekken bij het opstarten of stilvallen dan wanneer ze vrij ronddraaien. Een ventilatormotor van 400W kan kortstondig 3 à 4A vragen wanneer hij opstart, voordat de waaier op snelheid is. Daarom zijn motorzekeringen vaak hoger gekozen dan de normale bedrijfsstroom.</p>
+      <p>Een waterkoker van 2400W trekt bij 230V ongeveer 10,4A. Een motor van 400W ongeveer 1,7A, al kan een motor bij het opstarten of vastlopen tijdelijk meer trekken.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Wanneer een apparaat steeds opnieuw een zekering laat springen, is de reflex vaak om een zwaardere zekering te plaatsen. Niet doen. De zekering is er om kabel en apparaat te beschermen en is juist zo gekozen dat hij doorsmelt vóórdat de bedrading gevaarlijk heet wordt. Een zwaardere zekering geeft de fout alleen meer ruimte, zodat de kabel kan oververhitten en smelten voordat de zekering reageert. De juiste reactie op een zekering die telkens springt, is de fout vinden die te veel stroom veroorzaakt. De enige uitzondering is wanneer een apparaat een trage zekering hoort te hebben en iemand daar per ongeluk een snelle zekering van dezelfde waarde in gezet heeft. Dan los je het op door het juiste type te plaatsen, niet een hogere waarde.</p>
+        <p>Vervang een zekering die steeds springt nooit zomaar door een zwaardere. De zekering is juist gekozen om bedrading en apparaat te beschermen. Alleen wanneer het verkeerde <em>type</em> geplaatst is, bijvoorbeeld snel in plaats van traag, vervang je hem door het juiste type met dezelfde waarde.</p>
       </div>
 
       <h2>Watt en joule: energie versus vermogen</h2>
 
-      <p>Vermogen, watt, en energie, joule, horen bij elkaar maar zijn niet hetzelfde. Vermogen is de snelheid, energie is de totale hoeveelheid. Een waterkoker van 2400W die drie minuten draait, dus 180 seconden, gebruikt 2400 × 180 = 432.000 joule energie. Op de energiemeter verschijnt dat als kilowattuur: 432.000 joule ÷ 3.600.000 joule per kWh = 0,12 kWh. Bij €0,35 per kWh kost één keer water koken dan ongeveer 4 cent.</p>
-
-      <p>Energieberekeningen zijn aan de reparatietafel meestal niet direct nodig, maar de relatie is wel belangrijk wanneer je nadenkt over warmteopbouw, waarom een motor pas na twintig minuten heet gaat ruiken, of waarom een thermische zekering pas aanspreekt na langere tijd in bedrijf en niet direct bij het inschakelen.</p>
-
-      <p>Warmte is alleen "normaal" als ze optreedt waar het ontwerp haar verwacht. Warmte in het element is het werk. Warmte in een stekker, krimpverbinding, schakelcontact of snoer betekent dat vermogen verspild wordt in een onbedoelde weerstand.</p>
+      <p>Vermogen en energie zijn niet hetzelfde. Vermogen is de snelheid, energie de totale hoeveelheid over tijd. Voor reparatie is vooral dit belangrijk: warmteopbouw kost tijd, en warmte is alleen normaal op de plek waar het ontwerp haar verwacht.</p>
 
       <h2>Rendement: waar de energie naartoe gaat</h2>
 
-      <p>Niet alle elektrische energie wordt nuttig werk. Verwarmingselementen zijn bijna 100% efficiënt, alle elektrische energie wordt warmte en dat is precies de bedoeling. Maar motoren, die elektrische energie omzetten in beweging, produceren altijd ook warmte als bijproduct van weerstand in de wikkelingen en wrijving in de lagers.</p>
+      <p>Niet alle elektrische energie wordt nuttig werk. Bij een motor gaat een deel naar beweging en een deel naar warmte. Wordt een motor heter dan bedoeld, dan maakt hij te veel warmte, raakt hij die slecht kwijt, of allebei.</p>
 
-      <p>Een motor die op zijn nominale belasting draait kan 70 tot 85% efficiënt zijn. Dat betekent dat 70 tot 85% van de elektrische energie nuttig asvermogen wordt en 15 tot 30% warmte. Die warmte moet ergens heen. In een goed ontworpen motor wordt ze naar de behuizing geleid en via lucht of straling afgevoerd. In een versleten motor, met slechte lagers, gedeeltelijk kortgesloten windingen of slechte ventilatie, wordt meer warmte geproduceerd en minder warmte kwijtgeraakt, en draait de motor dus heter dan bedoeld.</p>
-
-      <p>Dat is vrijwel zeker wat er bij de ventilator op tafel gebeurt. De brandlucht komt van de isolatie van de windingen die warm genoeg wordt om af te breken. Als de lagers versleten zijn, wat vaak voorkomt bij kleine ventilatormotoren die duizenden uren draaien, moet de motor harder werken om de waaier rond te krijgen. Hij trekt dan meer stroom en produceert meer warmte via I²R. Uiteindelijk faalt de isolatie volledig.</p>
+      <p>Bij deze ventilator zijn versleten lagers een logische verdachte. Dan moet de motor harder werken, trekt meer stroom en maakt meer warmte. Uiteindelijk begint de isolatie te ruiken of te verkleuren.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
-        <p>Jouleverwarming, P = I²R, heeft een belangrijk gevolg in slecht gewikkelde of beschadigde motoren: als een deel van een winding kortsluit, een paar windingen waarvan de isolatie beschadigd is raken elkaar, krijg je een "kortgesloten winding". Die kortsluiting vormt een klein gesloten circuit met zeer lage weerstand. Daarin circuleert een grote stroom, die enorme warmte ontwikkelt op een klein oppervlak. De isolatie verbrandt, de kortsluiting verspreidt zich en de geur wordt erger. Zo'n kortgesloten winding herken je vaak aan het feit dat de motor meer stroom trekt dan normaal, maar minder koppel levert. Er gaat wel stroom in, maar een deel ervan wordt in de kortsluiting verspild in plaats van nuttig werk te doen.</p>
+        <p>Bij beschadigde motorwikkelingen kan een deel van de winding kortsluiten. Dan circuleert lokaal veel stroom in een klein stuk draad, wat daar extreme warmte veroorzaakt. Zo'n motor trekt vaak meer stroom dan normaal, maar levert juist minder goed werk.</p>
       </div>
 
       <h2>Zekeringkeuze en vermogen</h2>
 
-      <p>Zekeringen zijn in ampère gespecificeerd, maar de onderliggende reden voor elke gekozen waarde is vermogen en dus warmte. In Nederland hebben Schuko-stekkers meestal geen losse zekering in de stekker zelf; de beveiliging zit normaal in de automaat in de groepenkast. Maar patroonzekeringen in apparaten zijn wel degelijk afgestemd op de specifieke belasting van dat apparaat, en die afstemming gebeurt op basis van de nominale stroom van het apparaat.</p>
-
-      <p>De zekering moet de normale bedrijfsstroom, inclusief korte opstartpieken, kunnen verdragen zonder door te smelten, maar wel op een blijvende fout aanspreken voordat de bedrading gevaarlijk heet wordt. Een doorgebrande zekering vervangen door een zwaarder exemplaar verstoort dat evenwicht. Dat is geen reparatie, maar het wegnemen van de bescherming.</p>
+      <p>Zekeringen zijn in ampère gespecificeerd, maar de reden achter die keuze is altijd warmte. Ze moeten normale stroom verdragen, maar bij een blijvende fout aanspreken vóór de bedrading gevaarlijk heet wordt.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Maak de ventilator open. Controleer het lager door de as van de waaier met je vinger rond te draaien. Hij moet bijna zonder weerstand en zonder speling soepel draaien. Versleten lagers voelen korrelig, wiebelig of stroef. Als de lagers het probleem zijn, kun je sommige ventilatormotoren nog smeren, een klein druppeltje dunne machineolie op de lagerbus, of de lagers vervangen als je passende onderdelen kunt vinden. Als de winding zelf verbrand ruikt en donker verkleurd is of zichtbaar beschadigd is, is de motor niet meer eenvoudig te repareren. Keur hem dan af en geef hem niet terug: een brandende motor is een wachtende brandhaard.</p>
+        <p>Controleer het lager door de as met de hand te draaien. Die moet soepel lopen, zonder korrelig gevoel of speling. Ruiken de windingen echt verbrand of zie je verkleuring, keur de motor dan af: zo'n motor geef je niet meer terug.</p>
       </div>
 
       <h2>Thermische runaway</h2>
 
-      <p>Een verschijnsel dat de moeite waard is om te begrijpen is thermische runaway, een zichzelf versterkende cyclus waarin warmte meer warmte veroorzaakt. Dat kan op verschillende manieren in elektrische apparatuur gebeuren.</p>
+      <p>Met thermische runaway bedoelen we een fout die zichzelf steeds erger maakt door warmte. Een onderdeel wordt warm, door die warmte raakt het verder beschadigd, en daardoor gaat het nog meer warmte maken. Zo versterkt het probleem zichzelf.</p>
 
-      <p>In een motor met een kortgesloten winding: de kortsluiting produceert warmte, warmte beschadigt nog meer isolatie, meer isolatiefalen veroorzaakt meer kortsluitingen, en die produceren weer meer warmte. Het proces versnelt totdat er iets definitief faalt of de beveiliging ingrijpt.</p>
+      <p>In een motor met een kortgesloten winding werkt het zo: de fout veroorzaakt extra stroom en dus extra warmte. Die hitte beschadigt nog meer isolatie, waardoor de kortsluiting groter wordt en de motor nog warmer wordt.</p>
 
-      <p>In een elektrolytische condensator met beschadigde isolatie, daar komen we in hoofdstuk 11 uitgebreider op terug, stijgt de lekstroom als de temperatuur oploopt. Die hogere lekstroom produceert meer warmte, wat weer tot nog meer lekstroom leidt. Defecte elektrolytische condensatoren op printplaten zie je vaak bol staan of lekkage vertonen. De bovenkant of onderkant is dan opgezwollen of opengebarsten. Dat zichtbare defect is het eindresultaat van thermische runaway binnenin de condensator.</p>
-
-      <p>Goed apparaatontwerp bevat juist thermische beveiliging om zulke runaway-processen te onderbreken voordat ze schade veroorzaken: thermostaten, thermische zekeringen en PTC-componenten die de stroom beperken als de temperatuur stijgt. Daar komen we later nog op terug.</p>
+      <p>Je ziet hetzelfde principe ook in andere componenten, zoals defecte elektrolytische condensatoren. Goed ontwerp probeert zulke kettingreacties juist te stoppen met thermische beveiliging.</p>
 
       <div class="chapter-closer">
-        <p>De ventilator blijkt uiteindelijk een slecht lager te hebben, een klusje dat met smeren op te lossen is. Op de tafel ernaast wacht een broodrooster waarvan één kant nauwelijks bruint. Je voelt al dat de volgende stap niet nóg meer theorie is, maar meten: waar valt de spanning weg, wat heeft nog continuïteit, en welke meterstand geeft het snelst het juiste antwoord?</p>
+        <p>De ventilator blijkt uiteindelijk een slecht lager te hebben. Daarmee wordt duidelijk wat dit hoofdstuk echt toevoegt: warmte is niet alleen een gevolg, maar vaak ook een aanwijzing naar de fout zelf.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -151,7 +133,7 @@
       </div>
 
       <section class="chapter-questions">
-        <h2>Controleer je begrip</h2>
+        <h2>Test jezelf</h2>
 
         <div class="question-item">
           <div class="question-prompt">
@@ -160,18 +142,18 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Stroom: I = P ÷ V = 1600 ÷ 230 ≈ 6,96A, dus afgerond 7A. Vermogen in het snoer: P = I² × R = 7² × 0,5 = 49 × 0,5 = 24,5W. Dat is bijna 25 watt die in het snoer zelf wordt verstookt, ongeveer 1,5% van het totale vermogen. Voor een kort en gezond apparaatsnoer zou dat eigenlijk verdacht hoog zijn; een goede kabel hoort veel minder te verspillen. De berekening laat vooral zien hoe snel de warmte oploopt zodra weerstand ontstaat waar die niet hoort. Als de kabelweerstand echt 0,5 ohm was, zou je direct zoeken naar beschadigde aders, slechte aansluitingen of een te dun snoer.</p>
+            <p>De stroom is 1600 ÷ 230 ≈ 7A. Het verlies in het snoer is dan `I²R = 7² × 0,5 = 24,5W`. Dat is veel te hoog voor een gezond snoer en wijst op een verdacht hoge weerstand.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
             <span class="question-num">V2</span>
-            <span class="question-text">Een stofzuiger trekt duidelijk meer stroom dan volgens het typeplaatje hoort, maar de zuigkracht voelt zwak. Wat kan beide symptomen tegelijk verklaren?</span>
+            <span class="question-text">Een stofzuiger trekt duidelijk meer stroom dan volgens de specificaties op het apparaat hoort, maar de zuigkracht voelt zwak. Wat kan beide symptomen tegelijk verklaren?</span>
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Hoge stroomopname gecombineerd met weinig mechanisch effect wijst sterk op een probleem in de motor zelf: ofwel een gedeeltelijk kortgesloten winding, waarbij stroom in de kortsluiting circuleert en warmte maakt maar geen extra koppel levert, of, vaker nog, een mechanische belemmering of lagerprobleem waardoor de motor tegen een te hoge belasting werkt. Een motor met een stroef of vastlopend lager trekt meer stroom, omdat hij deels aan het "afremmen" is, terwijl er minder van die energie in luchtverplaatsing terechtkomt. Controleer daarom lagers en waaier op blokkades. Kijk ook of de waaier zelf nog heel is; een beschadigd schoepenblad kan de luchtstroom verminderen zonder dat de stroomopname evenredig daalt.</p>
+            <p>Waarschijnlijk een motorprobleem: een stroef lager, blokkade of gedeeltelijk kortgesloten winding. Dan gaat er veel stroom in, maar wordt die slecht omgezet in nuttig werk. Controleer dus lagers, waaier en motorwikkelingen.</p>
           </div>
         </div>
 
@@ -182,7 +164,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Nee, dat is niet veilig. De zekering beschermt kabel en apparaat; het is de laatste verdedigingslinie tegen een langdurige overstroom die brand kan veroorzaken. De originele zekering was om een specifieke reden gekozen: hij moest doorsmelten voordat de bedrading gevaarlijk heet werd. Een zekering met dubbele waarde vraagt ook ongeveer dubbel zoveel stroom voordat hij aanspreekt. Bij een fout, bijvoorbeeld een kortsluiting of defect onderdeel dat te veel stroom trekt, laat de zwaardere zekering veel langer en veel meer stroom door. Daardoor kan de kabel oververhit raken en brand veroorzaken voordat de zekering eindelijk reageert. De juiste aanpak is uitzoeken waarom de originele zekering doorbrandde, niet een zwaardere zekering plaatsen. "Hij werkt prima" betekent alleen dat de fout zich nog niet opnieuw heeft gemeld.</p>
+            <p>Nee. Een zwaardere zekering haalt de bescherming weg waarvoor de originele waarde gekozen was. Bij een fout kan dan eerst de bedrading of het apparaat oververhit raken voordat de zekering reageert.</p>
           </div>
         </div>
 
@@ -193,7 +175,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Omdat de stroom in de formule in het kwadraat staat. Als de stroom I is, dan is het vermogen, dus de warmte, gelijk aan I² × R. Verdubbelt de stroom naar 2I, dan wordt het vermogen (2I)² × R = 4I² × R, dus vier keer het oorspronkelijke. Die kwadratische relatie is praktisch enorm belangrijk: een kabel die op 80% van zijn nominale stroom draait blijft netjes binnen veilige grenzen. Diezelfde kabel die plots twee keer zijn nominale stroom voert na een fout, produceert vier keer zoveel warmte en kan binnen seconden boven de limiet van de isolatie uitkomen. Daarom moet overstroombeveiliging snel werken bij fouten.</p>
+            <p>Omdat de stroom in `P = I²R` in het kwadraat staat. Verdubbel je de stroom, dan krijg je `(2I)² = 4I²`, dus vier keer zoveel warmte. Daarom lopen kabels bij overstroom zo snel heet op.</p>
           </div>
         </div>
 
@@ -204,7 +186,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>De kachel trekt I = P ÷ V = 2000 ÷ 230 ≈ 8,7A. Dat is al zo'n 45% boven de 6A-waarde van het snoer, dus nog voordat je de warmte uitrekent heb je al een probleem. Het vermogen in het snoer is P = I² × R = 8,7² × 1,2 ≈ 75,7 × 1,2 ≈ 91W. Dus 91 watt wordt verspreid als warmte over dat verlengsnoer, genoeg om het voelbaar warm te maken over de hele lengte. De spanningsval over het snoer is V = I × R = 8,7 × 1,2 ≈ 10,4V, wat betekent dat de kachel nog maar ongeveer 219V krijgt. Het veiligheidsprobleem is dat het snoer ongeveer (8,7/6)² ≈ 2,1 keer zoveel warmte moet verwerken als waarvoor het ontworpen is. De isolatie kan daardoor verouderen of smelten, vooral als het snoer opgerold is en de warmte niet kwijt kan. Een kachel van 2000W hoort dus rechtstreeks in een wandcontactdoos, niet op een te licht verlengsnoer.</p>
+            <p>De kachel trekt ongeveer 8,7A en overbelast dat 6A-snoer dus meteen. Het verlies in het snoer is `I²R = 8,7² × 1,2 ≈ 91W`. Dat is veel warmte in het verlengsnoer zelf, en dus gevaarlijk. Zo'n kachel hoort niet op dit snoer.</p>
           </div>
         </div>
 

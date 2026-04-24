@@ -14,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Chapter 1 of 12</span>
+      <span class="progress-label">Chapter 1 of 11</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot current"></span>
@@ -34,7 +34,7 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Saturday morning. Someone sets a kettle on your repair table. "It just stopped working," they say. "It was fine yesterday." You plug it in — nothing. No hum, no heat, no click. Dead. Before you unscrew anything, you already have a mental model running. Something is preventing electricity from doing its job. To figure out what, you need to understand what electricity is actually doing inside that kettle when it works — and what has to go wrong for it to stop. That's what this chapter is about.</p>
+        <p>Saturday morning. A kettle lands on your table: dead, with no heat and no click. Before you open it, the question is simple: what should electricity be doing inside this kettle, and what would stop it? This chapter gives you the language for that question.</p>
       </div>
 
       <div class="chapter-objectives">
@@ -48,9 +48,7 @@
 
       <h2>The water analogy</h2>
 
-      <p>Electricity is invisible and it moves fast — too fast to watch. That makes it hard to reason about intuitively. So we use an analogy: water flowing through pipes. It's not a perfect model, but it's close enough to be genuinely useful, and every electronics engineer has it somewhere in the back of their head.</p>
-
-      <p>Imagine a water system: a pump, some pipes, and a water wheel at the end. The pump creates pressure. That pressure pushes water through the pipes. The water wheel turns — doing useful work — and then the water loops back to the pump to be pushed around again.</p>
+      <p>Electricity is invisible, so it helps to borrow a picture from something visible: water flowing through pipes. The analogy is not perfect, but it is useful.</p>
 
       <p><strong>Voltage</strong> is the electrical equivalent of water pressure. It's the push — the force that drives current around the circuit. A higher voltage pushes harder. It's measured in volts (V), and the Dutch mains supply delivers 230V — enough pressure to push a lot of current through a lot of resistance. An AA battery, by contrast, delivers 1.5V. Same concept, much gentler push.</p>
 
@@ -64,9 +62,9 @@
 
       <div class="formula">V = I × R</div>
 
-      <p>Voltage equals current times resistance. It's an easily rewritable formula — rearrange it to solve for whichever quantity you don't know: current, resistance, or voltage. One equation, three variables.</p>
+      <p>Voltage equals current times resistance. Rearranged, it also tells you current from voltage and resistance, or resistance from voltage and current.</p>
 
-      <p>What this tells you in plain language: given a fixed voltage (like 230V from the mains), the current that flows depends on the resistance. A low-resistance path allows a lot of current. A high-resistance path restricts it. A break in the circuit — infinite resistance — allows no current at all. That is why a dead appliance does not necessarily mean the voltage is gone; voltage can still be present right up to the fault, while the missing ingredient is a complete path for current.</p>
+      <p>In practice: with a fixed supply such as 230V mains, the current depends on the resistance. Low resistance means more current. High resistance means less. An open circuit means no current at all.</p>
 
       <div class="ohm-demo" id="ohm-demo">
         <div class="ohm-demo-header">
@@ -137,13 +135,13 @@
         </div>
       </div>
 
-      <p>For the kettle: the heating element is a coil of high-resistance wire (nichrome, typically — a nickel-chromium alloy designed to resist and generate heat) with a calculated resistance that produces exactly the right amount of current — and therefore exactly the right amount of heat — at 230V. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that calculated value matches the appliance's rating — say, 8–9 amps for a 2000W kettle — the element is probably fine.</p>
+      <p>In a kettle, the heating element is a coil of high-resistance wire. Its resistance is chosen so that at 230V it draws the right current and produces the right amount of heat. Measure the element's resistance, divide the supply voltage by that number, and you get the expected current. If that lines up with the rating — roughly 8 to 9 amps for a 2000W kettle — the element is probably healthy.</p>
 
       <p>If the resistance reads OL (over limit) on a digital meter — meaning the resistance is too high to measure, effectively infinite — the element has failed open-circuit.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">The underlying principle</span>
-        <p>Ohm's law is not really a law of physics in the deep sense — it's an observed property of many materials under normal conditions. Materials that follow it are called "ohmic." What makes it powerful is that it holds across an enormous range of conditions: most metals, most resistors, most heating elements, most wiring. In an ohmic material, the relationship between voltage and current is linear and predictable. Double the voltage, double the current. This predictability is what makes circuits calculable and faults findable.</p>
+        <p>Ohm's law works because many everyday materials behave predictably: double the voltage, and the current doubles too. That predictability is what makes fault-finding possible.</p>
       </div>
 
       <div class="section-break"></div>
@@ -152,9 +150,7 @@
 
       <p>Ohm's law treats voltage as a known number — 230V from the mains, say. But there's something important about what that number actually means. Voltage isn't a property of a single point. It's always a difference between two points. When we say "the mains is 230V," we mean there's a 230-volt difference between the live wire and neutral. When we measure voltage across a component, we're measuring the difference between one side and the other.</p>
 
-      <p>This matters practically. If you measure the voltage between the live terminal of the kettle's heating element and neutral, you should read 230V. If you read 0V, it means there's no difference — either because there's no supply (a blown fuse, an open switch) or because both probes are at the same potential.</p>
-
-      <p>Think of height in the water analogy: pressure differences drive flow, not absolute height. A pump in a basement and a pump at the top of a hill can both produce 3 bar of pressure — what matters is the difference, not the absolute level.</p>
+      <p>This matters when you measure. If you put one probe on live and one on neutral at the kettle element, you should read about 230V. If you read 0V, either the supply is missing or you're measuring between two points that are effectively the same.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
@@ -163,47 +159,34 @@
 
       <h2>Current conservation: what goes in must come out</h2>
 
-      <p>Here's something that matters deeply for fault diagnosis: in a series circuit, the same current flows through every component in the loop. Not approximately the same — exactly the same. Every electron that enters the heating element must also leave it. There's nowhere else for it to go.</p>
-
-      <p>This seems obvious once stated, but it has a useful implication. If you have a series circuit — a fuse, a switch, and a heating element wired in a loop — and you measure current anywhere in that loop, you'll get the same reading. If you measure in two places and get different readings, something has gone wrong with your measurement, or there's a parallel path you haven't accounted for.</p>
-
-      <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>Current conservation is simply a consequence of the conservation of electric charge. Charge doesn't appear from nowhere and doesn't disappear. At any junction in a circuit, the total current flowing in equals the total current flowing out. In a simple series loop with no junctions, that means the same current flows everywhere. In a branched circuit, the currents in each branch add up to the total coming in.</p>
-      </div>
+      <p>In a series circuit, the same current flows through every component in the loop. If a fuse, switch, and heating element are all in series, any current that reaches the element also passed through the fuse and switch first. That is why a break anywhere in the chain stops the whole appliance.</p>
 
       <h2>Resistance and where it comes from</h2>
 
-      <p>So where does resistance actually come from? The answer matters for fault diagnosis — it explains why certain materials are used where they are, and how they fail when they do.</p>
+      <p>Resistance depends on both material and shape. Copper wire has low resistance, so it gets out of the way. A heating element uses a material such as nichrome with much higher resistance, so electrical energy is turned into heat on purpose.</p>
 
-      <p>At the atomic level, resistance comes from electrons colliding with the lattice of atoms as they travel through a material. Picture the inside of a metal as a tightly packed grid of atoms. Electrons move through the gaps — but they don't travel in a straight line. They bounce off atoms, change direction, lose energy. Each collision slows them down slightly and releases a tiny amount of energy as heat. This is why wires get warm under load.</p>
-
-      <p>Different materials have very different atomic structures. In copper, the lattice is tightly ordered and uniform — electrons pass through with relatively few collisions, so resistance is low. In nichrome (the alloy used in most heating elements — a mix of nickel and chromium), the lattice is more disordered. Electrons collide far more often, and far more energy is released as heat per metre of wire. That's not a flaw — it's the design. The element converts electrical energy to heat deliberately, because of its high resistance.</p>
-
-      <p>Geometry also matters. Longer wire means more collisions, more resistance. Thinner wire means a narrower path, more congestion, more resistance. Doubling the length of a wire doubles its resistance; halving its cross-sectional area doubles it again. This is why the supply cables to high-power appliances (kettles, washing machines, ovens) are thick — to keep their resistance low, and therefore the heat generated in the cable itself to a minimum. The element is supposed to get hot. The cable is not. A cable that's warm to the touch under normal use is telling you something.</p>
+      <p>Geometry matters too. Longer wire means more resistance. Thinner wire means more resistance. That is why appliance cables are thick enough to stay cool, while the element is designed to get hot.</p>
 
       <h3>Temperature dependence</h3>
 
-      <p>Resistance isn't fixed — it changes with temperature. For most metals, resistance increases as the metal gets hotter. This matters in practice: a tungsten filament — the wire inside a traditional incandescent bulb — has a much lower resistance when cold than when glowing hot. A cold motor winding has lower resistance than when it's been running for an hour.</p>
-
-      <p>This matters for testing. If you measure the resistance of a cold heating element and compare it to published specs, remember that the specs may be for room temperature. A reading that seems slightly high might be normal. What you're really looking for is whether it's in the right ballpark, or whether it's reading open circuit (broken) or near zero (shorted).</p>
+      <p>Resistance also changes with temperature. For most metals, hotter means higher resistance. So when you measure a cold element, you are looking for the right ballpark, not an exact number. Open circuit or near-zero resistance matters far more than small differences.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">From the workbench</span>
-        <p>Kettle elements typically measure between 20 and 40 ohms cold (for a 2000–2500W element at 230V). A quick check: divide the supply voltage squared by the power rating. For a 2400W kettle: 230² ÷ 2400 ≈ 22 ohms. If you measure OL (over limit — resistance too high to measure, meaning the circuit is broken), the element has failed open-circuit. If you measure less than 5 ohms, suspect a partial short — a fault where part of the element's coil has made contact with itself, bypassing some of the resistance and allowing far more current than intended to flow. Chapter 6 covers the multimeter in full, including how to use the resistance function and interpret what you read.</p>
+        <p>Kettle elements typically measure about 20 to 40 ohms cold. A quick check is 230² ÷ power rating. For a 2400W kettle, that gives about 22 ohms. OL suggests an open circuit; a very low reading suggests a short.</p>
       </div>
 
       <div class="section-break"></div>
 
       <h2>Open circuits, short circuits, and partial faults</h2>
 
-      <p>Back to the kettle on the repair table. With voltage, current, and resistance now in hand, there's a language for what can go wrong. Most faults fall into one of three categories:</p>
+      <p>Back to the kettle. Most electrical faults fall into one of three categories:</p>
 
-      <p><strong>Open circuit</strong>: the path for current has been broken. Resistance is effectively infinite, current is zero, the appliance does nothing. Causes: broken wire, blown fuse, failed heating element, corroded contact, open switch. This is the most common failure mode and usually the easiest to find.</p>
+      <p><strong>Open circuit</strong>: the current path is broken. Resistance is effectively infinite, current is zero, and the appliance does nothing.</p>
 
-      <p><strong>Short circuit</strong>: two conductors that should be separate have made contact, creating a very low-resistance path. Current rushes through this path at far above the design level. Fuses blow, circuit breakers trip, cables get hot. Causes: insulation failure, component failure, conductive contamination (spilled liquid, carbon tracking).</p>
+      <p><strong>Short circuit</strong>: two conductors that should be separate touch, creating a very low-resistance path. Current rises sharply, so fuses blow or breakers trip.</p>
 
-      <p><strong>Partial resistance fault</strong>: something in the circuit has higher resistance than it should. The appliance may still work, but with reduced performance — lower power, more heat generated in the wrong place, voltage drop across the faulty component. Causes: corroded contacts, loose connections, a heating element that hasn't fully failed yet. These are often the hardest faults to find because the appliance still does something.</p>
+      <p><strong>High-resistance fault</strong>: something still conducts, but worse than it should. The appliance may still run, but with reduced power or heat in the wrong place.</p>
 
       <div class="callout callout-safety">
         <span class="callout-label">Safety</span>
@@ -212,17 +195,10 @@
 
       <h2>Putting it together</h2>
 
-      <p>A working kettle is, in electrical terms, elegantly simple. The 230V mains supply drives current through a series loop: cable → plug → switch → thermal protection → heating element → back through neutral. The element has a resistance chosen to draw about 8–10 amps at 230V, which dissipates roughly 2000–2400 watts as heat. Everything in the path is sized to handle that current safely.</p>
-
-      <p>When the kettle goes dead, something in that loop has opened up. The voltage is still there — you can measure it at the socket. But something is preventing current from flowing all the way around. Your job, over the next few chapters, is to build the toolkit to find where that break is.</p>
-
-      <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>At the deepest level, resistance in a material arises from quantum mechanical interactions between charge carriers (electrons) and the material's crystal lattice. The electrons aren't flowing smoothly like water — they're being scattered repeatedly. Each scattering event transfers energy from the electron to the lattice, which we experience as heat. This is Joule heating, and it's not a defect or inefficiency — it's exactly what heating elements are designed to do. We'll return to this in Chapter 4 when we look at power and heat more carefully.</p>
-      </div>
+      <p>A working kettle is electrically simple: mains supply, series path, heating element, return. When it goes dead, something in that path has opened, shorted, or added too much resistance. The rest of the book gives you the tools to find where.</p>
 
       <div class="chapter-closer">
-        <p>Back to the kettle on your table. You now have a language for what might be wrong: an open circuit somewhere in the series loop, most likely at the element, the thermal protection, or the switch. The next chapters give you the tools to find out which.</p>
+        <p>Back at the bench, the kettle is no longer just "dead." It is a circuit with a few likely failure points: the element, the thermal protection, the switch, or a connection between them.</p>
       </div>
 
       <div class="chapter-takeaways">
@@ -246,7 +222,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>OL means the resistance is effectively infinite — there is no continuous path for current through the element. The resistance wire inside has broken; the element has failed open-circuit. Current cannot flow, no heat is produced, and the kettle is dead. This is the most common kettle failure mode. The element is not repairable — it needs replacing, or if parts aren't available, the kettle should be recycled. Before condemning the element, it's also worth checking whether the fault might be upstream — a blown thermal fuse or a broken wire connection would produce exactly the same OL reading on the element terminals.</p>
+            <p>OL means there is no continuous path through the element: it is open circuit. The kettle will not heat, and the element usually needs replacing. Before concluding that, make sure you are really measuring the element itself and not an open thermal fuse or broken connection elsewhere in series.</p>
           </div>
         </div>
 
@@ -257,7 +233,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Using I = V / R: current = 230 ÷ 28.75 = 8 amperes. Power (covered in depth in Chapter 4) is P = V × I = 230 × 8 = 1840 watts, or about 1.84 kW. That's close to 1800W — consistent with the label, given that element resistance varies slightly with temperature and manufacturing tolerance. If the calculation gave something very different — say, 50 amps or 0.5 amps — that would suggest the element had partially failed, or that the resistance reading was taken with a wiring fault in the circuit.</p>
+            <p>I = V / R, so 230 ÷ 28.75 = 8A. Power is 230 × 8 = 1840W, which is close enough to 1800W to be consistent with the label. Small differences are normal; a wildly different result would suggest a fault or a bad measurement.</p>
           </div>
         </div>
 
@@ -268,7 +244,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>Measuring voltage at the plug only confirms the socket is live. It tells you nothing about what happens downstream in the circuit. The fault could equally be in the cable (broken conductor), the plug connections (loose or corroded), the switch, the thermal fuse, or the connection to the element itself — all of which are in series with the element and would produce the same dead symptom. You need to follow the voltage through the circuit — measuring across each component or section — to narrow down where the open circuit is. Only once you've confirmed voltage is present right up to the element can you blame the element.</p>
+            <p>230V at the plug only proves the socket is live. The fault could still be in the cable, switch, thermal fuse, internal wiring, or the element itself. You have to trace the circuit, not jump to the last component.</p>
           </div>
         </div>
 
@@ -279,7 +255,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>The same. In a series circuit, there is only one path for current — it has to flow through every component in sequence. Since charge is conserved (Kirchhoff's current law), the number of electrons per second passing through the fuse must equal the number passing through the switch and the element. This is why a fuse works: it's in series with the load, so all the current that powers the appliance also passes through the fuse. If the current exceeds the fuse rating, the fuse blows — protecting the entire circuit.</p>
+            <p>The same. In a series circuit there is only one path, so the fuse and the element carry the same current. That is why the fuse can protect the whole appliance.</p>
           </div>
         </div>
 
@@ -290,7 +266,7 @@
             <span class="question-reveal">Show answer</span>
           </div>
           <div class="question-answer">
-            <p>No — not without further thought. The expected resistance at operating temperature is V²/P = 230² ÷ 2000 = 26.5 ohms. But nichrome's resistance increases with temperature: an element that reads 26.5 ohms when glowing hot will read higher when cold. 35 ohms cold is a plausible reading for an element whose hot resistance is ~26 ohms, and the workbench guideline (20–40 ohms cold for a 2000–2500W element) puts this squarely in the normal range. What would condemn it: OL (open circuit — the element wire has broken) or near zero ohms (shorted turns). A cold reading that's somewhat above the calculated hot resistance is expected, not a fault. This is the kind of reasoning that prevents unnecessary part replacements.</p>
+            <p>No. The calculated hot resistance is about 26.5 ohms, but a cold element can read higher. A 35-ohm cold reading is still plausible for a kettle element. OL or a near-zero reading would be much more suspicious.</p>
           </div>
         </div>
 

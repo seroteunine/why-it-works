@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoofdstuk 10: Condensatoren — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 10 van Why It Works: wat condensatoren opslaan, welke typen je in apparaten tegenkomt en waarom sommige condensatoren ook na uitschakelen levensgevaarlijk blijven.">
+  <link rel="alternate" hreflang="en" href="en/chapter-10.html">
+  <link rel="alternate" hreflang="nl" href="chapter-10.html">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Hoofdstuk 10 van 11</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Hoofdstuk 10</p>
+        <h1>Condensatoren</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>Een magnetron warmt niet meer, terwijl lampje, draaiplateau en timer het nog doen. Nog voor je hem openmaakt is de eerste les al duidelijk: in sommige apparaten blijft ook na uitpluggen gevaarlijke energie opgeslagen. Bij condensatoren is veiligheid daarom geen bijzaak maar het beginpunt.</p>
+      </div>
+
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Leerdoelen</span>
+        <ul>
+          <li>Begrijpen wat condensatoren opslaan en waarom dat voor reparatie belangrijk is.</li>
+          <li>De belangrijkste condensatortypen in apparaten en elektronica herkennen.</li>
+          <li>Weten waar condensatorwerk ophoudt routine te zijn en specialistisch wordt.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Veiligheid — lees dit vóór je een magnetron opent</span>
+        <p>Magnetrons bevatten een hoogspanningscondensator, vaak rond 0,9–1,1 µF en 2100V AC. Tijdens bedrijf wordt die opgeladen tot ruim boven de 2000V DC. In tegenstelling tot gewone huisinstallatie blijft zo'n condensator ook na uitschakelen nog energie bevatten.</p>
+        <p>De praktische regel is simpel: stekker eruit, wachten, spanning alleen controleren met geschikt hoogspanningsgereedschap als je daarvoor bent opgeleid, en ontladen volgens een procedure en met een gereedschap dat voor magnetronservice bedoeld is. Nooit kortsluiten met schroevendraaier of draad. Heb je de juiste kennis en tools niet, stop dan en verwijs de reparatie door.</p>
+      </div>
+
+      <h2>Wat een condensator is</h2>
+
+      <p>Een condensator slaat elektrische energie op in een elektrisch veld. In de simpelste vorm bestaat hij uit twee geleiders met daartussen een isolerende laag.</p>
+
+      <p>De hoeveelheid lading die bij een gegeven spanning opgeslagen kan worden heet capaciteit en wordt gemeten in farad. In de praktijk kom je vooral tegen:</p>
+      <ul>
+        <li>microfarad (µF): voedingen, motorcondensatoren, grotere filters</li>
+        <li>nanofarad (nF): foliecaps en veel kleine toepassing op printen</li>
+        <li>picofarad (pF): kleine keramische condensatoren en HF-circuits</li>
+      </ul>
+
+      <p>De opgeslagen energie is `E = ½CV²`. Juist dat `V²`-deel maakt hoge spanning zo belangrijk: een condensator met bescheiden capaciteit kan toch gevaarlijk veel energie bevatten.</p>
+
+      <p>Gevaarlijk is niet alleen hoeveel energie erin zit, maar ook hoe snel die vrijkomt. Dezelfde energie kan bij snelle ontlading een enorme piekstroom geven.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>Een condensator is geen continue energiebron zoals een batterij, maar een reservoir dat zijn lading heel snel kan afgeven. Hoe lager de weerstand van het ontlaadpad, hoe hoger de piekstroom. Daarom is "even kortsluiten" zo gevaarlijk.</p>
+      </div>
+
+      <h2>Typen condensatoren en waar je ze vindt</h2>
+
+      <h3>Elektrolytische condensatoren</h3>
+      <p>Dit zijn de grotere cilindrische onderdelen op printplaten. Ze zijn gepolariseerd: plus en min doen ertoe. Je vindt ze vooral in voedingsfilters.</p>
+
+      <p>Hun elektrolyt veroudert door warmte, tijd en spanning. Daarom zijn defecte elco's een van de meest voorkomende storingen in oudere elektronica. Opbollende of lekkende toppen zijn een belangrijk visueel alarmsignaal.</p>
+
+      <h3>Foliecondensatoren</h3>
+      <p>Die zijn niet-gepolariseerd, stabieler en langer houdbaar. Je vindt ze in motor-runcondensatoren, netontstoringscondensatoren en andere toepassingen waar stabiliteit belangrijk is.</p>
+
+      <h3>Keramische condensatoren</h3>
+      <p>Kleine schijfjes of chiponderdelen op printen. Niet-gepolariseerd en meestal met lage capaciteit. Ze falen minder vaak dan elco's, maar kunnen open of kort gaan door mechanische of thermische stress.</p>
+
+      <h2>Wat condensatoren in een circuit doen</h2>
+
+      <h3>Voedingsafvlakking</h3>
+      <p>Na gelijkrichting is DC uit een voeding nog geribbeld. Een grote elco vlakt die spanning af. Verslechtert die condensator, dan neemt de rimpel toe en krijg je brom, instabiliteit of slecht gedrag van de elektronica.</p>
+
+      <h3>Faseverschuiving voor motoren</h3>
+      <p>Zoals in hoofdstuk 8 besproken gebruiken eenfasige inductiemotoren een condensator om aanloopkoppel te maken.</p>
+
+      <h3>Netontstoring</h3>
+      <p>Sommige condensatoren zitten direct over de netspanning of tussen net en aarde. Zulke onderdelen hebben veiligheidsklassen zoals X2 of Y2. Daar mag je nooit zomaar "iets met dezelfde waarde" voor terugzetten.</p>
+
+      <h2>Veelvoorkomende condensatorfouten</h2>
+
+      <h3>Open circuit</h3>
+      <p>De condensator doet elektrisch bijna niets meer. In een motorcircuit betekent dat vaak weinig of geen aanloopkoppel. In een voeding betekent het meer rimpelspanning.</p>
+
+      <h3>Kortsluiting</h3>
+      <p>Het diëlektricum is defect geraakt en de platen geleiden direct. In netcircuits leidt dat vaak tot een gesprongen zekering of automaat.</p>
+
+      <h3>Interne degradatie</h3>
+      <p>Een elco kan intern verslechteren en toch nog ongeveer de juiste capaciteit lijken te hebben. De ESR stijgt dan, waardoor de condensator slecht reageert op snelle veranderingen. Symptomen: brom, instabiele voedingen en printen die zich onder belasting vreemd gedragen.</p>
+
+      <h3>Capaciteitsverlies</h3>
+      <p>Oudere elco's en motorcondensatoren verliezen vaak een flink deel van hun capaciteit. Een motor-runcondensator die 30 tot 40% te laag is, levert duidelijk minder koppel en laat een motor slecht starten.</p>
+
+      <div class="chapter-closer">
+        <p>De hoogspanningscondensator van de magnetron blijft specialistisch werk. Uiteindelijk blijkt niet de condensator maar de magnetronbuis defect, en vervanging is duurder dan een nieuw apparaat. Dat is ook een nuttige uitkomst: soms is de belangrijkste reparatiebeslissing om te stoppen.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Onthoud dit</span>
+        <ul>
+          <li>Condensatoren slaan niet alleen lading maar ook energie op, en sommige blijven gevaarlijk na uitschakelen.</li>
+          <li>Capaciteitswaarde, spanningsklasse en veiligheidsklasse zijn allemaal belangrijk.</li>
+          <li>Capaciteitsverlies en interne degradatie zijn veelvoorkomende fouten, vooral bij elco's.</li>
+          <li>Hoogspanningswerk in magnetrons is specialistisch terrein als je niet de juiste tools en training hebt.</li>
+        </ul>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Test je begrip</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">V1</span>
+            <span class="question-text">Een elco op een print ziet er plat uit en meet nog bijna zijn nominale waarde. Moet je hem dan "voor de zekerheid" vervangen?</span>
+            <span class="question-reveal">Toon antwoord</span>
+          </div>
+          <div class="question-answer">
+            <p>Niet automatisch. Zonder symptomen of visuele schade kan vervangen meer risico op nieuwe solderingsproblemen geven dan voordeel. Eerst bewijs, dan pas vervangen.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">V2</span>
+            <span class="question-text">Een motor-runcondensator moet 12 µF zijn en meet 7,5 µF. De machine draait, maar komt slecht op snelheid. Hangen die twee dingen samen?</span>
+            <span class="question-reveal">Toon antwoord</span>
+          </div>
+          <div class="question-answer">
+            <p>Ja. Minder capaciteit betekent minder faseverschuiving en dus minder koppel. Vooral bij starten en versnellen merk je dat direct.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">V3</span>
+            <span class="question-text">Waarom kan een voeding met de juiste DC-uitgangsspanning toch een hoorbare brom veroorzaken?</span>
+            <span class="question-reveal">Toon antwoord</span>
+          </div>
+          <div class="question-answer">
+            <p>Omdat de gemiddelde spanning nog goed kan zijn terwijl de afvlakking slecht is. Een verslechterde elco laat dan veel rimpel door, en die rimpel hoor je als brom.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">V4</span>
+            <span class="question-text">Waarom mag een AC-motorcondensator geen gewone gepolariseerde elco zijn, ook niet als de capaciteit overeenkomt?</span>
+            <span class="question-reveal">Toon antwoord</span>
+          </div>
+          <div class="question-answer">
+            <p>Omdat de spanning in een AC-circuit elke halve cyclus van polariteit wisselt. Een gepolariseerde elco kan daar niet tegen en raakt snel defect, soms spectaculair. Voor die toepassing heb je een niet-gepolariseerde foliecondensator met juiste AC-rating nodig.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">V5</span>
+            <span class="question-text">Wat maakt een magnetroncondensator zo bijzonder gevaarlijk?</span>
+            <span class="question-reveal">Toon antwoord</span>
+          </div>
+          <div class="question-answer">
+            <p>De combinatie van hoge spanning en opgeslagen energie. Zelfs uitgeschakeld kan zo'n condensator nog een dodelijke lading vasthouden en die in zeer korte tijd afgeven.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-09.html" class="nav-prev">Hoofdstuk 9: Wisselstroom versus gelijkstroom</a>
+        <a href="chapter-11.html" class="nav-next">Hoofdstuk 11: Systematische foutdiagnose</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
