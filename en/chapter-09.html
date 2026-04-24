@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 9: AC vs DC — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 9 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 9</p>
+        <h1>AC vs DC</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>Two jobs still on the table from the last chapter. The fan — the one that hummed but wouldn't start — is diagnosed: a failed run capacitor, a repair that waits until Chapter 11. Next to it, a battery radio that arrived while you were working on the grinder. Its owner says it simply stopped working. Before you pick up the multimeter on either one, you pause. These two appliances are not in the same electrical world. One is a mains AC machine; the other runs on low-voltage DC. That difference changes which meter setting to use, how you think about what's dangerous, and where in the appliance to start looking.</p>
+      </div>
+
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand the practical difference between AC and DC.</li>
+          <li>Know what the multimeter is really showing when it reads 230V AC.</li>
+          <li>Recognise when AC/DC knowledge matters for a repair cafe job, and when it mostly does not.</li>
+        </ul>
+      </div>
+
+      <h2>Direct current</h2>
+
+      <p>Direct current, DC, is what batteries provide. The voltage stays at one polarity and current flows in one direction. Small battery appliances, simple electronics, and the low-voltage side of adapters all live in this world.</p>
+
+      <p>At a repair cafe, DC usually matters when you're dealing with battery-powered devices, adapters, control boards, LEDs, or any circuit that has already converted the mains to a lower voltage. The practical point is not to become an electronics specialist; it is to recognise that these parts of an appliance want steady low-voltage DC, not raw mains AC.</p>
+
+      <h2>Alternating current</h2>
+
+      <p>Alternating current, AC, is what comes out of your wall socket. Instead of staying at a fixed voltage, AC swings back and forth: positive, through zero, negative, through zero, positive again. In the Netherlands (and across most of Europe) this happens as a sine wave repeating at 50 Hz — 50 complete cycles per second.</p>
+
+      <h2>What matters about mains AC</h2>
+
+      <p>Here's the part that matters at the bench. When we say the Dutch mains is 230V, we do not mean the voltage sits at a flat 230V. It swings above and below zero, reaching about +325V and −325V on each cycle.</p>
+
+      <p>The 230V your meter shows is the RMS value — the effective value. For a resistive load such as a kettle, toaster, or iron, 230V RMS AC produces the same heating effect as 230V DC would.</p>
+
+      <p>The relationship for a sine wave is:</p>
+
+      <div class="formula">V<sub>peak</sub> = V<sub>RMS</sub> × √2 &nbsp;&nbsp;&nbsp; ≈ &nbsp;&nbsp;&nbsp; 230 × 1.414 ≈ 325V</div>
+
+      <p>You do not need this because most repair-cafe jobs involve waveform calculations. You need it for two simpler reasons: to understand what your AC voltage reading really means, and to remember that components on the mains side must survive the peak voltage, not just the number printed on the socket.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>When you set your multimeter to AC voltage and measure the mains, you'll read approximately 230V — that's the RMS value. If you were to connect an oscilloscope (or a peak-hold function) you'd see the full 325V peak. This distinction matters when you're testing circuit components. A capacitor marked only 250V is not suitable for direct use across the mains. For across-the-mains service you need the correct safety-rated part — typically an X2 capacitor of the specified capacitance and voltage class — not just "something with a big enough number on it."</p>
+      </div>
+
+      <h2>When this chapter matters</h2>
+
+      <p>For many repairs in this book, AC/DC is not the main event. A dead kettle, faulty lamp, burned switch, failed fuse, or open heating element can often be understood perfectly well with the ideas from the previous chapters: voltage, current, resistance, circuits, and power.</p>
+
+      <p>This chapter matters when one of three things is true: you must choose the correct AC or DC setting on the multimeter, you are working near the mains side of an appliance and need to think clearly about voltage and safety, or the appliance contains a motor, capacitor, adapter, or control board where AC is being used differently from simple resistive heating.</p>
+
+      <h2>Where AC becomes DC inside an appliance</h2>
+
+      <p>Some appliances are almost entirely mains AC machines: kettles, toasters, irons, simple fans. Others contain a small section that converts the mains to lower-voltage DC for controls, timers, displays, or electronic switching. You do not need to know the full internal design in order to repair most of them. What matters is recognising that an appliance may have both worlds inside it: mains AC in one part, low-voltage DC in another.</p>
+
+      <p>The broad conversion path is simple enough to remember: AC comes in, rectification turns it into one-direction current, capacitors smooth it, and the circuit uses that DC where needed. That is enough background for this book. If you later open an appliance and find a control board, display module, or adapter section, you will at least know why AC has disappeared and DC has appeared.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Rectification depends on the one-way behaviour of diodes. They allow current through in one direction and block it in the other. Arranged properly, they turn an alternating waveform into a one-direction flow that capacitors can smooth into usable DC.</p>
+      </div>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>Do not let the presence of a small circuit board convince you that every repair has become an electronics job. Start by asking what the appliance fundamentally is. If it is mainly a heater, motor, switch, fuse, or cable problem, stay with that. Use the AC/DC distinction mainly to choose your meter setting and to avoid getting lost when a low-voltage section appears.</p>
+      </div>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>You measure a battery pack on AC mode and get nonsense. You measure a live mains socket on DC mode and get nonsense. What is the first explanation in both cases? Before blaming the appliance, check whether you are asking the meter the right question.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>The fan is set aside for Chapter 11. The radio's fault turns out to be a corroded battery contact — found by tracing voltage on the DC side with the meter set correctly. The useful lesson is not that every repair depends on AC/DC theory. It is that when AC/DC does matter, it usually matters in a small number of practical ways: what your meter should be set to, what part of the appliance you are really looking at, and what voltage may still be present even after unplugging. The next step is to turn that understanding back into circuit structure on paper.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Mains appliances usually start in the world of AC; batteries and many control circuits live in the world of DC.</li>
+          <li>230V mains is an RMS value; the sine wave peaks at about 325V.</li>
+          <li>For many repair-cafe jobs, AC/DC is a supporting idea rather than the main diagnostic tool.</li>
+          <li>The main practical uses of this chapter are meter selection, safety awareness, and recognising when an appliance contains both AC and DC sections.</li>
+        </ul>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">Why might a multimeter show a strange or useless reading even when the appliance is fine?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Because the meter may be on the wrong kind of measurement. Measuring AC with the DC setting, or DC with the AC setting, often gives a misleading number or no sensible number at all. Before drawing conclusions about the appliance, first check that the meter is set to the kind of electricity actually present at that point in the circuit.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">Why do we say the mains is 230V when the waveform actually reaches about 325V peak?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Because 230V is the RMS value, which is the effective heating value of the AC supply. For a resistive load, 230V RMS AC produces the same heating effect as 230V DC would. The waveform itself swings higher and lower than that, but the meter reading is reporting the effective value rather than the peak.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">A kettle is a simple resistive appliance. Why is AC/DC knowledge usually not the main thing you need to diagnose it?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Because most kettle faults can already be understood with the earlier chapters: is the circuit complete, what is the element resistance, is the switch intact, is the thermal protection open, is there voltage at the right place? The AC/DC distinction is background knowledge here, not the main diagnostic path.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">When is AC/DC knowledge especially worth keeping in mind at a repair cafe table?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>When you must choose the meter setting correctly, when you are thinking about mains-side safety, or when an appliance contains both a mains section and a low-voltage control section. Those are the moments where knowing whether you are in AC or DC territory stops confusion and prevents unsafe assumptions.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">An appliance has an internal power supply that converts 230V AC to 12V DC for a control board. The appliance is completely dead. You measure 0V DC at the 12V output rail. You then set the meter to AC and measure the input side of the transformer: also 0V. The wall socket is confirmed live. Where does this pattern point, and what would you check next?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The pattern shows that 230V AC is present at the socket but not reaching the transformer inside the appliance. The fault is in the AC section, before the conversion point — not in the DC section or the control board. Something is breaking the mains supply path between the plug and the transformer primary. The most likely candidates are: a blown appliance fuse (always in series in the AC section), the main switch, or a broken wire or connector in the AC wiring before the transformer. Check the fuse first with continuity — it's the quickest test and the most common cause. If the fuse is intact, trace voltage forward from the plug with the appliance connected: 230V AC before the fuse, nothing after it means the fuse is the fault even if it looked intact visually. This case illustrates why the AC/DC distinction matters for diagnosis: a dead control board is often caused by a failure in the mains section upstream of it, not a failure of the board itself.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-08.html" class="nav-prev">Chapter 8: Motors</a>
+        <a href="chapter-10.html" class="nav-next">Chapter 10: Reading a Simple Circuit Diagram</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

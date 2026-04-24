@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 6: Switches and Fuses — Why It Works</title>
+  <title>Hoofdstuk 6: Schakelaars en zekeringen — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 6 van Why It Works: hoe schakelaars en zekeringen werken, waarom zekeringtype ertoe doet en hoe je een doorgebrande zekering als aanwijzing leest.">
+  <link rel="alternate" hreflang="en" href="en/chapter-06.html">
+  <link rel="alternate" hreflang="nl" href="chapter-06.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Chapter 6 of 12</span>
+      <span class="progress-label">Hoofdstuk 6 van 12</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -29,197 +32,192 @@
 
     <article>
       <header class="chapter-header">
-        <p class="chapter-number">Chapter 6</p>
-        <h1>Switches and Fuses</h1>
+        <p class="chapter-number">Hoofdstuk 6</p>
+        <h1>Schakelaars en zekeringen</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>The vacuum cleaner bag is so full it's turned to a solid brick. "It just stopped working," the owner said when it arrived — which is what everyone says. You empty the bag, clear the hose and filter, and reassemble. You plug it in — and nothing. No hum, no attempt to start, nothing. The motor isn't even trying. You press the power switch a few times. Still nothing. With an overfull bag, the machine may have been running hot for a while — some vacuums have thermal protection that trips when they overheat. But on this model, there's also a small glass fuse visible inside the machine. You reach for the multimeter.</p>
+        <p>De stofzuigerzak zit zo vol dat hij is veranderd in een harde steen. "Hij deed ineens niks meer," zei de eigenaar bij binnenkomst, wat ongeveer iedereen zegt. Je leegt de zak, maakt slang en filter schoon en zet alles weer in elkaar. Stekker erin, knop aan, en niets. Geen brom, geen poging om op te starten, helemaal niets. Misschien is hij door de volle zak te heet geworden en heeft een thermische beveiliging aangesproken. Maar in dit model zit ook een klein glazen zekeringetje. Je pakt de multimeter erbij.</p>
       </div>
 
       <div class="chapter-objectives">
-        <span class="chapter-objectives-title">Learning goals</span>
+        <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Understand what switches and fuses actually do in a mains appliance.</li>
-          <li>Recognise why fuse type matters just as much as fuse current rating.</li>
-          <li>Use a blown fuse as a clue without mistaking it for the root cause.</li>
+          <li>Begrijpen wat schakelaars en zekeringen werkelijk doen in een netgevoed apparaat.</li>
+          <li>Herkennen waarom het type zekering net zo belangrijk is als de stroomwaarde.</li>
+          <li>Een doorgebrande zekering gebruiken als aanwijzing zonder haar voor de eigenlijke oorzaak te houden.</li>
         </ul>
       </div>
 
-      <h2>What switches actually do</h2>
+      <h2>Wat schakelaars echt doen</h2>
 
-      <p>A switch is mechanically simple but electrically precise: it creates or destroys a conducting path. In the on position, the switch's contacts touch — low resistance, current flows. In the off position, the contacts separate — infinite resistance, current cannot flow.</p>
+      <p>Een schakelaar is mechanisch simpel maar elektrisch heel precies: hij maakt of verbreekt een geleidend pad. In de aan-stand raken de contacten elkaar, de weerstand is laag en er kan stroom lopen. In de uit-stand staan de contacten uit elkaar, de weerstand is in theorie oneindig en er loopt geen stroom.</p>
 
-      <p>What happens in that instant of opening is easy to miss. The contacts do not go from perfect touch to infinite separation in one clean step. For a brief moment they are very close together while current is still trying to flow, and the electric field across the tiny air gap can become strong enough to ionise the air. A miniature arc jumps the gap. That arc is why switch contacts slowly burn, pit, and wear out.</p>
+      <p>De belangrijkste regel uit hoofdstuk 2 blijft gelden: <strong>een schakelaar hoort de bedoelde fasedraad te onderbreken, of beide geleiders in een dubbelpolige uitvoering</strong>. Zo verklein je de kans dat de belasting nog op netpotentiaal staat terwijl het apparaat "uit" lijkt te zijn. In Schuko-systemen kun je de stekker omdraaien, dus veiligheid mag niet alleen van stekkeroriëntatie afhangen.</p>
 
-      <p>The key rule from Chapter 2 bears repeating: <strong>switches should interrupt the intended live conductor, or both conductors in a double-pole design</strong>. That reduces the chance of leaving the load sitting at mains potential when "off." In Schuko systems, because plug orientation is reversible, good appliance safety should not depend on plug orientation alone.</p>
+      <h3>Soorten schakelaars in apparaten</h3>
 
-      <h3>Types of switches in appliances</h3>
+      <p><strong>SPST</strong> (Single Pole Single Throw): de simpelste variant. Eén ingang, één uitgang. Aan of uit. De wipschakelaar op een waterkoker of de aan/uit van een ventilator is vaak SPST.</p>
 
-      <p><strong>SPST</strong> (Single Pole Single Throw): the simplest type. One input, one output. On or off. The rocker switch on a kettle, the on/off on a fan — these are SPST.</p>
+      <p><strong>SPDT</strong> (Single Pole Double Throw): één ingang die tussen twee uitgangen schakelt. Handig voor standen, bijvoorbeeld laag en hoog. In een föhn vind je vaak twee van zulke functies gecombineerd.</p>
 
-      <p><strong>SPDT</strong> (Single Pole Double Throw): one input, switches between two outputs. Used for heat settings — "low" connects the motor to a different circuit element than "high." The three-speed switch on a hair dryer is typically two SPDTs.</p>
+      <p><strong>DPST/DPDT</strong>: dubbelpolige schakelaars die fase en nul tegelijk onderbreken. Die zie je in sommige apparaten waar volledige onderbreking van de belasting gewenst is.</p>
 
-      <p><strong>DPST/DPDT</strong>: double-pole types interrupt both live and neutral simultaneously. Used on some appliances where full isolation of the load is required — some old kettle switches, some workshop equipment. Both poles must make and break together.</p>
+      <p><strong>Microschakelaars</strong>: kleine precisieschakelaars met een hefboompje of plunjer. Door hun snelle klikgedrag schakelen ze betrouwbaar en met weinig vonkvorming. Je ziet ze in veiligheidsschakelingen, dekselschakelaars en eindschakelaars.</p>
 
-      <p><strong>Microswitches</strong>: precision mechanical switches with a small lever or plunger. They provide a very reliable snap action — the contacts make and break quickly, which reduces arcing. Common in safety interlocks (lid switches on washing machines, door switches on microwave ovens), door-close detectors, and limit switches in mechanisms.</p>
-
-      <p><strong>Push-to-make / push-to-break</strong>: momentary switches — contacts are only in one state while you're pressing them. A doorbell button is push-to-make (circuit closes while pressed). Some espresso machine switches use push-to-break for safety cutoffs.</p>
+      <p><strong>Druk-maak / druk-verbreek</strong>: momentary schakelaars. Ze veranderen alleen van toestand zolang je ze indrukt. Een deurbel is druk-maak. Sommige veiligheidstoepassingen gebruiken juist druk-verbreek.</p>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>The most common switch failure in appliances is worn or pitted contacts. The arc that occurs every time contacts open under load (especially at mains voltage) gradually erodes the contact surface. Eventually, the contact resistance rises, the switch heats at the contact point, and either starts exhibiting intermittent failures or arcs so badly it welds closed. A switch that feels "gritty" or takes two or three presses to operate, or an appliance that's intermittently dead, is often a contact problem. Check resistance across the closed switch: should be near zero. A few ohms indicates worn contacts.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>De meest voorkomende schakelaarfout in huishoudelijke apparaten is versleten of ingebrand contactoppervlak. Elke keer dat een contact onder belasting opent, ontstaat er een kleine vlamboog. Na verloop van tijd wordt het oppervlak ruw, neemt de contactweerstand toe en gaat het contact lokaal warm worden. Het resultaat: haperend gedrag, meerdere keren moeten drukken of zelfs vastgelaste contacten. Meet eens over een gesloten schakelaar: dat hoort praktisch 0 ohm te zijn. Een paar ohm wijst op versleten contacten.</p>
       </div>
 
-      <h2>Fuses: how they work and why they exist</h2>
+      <h2>Zekeringen: hoe ze werken en waarom ze bestaan</h2>
 
-      <p>A fuse is a sacrificial component: a small element of wire or strip designed to melt and open the circuit when the current through it exceeds its rated value for long enough. Once it blows, it's destroyed — it must be replaced.</p>
+      <p>Een zekering is een opofferingsonderdeel: een dun draadje of stripje dat zo ontworpen is dat het smelt en het circuit opent wanneer de stroom er te lang boven zijn nominale waarde komt. Als hij aanspreekt, is hij kapot en moet hij worden vervangen.</p>
 
-      <p>The fuse element is calibrated so that:</p>
+      <p>Het zekeringselement is zo gekozen dat:</p>
       <ul>
-        <li>Normal operating current flows through it indefinitely without melting</li>
-        <li>A moderate overcurrent (say, 150% of rated) melts the element after some time</li>
-        <li>A large overcurrent (fault current, short circuit) melts it in milliseconds</li>
+        <li>normale bedrijfsstroom er onbeperkt doorheen kan zonder te smelten</li>
+        <li>matige overstroom na enige tijd tot doorsmelten leidt</li>
+        <li>grote foutstromen of kortsluitingen in milliseconden worden onderbroken</li>
       </ul>
 
-      <p>The fuse doesn't know what's causing the overcurrent — motor stall, short circuit, wiring fault, component failure. It simply responds to the current. Its job is to protect the wiring and reduce fire risk before damage spreads.</p>
+      <p>De zekering "weet" niet waarom de stroom te hoog is. Een vastgelopen motor, kortsluiting, bedradingfout of defect onderdeel ziet zij allemaal alleen als te veel stroom. Haar taak is bedrading en apparaat beschermen voordat de fout zich in hitte en brandrisico vertaalt.</p>
 
-      <p>A blown fuse is usually the messenger rather than the cause. Something else demanded too much current, and the fuse responded exactly as designed.</p>
+      <p>Een doorgebrande zekering is dus meestal de boodschapper, niet de oorzaak. Iets anders heeft te veel stroom gevraagd, en de zekering heeft precies gedaan waarvoor ze bedoeld was.</p>
 
-      <p>You've just understood why a protection device has to carry the current it's protecting against — and therefore why it must always be in series. Once that logic is clear, the placement of every fuse, thermal cutoff, and circuit breaker you'll encounter makes immediate sense.</p>
+      <p>Zodra je begrijpt dat een beveiliging altijd de stroom moet voeren waartegen ze beveiligt, wordt meteen duidelijk waarom zekeringen, thermische beveiligingen en automaten altijd in serie staan.</p>
 
       <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>The fuse element melts when Joule heating (I²R) raises its temperature to its melting point. Because the element has high resistance relative to the wiring around it (it's thin), it heats faster than anything else in the circuit under overcurrent. The material is chosen for a specific melting point (often a tin-lead or silver alloy) so that the fusing current and time characteristics are predictable. This time-current characteristic is the key design parameter: a fast fuse blows quickly at even a small overcurrent; a slow (time-lag) fuse tolerates short-duration overcurrents (like motor startup spikes) but still blows on sustained faults.</p>
+        <span class="callout-label">Het onderliggende principe</span>
+        <p>Een zekering smelt door jouleverwarming: I²R. Omdat het zekeringdraadje relatief dun is en dus meer weerstand heeft dan de rest van de bedrading, warmt het sneller op wanneer de stroom te hoog wordt. Het materiaal en de afmetingen bepalen de tijd-stroomkarakteristiek. Een snelle zekering reageert al vlug; een trage zekering verdraagt korte inschakelpulsen maar grijpt nog steeds in bij aanhoudende overstroom.</p>
       </div>
 
-      <h2>Fuse types</h2>
+      <h2>Soorten zekeringen</h2>
 
-      <h3>Fast-blow (F) vs time-lag (T)</h3>
-      <p>Fast-blow fuses (marked F) operate quickly at rated current. They're used in circuits that must be protected immediately — sensitive electronics, circuits with no startup current transients.</p>
+      <h3>Snel (F) versus traag (T)</h3>
+      <p>Snelle zekeringen, aangeduid met F, spreken snel aan wanneer de nominale stroom wordt overschreden. Ze zijn geschikt voor circuits waar een kleine overstroom meteen ongewenst is, zoals gevoelige elektronica.</p>
 
-      <p>Time-lag fuses (marked T, also called anti-surge or slow-blow) tolerate a brief overcurrent before blowing. They're used in circuits with inductive loads — motors, transformers — that draw several times their running current when they start. A motor that draws 3A running might draw 15A for half a second on startup. An F-rated fuse would blow every time it started. A T-rated fuse tolerates the startup transient and only blows if the overcurrent is sustained.</p>
+      <p>Trage zekeringen, aangeduid met T, verdragen korte overstroompieken zonder direct te smelten. Dat is belangrijk bij inductieve belastingen zoals motoren of transformatoren, die bij inschakelen kort veel meer stroom trekken dan tijdens normaal bedrijf.</p>
 
-      <p>This distinction matters at the repair table. If an appliance has a T-rated fuse and someone replaces it with an F-rated fuse of the same current value, the appliance will blow the fuse every time it starts. The solution is the correct fuse type, not a higher current rating.</p>
+      <p>Dit onderscheid is in reparatie cruciaal. Heeft een apparaat een T2A nodig en zet iemand er een F2A in, dan brandt die zekering er elke keer uit bij het starten. De oplossing is dan niet een hogere stroomwaarde, maar het juiste type.</p>
 
-      <h3>Physical types</h3>
-      <p><strong>Glass cartridge fuses</strong>: the 5×20mm (or 6.3×32mm) glass tube fuses common in European appliances and equipment. You can often see visually whether the element is intact by holding the fuse to the light. If the glass is blackened, it blew under a heavy fault. If the glass is clear but the element is visibly open, it blew more gently.</p>
+      <h3>Fysieke uitvoeringen</h3>
+      <p><strong>Glazen patroonzekeringen</strong>: veelvoorkomende 5×20 mm of 6,3×32 mm buisjes in Europese apparatuur. Vaak kun je visueel al zien of het draadje nog heel is.</p>
 
-      <p><strong>Ceramic cartridge fuses</strong>: same form factor as glass, but with a ceramic body. Used where higher breaking capacity is required — the ceramic body can contain the arc of a high-fault-current blowing. Required for higher-voltage or higher-power circuits.</p>
+      <p><strong>Keramische patroonzekeringen</strong>: dezelfde vorm, maar met hogere afschakelcapaciteit. Ze worden gebruikt waar foutstromen groter kunnen zijn en een glazen huisje onvoldoende bescherming biedt.</p>
 
-      <p><strong>PCB fuses</strong>: small glass or ceramic fuses soldered onto circuit boards, typically in SMD or through-hole packages. Often the first thing to check on a dead PCB.</p>
+      <p><strong>PCB-zekeringen</strong>: kleine zekeringen op printplaten, in through-hole- of SMD-vorm. Bij een "dode" print vaak een van de eerste dingen om te controleren.</p>
 
-      <h3>Fuse ratings</h3>
-      <p>A fuse has three critical ratings:</p>
+      <h3>Zekeringsspecificaties</h3>
+      <p>Een zekering heeft drie belangrijke waarden:</p>
       <ul>
-        <li><strong>Current (A)</strong>: the continuous current it can carry without blowing. A 1A fuse must carry 1A indefinitely; it blows at sustained overcurrent above that value.</li>
-        <li><strong>Voltage (V)</strong>: the maximum circuit voltage the fuse can safely interrupt. Exceeding this can mean the arc doesn't extinguish when the element melts — the fuse "fails conducting" rather than clearing the fault.</li>
-        <li><strong>Breaking capacity (A)</strong>: the maximum fault current the fuse can safely clear. A low-breaking-capacity fuse may fail violently if asked to clear a large short-circuit current.</li>
+        <li><strong>Stroom (A)</strong>: de continue stroom die hij veilig kan voeren.</li>
+        <li><strong>Spanning (V)</strong>: de hoogste spanning waarbij hij een fout veilig kan onderbreken.</li>
+        <li><strong>Afschakelvermogen</strong>: de maximale foutstroom die hij veilig kan verbreken zonder zelf uit elkaar te klappen.</li>
       </ul>
 
-      <p>For household appliance repair, glass cartridge fuses rated at 250V with breaking capacities of 35–200A are normal. Always replace with the same type and rating, not just the same physical size.</p>
-
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p>A blown fuse is evidence of a fault, not the fault itself. The fuse has done its job — it has detected overcurrent and broken the circuit. Replacing the fuse without investigating why it blew is not a repair: it's an experiment to see whether the fault recurs. Sometimes the answer is useful (the fuse blows again immediately, telling you there's a short circuit) but often it just delays diagnosis and risks damage. Before replacing a blown fuse, check for visible damage, short circuits, and failed components. Only replace the fuse once you have a theory for why it blew and have addressed the underlying cause.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p>Vervang een zekering alleen door hetzelfde type, dezelfde stroomwaarde en minstens dezelfde spanningsklasse. "Ongeveer hetzelfde" is hier niet goed genoeg. Een zwaardere zekering of het verkeerde type verandert de beveiliging van het apparaat en kan van een klein defect een brandgevaar maken.</p>
       </div>
 
-      <h2>Circuit breakers</h2>
+      <h2>Automaten</h2>
 
-      <p>Circuit breakers serve the same protective function as fuses but are resettable. The domestic MCB (Miniature Circuit Breaker) in the groepenkast uses two mechanisms:</p>
+      <p>Automaten doen in de groepenkast hetzelfde werk als zekeringen, maar zijn resetbaar. Een huishoudelijke installatieautomaat combineert meestal een thermisch deel voor langdurige overstroom met een magnetisch deel voor echte kortsluitingen.</p>
 
-      <p><strong>Thermal trip</strong>: a bimetal strip carries the load current. When current is sustained above the rated value, the strip heats and bends, eventually tripping the breaker. This takes seconds to minutes depending on how much above rating the current is. It mimics the behaviour of a time-lag fuse.</p>
+      <p><strong>Thermische uitschakeling</strong>: een bimetaal strip warmt op door de stroom en buigt langzaam tot hij de automaat laat afvallen.</p>
 
-      <p><strong>Magnetic trip</strong>: a solenoid carries the current. A fault current (short circuit) produces a strong magnetic field that instantly trips the breaker. This happens in milliseconds, before significant damage can occur.</p>
-
+      <p><strong>Magnetische uitschakeling</strong>: een sterke foutstroom maakt meteen een magnetisch veld dat de automaat vrijwel direct aanspreekt.</p>
 
       <div class="callout callout-predict">
-        <span class="callout-label">Predict before measuring</span>
-        <p>If a fuse is intact, what should your meter read across it with the appliance unplugged: near zero ohms or OL? And if it is blown, which reading should appear instead? Make that call before you test.</p>
+        <span class="callout-label">Voorspel vóór je meet</span>
+        <p>Als een zekering goed is, wat verwacht je dan spanningsloos over die zekering te meten: bijna 0 ohm of OL? En welke waarde verwacht je wanneer hij door is? Eén goede voorspelling voorkomt vaak vijf nutteloze metingen.</p>
       </div>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>Back to the vacuum cleaner. The fuse is a 3.15A T-rated glass cartridge. Hold it up to the light: the element is visibly open, and there's slight blackening of the glass — suggesting it blew under a reasonable fault current rather than just old age. With an overfull bag, the motor was under heavy load for a sustained period. It may have drawn enough sustained overcurrent to blow the thermal fuse; the glass fuse may have blown secondarily, or it may have blown because of a motor winding partially shorted from overheating. Check the motor resistance before fitting a new fuse and switching on. If the motor winding reads much lower resistance than expected, there may be a partial short — fitting a new fuse and powering up will just blow it again.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Terug naar de stofzuiger. De glazen zekering is een 3,15A T-type. Tegen het licht gehouden zie je dat het draadje open is en dat het glas licht zwart is aangeslagen. Dat wijst op een reële foutstroom, niet alleen op ouderdom. Door de propvolle zak kan de motor lang zwaar belast zijn geweest. Misschien is hij warm geworden en heeft de thermische beveiliging aangesproken, of heeft een winding schade opgelopen. Vervang de zekering dus niet blind. Controleer eerst de motorweerstand en kijk of er iets mechanisch zwaar loopt.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>The vacuum's motor checks out within normal range. A new fuse fitted, and the machine runs. The owner is reminded to empty the bag before it reaches capacity. You make a note on the ticket: thermal stress suspected — check motor carefully at next service. The steam iron that's been on the side table is next. Someone said the temperature control seems off — it's scorching cotton at a linen setting. That's a thermostat problem, and thermostats are the next thing to understand.</p>
+        <p>De motorweerstand blijkt gelukkig binnen de normale marge te liggen. Met een nieuwe zekering loopt de stofzuiger weer, en de eigenaar krijgt het vriendelijke maar duidelijke advies de zak eerder te vervangen. Op de zijtafel staat nog een stoomstrijkijzer waarvan de temperatuurregeling niet meer klopt. Dat brengt ons bij het volgende onderwerp: thermische beveiliging en thermostaten.</p>
       </div>
 
       <div class="chapter-takeaways">
-        <span class="chapter-takeaways-title">Remember this</span>
+        <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>A switch opens or closes a current path; a fuse sacrifices itself to stop overcurrent.</li>
-          <li>Same amperage is not enough: fast and time-lag fuses are not interchangeable.</li>
-          <li>A blown fuse is evidence that something abnormal happened.</li>
-          <li>Replacing a fuse without understanding why it blew is diagnosis, not repair.</li>
+          <li>Een schakelaar opent of sluit een stroompad; een zekering offert zichzelf op om overstroom te stoppen.</li>
+          <li>Gelijke ampères is niet genoeg: snel en traag zijn niet uitwisselbaar.</li>
+          <li>Een doorgebrande zekering is bewijs dat er iets abnormaals is gebeurd.</li>
+          <li>Een zekering vervangen zonder te begrijpen waarom ze is gesprongen, is nog geen reparatie.</li>
         </ul>
       </div>
 
       <section class="chapter-questions">
-        <h2>Check your understanding</h2>
+        <h2>Test je begrip</h2>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q1</span>
-            <span class="question-text">An appliance specifies a T2A fuse (time-lag, 2A). Your stock only has F2A fuses (fast-blow, same 2A rating). The appliance contains a motor. Does the type matter, and what would happen if you fitted the F2A?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V1</span>
+            <span class="question-text">Een apparaat vraagt om een T2A-zekering, maar je hebt alleen een F2A op voorraad. Maakt dat echt uit?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Yes, the type matters significantly. Motor circuits draw several times their running current for a fraction of a second on startup. A 2A motor might draw 8–10A briefly before the rotor gets up to speed. A T2A (time-lag) fuse is designed to absorb this short energy pulse without blowing, then protect against sustained overcurrent. An F2A (fast-blow) fuse at the same current rating will blow on the startup transient every time the appliance is switched on — even though nothing is wrong. The result: an appliance that seems unrepairable because it keeps blowing fuses, when the real problem is just the wrong fuse type. The current rating (2A) and the fuse type (T vs F) are separate specifications and both must match the original.</p>
+            <p>Ja. De stroomwaarde is hetzelfde, maar de tijd-stroomkarakteristiek niet. In een apparaat met motor of transformator kan de F2A al doorsmelten door de normale inschakelpiek, terwijl de T2A daarvoor juist ontworpen is.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q2</span>
-            <span class="question-text">A hair dryer has a three-speed switch. On "low," it barely blows. On "medium," it blows weakly. On "high," it works normally. What does this pattern suggest?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V2</span>
+            <span class="question-text">Wat vertelt een zekering die direct opnieuw doorsmelt na vervanging?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>On the low and medium settings, the circuit introduces a series resistance or switches the motor to a reduced-voltage configuration. If both lower settings give weak output, the common element is likely a series resistor that's supposed to reduce voltage for low and medium speeds. A resistor that's increased in resistance (carbon composition resistors can do this as they age) would drop more voltage than intended, leaving less for the motor. Alternatively, the switch contacts for those positions may be worn, adding contact resistance. Check the resistance of the speed-control components on those settings and compare to the specified values. The "high" setting usually bypasses the resistors entirely, which is why it works normally.</p>
+            <p>Dat de onderliggende fout nog aanwezig is. Er is nog steeds kortsluiting of ernstige overstroom. Nog een zekering plaatsen helpt dan niet; je moet de oorzaak in het circuit vinden.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q3</span>
-            <span class="question-text">A glass cartridge fuse blows again immediately after replacement. What does this tell you, and what should you do next?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V3</span>
+            <span class="question-text">Waarom moet een zekering altijd in serie staan met wat ze beveiligt?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Immediate re-blowing means there's a sustained short circuit or severe overcurrent fault present in the circuit — the fuse is clearing a real fault, not a transient. The fault is still there. Do not fit a third fuse. Disconnect the load from the circuit and check component by component: look for short circuits (zero or near-zero resistance between live and neutral), failed components that draw abnormal current (shorted motor windings, failed capacitors, shorted semiconductors), and visible damage (burn marks, melted insulation). Use resistance measurement across each component (with circuit disconnected) to identify what's drawing excessive current. Only when the fault is identified and corrected should a replacement fuse be fitted.</p>
+            <p>Omdat alleen dan alle stroom door de zekering loopt. Alleen de stroom die daadwerkelijk door haar heen gaat, kan ze detecteren en onderbreken wanneer die te hoog wordt.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q4</span>
-            <span class="question-text">Why do motor circuits often use time-lag (T) fuses rather than fast-blow (F) fuses of the same current rating?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V4</span>
+            <span class="question-text">Een apparaat werkt alleen op de hoogste stand goed; lagere standen zijn zwak. Waar kun je dan aan denken?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Motors draw much more current when starting than when running. An AC induction motor or universal motor can draw 3–8 times its running current for the first fraction of a second to second of startup, as it accelerates the rotor from rest against inertia. This startup current is brief and normal — it stops once the motor is up to speed. A fast-blow fuse rated for the running current would see this transient and blow, even though nothing is actually wrong. The time-lag (T) fuse has a thermal element that absorbs the brief energy pulse of startup current without melting, but will still blow on a sustained overcurrent (like a stalled motor or a winding fault). This is exactly the time-current characteristic needed for motor protection.</p>
+            <p>Vaak aan een defect in het deel dat juist voor de lagere standen extra weerstand of een andere schakeling toevoegt. Dat kan een versleten contact, serieweerstand of standenschakelaar zijn.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q5</span>
-            <span class="question-text">A vacuum cleaner keeps blowing its 3.15A T-rated fuse after a few minutes of running — but not on startup. The bag is empty, hose clear, filter clean. What does this pattern tell you, and where would you look?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V5</span>
+            <span class="question-text">Waarom is een zwaardere zekering bijna nooit de juiste oplossing?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>The fuse surviving startup rules out a startup-current problem. Blowing after a few minutes of running means the motor is drawing an overcurrent that builds up over time — not a sudden short circuit. The T-rating absorbs brief transients but not sustained overcurrent, which is exactly what this is. The most likely cause: worn bearings that tighten as the motor heats up, forcing the motor to work harder and draw progressively more current. Alternatively, insulation in the winding may be failing as the motor heats, creating leakage or partial shorts between turns. Check the bearings by spinning the shaft when cold: should spin freely with no grinding or wobble. If the bearings feel fine, compare winding resistance cold and hot, and inspect for insulation damage or overheating signs. A large change or abnormal imbalance points to a winding fault.</p>
+            <p>Omdat je daarmee de beveiliging opschuift. Het apparaat of de bedrading kan dan al gevaarlijk heet worden voordat de zekering ingrijpt. De fout krijgt dus juist meer ruimte om schade te veroorzaken.</p>
           </div>
         </div>
 
       </section>
 
       <div class="chapter-nav-footer">
-        <a href="chapter-05.html" class="nav-prev">Chapter 5: The Multimeter</a>
-        <a href="chapter-07.html" class="nav-next">Chapter 7: Thermal Protection</a>
+        <a href="chapter-05.html" class="nav-prev">Hoofdstuk 5: De multimeter</a>
+        <a href="chapter-07.html" class="nav-next">Hoofdstuk 7: Thermische beveiliging</a>
       </div>
     </article>
 

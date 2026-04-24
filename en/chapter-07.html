@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 7: Thermal Protection — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 7 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 7</p>
+        <h1>Thermal Protection</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>After lunch, the steam iron. The owner is apologetic — "I know it's probably not worth fixing, but it's destroying my shirts." She's set it to "linen" and it's coming out with scorch marks. She's tested the temperature setting with every fabric, she says. They're all about twenty degrees too hot. The iron is heating, the thermostat dial moves, but the temperature doesn't track the setting properly. You open it up. The thermostat mechanism is visible — a small bimetal assembly with an adjustable cam. And suddenly you understand a whole class of faults you've never quite been able to explain before.</p>
+      </div>
+
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand the difference between control devices and protection devices.</li>
+          <li>Recognise the main types of thermal protection used in domestic appliances.</li>
+          <li>Know why a thermal device should almost never be bypassed "just to test."</li>
+        </ul>
+      </div>
+
+      <h2>Why appliances need thermal protection</h2>
+
+      <p>Most appliances that generate heat — irons, kettles, toasters, ovens, hair dryers, vacuum cleaner motors — need a way to limit or control that heat. Without control, a resistive heater runs at whatever power Ohm's law dictates until something fails. Without limits, a motor that stalls overheats until the winding insulation fails.</p>
+
+      <p>Thermal protection comes in several forms, each suited to different situations. Understanding the differences helps you diagnose problems correctly — a failed thermostat, a triggered thermal fuse, and a failed PTC resistor will all cause "temperature wrong" or "dead" symptoms, but they require completely different fixes.</p>
+
+      <h2>Thermostats: control by design</h2>
+
+      <p>A thermostat is an automatic switch that opens and closes based on temperature. The most common type in domestic appliances uses a <strong>bimetal strip</strong>: two metals with different thermal expansion coefficients bonded together. When temperature rises, one metal expands more than the other, causing the strip to bend. At a set temperature, the bend is enough to open (or close) a set of electrical contacts.</p>
+
+      <p>The key properties of a thermostat:</p>
+      <ul>
+        <li>It's <em>adjustable</em> — the trip temperature can usually be changed by moving a cam or adjustment screw, which alters how far the bimetal must bend before making contact with the contacts</li>
+        <li>It's <em>resettable</em> — once the temperature drops, the bimetal returns to its original shape and the contacts close again, allowing the heater to cycle on and off to maintain temperature</li>
+        <li>It's <em>in series with the heating element</em> — when the thermostat opens, no current flows to the heater</li>
+      </ul>
+
+      <p>In a steam iron, the thermostat is a bimetal disc or strip pressed against the sole plate. As the sole plate heats, the bimetal heats and eventually trips — cutting power to the element. As the sole plate cools slightly, the bimetal springs back and the element switches on again. The iron cycles: heat on, thermostat trips, heat off, thermostat resets, and so on. The temperature at which this cycling happens is set by the position of the thermostat control cam — which is what the dial is connected to.</p>
+
+      <p>What you've just described — a bimetal strip bending and unbending to cycle a heater on and off — is the working principle behind thermostats in every iron, hair dryer, and space heater you'll encounter. Bimetal means predictable; predictable means calibratable; calibratable means this is a repairable fault.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>The iron on the table has a thermostat that's running hot — all settings overshoot by about 20°C. The most common cause is physical drift in the bimetal calibration (bimetal strips can lose their calibration with age and thermal cycling) or, more often, that the adjustment cam has moved. On many irons, there's a small adjustment screw accessible through the bottom of the unit that repositions the calibration. If the thermostat contacts are pitted or corroded, they may also arc and weld slightly — causing the thermostat to close before it should. Cleaning the contacts with fine abrasive (contact cleaner, then fine emery) can help. If the bimetal itself is physically deformed, the thermostat needs replacement.</p>
+      </div>
+
+      <h2>Thermal cutoffs (TCOs): one-shot protection</h2>
+
+      <p>A thermal cutoff — often called a TCO, a thermal fuse, or a thermal limiter — is a one-shot device. It's designed to open the circuit permanently if the temperature exceeds a specific limit, and it cannot be reset. Once it has tripped, it must be replaced.</p>
+
+      <p>TCOs look like small components with two leads and a body that may be ceramic or plastic. They're often blue or white and marked with a temperature rating: common values are 73°C, 84°C, 93°C, 105°C, 121°C, 133°C, 152°C, 172°C, and higher — each designed to trip at a specific temperature above which the appliance should never be allowed to run.</p>
+
+      <p>Inside, a TCO contains a small pellet of low-melting-point alloy. When the temperature reaches the trip point, the alloy melts, a spring opens the circuit, and the alloy resolidifies in the open position. There is no way to reset it — the alloy has physically moved, and the circuit is permanently open until the device is replaced.</p>
+
+      <p>Replacing an opened thermal cutoff may restore the circuit, but it does not explain why the unsafe temperature was reached. The real fault is often the thing that overheated the appliance in the first place.</p>
+
+      <div class="callout callout-safety">
+        <span class="callout-label">Safety</span>
+        <p>A blown TCO is always telling you something. It opened because the temperature somewhere reached a level the designer considered unsafe. Before replacing the TCO and testing the appliance, ask why the temperature was too high. Common reasons: blocked airflow (vacuum cleaner with a full bag, hairdryer with a blocked grille), a failed thermostat that allowed the temperature to rise beyond normal cycling range, a motor running too hard due to a mechanical fault, or a component failure that changed the power dissipation. Replacing a TCO without addressing the root cause means the replacement TCO will blow again — or worse, if you've replaced it with the wrong trip temperature, the appliance now has no limit protection.</p>
+      </div>
+
+      <h2>Resettable thermal cutouts</h2>
+
+      <p>Some appliances use resettable thermal cutouts — devices that open the circuit above a threshold temperature but spring back when cooled. Vacuum cleaners are a classic example: many have a thermal cutout that trips if the motor overheats (bag full, hose blocked), which can be reset by pressing a button on the machine after it's cooled down.</p>
+
+      <p>These resettable devices use a bimetal disc or strip — similar in principle to a thermostat but designed to snap between two stable states (on and off) at specific temperatures, rather than modulating continuously. The snap action is important: a gradual transition would cause the device to operate with very high contact resistance in the transition zone, causing arcing and heating.</p>
+
+      <p>That "snap" behaviour matters because electrical contacts are happiest in one of two states: firmly closed or clearly open. The dangerous state is half-open, where current is still flowing through a tiny area of contact. That creates local heating and arcing. A snap-action device moves quickly through that bad region instead of lingering in it.</p>
+
+      <p>Distinguishing a resettable cutout from a non-resettable TCO matters a great deal at the bench. If the owner says "the vacuum stopped and a red button popped out," that's a resettable cutout and the fix may be as simple as clearing the blockage and pressing the button after cooling. If there's a fuse-like component with no moving parts and it measures open circuit, it's likely a non-resettable TCO that needs replacement.</p>
+
+      <h2>PTC thermistors</h2>
+
+      <p>PTC stands for Positive Temperature Coefficient. A PTC thermistor is a resistor whose resistance increases sharply with temperature above a specific threshold (the Curie temperature). Below the threshold, resistance is low; above it, resistance becomes very high — effectively limiting current.</p>
+
+      <p>This self-limiting behaviour is used in two main ways in appliances:</p>
+
+      <p><strong>Motor soft-start / degaussing</strong>: when cold, a PTC in series with a motor has low resistance, allowing startup current. As it warms up (due to the startup current flowing through it), its resistance rises sharply, reducing current. Used in some older CRT televisions for degaussing, and in some motor circuits to smooth startup.</p>
+
+      <p><strong>Self-regulating heaters</strong>: a PTC element used as a heater will self-regulate its own temperature. As it reaches its design temperature, resistance increases and power drops. It can't overheat itself. This principle is used in some hair dryer heating elements, ceramic heating elements in some kettles, and PTC safety heaters in cars.</p>
+
+      <p>PTC failures are less common than bimetal failures, but they do occur — usually either staying at permanently high resistance (effectively open circuit) or losing their switching characteristic entirely.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>What makes PTC devices useful is how sharply they switch. Rather than gradually increasing resistance as temperature rises, they jump from good conductor to near-insulator over a very narrow temperature range — resistance can increase by a factor of 10,000 or more within just a few degrees. Below the threshold: low resistance, current flows freely. Above it: very high resistance, current is effectively blocked. That sharp transition is what makes them reliable as self-resetting thermal limiters.</p>
+      </div>
+
+      <h2>NTC thermistors</h2>
+
+      <p>The opposite of PTC: NTC (Negative Temperature Coefficient) thermistors decrease in resistance as temperature rises. They're not used as switches or heaters — they're used as <em>temperature sensors</em>. A control circuit measures the resistance of an NTC thermistor placed near a heater, motor, or other heat source, and uses that resistance reading to determine the temperature.</p>
+
+      <p>NTC thermistors are common in modern kettles (to detect when water has boiled), in motor speed controllers (to monitor motor temperature), and in electronic thermostats (the element that "reads" the actual temperature). If the NTC fails (typically either drifts out of calibration or goes open circuit), the controller loses its temperature reference and may run the heater continuously at full power, or refuse to run at all.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>To test an NTC thermistor in a simple way: measure its resistance at room temperature with an unpowered circuit, then warm it gently with your fingers or a warm object (not a flame — you want gentle, controlled heat). The resistance should decrease noticeably as temperature rises. If it stays fixed regardless of temperature, it's failed open or at a fixed value. If it reads near zero ohms, it's shorted. An NTC at room temperature typically reads anywhere from a few hundred ohms to hundreds of kilohms depending on its specification — look up the part number or check the appliance service manual for the expected value. Context matters: an NTC that reads 10k ohms might be perfect, or it might be wrong, depending on what value it's supposed to be.</p>
+      </div>
+
+      <h2>A practical taxonomy</h2>
+
+      <p>When you encounter a thermal protection problem, the first question is which type of device you're dealing with:</p>
+
+      <p>Is the appliance completely dead, or is it running but at the wrong temperature? Dead often means TCO, fuse, or resettable cutout. Wrong temperature almost always means thermostat.</p>
+
+      <p>Can you reset it? Press the reset button (if there is one) after the appliance has fully cooled. If it comes back to life, it's a resettable cutout — now find out why it tripped. If there's no reset button, measure continuity across the thermal device. If it reads open circuit, it's a one-shot TCO and must be replaced — after you've found the root cause.</p>
+
+      <p>Is it heating too much or too little? Too much: thermostat calibration, stuck thermostat contacts (closed when they should open), or bypassed thermostat. Too little: partially open thermostat contacts, a thermostat tripping too early (possibly wrong part, or calibration has drifted the other way).</p>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a one-shot TCO has opened, what should continuity across it read with the appliance unplugged: a beep or OL? That single prediction often tells you whether you're looking at protection that operated or control that drifted.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>The iron's thermostat has a small adjustment screw accessible from the base. A careful quarter-turn brings all settings within 5°C of the marked temperatures. The owner is asked to test it at home and report back — this kind of calibration may need fine-tuning over a few sessions. A coffee grinder goes on the table next. The owner says it makes a grinding noise and sparks inside when it runs. That's a motor problem, and motor problems are up next.</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>A thermostat controls temperature; a thermal fuse or cutout protects against dangerous overheating.</li>
+          <li>If a thermal protector has opened, the next question is always why.</li>
+          <li>Bypassing a thermal safety device can turn a fault into a fire risk.</li>
+          <li>Wrong temperature can be a calibration problem, a stuck contact, or a failed protective device.</li>
+        </ul>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">A hairdryer is completely dead. You open it and find a thermal fuse (TCO) that reads open circuit. You replace it, and the dryer works. Three days later it's dead again, and the new TCO is also open. What do you tell the owner?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The TCO is detecting a real temperature overload — it's doing its job correctly. Something is causing the dryer to reach an unsafe temperature, and it will keep blowing TCOs until that root cause is addressed. The most common causes in hairdryers are: a blocked air intake (lint accumulated over the grille), a failed or failing heating element drawing more current than designed, a failed motor running slower than intended (meaning less airflow to cool the element), or a thermostat that's supposed to cycle the element at a lower temperature has also failed. The dryer is not safe to return to service until the root cause is found and fixed. The answer to the owner is not "we replaced the fuse again" but rather a full inspection for the underlying problem.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">You measure a component labelled "PTC" in series with a motor. At room temperature it reads 8 ohms. When you warm it between your fingers, it reads 12 ohms, then 200 ohms, then OL (over limit — resistance too high for the meter to measure). Is this normal behaviour for a PTC?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Yes, this is exactly the expected behaviour. A PTC thermistor has low resistance at low temperatures and its resistance rises sharply — often by several orders of magnitude — as it approaches and exceeds its Curie temperature. Starting at 8 ohms, rising through 12, 200, and then beyond the meter's range as it heats is consistent with a healthy PTC switching characteristic. Note that body temperature (around 37°C) may not be enough to reach the full switching transition for a high-temperature PTC — the fact that it went to OL with moderate finger warming suggests this particular device may have a relatively low switching temperature, or your fingers were quite warm. The key thing is the non-linearity: resistance increasing dramatically, not proportionally, with temperature.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">An electric blanket has a thermostat that's supposed to cycle between 40°C and 50°C. The thermostat contacts have become pitted and are sticking in the closed position. What symptom would the user notice, and why is this dangerous?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The user would notice the blanket getting much hotter than it should — possibly uncomfortably or painfully hot — because the thermostat isn't cycling off as intended. With contacts stuck closed, the heating element runs continuously regardless of temperature. This is dangerous for several reasons: the blanket can reach temperatures that cause burns (especially for users who can't easily move, such as elderly people), the heating element is run continuously beyond its designed duty cycle which may cause insulation degradation, and if the user is asleep, they may not notice the temperature rising until serious harm has occurred. An electric blanket with a stuck thermostat should be taken out of service immediately and the thermostat replaced.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">What is the practical difference between a thermostat and a thermal cutoff (TCO) from the perspective of someone repairing an appliance?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The key practical differences are: (1) Reset behaviour: a thermostat automatically resets as it cools and is part of the appliance's normal operation; a TCO is a one-shot device that must be physically replaced once triggered. (2) Function: a thermostat controls temperature by cycling — it's supposed to open and close repeatedly during use; a TCO is a last-resort limit device that should never trip during normal operation. (3) Diagnosis: a thermostat that has tripped in a cooled appliance will close again and the appliance will work — suggesting either normal operation or intermittent overtemperature. A TCO that has tripped will read open circuit continuously regardless of temperature, and the appliance will remain dead until the TCO is replaced. (4) Replacement: replacing a TCO with one of the wrong trip temperature removes the safety protection it was designed to provide.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">An iron's thermostat has drifted so that it now trips at 165°C instead of its design trip point of 150°C. All settings are affected equally. What temperatures will the sole plate actually reach on the "linen" setting (normally 130–150°C), and why does this explain the scorch marks the owner reported?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>With the thermostat tripping 15°C high, the iron heats to 165°C before cutting off. It cools by about the same amount (10–15°C) before the thermostat resets. So instead of cycling between 140°C and 150°C on the linen setting, the iron cycles between approximately 150°C and 165°C. That's 15°C above the designed range. Linen can begin to scorch at around 150°C with prolonged contact, and with the iron now reaching 165°C, scorch marks are the predictable result. This is exactly the pattern the owner described: all settings run too hot, with the damage most visible on delicate fabrics at the lower settings where the margin for error is smallest. Adjusting the thermostat cam to restore the correct trip temperature is the fix — not replacing the heating element or any other part.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-06.html" class="nav-prev">Chapter 6: Switches and Fuses</a>
+        <a href="chapter-08.html" class="nav-next">Chapter 8: Motors</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

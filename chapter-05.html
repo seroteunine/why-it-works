@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5: The Multimeter — Why It Works</title>
+  <title>Hoofdstuk 5: De multimeter — Why It Works</title>
+  <meta name="description" content="Hoofdstuk 5 van Why It Works: de multimeter gebruiken voor spanning, weerstand, continuiteit en stroom, en begrijpen wanneer je welke stand veilig inzet.">
+  <link rel="alternate" hreflang="en" href="en/chapter-05.html">
+  <link rel="alternate" hreflang="nl" href="chapter-05.html">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +14,7 @@
   <div class="content-wrapper">
 
     <div class="progress-bar">
-      <span class="progress-label">Chapter 5 of 12</span>
+      <span class="progress-label">Hoofdstuk 5 van 12</span>
       <div class="progress-dots" aria-hidden="true">
         <span class="progress-dot done"></span>
         <span class="progress-dot done"></span>
@@ -28,103 +31,97 @@
 
     <article>
       <header class="chapter-header">
-        <p class="chapter-number">Chapter 5</p>
-        <h1>The Multimeter</h1>
+        <p class="chapter-number">Hoofdstuk 5</p>
+        <h1>De multimeter</h1>
       </header>
 
       <div class="chapter-scene">
-        <p>Mid-morning. A two-slot toaster goes on the table. The owner says one side heats fine, but the other barely gets warm — bread comes out pale and soft while the other slot browns perfectly. You set the toaster aside and reach for the multimeter. A newer volunteer watches you pick it up and turn the dial. "How do you know which setting to use?" It's a fair question. The multimeter can do several different things, and choosing the wrong one gives you either nothing useful or a dangerous situation. Let's go through what it can actually do.</p>
+        <p>Halverwege de ochtend komt er een broodrooster op tafel, eentje met twee sleuven. De eigenaar zegt dat de ene kant prima verwarmt, maar dat de andere nauwelijks warm wordt: het brood komt er bleek en zacht uit, terwijl de andere sleuf gewoon bruint. Je zet het apparaat opzij en pakt de multimeter. Een nieuwe vrijwilliger ziet je aan de draaiknop draaien en vraagt: "Hoe weet je welke stand je moet kiezen?" Terechte vraag. Een multimeter kan meerdere dingen meten, en de verkeerde stand levert óf nutteloze informatie op óf een gevaarlijke situatie. Laten we precies bekijken wat hij doet.</p>
       </div>
 
       <div class="chapter-objectives">
-        <span class="chapter-objectives-title">Learning goals</span>
+        <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Choose the right meter mode for voltage, resistance, continuity, current, and diode checks.</li>
-          <li>Understand why voltage is measured live, but resistance is measured unplugged.</li>
-          <li>Use the meter in a way that reduces risk instead of creating it.</li>
+          <li>De juiste meterstand kiezen voor spanning, weerstand, continuiteit, stroom en diodetest.</li>
+          <li>Begrijpen waarom spanning onder bedrijf wordt gemeten, maar weerstand alleen spanningsloos.</li>
+          <li>De meter zo gebruiken dat hij risico verlaagt in plaats van veroorzaakt.</li>
         </ul>
       </div>
 
-      <h2>The instrument and its parts</h2>
+      <h2>Het instrument en zijn onderdelen</h2>
 
-      <p>A typical digital multimeter has three or four input sockets, a rotary dial to select measurement function and range, and a display. The probes — one red (positive), one black (negative, or common) — connect the meter to the circuit.</p>
+      <p>Een typische digitale multimeter heeft drie of vier ingangen voor meetsnoeren, een draaiknop om functie en bereik te kiezen, en een display. De probes, een rode en een zwarte, verbinden de meter met het circuit.</p>
 
-      <p><strong>Input sockets</strong> — most meters have three: COM (black probe, always), V/Ω (red probe for voltage and resistance), and a high-current socket (often labelled 10A or 20A, red probe for current above the mA range). Some meters add a fourth socket for milliamps (200mA or 400mA). Getting the probe in the wrong socket is one of the most common — and occasionally dangerous — mistakes.</p>
+      <p><strong>Ingangsbussen</strong> — de meeste meters hebben er drie: COM (voor de zwarte probe, altijd), V/Ω (voor de rode probe bij spanning en weerstand), en een hoge-stroombus (vaak 10A of 20A genoemd, voor metingen boven het mA-bereik). Sommige meters hebben ook een aparte mA-bus. De rode probe in de verkeerde bus steken is een van de meest voorkomende en soms gevaarlijke fouten.</p>
 
-      <p><strong>The dial</strong> — selects the function (voltage, current, resistance, continuity, etc.) and sometimes the range. Auto-ranging meters select the appropriate range automatically; manual meters require you to choose. When in doubt with a manual meter, start at the highest range and work down.</p>
+      <p><strong>De draaiknop</strong> — hiermee kies je de functie: spanning, stroom, weerstand, continuiteit enzovoort, en soms ook het bereik. Auto-ranging meters kiezen dat bereik zelf. Handmatige meters vragen dat jij het instelt. Twijfel je, begin dan bij het hoogste bereik en werk naar beneden.</p>
 
-      <h2>Measuring voltage</h2>
+      <h2>Spanning meten</h2>
 
-      <p>Voltage measurement is the most-used function for mains appliance diagnosis. The meter is connected <strong>in parallel</strong> with the component being tested — one probe on each side.</p>
+      <p>Spanning meten is de meest gebruikte functie bij diagnose van netgevoede apparaten. De meter wordt <strong>parallel</strong> aan het onderdeel gezet dat je wilt controleren: één probe aan elke kant.</p>
 
-      <p>A voltmeter has to be <strong>high impedance</strong> — electrically, it must behave almost like an open circuit. If it drew much current of its own, the act of measuring would change the voltage you're trying to observe. A good voltmeter samples the potential difference while disturbing the circuit as little as possible.</p>
+      <p>Een voltmeter moet <strong>hoogohmig</strong> zijn. Elektrisch gezien moet hij zich bijna gedragen als een open circuit. Als hij zelf merkbaar stroom zou trekken, zou de meting de spanning veranderen die je juist wilt observeren. Een goede voltmeter bemonstert het potentiaalverschil terwijl hij het circuit zo weinig mogelijk verstoort.</p>
 
-      <p>That is the basic mental model for voltage mode: the meter is mostly just looking. It touches two points, compares their electrical potential, and tries not to participate in the circuit any more than necessary. If voltage mode changed the circuit significantly, it would be a bad voltmeter.</p>
+      <p>Kies AC-spanning (V~) voor netmetingen. Kies DC-spanning (V-) voor batterijcircuits, voedingen en alles na een gelijkrichter. AC gebruiken op een DC-punt, of andersom, geeft verkeerde waarden of helemaal geen bruikbare meting.</p>
 
-      <p>Select AC voltage (V~) for mains measurements. Select DC voltage (V—) for battery-powered circuits, power supply outputs, and anything downstream of a rectifier. Using AC on DC (or vice versa) will give wrong readings or no reading at all.</p>
-
-      <p>What you're looking for:</p>
+      <p>Waar je naar kijkt:</p>
       <ul>
-        <li><strong>Across the supply terminals</strong> (live to neutral at the socket): should read ~230V AC</li>
-        <li><strong>Across a component that should be conducting</strong>: should read close to 0V (if it's a wire, switch in the on position, or intact fuse)</li>
-        <li><strong>Across a component that's in the open position</strong>: should read the full supply voltage (the voltage "drops" across the open gap)</li>
-        <li><strong>Across the load</strong>: should read close to the supply voltage</li>
+        <li><strong>Over de voedingsaansluitingen</strong> (fase naar nul in het stopcontact): ongeveer 230V AC</li>
+        <li><strong>Over een onderdeel dat goed geleidt</strong>: bijna 0V, bijvoorbeeld over een draad, een gesloten schakelaar of een intacte zekering</li>
+        <li><strong>Over een onderdeel dat open staat</strong>: vrijwel de volledige voedingsspanning, omdat alle spanning over de open onderbreking valt</li>
+        <li><strong>Over de belasting</strong>: bijna de volledige voedingsspanning</li>
       </ul>
 
-      <p>The voltage-drop technique is powerful: in a series circuit, all the supply voltage drops somewhere. If the load has less than the full supply voltage across it, voltage is dropping somewhere it shouldn't be — at a bad connection, a failing switch, a partially open thermal fuse.</p>
+      <p>Die spanningsvaltechniek is krachtig: in een serieschakeling valt alle voedingsspanning ergens. Krijgt de belasting niet bijna de volledige voedingsspanning, dan valt er ergens spanning weg waar dat niet hoort, bijvoorbeeld over een slechte verbinding, versleten schakelaar of half defecte thermische zekering.</p>
 
-      <p>What you've just learned — measuring voltage drops to find hidden resistance — is one of the most reliable diagnostic techniques at the bench. It finds faults that continuity testing misses, because it tests under real load conditions rather than the meter's small internal current.</p>
+      <p>Wat je hier leert, spanningvallen gebruiken om verborgen weerstand te vinden, is een van de betrouwbaarste technieken aan de werkbank. Hij vindt fouten die een continuiteitstest mist, omdat je onder echte belasting meet in plaats van met het kleine interne teststroompje van de meter.</p>
 
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p>When measuring mains voltage, use insulated probes with minimal exposed metal. Make sure the probes are fully inserted in the COM and V/Ω sockets — not the current socket. Hold the probes by the insulated grip, never by the metal shaft. Position one probe, note where your other hand is (don't let it touch anything grounded), then position the second probe. Working on live circuits should be the exception, not the routine — only do it when you specifically need a voltage reading, and only on circuits you understand.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p>Gebruik bij netspanning geïsoleerde probes met zo min mogelijk blootliggend metaal. Controleer dat de probes volledig in COM en V/Ω zitten, niet in de stroombus. Houd de probes vast aan het geïsoleerde deel, nooit aan het metalen staafje. Plaats eerst één probe, let op waar je andere hand is, en plaats daarna pas de tweede. Meten aan een onder spanning staand circuit moet de uitzondering zijn, niet de routine.</p>
       </div>
 
-      <h2>Measuring resistance and continuity</h2>
+      <h2>Weerstand en continuiteit meten</h2>
 
-      <p>Resistance and continuity measurements require the circuit to be <strong>completely unpowered</strong>. This is not optional. A live circuit will give false readings and may damage the meter or injure you.</p>
+      <p>Weerstand en continuiteit meet je alleen wanneer het circuit <strong>volledig spanningsloos</strong> is. Dat is geen aanbeveling maar een eis. Een actief circuit geeft foute metingen en kan de meter beschadigen of jou verwonden.</p>
 
-      <p>For resistance (Ω): select the appropriate range, and touch the probes to both ends of the component or conductor under test. The meter sends a small current through the component and measures the resulting voltage drop — calculating resistance from Ohm's law internally. Most digital meters read OL (overload/open) when there's no conducting path, and display the resistance in ohms when there is.</p>
+      <p>Voor weerstand (Ω): kies de juiste stand en raak met de probes beide uiteinden van het onderdeel of de geleider aan. De meter stuurt een kleine stroom door het onderdeel, meet de daarbij ontstane spanningsval en rekent intern de weerstand uit. Bij geen geleidende verbinding tonen de meeste meters OL; bij wel geleiding tonen ze een waarde in ohm.</p>
 
-      <p>For continuity (the diode symbol or buzzer symbol): the meter beeps when resistance is below a threshold — typically a few tens of ohms. This is a faster way of checking "is this path intact?" without reading a specific value. Very useful for checking cable continuity, fuses, and switch contacts. The socket choice is part of the measurement, not just the display: in the V/Ω socket the meter behaves as a high-impedance voltmeter, while in the current socket it becomes a very low-resistance path intended to sit in series with the load.</p>
-
-      <p>The mental model here is different from voltage mode: in resistance and continuity mode, the meter is not just looking, it is asking a question by injecting a tiny test current of its own. That is why the circuit must be unpowered. If the appliance's own voltage is still present, the meter can no longer tell whether the result is coming from its test current or from the live circuit.</p>
+      <p>Voor continuiteit (diode- of buzzer-symbool): de meter piept wanneer de weerstand onder een bepaalde drempel blijft, meestal enkele tientallen ohm. Dat is een snelle manier om te testen of een pad nog intact is, zonder een exact getal te hoeven lezen. Handig voor kabels, zekeringen en schakelcontacten. De gekozen ingang hoort bij de meting: in de V/Ω-bus gedraagt de meter zich hoogohmig, in de stroombus juist als een bijna weerstandloos pad dat bedoeld is om in serie te staan.</p>
 
       <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>Continuity mode is fast and useful, but it has a trap: it tests at low current. A wire with several broken strands might still pass continuity if one or two strands remain intact — but under full load current, the remaining strands overheat and fail (or have enough resistance to cause problems). For cables, supplement continuity with a resistance check: a few meters of good copper flex should read well under 1 ohm. A reading of a few ohms in a short cable suggests partial damage. Also remember: the continuity check goes through the whole circuit from probe to probe. If your meter beeps when measuring resistance through an unpowered appliance, it means there's a path through the whole circuit — not just through the component you're holding the probes on.</p>
+        <span class="callout-label">Van de werkbank</span>
+        <p>Continuiteitsstand is snel, maar heeft een valkuil: hij test met lage stroom. Een draad waarvan meerdere aders zijn gebroken kan nog steeds piepen als er nog één of twee aders contact maken. Onder echte belasting raken die dan oververhit of geven ze te veel spanningsval. Vul continuiteit daarom aan met een weerstandstest. Een paar meter goed kopersnoer hoort ruim onder 1 ohm te zitten. Een paar ohm in een korte kabel wijst op beschadiging. Onthoud ook dat de meter het hele circuit test van probe tot probe. Een piep betekent dus niet automatisch dat alleen het onderdeel onder je probes goed is.</p>
       </div>
 
-      <h2>Measuring current</h2>
+      <h2>Stroom meten</h2>
 
-      <p>Current measurement is the most operationally awkward — the meter must be inserted <strong>in series</strong> with the circuit, which means breaking the circuit to insert it. You're measuring the current flowing through the meter itself.</p>
+      <p>Stroom meten is operationeel het onhandigst: de meter moet <strong>in serie</strong> in het circuit worden opgenomen. Je moet het circuit dus openen en de meter ertussen zetten. Je meet de stroom die door de meter zelf loopt.</p>
 
-      <p>An ammeter therefore has to be <strong>low impedance</strong>. It is designed to add almost no extra resistance, so the normal circuit current can pass through it without being altered much. This is also why using the current socket across a voltage source is so dangerous: you are no longer "looking" at the circuit, you are inserting an almost direct short across it.</p>
+      <p>Een ampèremeter moet daarom <strong>laagohmig</strong> zijn. Hij is ontworpen om bijna geen extra weerstand toe te voegen, zodat de normale circuitstroom erdoorheen kan zonder sterk te veranderen. Daarom is het ook zo gevaarlijk om de stroombus over een spanningsbron te zetten: je kijkt dan niet naar het circuit, je legt bijna een directe kortsluiting aan.</p>
 
-      <p>This is the mental model for current mode: the meter stops being an observer and becomes part of the circuit. All the charge you want to measure must physically pass through the meter. That is why current mode always means series connection, and why using it like a voltmeter is such a dramatic mistake.</p>
-
-      <p>Steps: select the appropriate range (use the high-current socket if you expect more than 400mA), break the circuit at a convenient point, insert the meter's probes in series. The measured current flows through an internal shunt resistor, and the voltage across it tells the meter the current. The meter's resistance in current mode is very low — milliohms — so it doesn't significantly affect the circuit.</p>
+      <p>Werkwijze: kies het juiste bereik, gebruik de hoge-stroombus als je meer dan 400mA verwacht, onderbreek het circuit op een handig punt en zet de meter in serie. De gemeten stroom loopt door een interne shuntweerstand, en de spanning over die shunt vertelt de meter hoeveel stroom er loopt. In stroomstand is de meterweerstand heel laag, vaak in milliohms.</p>
 
       <div class="callout callout-safety">
-        <span class="callout-label">Safety</span>
-        <p>The most dangerous mistake with a multimeter is connecting it in current mode (probes in the current socket) and then trying to measure voltage — touching both probes across a mains supply. In current mode, the meter's input is near a short circuit. Measuring 230V across a near-short produces an enormous current surge that instantly blows the meter's internal fuse (if you're lucky) or destroys the meter in a flash and a bang (if the fuse is of insufficient breaking capacity). Always double-check which socket the red probe is in before measuring voltage. This sounds like a beginner mistake, but experienced people do it too — usually when they're tired or distracted.</p>
+        <span class="callout-label">Veiligheid</span>
+        <p>De gevaarlijkste multimeterfout is meten in stroomstand en vervolgens spanning willen meten door beide probes over de netspanning te zetten. In stroomstand is de meter-ingang vrijwel een kortsluiting. 230V over een bijna-kortsluiting geeft een enorme stroompiek die de interne zekering van de meter direct opblaast, of erger. Controleer vóór elke spanningsmeting opnieuw in welke bus de rode probe zit.</p>
       </div>
 
       <div class="concept-demo" id="meter-sim">
         <div class="concept-demo-header">
-          <span class="concept-demo-label">Try it</span>
-          <span class="concept-demo-hint">Choose the scenario, click the meter mode, and switch the red lead between the `VΩ` and `10A` sockets. The probes are already placed for the test.</span>
+          <span class="concept-demo-label">Probeer het</span>
+          <span class="concept-demo-hint">Kies het scenario, klik op de meterstand en wissel de rode meetpen tussen de `VΩ`- en `10A`-bus. De probes liggen al op de testpunten.</span>
         </div>
         <div class="concept-demo-body">
-          <div class="meter-sim-toolbar" role="tablist" aria-label="Measurement scenario">
-            <button class="meter-sim-tab is-active" data-meter-scene="socket" aria-pressed="true">Socket voltage</button>
-            <button class="meter-sim-tab" data-meter-scene="switch" aria-pressed="false">Closed switch</button>
-            <button class="meter-sim-tab" data-meter-scene="fuse" aria-pressed="false">Fuse continuity</button>
-            <button class="meter-sim-tab" data-meter-scene="element" aria-pressed="false">Heating element</button>
-            <button class="meter-sim-tab" data-meter-scene="current" aria-pressed="false">Current in series</button>
+          <div class="meter-sim-toolbar" role="tablist" aria-label="Meetscenario">
+            <button class="meter-sim-tab is-active" data-meter-scene="socket" aria-pressed="true">Stopcontactspanning</button>
+            <button class="meter-sim-tab" data-meter-scene="switch" aria-pressed="false">Gesloten schakelaar</button>
+            <button class="meter-sim-tab" data-meter-scene="fuse" aria-pressed="false">Continuiteit zekering</button>
+            <button class="meter-sim-tab" data-meter-scene="element" aria-pressed="false">Verwarmingselement</button>
+            <button class="meter-sim-tab" data-meter-scene="current" aria-pressed="false">Stroom in serie</button>
           </div>
 
-          <svg viewBox="0 0 760 380" class="meter-sim-svg" aria-label="Multimeter and test circuit simulator">
+          <svg viewBox="0 0 760 380" class="meter-sim-svg" aria-label="Simulator van multimeter en testcircuit">
             <defs>
               <filter id="meterProbeGlow" x="-60%" y="-60%" width="220%" height="220%">
                 <feGaussianBlur stdDeviation="6"/>
@@ -134,7 +131,7 @@
             <rect x="26" y="26" width="250" height="328" rx="20" class="meter-body"/>
             <rect id="meter-screen-bg" x="58" y="54" width="186" height="62" rx="10" class="meter-screen is-good"/>
             <text x="151" y="91" id="meter-screen-text" class="meter-screen-text">230 V AC</text>
-            <text x="151" y="112" id="meter-screen-subtext" class="meter-screen-subtext">Good setup</text>
+            <text x="151" y="112" id="meter-screen-subtext" class="meter-screen-subtext">Goede opstelling</text>
 
             <circle cx="151" cy="188" r="56" class="meter-dial"/>
             <g data-meter-mode="vac" class="meter-mode-group is-active">
@@ -151,7 +148,7 @@
             </g>
             <g data-meter-mode="cont" class="meter-mode-group">
               <rect x="44" y="228" width="92" height="22" rx="11" class="meter-mode-pill"/>
-              <text x="90" y="243" class="meter-mode-text">Beep</text>
+              <text x="90" y="243" class="meter-mode-text">Piep</text>
             </g>
             <g data-meter-mode="amps" class="meter-mode-group">
               <rect x="45" y="165" width="72" height="22" rx="11" class="meter-mode-pill"/>
@@ -165,8 +162,8 @@
             <circle id="meter-red-socket-amps" cx="216" cy="311" r="13" class="meter-socket meter-socket-selectable"/>
             <text x="216" y="336" class="meter-socket-label">10A</text>
 
-            <text x="370" y="44" class="meter-scene-title">Test circuit</text>
-            <text x="370" y="68" id="meter-scene-caption" class="meter-scene-caption">Live wall socket: measure between live and neutral.</text>
+            <text x="370" y="44" class="meter-scene-title">Testcircuit</text>
+            <text x="370" y="68" id="meter-scene-caption" class="meter-scene-caption">Stopcontact onder spanning: meet tussen fase en nul.</text>
 
             <g data-meter-scene-group="socket" class="meter-scene-group is-active">
               <rect x="498" y="118" width="138" height="148" rx="24" class="meter-scene-panel"/>
@@ -182,7 +179,7 @@
               <circle cx="458" cy="188" r="6" class="meter-node"/>
               <circle cx="514" cy="188" r="6" class="meter-node"/>
               <line x1="458" y1="188" x2="514" y2="188" class="meter-switch-blade"/>
-              <text x="484" y="148" class="meter-part-label">closed switch</text>
+              <text x="484" y="148" class="meter-part-label">gesloten schakelaar</text>
             </g>
 
             <g data-meter-scene-group="fuse" class="meter-scene-group">
@@ -190,14 +187,14 @@
               <line x1="560" y1="188" x2="622" y2="188" class="meter-wire"/>
               <rect x="462" y="170" width="98" height="36" rx="18" class="meter-fuse-body"/>
               <line x1="482" y1="188" x2="540" y2="188" class="meter-fuse-link"/>
-              <text x="511" y="151" class="meter-part-label meter-label-center">good fuse</text>
+              <text x="511" y="151" class="meter-part-label meter-label-center">goede zekering</text>
             </g>
 
             <g data-meter-scene-group="element" class="meter-scene-group">
               <line x1="392" y1="188" x2="450" y2="188" class="meter-wire"/>
               <line x1="574" y1="188" x2="634" y2="188" class="meter-wire"/>
               <polyline points="450,188 468,166 486,210 504,166 522,210 540,166 558,210 574,188" class="meter-element"/>
-              <text x="512" y="150" class="meter-part-label meter-label-center">heating element</text>
+              <text x="512" y="150" class="meter-part-label meter-label-center">verwarmingselement</text>
             </g>
 
             <g data-meter-scene-group="current" class="meter-scene-group">
@@ -207,7 +204,7 @@
               <circle cx="576" cy="188" r="22" class="meter-lamp"/>
               <line x1="564" y1="176" x2="588" y2="200" class="meter-lamp-filament"/>
               <line x1="588" y1="176" x2="564" y2="200" class="meter-lamp-filament"/>
-              <text x="499" y="150" class="meter-part-label meter-label-center">open gap for current test</text>
+              <text x="499" y="150" class="meter-part-label meter-label-center">open onderbreking voor stroommeting</text>
             </g>
 
             <line id="meter-black-lead" x1="88" y1="311" x2="470" y2="258" class="meter-lead meter-lead-black"/>
@@ -221,140 +218,94 @@
 
           <div class="meter-sim-readout meter-demo-result is-good" id="meter-sim-result">
             <p class="meter-demo-reading" id="meter-sim-reading">230 V AC</p>
-            <p class="meter-demo-summary" id="meter-sim-summary">That is the right setup for checking a live socket: AC volts, red probe in V/ohms, one probe on live and one on neutral.</p>
-            <p class="meter-demo-note" id="meter-sim-note">Try switching the dial mode or moving the red lead between the VΩ and 10A sockets to see how quickly a sensible measurement becomes a bad setup.</p>
+            <p class="meter-demo-summary" id="meter-sim-summary">Dit is de juiste opstelling om een stopcontact onder spanning te controleren: AC-spanning, rode probe in V/ohm, één probe op fase en één op nul.</p>
+            <p class="meter-demo-note" id="meter-sim-note">Wissel van draaistand of verplaats de rode probe tussen VΩ en 10A om te zien hoe snel een logische meting een slechte opstelling wordt.</p>
           </div>
         </div>
       </div>
 
-      <h2>The diode test function</h2>
-
-      <p>Many meters have a dedicated diode test mode (marked with a diode symbol ▶|). In this mode, the meter applies a small forward voltage and reads the voltage drop across the diode. A good silicon diode reads about 0.5–0.7V in the forward direction and OL in reverse. This lets you quickly check diodes for open circuit (OL both ways — failed open) or short circuit (near 0V both ways — failed shorted).</p>
-
-      <h2>Practical diagnostic tests</h2>
-
-      <h3>Checking a fuse</h3>
-      <p>Set to continuity mode. Touch one probe to each end of the fuse. A working fuse should beep (close to zero resistance — it's just a piece of wire). OL means the fuse element has melted — blown. This test works whether the fuse is in or out of the circuit, but if in-circuit, ensure the circuit is unpowered and that there's no parallel path that would give a false continuity reading.</p>
-
-      <h3>Checking a heating element</h3>
-      <p>Unplug the appliance. Disconnect at least one end of the element to remove it from any parallel paths in the circuit. Set to resistance mode. Touch probes to the element terminals. A good element reads a specific resistance (as calculated from its wattage rating). OL means open circuit — failed. Near zero means shorted — also failed, less common.</p>
-
-      <h3>Checking a switch</h3>
-      <p>Unplug. Set to continuity mode. Measure across the switch terminals with the switch open: should read OL. Measure with the switch closed: should beep. A switch that reads OL in both positions is stuck open. A switch that beeps in both positions (or reads near zero with the switch open) is stuck closed — a safety concern.</p>
-
-      <div class="callout callout-workbench">
-        <span class="callout-label">From the workbench</span>
-        <p>Back to the toaster. One slot doesn't heat properly. Open the toaster (unplug it first). Each slot has its own set of heating elements — typically two or three nichrome wire elements per slot. With continuity mode, check each element in the cold slot individually. You'll likely find one reading OL — open circuit. The remaining elements are working, which is why the slot isn't completely dead, just underpowered. In a toaster, individual element wires are often impossible to replace without specialist parts, but the diagnostic process is exactly the same as for any other resistive load.</p>
-      </div>
-
-      <h2>Auto-ranging vs manual ranging</h2>
-
-      <p>Auto-ranging meters select the appropriate measurement range automatically. They're slower to settle (they go through a brief selection cycle when you connect the probes) but much harder to damage by selecting the wrong range. Manual-ranging meters display a reading immediately but require you to select the right range: too high a range and the display shows something like "0.00" without useful precision; too low a range and it reads OL even for normal values (not dangerous, just uninformative).</p>
-
-      <p>For a beginners' bench, auto-ranging is strongly preferred. For experienced use, manual can be faster because you know what range to expect.</p>
-
-      <h2>CAT ratings and meter safety</h2>
-
-      <p>Meters are classified by their overvoltage protection capability, using a system called CAT (Category) ratings:</p>
-
-      <ul>
-        <li><strong>CAT I</strong>: electronic equipment, low energy (not for mains use)</li>
-        <li><strong>CAT II</strong>: single-phase mains — wall sockets, portable appliances</li>
-        <li><strong>CAT III</strong>: three-phase distribution, fixed building wiring, load centres</li>
-        <li><strong>CAT IV</strong>: origin of installation, electricity meters, overhead lines</li>
-      </ul>
-
-      <p>For repair cafe work — household appliances plugged into wall sockets — CAT II is the minimum, and CAT III is better. A higher category means the meter can withstand larger voltage transients without failing dangerously.</p>
-
       <div class="callout callout-predict">
-        <span class="callout-label">Predict before measuring</span>
-        <p>If a closed switch is healthy and carrying current in a live circuit, what voltage should you expect across it: nearly the full supply, or close to zero? If you know the answer before measuring, the reading becomes diagnosis instead of surprise.</p>
-      </div>
-
-      <p>The voltage rating (e.g. "CAT II 600V") also matters. For 230V mains work, CAT II 600V is the standard minimum. Cheaper meters sometimes claim CAT ratings that aren't backed by genuine internal protection. Buy from reputable brands (Fluke, Brymen, UNI-T, CATIII-rated Meterk etc.) rather than the cheapest option available.</p>
-
-      <div class="callout callout-principle">
-        <span class="callout-label">The underlying principle</span>
-        <p>The CAT rating specifically addresses transient overvoltages — brief voltage spikes that can occur on mains circuits due to switching inductive loads (motors, solenoids) or lightning-coupled disturbances. These spikes can reach thousands of volts for microseconds, even on a 230V circuit. A properly-rated meter can absorb such a spike safely (through internal protection components) without catastrophic failure. An under-rated meter may fail in a way that presents a safety hazard to the user. This is why the cheap €8 multimeter is a false economy for mains work — not because it gives bad readings in normal use, but because its failure mode under a transient can be dangerous.</p>
+        <span class="callout-label">Voorspel vóór je meet</span>
+        <p>Als je een intacte zekering spanningsloos meet in continuiteitsstand, verwacht je dan een piep of OL? En wat verwacht je over een open schakelaar? Door dat eerst te voorspellen, gebruik je de meter als denktool in plaats van als gokmachine.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>The toaster gets a diagnosis: one element open in the right slot. The owner decides against repair (no spare elements available), and the toaster goes in the parts/recycling box. A vacuum cleaner that arrived an hour ago has been waiting patiently on the floor beside the table. "It just stopped working," the owner says — which is what everyone says. You pick it up, feel that it's unusually light for its size, and check the bag. It's so full it's solid. That tells you something already.</p>
+        <p>Het broodrooster blijkt geen ingewikkeld mysterie. De ene sleuf warmt nauwelijks omdat er in het voedingspad naar dat element ergens een slechte verbinding zit. Met spanningsvalmeting is de fout snel gelokaliseerd. De nieuwe vrijwilliger kijkt nog eens naar de meter en zegt: "Dus de stand hangt niet af van het apparaat, maar van de vraag die je stelt." Precies dat. Op de volgende tafel staat een stofzuiger die helemaal niets meer doet. Tijd om te praten over schakelaars en zekeringen.</p>
       </div>
 
       <div class="chapter-takeaways">
-        <span class="chapter-takeaways-title">Remember this</span>
+        <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Voltage is measured in parallel on a live circuit.</li>
-          <li>Resistance and continuity are measured only on an unpowered circuit.</li>
-          <li>Always check the probe sockets before touching mains.</li>
-          <li>Continuity is quick, but voltage-drop testing under load often tells you more.</li>
+          <li>Spanning meet je parallel en onder bedrijf; weerstand en continuiteit meet je spanningsloos.</li>
+          <li>De rode probe hoort voor spanningsmetingen in de V/Ω-bus, niet in de stroombus.</li>
+          <li>Een spanningsval over een onderdeel dat zou moeten geleiden, wijst op ongewenste weerstand.</li>
+          <li>De waarde van de multimeter zit niet alleen in meten, maar in het kiezen van de juiste vraag.</li>
         </ul>
       </div>
 
       <section class="chapter-questions">
-        <h2>Check your understanding</h2>
+        <h2>Test je begrip</h2>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q1</span>
-            <span class="question-text">You measure voltage across a thermal fuse in a live circuit (with the appliance plugged in and switched on) and read 230V. What does this tell you about the fuse?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V1</span>
+            <span class="question-text">Waarom meet je weerstand alleen wanneer het apparaat spanningsloos is?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>The thermal fuse is open circuit (blown). In a series circuit, when a component is open — not conducting — the full supply voltage appears across it. Think of it like this: on one side of the open fuse, the live voltage is present; on the other side, the neutral is present through the rest of the intact circuit. There's 230V across the gap. If the fuse were intact and conducting, there would be (nearly) zero voltage drop across it — you'd read close to 0V. A 230V reading across a fuse is a clear diagnosis: blown fuse. Now you need to find out why it blew before just replacing it.</p>
+            <p>Omdat de meter zelf een klein testsignaal door het onderdeel stuurt. Als het circuit al onder spanning staat, raakt die interne meting verstoord en kan de meter beschadigd raken. Je krijgt dus niet alleen een verkeerde waarde, maar loopt ook veiligheidsrisico.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q2</span>
-            <span class="question-text">A colleague puts the red probe in the 10A current socket and then measures the voltage across a wall socket. What happens?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V2</span>
+            <span class="question-text">Wat vertelt het je als je in een serieschakeling bijna de volle voedingsspanning meet over een schakelaar die "aan" zou moeten staan?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>In current mode, the meter's input is very low resistance (near a short circuit). Connecting it across 230V AC essentially creates a short circuit across the mains. The resulting current is limited only by the meter's internal resistance and the source impedance of the mains — potentially hundreds or thousands of amperes for a brief moment. This will almost certainly blow the meter's high-current fuse immediately (if it has one and it's properly rated). If the fuse can't clear the fault quickly enough, the current surge can damage or destroy the meter — possibly with a flash, a bang, and flying debris. This is a real safety incident. If the fuse clears quickly, the person is probably unhurt but the meter is damaged. This is exactly why CAT ratings and proper meter fuses matter.</p>
+            <p>Dat die schakelaar zich elektrisch gedraagt als een open of slecht contact. Een onderdeel dat goed geleidt hoort bijna geen spanningsval te hebben. Vrijwel de hele voedingsspanning erover meten betekent dat de stroom daar wordt tegengehouden.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q3</span>
-            <span class="question-text">You test a switch in an unplugged appliance using continuity mode. With the switch in the off position you get a beep. With the switch in the on position you also get a beep. What does this mean?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V3</span>
+            <span class="question-text">Waarom is de stroombus op een multimeter gevaarlijk wanneer je eigenlijk spanning wilde meten?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>The switch is stuck closed (or shorted). Its contacts are conducting in both the on and off positions — it's no longer able to open the circuit. This means the switch cannot turn the appliance off. This is a safety fault: if the switch is on the live side (as it should be), the appliance's internal components are permanently connected to live through the switch, regardless of the switch position. An appliance with this fault should not be returned to service until the switch is replaced. Also worth checking: could there be a parallel path in the circuit giving a false reading? Rule that out by disconnecting one terminal of the switch before testing.</p>
+            <p>Omdat de meter in stroomstand een zeer lage weerstand heeft. Zet je die over een spanningsbron, dan maak je vrijwel een kortsluiting. Dat geeft een enorme stroompiek en kan de meter, de zekering of jouzelf in gevaar brengen.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q4</span>
-            <span class="question-text">Why must the circuit be unpowered when measuring resistance, but powered when measuring voltage?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V4</span>
+            <span class="question-text">Een kabel piept in continuiteitsstand, maar veroorzaakt onder belasting toch problemen. Hoe kan dat?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Resistance measurement works by injecting a small known current from the meter's internal battery and measuring the resulting voltage drop. If the circuit is powered, the external voltage overwhelms the meter's internal test signal, making the reading meaningless — and the external voltage may damage the meter's resistance measurement circuitry (which is designed for low voltages only). Voltage measurement, conversely, requires the circuit to be at its operating voltage — you're measuring what the external circuit is producing. The meter's voltage input is designed for the expected range and is high-impedance, so it draws almost no current from the circuit under test. These two modes work in fundamentally different ways, which is why the power rules are opposite.</p>
+            <p>Omdat continuiteit met heel lage teststroom meet. Een gedeeltelijk beschadigde draad kan daar nog doorheen komen, terwijl hij bij echte belasting te warm wordt of te veel spanningsval veroorzaakt. Daarom is weerstand en gedrag onder belasting ook belangrijk.</p>
           </div>
         </div>
 
         <div class="question-item">
           <div class="question-prompt">
-            <span class="question-num">Q5</span>
-            <span class="question-text">You're tracing a fault in a live series circuit: fuse → switch (on) → heating element. You measure 230V before the fuse, 230V after the fuse, 0V after the switch. What is the fault, and what measurement would confirm it?</span>
-            <span class="question-reveal">Show answer</span>
+            <span class="question-num">V5</span>
+            <span class="question-text">Je meet een batterijcircuit op AC-stand en krijgt onzin. Wat is de eerste conclusie?</span>
+            <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>230V is present after the fuse (fuse intact), but drops to 0V after the switch — meaning the switch is not conducting despite being in the "on" position. The switch is open-circuit: its contacts have either failed to make, or the switch mechanism has broken internally while appearing to be switched on. To confirm: unplug the appliance and measure resistance across the switch terminals with the switch set to on. A working switch in the on position should read near zero ohms (or beep in continuity mode). A reading of OL (open circuit) with the switch on confirms the fault. This is also why 230V would appear across the switch in the live circuit — in a series path, full supply voltage drops across any open component.</p>
+            <p>Niet meteen dat het apparaat defect is, maar dat de meter waarschijnlijk verkeerd staat. Eerst controleren of je AC of DC meet op een punt waar ook echt AC of DC aanwezig hoort te zijn.</p>
           </div>
         </div>
 
       </section>
 
       <div class="chapter-nav-footer">
-        <a href="chapter-04.html" class="nav-prev">Chapter 4: Power and Heat</a>
-        <a href="chapter-06.html" class="nav-next">Chapter 6: Switches and Fuses</a>
+        <a href="chapter-04.html" class="nav-prev">Hoofdstuk 4: Vermogen en warmte</a>
+        <a href="chapter-06.html" class="nav-next">Hoofdstuk 6: Schakelaars en zekeringen</a>
       </div>
     </article>
 

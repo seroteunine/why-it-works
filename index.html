@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why It Works — Electronics Fundamentals for Repair Cafe Volunteers</title>
-  <meta name="description" content="A course book on electronics fundamentals for repair cafe volunteers. Voltage, current, circuits, motors, fault diagnosis and more.">
-  <meta http-equiv="refresh" content="0; url=intro.html">
+  <title>Why It Works — Basis elektronica voor Repair Cafe-vrijwilligers</title>
+  <meta name="description" content="Een cursusboek basis-elektronica voor Repair Cafe-vrijwilligers. Spanning, stroom, schakelingen, motoren, foutdiagnose en meer.">
   <link rel="canonical" href="intro.html">
+  <link rel="alternate" hreflang="nl" href="intro.html">
+  <link rel="alternate" hreflang="en" href="en/intro.html">
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function() {
+      var target = 'intro.html';
+      try {
+        if (window.localStorage.getItem('why-it-works-language') === 'en') {
+          target = 'en/intro.html';
+        }
+      } catch (error) {
+        // Ignore storage access issues and fall back to Dutch.
+      }
+      window.location.replace(target);
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=intro.html">
+  </noscript>
 </head>
 <body>
 <main class="main-content">
   <div class="content-wrapper">
-    <p><a href="intro.html">Continue to the introduction</a></p>
+    <p><a href="intro.html">Ga door naar de inleiding</a></p>
   </div>
 </main>
 </body>

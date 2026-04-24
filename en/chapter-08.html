@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 8: Motors — Why It Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main-content">
+  <div class="content-wrapper">
+
+    <div class="progress-bar">
+      <span class="progress-label">Chapter 8 of 12</span>
+      <div class="progress-dots" aria-hidden="true">
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot done"></span>
+        <span class="progress-dot current"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span><span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+      </div>
+    </div>
+
+    <article>
+      <header class="chapter-header">
+        <p class="chapter-number">Chapter 8</p>
+        <h1>Motors</h1>
+      </header>
+
+      <div class="chapter-scene">
+        <p>The coffee grinder arrives in a cloth bag — a conical burr grinder, the expensive kind. The owner has brought it carefully, along with a sad expression. "It makes a horrible noise when it starts and sometimes there are sparks visible through the vent grille. I've been ignoring it for a month." You set it on the table, look through the grille, and can already see it: the commutator is dirty and blackened, and one of the two brush holders has a brush that's worn almost flush with its spring. You've seen this before. You know what it means and what to do about it. But the newer volunteer next to you doesn't. Time to explain how these things work.</p>
+      </div>
+
+      <div class="chapter-objectives">
+        <span class="chapter-objectives-title">Learning goals</span>
+        <ul>
+          <li>Understand the basic principles that make common appliance motors turn.</li>
+          <li>Tell brushed, universal, and induction motors apart by construction and symptoms.</li>
+          <li>Relate motor faults to what you hear, smell, and measure.</li>
+        </ul>
+      </div>
+
+      <h2>The fundamental principle: magnetism and force</h2>
+
+      <p>Electric motors convert electrical energy into mechanical rotation. They do this because a current-carrying conductor in a magnetic field experiences a force. Arrange that force in a circle and you get rotation.</p>
+
+      <p>The basic idea: a wire carrying current in a magnetic field experiences a force. The force is at right angles to both the current direction and the magnetic field direction. If you arrange multiple current-carrying conductors in a magnetic field in the right geometry — with the force direction always pushing the same way — you get continuous rotation.</p>
+
+      <p>You don't need the maths at the repair table. The key insight is that <strong>the torque a motor produces is closely tied to the current it carries</strong>. More load usually means more current. A stalled motor draws far more current than a freely spinning one.</p>
+
+      <div class="callout callout-principle">
+        <span class="callout-label">The underlying principle</span>
+        <p>Motors are energy converters, but at the bench the important idea is feedback between electricity and motion. As a motor spins, it generates a back electromotive force (back EMF) that opposes the supply. When the rotor is free and up to speed, this back EMF limits the current. When the rotor slows under load, or stalls, the back EMF falls and the current rises sharply. That is why mechanical drag causes electrical overheating, and why a stalled motor can burn itself out even though the supply voltage has not changed.</p>
+      </div>
+
+      <h2>Brushed DC motors</h2>
+
+      <p>The simplest type you'll encounter is the brushed DC motor. It has three main parts: a stationary outer assembly (the stator) that provides a fixed magnetic field, a rotating wound coil (the rotor or armature), and a commutator with carbon brushes that maintain sliding contact with the rotor as it turns, reversing the current direction at the right moment to sustain rotation. That brush-and-commutator system is what makes these motors easy to recognise and easy to diagnose.</p>
+
+      <p>The price of that simplicity is wear. Brushes are sacrificial parts, and the commutator surface can become dirty or rough. That is why brushed motors often announce their problems with visible sparking, noise, smell, or intermittent running.</p>
+
+      <h2>Universal motors</h2>
+
+      <p>The most common motor you'll find in domestic appliances — vacuum cleaners, hand mixers, angle grinders, routers, hair dryers, coffee grinders — is the universal motor. It's a brushed motor where both the stator field coils and the rotor coils are wound on laminated iron cores.</p>
+
+      <p>The "universal" refers to its ability to run on both AC and DC. Because both the stator field and rotor current reverse simultaneously with AC (so the force direction stays the same), a universal motor designed for 230V AC will also run on 230V DC. In practice, they're almost always used on AC.</p>
+
+      <p>Universal motors are prized for high speed and high power in a small package, which is why they are common in vacuum cleaners, mixers, grinders, and power tools. Their drawbacks are the same things you can often observe directly: noise, brush wear, sparking, and a shorter service life than brushless designs.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>The practical lesson from the grinder is simpler than the full service procedure: if a universal motor shows strong sparking, poor power, and obvious brush wear, start with the brushes and the commutator area. You are trying to recognise a worn contact system, not become a motor rebuilder.</p>
+      </div>
+
+      <h2>AC induction motors</h2>
+
+      <p>The other main type you'll encounter, especially in fans, pumps, and low-torque household appliances, is the AC induction motor. Induction motors have <em>no brushes or commutator</em> — the rotor has no direct electrical connection to the supply.</p>
+
+      <p>Instead, the stator creates a changing magnetic field that induces current in the rotor. The rotor then follows that moving field. Induction motors are simpler mechanically, quieter, and longer-lived than brushed motors because there are no brushes to wear out.</p>
+
+      <p>On single-phase household AC, these motors need help to start. A capacitor is commonly used to create a phase-shifted current in a second winding, producing the starting torque the motor would not otherwise have from rest.</p>
+
+      <h3>The start capacitor</h3>
+      <p>A failed start capacitor gives one of the most useful symptom-patterns in appliance repair: the motor hums, may get warm, but does not begin rotating properly from rest. That symptom matters because it links an electrical part — the capacitor — to a very visible behaviour.</p>
+
+      <p>If a motor is hot and drawing high current, the more likely story is drag, excessive load, or winding damage. In other words, the motor is taking more current because it cannot generate back EMF or torque efficiently.</p>
+
+      <h2>Common motor faults and their symptoms</h2>
+
+      <h3>Worn brush system</h3>
+      <p>Symptoms: visible sparking, reduced power, intermittent running, or harsh noise around the commutator end. The broad diagnosis is that current is no longer being transferred cleanly into the rotating part of the motor.</p>
+
+      <h3>Failed start capacitor</h3>
+      <p>Symptoms: the motor hums but does not start properly from rest. This points to a single-phase induction motor that is not getting the phase shift it needs for starting torque.</p>
+
+      <h3>Mechanical drag or winding damage</h3>
+      <p>Symptoms: overheating, smell, poor torque, heavy current draw, or a shaft that feels rough or stiff by hand. This is the useful reminder that motor faults are often a mixture of electrical and mechanical problems rather than neatly one or the other.</p>
+
+      <div class="callout callout-workbench">
+        <span class="callout-label">From the workbench</span>
+        <p>When you measure a motor, think in patterns rather than memorising exact numbers. A winding that reads OL is open. A winding that reads implausibly low may be shorted. A winding that shows continuity to the metal frame is unsafe. Pair those measurements with what your eyes, ears, and hands are telling you about drag, smell, noise, and heat.</p>
+      </div>
+
+      <div class="callout callout-predict">
+        <span class="callout-label">Predict before measuring</span>
+        <p>If a motor winding has gone open-circuit, what should resistance across that winding read: a plausible value, near zero, or OL? And if the winding is shorted to the frame, what should you read from winding to case? Predicting first keeps motor testing from becoming guesswork.</p>
+      </div>
+
+      <div class="chapter-closer">
+        <p>New brushes installed in the grinder, commutator cleaned, motor tested — it runs smoothly and quietly. The owner is genuinely delighted. The table fan that hummed but wouldn't start has already given up its diagnosis: a failed run capacitor, the component that gives a single-phase induction motor the phase shift it needs to start from rest. That repair waits until the capacitor chapter. Next to it, a battery radio arrived while you were working on the grinder. Before either job goes further, it's worth pausing on one question: are you in AC territory, DC territory, or both?</p>
+      </div>
+
+      <div class="chapter-takeaways">
+        <span class="chapter-takeaways-title">Remember this</span>
+        <ul>
+          <li>Motor torque depends strongly on current and on the motor design.</li>
+          <li>Sparking brushes, noise, smell, and overheating are all diagnostic clues.</li>
+          <li>An open winding, shorted turns, or a winding-to-frame fault are very different failures.</li>
+          <li>Mechanical drag and electrical faults often look similar until you measure.</li>
+        </ul>
+      </div>
+
+      <section class="chapter-questions">
+        <h2>Check your understanding</h2>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q1</span>
+            <span class="question-text">A vacuum cleaner motor runs but has much less suction than normal, and it's hotter than usual after five minutes of use. The bag is empty, the hose and filters are clear. What might explain both the reduced performance and the overheating?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Several possibilities, in order of likelihood: (1) Worn brushes — reduced brush contact means the motor isn't receiving full current, reducing power output; simultaneously, the increased contact resistance at the brush/commutator interface generates extra heat. (2) Dirty or worn commutator — similar effect to worn brushes, carbon tracks between segments short-circuit some of the commutator, reducing effective torque while wasting energy as heat. (3) Partially shorted winding — some turns short-circuited, current circulates in the short generating heat, but those turns no longer contribute to torque. (4) Bearing wear — mechanical drag forces the motor to work harder, drawing more current while delivering less shaft power. The diagnostic approach: open the motor end cap, inspect brushes and commutator, measure winding resistance, and check bearing movement.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q2</span>
+            <span class="question-text">A single-phase induction motor in a bathroom fan hums when switched on but doesn't rotate. You give the fan blade a gentle spin while it's running, and the motor runs normally. What is the most likely fault, and what is the fix?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>The motor can run (proven by the fact that it runs once started) but cannot generate starting torque from rest. This is the classic symptom of a failed start/run capacitor. The capacitor creates a phase-shifted current in the start winding to produce the rotating magnetic field needed for startup torque. Without it, there's no net rotating force at rest — the motor can only hum (single-phase AC creates a pulsating field, not a rotating one). Once the blade is spun to give the rotor some angular momentum, the motor can run on inertia-assisted operation. The fix is to identify and replace the capacitor — check the capacitance and voltage rating marked on the old one, source an equivalent, and replace. This is typically a straightforward repair.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q3</span>
+            <span class="question-text">You measure resistance between a motor's field winding and its metal case and get 4.7k ohms. The winding-to-winding resistance is normal. Should you be concerned?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>Yes, you should be concerned. Resistance between any live winding and the motor case should ideally be OL (infinite) — the winding insulation provides complete electrical isolation from the case. 4.7 kilohms is low enough that some current could flow from the winding to the case. In a Class I appliance (with a proper earth connection), this would mean a small but continuous current flowing through the earth conductor — the RCD (aardlekschakelaar) in many Dutch homes would detect this as a leakage current and could trip. In a Class II appliance with no earth, the case would be at some intermediate voltage — potentially dangerous to touch. This motor has degraded insulation. It should be condemned and replaced, not returned to service. A proper insulation resistance test (using a 500V insulation tester) should read at least 1 MΩ between live circuits and the case for a serviceable motor.</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q4</span>
+            <span class="question-text">Why can't you use a standard lamp dimmer switch to control the speed of a vacuum cleaner motor, even though dimmers seem to "reduce power"?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>A standard lamp dimmer works by rapidly switching the mains supply on and off — using a component called a TRIAC — cutting out part of each AC half-cycle. For a resistive load (a filament bulb), this reduces average power smoothly and predictably. For a universal motor, it creates several problems.</p>
+            <p>First, the chopped waveform delivers current in brief bursts rather than continuously. A motor depends on sustained current to maintain torque, so at low dimmer settings it either stalls entirely or runs erratically rather than slowing smoothly. Second, a universal motor is an inductive load — its windings resist sudden changes in current, and when the TRIAC cuts the supply, the collapsing magnetic field generates a voltage spike back into the circuit. These spikes can damage both the dimmer's switching components and the motor's winding insulation over time. Third, the commutator and brushes arc at the moments of abrupt current change, accelerating brush wear far beyond normal use. A proper motor speed controller accounts for the motor's inductance and back EMF, adjusting the switching waveform to maintain smooth current delivery. A lamp dimmer does none of this. The result is not "running at lower speed" but "running badly at unpredictable speed, with accelerated wear."</p>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-prompt">
+            <span class="question-num">Q5</span>
+            <span class="question-text">A universal motor runs fine with no load attached, but stalls when engaged against even a light mechanical load. Brushes are new, commutator is clean, winding resistance is normal. What else might cause poor torque under load?</span>
+            <span class="question-reveal">Show answer</span>
+          </div>
+          <div class="question-answer">
+            <p>With healthy brushes, a clean commutator, and normal winding resistance, the rotor circuit seems fine. Torque in a universal motor depends on both rotor current and the stator magnetic field (F = BIL). If the stator field coils are partially open or shorted, the magnetic field is weaker than designed — the motor can run unloaded because that requires little torque, but under any load the reduced field means reduced torque, and the motor stalls. Test the stator (field coil) resistance separately — it should be similar to or higher than the rotor resistance, and notably different from a dead short or open circuit. Also worth checking: a mechanical obstruction in the load path itself (seized bearings in the driven mechanism, not the motor), or a speed-control circuit that's reducing the voltage reaching the motor. Not every "motor fault" is inside the motor.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="chapter-nav-footer">
+        <a href="chapter-07.html" class="nav-prev">Chapter 7: Thermal Protection</a>
+        <a href="chapter-09.html" class="nav-next">Chapter 9: AC vs DC</a>
+      </div>
+    </article>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
