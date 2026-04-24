@@ -519,12 +519,6 @@ li:last-child { margin-bottom: 0; }
 }
 .callout-demo .callout-label { color: var(--color-demo-label); }
 
-.callout-predict {
-  background: var(--color-predict-bg);
-  border-color: var(--color-predict-border);
-}
-.callout-predict .callout-label { color: var(--color-predict-label); }
-
 /* === Formula Display === */
 .formula {
   font-family: var(--font-ui);
