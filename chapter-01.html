@@ -40,9 +40,9 @@
       <div class="chapter-objectives">
         <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
-          <li>Het verschil begrijpen tussen spanning, stroom en weerstand in gewone taal.</li>
+          <li>Het verschil begrijpen tussen spanning, stroom en weerstand in de gewone taal.</li>
           <li>De wet van Ohm gebruiken om in te schatten wat een normaal apparaat zou moeten doen.</li>
-          <li>Het verschil herkennen tussen een open circuit, een kortsluiting en een weerstandsfout.</li>
+          <li>Een open circuit en een kortgesloten circuit herkennen</li>
         </ul>
       </div>
 
@@ -50,21 +50,19 @@
 
       <p>Elektriciteit is onzichtbaar, dus het helpt om te denken aan iets zichtbaars: water dat door leidingen stroomt. Die vergelijking is niet perfect, maar wel erg bruikbaar.</p>
 
-      <p><strong>Spanning</strong> is het elektrische equivalent van waterdruk. Het is de duw, de kracht die de stroom door de kring drijft. Een hogere spanning duwt harder. We meten die in volt (V), en het Nederlandse lichtnet levert 230V, genoeg druk om veel stroom door veel weerstand te duwen. Een AA-batterij levert daarentegen 1,5V. Hetzelfde idee, maar een veel zachtere duw.</p>
+      <p><strong>Spanning</strong> is het elektrische equivalent van waterdruk. Het is de kracht die de stroom door de kring drijft. Een hogere spanning duwt harder. We meten die in volt (V), en het Nederlandse lichtnet levert 230V, genoeg druk om veel stroom door een weerstand te duwen. Een AA-batterij levert maar 1,5V.</p>
 
-      <p><strong>Stroom</strong>: hoeveel er per seconde langs een bepaald punt beweegt. Zoals liters per seconde bij water, maar dan ampère (A) bij elektriciteit. Een verwarmingselement van een waterkoker kan tijdens normaal gebruik 8 of 9 ampère voeren. Een kleine led voert misschien 20 milliampère (0,02A). Allebei zijn het stroom, alleen in heel verschillende hoeveelheden.</p>
+      <p><strong>Stroom</strong>: hoeveel lading per seconde langs een bepaald punt beweegt. Zoals liters per seconde bij water, maar dan ampère (A) bij elektriciteit. Een verwarmingselement van een waterkoker kan tijdens normaal gebruik 8 of 9 A voeren. Een kleine led voert misschien 20 milliampère (0,02A). Door allebei loopt stroom, alleen in heel verschillende hoeveelheden.</p>
 
-      <p><strong>Weerstand</strong> is te vergelijken met de vernauwing van een waterleiding, alles wat de doorstroming beperkt. Een dunne leiding biedt meer weerstand dan een brede, een lange meer dan een korte. Elektrisch gezien is weerstand een eigenschap van materiaal en vorm. We meten haar in ohm (Ω). Koperdraad heeft heel weinig weerstand en zit dus weinig in de weg. Een verwarmingselement heeft juist veel weerstand: het beperkt de stroom opzettelijk en zet de energie daarbij om in warmte.</p>
+      <p><strong>Weerstand</strong> is te vergelijken met de vernauwing van een waterleiding, alles wat de doorstroming beperkt. Een dunne leiding biedt meer weerstand dan een dikke, een langere meer dan een kortere. Elektrisch gezien is weerstand een eigenschap van materiaal en vorm. We meten haar in ohm (Ω). Koperdraad heeft heel weinig weerstand, te vergelijken met een hele dikke waterleiding. Een verwarmingselement heeft juist veel weerstand, te vergelijken met een hele dunne leiding: het beperkt de stroom opzettelijk en zet de energie daarbij om in warmte.</p>
 
       <h2>De wet van Ohm</h2>
 
-      <p>Deze drie grootheden, spanning, stroom en weerstand, hangen samen via een van de nuttigste vergelijkingen in de hele elektronica:</p>
+      <p>Deze drie grootheden, spanning, stroom en weerstand, hangen als volgt samen:</p>
 
       <div class="formula">V = I × R</div>
 
-      <p>Spanning is gelijk aan stroom maal weerstand. Omgekeerd kun je er ook stroom of weerstand mee uitrekenen.</p>
-
-      <p>In de praktijk betekent dat: bij een vaste spanning, zoals 230V uit het lichtnet, hangt de stroom af van de weerstand. Weinig weerstand betekent meer stroom. Veel weerstand betekent minder. Een open onderbreking betekent geen stroom.</p>
+      <p>Spanning is gelijk aan stroom maal weerstand. In de praktijk betekent dat: bij een vaste spanning, zoals 230V uit het lichtnet, hangt de stroom af van de weerstand. Weinig weerstand betekent meer stroom. Veel weerstand betekent minder. Een onderbreking betekent geen stroom.</p>
 
       <div class="ohm-demo" id="ohm-demo">
         <div class="ohm-demo-header">
@@ -131,7 +129,7 @@
 
       <p>In een waterkoker is het verwarmingselement een draadspoel met hoge weerstand. Die weerstand is zo gekozen dat er bij 230V precies genoeg stroom loopt om warmte te maken. Meet je de weerstand van het element en deel je de voedingsspanning door dat getal, dan krijg je de verwachte stroom. Komt dat uit in de buurt van de specificaties op het apparaat, dan is het element waarschijnlijk gezond.</p>
 
-      <p>Als de weerstand op een digitale meter als OL verschijnt, over limit dus, betekent dat dat de weerstand te hoog is om te meten, praktisch oneindig. Dan is het element open onderbroken.</p>
+      <p>Als de weerstand op een digitale meter als OL verschijnt, over limit dus, betekent dat dat de weerstand te hoog is om te meten, praktisch oneindig. Dan is het element onderbroken.</p>
 
       <div class="callout callout-principle">
         <span class="callout-label">Het onderliggende principe</span>
@@ -144,20 +142,20 @@
 
       <p>Spanning is geen eigenschap van één punt. Het is altijd een verschil tussen twee punten. Als we zeggen "het lichtnet is 230V", bedoelen we dat er een verschil van 230 volt is tussen fase en nul. Als we spanning over een component meten, meten we het verschil tussen de ene kant en de andere.</p>
 
-      <p>Dat is belangrijk bij meten. Zet je één meetpen op fase en één op nul bij het element, dan verwacht je ongeveer 230V. Zie je 0V, dan ontbreekt de voeding of meet je tussen twee punten die elektrisch gelijk zijn.</p>
+      <p>Dat is belangrijk bij meten. Zet je een meetpen op fase en één op nul bij het element, dan verwacht je ongeveer 230V. Zie je 0V, dan ontbreekt de voeding.</p>
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Wanneer je spanning meet in een live circuit en een onverwachte waarde krijgt, is de meest voorkomende fout dat één meetpen aan het verkeerde referentiepunt zit. Vraag jezelf altijd af: wat zijn mijn twee meetpunten, en welk verschil verwacht ik daartussen? Alleen al dat herformuleren voorkomt veel frustratie.</p>
+        <p>Wanneer je spanning meet in een live circuit en een onverwachte waarde krijgt, is de meest voorkomende fout dat één meetpen aan het verkeerde referentiepunt zit. Vraag jezelf altijd af: wat zijn mijn twee meetpunten, en welk verschil verwacht ik daartussen? Dat voorkomt veel frustratie.</p>
       </div>
 
       <h2>Behoud van stroom: wat erin gaat, moet er ook weer uit</h2>
 
-      <p>In een serieschakeling loopt door elk onderdeel dezelfde stroom. Staan zekering, schakelaar en verwarmingselement allemaal in serie, dan gaat alle stroom die het element bereikt eerst door de zekering en de schakelaar. Daarom legt een onderbreking op één plek het hele apparaat stil.</p>
+      <p>In een serieschakeling loopt door elk onderdeel dezelfde stroom. Staan zekering, schakelaar en verwarmingselement allemaal in serie, dan gaat de stroom door het element ook door de zekering en de schakelaar. Daarom legt een onderbreking op één plek het hele apparaat stil.</p>
 
       <h2>Weerstand en waar die vandaan komt</h2>
 
-      <p>Weerstand hangt af van materiaal en vorm. Koperdraad heeft weinig weerstand en moet vooral stroom doorgeven. Een verwarmingselement gebruikt juist een materiaal met veel hogere weerstand, zoals nichroom, zodat elektrische energie bewust in warmte wordt omgezet.</p>
+      <p>Weerstand hangt af van materiaal en vorm. Koperdraad heeft weinig weerstand en geeft daardoor weinig warmte af. Een verwarmingselement gebruikt juist een materiaal met veel hogere weerstand, zoals Nikkel-Chroom (NiChroom), zodat elektrische energie bewust in warmte wordt omgezet.</p>
 
       <p>Ook de vorm telt mee. Langere draad geeft meer weerstand. Dunnere draad ook. Daarom zijn netsnoeren dik genoeg om koel te blijven, terwijl het element juist ontworpen is om heet te worden.</p>
 
@@ -167,37 +165,35 @@
 
       <div class="callout callout-workbench">
         <span class="callout-label">Van de werkbank</span>
-        <p>Waterkokerelementen meten koud vaak ongeveer 20 tot 40 ohm. Een snelle controle is 230² gedeeld door het vermogen. Voor 2400W kom je uit op ongeveer 22 ohm. OL wijst op een onderbreking; een erg lage waarde op kortsluiting.</p>
+        <p>Waterkoker elementen meten koud vaak ongeveer 20 tot 40 ohm. Voor 2400W kom je uit op ongeveer 22 ohm. Meet je met je multimeter OL, dan wijst dat op een onderbreking; een erg lage waarde op kortsluiting.</p>
       </div>
 
       <div class="section-break"></div>
 
       <h2>Open circuits, kortsluiting en gedeeltelijke fouten</h2>
 
-      <p>Terug naar de waterkoker. De meeste elektrische storingen vallen in drie categorieën:</p>
-x
+      <p>Terug naar de waterkoker. De meeste elektrische storingen vallen in twee categorieën:</p>
+
       <p><strong>Open circuit</strong>: het stroompad is onderbroken. De weerstand is praktisch oneindig, de stroom nul, en het apparaat doet niets.</p>
 
       <p><strong>Kortsluiting</strong>: twee geleiders raken elkaar terwijl dat niet hoort. De weerstand wordt heel laag en de stroom loopt veel te hoog op.</p>
 
-      <p><strong>Weerstandsfout</strong>: iets geleidt nog wel, maar slechter dan het hoort. Het apparaat werkt dan vaak nog half, met minder vermogen of warmte op de verkeerde plek.</p>
-
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid</span>
-        <p>Met meetpennen in een apparaat prikken terwijl het is ingeplugd is alleen gepast wanneer je bewust spanning meet, weet wat je aanraakt en een goed geclassificeerde meter met geïsoleerde probes gebruikt. 230V netspanning door het lichaam is voldoende om kamerfibrillatie te veroorzaken. Trek bij twijfel eerst de stekker uit het stopcontact en gebruik weerstandmetingen om de storing op te sporen voordat je in de buurt van een live circuit komt.</p>
+        <p>Met meetpennen in een apparaat prikken terwijl het is ingeplugd is alleen gepast wanneer je bewust spanning meet, weet wat je aanraakt en een goedgekeurde meter met geïsoleerde probes gebruikt. 230V Netspanning kan dodelijk zijn. Trek bij twijfel eerst de stekker uit het stopcontact en gebruik zo veel mogelijk weerstandmetingen (ook de piep-functie van de multimeter) om de storing op te sporen voordat je met het apparaat onder spanning gaat meten.</p>
       </div>
 
       <div class="chapter-closer">
-        <p>Terug aan de werkbank is de waterkoker niet langer gewoon "stuk". Het is een circuit met een paar waarschijnlijke foutpunten: het element, de thermische beveiliging, de schakelaar of een verbinding ertussen.</p>
+        <p>Terug aan de werkbank is de waterkoker niet langer gewoon "stuk". De meest waarschijnlijke fouten zijn: het element, de thermische beveiliging, de schakelaar of een verbinding ertussen.</p>
       </div>
 
       <div class="chapter-takeaways">
         <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Spanning is de duw, stroom is de doorstroming en weerstand beperkt die doorstroming.</li>
+          <li>Spanning is de druk die de stroom veroorzaakt door de weerstand. Stroom is de doorstroming en de weerstand beperkt die doorstroming.</li>
           <li>Bij een vaste voedingsspanning betekent minder weerstand meer stroom.</li>
-          <li>OL bij een weerstandsmeting betekent meestal dat het stroompad onderbroken is.</li>
-          <li>De meeste apparaatstoringen kun je beschrijven als open, kortgesloten of te weerstandrijk.</li>
+          <li>OL bij een weerstandsmeting betekent dat het stroompad onderbroken is.</li>
+          <li>De meeste apparaat storingen kun je beschrijven als open, kortgesloten of slechte verbindingen.</li>
         </ul>
       </div>
 
@@ -255,7 +251,7 @@ x
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Nee. De berekende warme weerstand is ongeveer 26,5 ohm, maar een koud element mag hoger meten. 35 ohm kan dus nog prima normaal zijn. OL of juist bijna nul zou veel verdachter zijn.</p>
+            <p>Nee. De berekende warme weerstand is ongeveer 26,5 ohm, maar een koud element kan een hogere weerstand hebben. 35 ohm is dus goed.</p>
           </div>
         </div>
 

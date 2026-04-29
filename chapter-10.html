@@ -39,27 +39,26 @@
       </header>
 
       <div class="chapter-scene">
-        <p>Een magnetron warmt niet meer, terwijl lampje, draaiplateau en timer het nog doen. Nog voor je hem openmaakt is de eerste les al duidelijk: in sommige apparaten blijft ook na uitpluggen gevaarlijke energie opgeslagen. Bij condensatoren is veiligheid daarom geen bijzaak maar het beginpunt.</p>
+        <p>Een magnetron warmt niet meer op, terwijl lampje, draaiplateau en timer het nog doen. Nog voor je hem openmaakt is de eerste les: in sommige apparaten blijft ook na uitschakelen gevaarlijke energie opgeslagen. Bij condensatoren is veiligheid daarom een belangrijk punt.</p>
       </div>
 
       <div class="chapter-objectives">
         <span class="chapter-objectives-title">Leerdoelen</span>
         <ul>
           <li>Begrijpen wat condensatoren opslaan en waarom dat voor reparatie belangrijk is.</li>
-          <li>De belangrijkste condensatortypen in apparaten en elektronica herkennen.</li>
-          <li>Weten waar condensatorwerk ophoudt routine te zijn en specialistisch wordt.</li>
+          <li>De belangrijkste condensator typen in apparaten en elektronica herkennen.</li>
+          <li>Wanneer werken met condensatoren extra maatregelen vereist ivm de veiligheid.</li>
         </ul>
       </div>
 
       <div class="callout callout-safety">
         <span class="callout-label">Veiligheid — lees dit vóór je een magnetron opent</span>
-        <p>Magnetrons bevatten een hoogspanningscondensator, vaak rond 0,9–1,1 µF en 2100V AC. Tijdens bedrijf wordt die opgeladen tot ruim boven de 2000V DC. In tegenstelling tot gewone huisinstallatie blijft zo'n condensator ook na uitschakelen nog energie bevatten.</p>
-        <p>De praktische regel is simpel: stekker eruit, wachten, spanning alleen controleren met geschikt hoogspanningsgereedschap als je daarvoor bent opgeleid, en ontladen volgens een procedure en met een gereedschap dat voor magnetronservice bedoeld is. Nooit kortsluiten met schroevendraaier of draad. Heb je de juiste kennis en tools niet, stop dan en verwijs de reparatie door.</p>
+        <p>Magnetrons bevatten een hoogspanningscondensator, vaak rond 0,9–1,1 µF en 2100V AC. Tijdens bedrijf wordt die opgeladen tot meer dan 2000V DC. In tegenstelling tot gewone huisinstallatie blijft zo'n condensator ook na uitschakelen nog energie bevatten. De praktische regel is simpel: stekker eruit, wachten, spanning alleen controleren met geschikt hoogspannings gereedschap als je daarvoor bent opgeleid, en ontladen volgens een procedure en met een gereedschap dat voor magnetronservice bedoeld is. Nooit kortsluiten met schroevendraaier of draad. Heb je de juiste kennis en tools niet, stop dan en verwijs de reparatie door.</p>
       </div>
 
       <h2>Wat een condensator is</h2>
 
-      <p>Een condensator slaat elektrische energie op in een elektrisch veld. In de simpelste vorm bestaat hij uit twee geleiders met daartussen een isolerende laag.</p>
+      <p>Een condensator slaat elektrische energie op. In de simpelste vorm bestaat hij uit twee geleiders met daartussen een isolerende laag.</p>
 
       <p>De hoeveelheid lading die bij een gegeven spanning opgeslagen kan worden heet capaciteit en wordt gemeten in farad. In de praktijk kom je vooral tegen:</p>
       <ul>
@@ -85,7 +84,7 @@
       <p>Hun elektrolyt veroudert door warmte, tijd en spanning. Daarom zijn defecte elco's een van de meest voorkomende storingen in oudere elektronica. Opbollende of lekkende toppen zijn een belangrijk visueel alarmsignaal.</p>
 
       <h3>Foliecondensatoren</h3>
-      <p>Die zijn niet-gepolariseerd, stabieler en langer houdbaar. Je vindt ze in motor-runcondensatoren, netontstoringscondensatoren en andere toepassingen waar stabiliteit belangrijk is.</p>
+      <p>Die zijn niet-gepolariseerd, stabieler en langer houdbaar. Je vindt ze bij motoren, net ontstoringscondensatoren en andere toepassingen waar stabiliteit belangrijk is.</p>
 
       <h3>Keramische condensatoren</h3>
       <p>Kleine schijfjes of chiponderdelen op printen. Niet-gepolariseerd en meestal met lage capaciteit. Ze falen minder vaak dan elco's, maar kunnen open of kort gaan door mechanische of thermische stress.</p>
@@ -93,7 +92,7 @@
       <h2>Wat condensatoren in een circuit doen</h2>
 
       <h3>Voedingsafvlakking</h3>
-      <p>Na gelijkrichting is DC uit een voeding nog geribbeld. Een grote elco vlakt die spanning af. Verslechtert die condensator, dan neemt de rimpel toe en krijg je brom, instabiliteit of slecht gedrag van de elektronica.</p>
+      <p>Na gelijkrichting heeft een DC uit een voeding nog een grote rimpel. Een grote elco vlakt die spanning af. Verslechtert die condensator, dan neemt de rimpel toe en krijg je brom, instabiliteit of slecht gedrag van de elektronica.</p>
 
       <h3>Faseverschuiving voor motoren</h3>
       <p>Zoals in hoofdstuk 8 besproken gebruiken eenfasige inductiemotoren een condensator om aanloopkoppel te maken.</p>
@@ -104,28 +103,28 @@
       <h2>Veelvoorkomende condensatorfouten</h2>
 
       <h3>Open circuit</h3>
-      <p>De condensator doet elektrisch bijna niets meer. In een motorcircuit betekent dat vaak weinig of geen aanloopkoppel. In een voeding betekent het meer rimpelspanning.</p>
+      <p>De condensator doet bijna niets meer. In een motorcircuit betekent dat vaak weinig of geen aanloopkoppel. In een voeding betekent het meer rimpelspanning.</p>
 
       <h3>Kortsluiting</h3>
-      <p>Het diëlektricum is defect geraakt en de platen geleiden direct. In netcircuits leidt dat vaak tot een gesprongen zekering of automaat.</p>
+      <p>Het diëlektricum is defect geraakt en de platen geleiden direct. In net circuits leidt dat vaak tot een gesprongen zekering of automaat.</p>
 
       <h3>Interne degradatie</h3>
-      <p>Een elco kan intern verslechteren en toch nog ongeveer de juiste capaciteit lijken te hebben. De ESR stijgt dan, waardoor de condensator slecht reageert op snelle veranderingen. Symptomen: brom, instabiele voedingen en printen die zich onder belasting vreemd gedragen.</p>
+      <p>Een elco kan intern verslechteren en toch nog ongeveer de juiste capaciteit lijken te hebben. De weerstand van de elco (ESR) stijgt dan, waardoor de condensator slecht reageert op snelle veranderingen. Symptomen: brom, instabiele voedingen en printen die zich onder belasting vreemd gedragen.</p>
 
       <h3>Capaciteitsverlies</h3>
-      <p>Oudere elco's en motorcondensatoren verliezen vaak een flink deel van hun capaciteit. Een motor-runcondensator die 30 tot 40% te laag is, levert duidelijk minder koppel en laat een motor slecht starten.</p>
+      <p>Oudere elco's en motorcondensatoren verliezen vaak een flink deel van hun capaciteit. Een condensator bij een motor die 30 tot 40% te laag is, levert duidelijk minder koppel en laat een motor slecht starten.</p>
 
       <div class="chapter-closer">
-        <p>De hoogspanningscondensator van de magnetron blijft specialistisch werk. Uiteindelijk blijkt niet de condensator maar de magnetronbuis defect, en vervanging is duurder dan een nieuw apparaat. Dat is ook een nuttige uitkomst: soms is de belangrijkste reparatiebeslissing om te stoppen.</p>
+        <p>De hoogspanning condensator van een magnetron blijft specialistisch werk. Uiteindelijk blijkt niet de condensator maar de magnetronbuis defect, en vervanging is duurder dan een nieuw apparaat. Dat is ook een nuttige uitkomst: soms is de belangrijkste reparatiebeslissing om te stoppen.</p>
       </div>
 
       <div class="chapter-takeaways">
         <span class="chapter-takeaways-title">Onthoud dit</span>
         <ul>
-          <li>Condensatoren slaan niet alleen lading maar ook energie op, en sommige blijven gevaarlijk na uitschakelen.</li>
+          <li>Condensatoren slaan lading op. Dat kan bij hoge spanningen tot grote stromen leiden. Na uitschakelen kan er lang een hoge spanning op een condensator blijven staan.</li>
           <li>Capaciteitswaarde, spanningsklasse en veiligheidsklasse zijn allemaal belangrijk.</li>
           <li>Capaciteitsverlies en interne degradatie zijn veelvoorkomende fouten, vooral bij elco's.</li>
-          <li>Hoogspanningswerk in magnetrons is specialistisch terrein als je niet de juiste tools en training hebt.</li>
+          <li>Repareren van magnetrons is specialistisch werk en vereist de juiste kennis en tools.</li>
         </ul>
       </div>
 
@@ -139,7 +138,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Niet automatisch. Zonder symptomen of visuele schade kan vervangen meer risico op nieuwe solderingsproblemen geven dan voordeel. Eerst bewijs, dan pas vervangen.</p>
+            <p>Niet automatisch. Zonder symptomen of visuele schade geeft vervangen meer kans op problemen dan het oplost. Eerst meten, dan pas vervangen, indien nodig.</p>
           </div>
         </div>
 
@@ -172,7 +171,7 @@
             <span class="question-reveal">Toon antwoord</span>
           </div>
           <div class="question-answer">
-            <p>Omdat de spanning in een AC-circuit elke halve cyclus van polariteit wisselt. Een gepolariseerde elco kan daar niet tegen en raakt snel defect, soms spectaculair. Voor die toepassing heb je een niet-gepolariseerde foliecondensator met juiste AC-rating nodig.</p>
+            <p>Omdat de spanning in een AC-circuit elke halve cyclus van polariteit wisselt. Een gepolariseerde elco kan daar niet tegen en raakt snel defect, soms spectaculair. Voor die toepassing heb je een niet-gepolariseerde condensator met juiste AC-rating nodig.</p>
           </div>
         </div>
 
