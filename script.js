@@ -3,6 +3,8 @@
    script.js
    ============================================================ */
 
+const UMAMI_WEBSITE_ID = '6c090047-6acd-4d8c-85dd-e8c5f2011475';
+
 const SITE_COPY = {
   en: {
     aria: {
@@ -917,8 +919,54 @@ function initSchematicDemo() {
   render(locked);
 }
 
+/* ---- Analytics ---- */
+function loadUmami() {
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://cloud.umami.is/script.js';
+  s.setAttribute('data-website-id', UMAMI_WEBSITE_ID);
+  document.head.appendChild(s);
+}
+
+function initSectionTracking() {
+  const headings = Array.from(document.querySelectorAll('article h2'));
+  if (!headings.length) return;
+
+  const page = getCurrentFile();
+  let current = null;
+  let startedAt = null;
+
+  function flush() {
+    if (!current || !startedAt) return;
+    const seconds = Math.round((Date.now() - startedAt) / 1000);
+    if (seconds >= 3) {
+      try { window.umami?.track('section-dwell', { section: current, page, seconds }); } catch (_) {}
+    }
+    current = null;
+    startedAt = null;
+  }
+
+  function activate(heading) {
+    flush();
+    current = heading.textContent.trim();
+    startedAt = Date.now();
+    try { window.umami?.track('section-view', { section: current, page }); } catch (_) {}
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) activate(entry.target); });
+  }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
+
+  headings.forEach(h => observer.observe(h));
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flush();
+  });
+}
+
 /* ---- Init ---- */
 document.addEventListener('DOMContentLoaded', () => {
+  loadUmami();
   insertLanguageNotice();
   buildNav();
   bindLanguageSwitches();
@@ -927,4 +975,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCircuitDemo();
   initMeterSim();
   initSchematicDemo();
+  initSectionTracking();
 });
